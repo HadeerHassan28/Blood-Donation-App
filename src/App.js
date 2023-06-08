@@ -7,6 +7,7 @@ import About from "./Components/About/About";
 import Blogs from "./Components/Blogs/Blogs";
 import Volunteers from "./Components/Volunteers/Volunteers";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
+import AboutPage from "./Pages/Landing/AboutPage";
 function App() {
   let routes = createBrowserRouter([
     {
@@ -26,7 +27,7 @@ function App() {
           path: "about",
           element: (
             <ProtectedRoute>
-              <About />
+              <AboutPage />
             </ProtectedRoute>
           ),
         },

@@ -2,6 +2,10 @@
   --main-color: #ee394a;
 }
 
+body {
+  background-color: #fbf1f0  ;
+}
+
 .main-color {
   color: var(--main-color);
 }
