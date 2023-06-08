@@ -1,0 +1,13 @@
+.scrollActive {
+    background-color: var(--main-color);
+    transition: 0.6s all;
+}
+
+.scrollNotActive {
+    background-color: transparent;
+    transition: 0.6s all;
+}
+
+.height {
+    height: 60px;
+}

@@ -1,34 +1,90 @@
+.landing {
+  /* background-image: url("../../../public/assets/images/lg-background.png"); */
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .landing {
+    background-image: url("../../../public/assets/images/sm-background.png");
 
-.background {
-    background-image: url("../../../public/assets/images/Header.jpg");
-    background-position: center ;
-    background-repeat: no-repeat;
-    background-size: contain;
+  }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .landing {
+    background-image: url("../../../public/assets/images/sm-background.png");
+    height: calc(100vh - 250px);
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .landing {
+    background-image: url("../../../public/assets/images/lg-background.png");
+    height: calc(100vh - 150px);
+  }
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .landing {
+    background-image: url("../../../public/assets/images/xxlg-background.png");
+    height: calc(100vh - 120px);
+  }
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .landing {
+    background-image: url("../../../public/assets/images/xxlg-background.png");
     height: calc(100vh - 10px);
-    position: relative;
-    width: 100%;
-    top: -95px;
-    z-index: -99999999;
+
+  }
 }
 
 .header {
-    margin: 0;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
-@media (min-width: 1200px) {
-    .background {
-      background-size: cover;
-    }
+/* @media (min-width: 1200px) {
+  .background {
+    background-size: cover;
   }
+} */
 
-  .header h1 {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: bold;
-    font-size: 48px;
+.header h1 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: bold;
+  font-size: 48px;
+}
+
+/* 
+.landing {
+  background-image: url(../../landing.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 71px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* @media (max-width:991px) {
+  .landing {
+    background-image: none;
   }
+} */
