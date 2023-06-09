@@ -38,14 +38,17 @@ const Blogs = () => {
     <div className="container">
       {imgsPrag.map((img, index) => (
         <div className="row d-flex justify-content-center mb-5" key={img.id}>
-          <div className="col-md-6">
+          <div className="col-md-10">
             <div className="d-flex align-items-center">
-              <img
-                src={img.src}
-                alt={`Image ${index + 1}`}
-                className="img-fluid rounded  "
-              />
-              <p className={`${styles.p} `}>{img.description}</p>
+              <div className={`${styles.imgContainer} mb-5`}>
+                <img
+                  src={img.src}
+                  alt={`Image ${index + 1}`}
+                  className="img-fluid rounded floated-start w-100"
+                />
+              </div>
+
+              <p className={`${styles.p} ml-3`}>{img.description}</p>
             </div>
           </div>
         </div>
