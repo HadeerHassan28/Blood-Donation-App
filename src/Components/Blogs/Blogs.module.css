@@ -1,15 +1,3 @@
-.imgParaContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-.imgContainer {
-  height: 150px;
-}
-.img {
-  /* margin-right: 10px; */
-}
 .p {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 20px;

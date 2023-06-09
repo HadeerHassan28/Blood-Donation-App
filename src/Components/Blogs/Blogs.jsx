@@ -35,21 +35,23 @@ const Blogs = () => {
     },
   ];
   return (
-    <div className="container">
+    <div className="container-fluid">
       {imgsPrag.map((img, index) => (
-        <div className="row d-flex justify-content-center mb-5" key={img.id}>
-          <div className="col-md-10">
-            <div className="d-flex align-items-center">
-              <div className={`${styles.imgContainer} mb-5`}>
-                <img
-                  src={img.src}
-                  alt={`Image ${index + 1}`}
-                  className="img-fluid rounded floated-start w-100"
-                />
-              </div>
-
-              <p className={`${styles.p} ml-3`}>{img.description}</p>
-            </div>
+        <div
+          className="row d-flex align-items-center justify-content-end mb-5 mx-5 mt-3"
+          key={img.id}
+        >
+          <div className="col-md-4">
+            <img
+              src={img.src}
+              alt={`Image ${index + 1}`}
+              className="img-fluid rounded "
+            />
+          </div>
+          <div className="col-md-8 ">
+            <p className={`${styles.p} text-justify justify-content-center `}>
+              {img.description}
+            </p>
           </div>
         </div>
       ))}
