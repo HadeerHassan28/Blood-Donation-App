@@ -16,9 +16,9 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`navbar navbar-expand-sm navbar-light position-sticky top-0 pt-3  ${
+        className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${
           navScroll ? styles.scrollActive : styles.scrollNotActive
-        } ${styles.height}`}
+        }`}
       >
         <div className="container">
           <Link
@@ -28,25 +28,32 @@ const Navbar = () => {
             to="/"
           >
             <img
+              className={`${styles.heartAnim}`}
               src={navScroll ? logoREv : logo}
               alt=""
               style={{ width: "50px" }}
             />
           </Link>
           <button
-            className="navbar-toggler d-lg-none"
+            className={`navbar-toggler ${styles.iconToggler}`}
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#collapsibleNavId"
-            aria-controls="collapsibleNavId"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span
+              className="navbar-toggler-icon"
+              style={{
+                width: "20px",
+                height: "20px",
+              }}
+            ></span>
           </button>
-          <div className="collapse navbar-collapse" id="collapsibleNavId">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-              <li className="nav-item">
+              <li className="nav-item" aria-current="page">
                 <Link
                   className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`}
                   to="/"
@@ -89,12 +96,10 @@ const Navbar = () => {
                   Login
                 </Link>
               </li>
-              `
               <li
                 className={`nav-item btn ${
                   !navScroll ? "btn-danger" : "btn-light"
                 }  p-0 m-0 `}
-                // style={{ height: 40 }}
               >
                 <Link
                   className={`nav-link p-1 ${navScroll ? "" : "text-light"}`}
