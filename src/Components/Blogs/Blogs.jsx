@@ -36,9 +36,12 @@ const Blogs = () => {
   ];
   return (
     <div className="container-fluid">
+      <h1 className={`text-danger mt-3  text-center ${styles.h1}`}>
+        Saving Lives Through Donation
+      </h1>
       {imgsPrag.map((img, index) => (
         <div
-          className="row d-flex align-items-center justify-content-end mb-5 mx-5 mt-3"
+          className="row d-flex align-items-center justify-content-end mb-5 mx-5 "
           key={img.id}
         >
           <div className="col-md-4">
