@@ -1,0 +1,27 @@
+.overlay {
+    background-color: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+}
+
+.selection {
+    background-color: #fbf1f0;
+    padding: 40px 40px 20px 40px;
+    margin: 0;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 99;
+}
+
+.selection .option {
+    cursor: pointer;
+    border: 2px solid #fbf1f0;
+    padding: 20px;
+}

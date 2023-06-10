@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Home.module.css";
+import Selection from "../Selection/Selection";
 
 const Home = () => {
+ const [isSelectionActive, setIsSelectionActive] = useState(false)
+
+
+ const handleSelection = () => {
+
+  !isSelectionActive ? setIsSelectionActive(true) : setIsSelectionActive(false)
+
+  console.log(isSelectionActive)
+ }
+
+
+
+
   return (
     <>
       <section
@@ -13,8 +27,12 @@ const Home = () => {
           <span className="fw-bold text-danger fs-3">Saves Life</span><br/>Together we are stronger
 
         </p>
-        <button className="btn btn-outline-danger">Sign Up</button>
+        <button className="btn btn-outline-danger" onClick={handleSelection}>Sign Up</button>
       </div>
+
+      {isSelectionActive && <Selection onSelection={setIsSelectionActive}/>}
+
+      
     </>
   );
 };

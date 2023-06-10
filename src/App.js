@@ -8,6 +8,10 @@ import Blogs from "./Components/Blogs/Blogs";
 import Volunteers from "./Components/Volunteers/Volunteers";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import AboutPage from "./Pages/Landing/AboutPage";
+import Organization from "./Components/SignUp/Organization/Organization";
+import User from "./Components/SignUp/User/User";
+import LogOrg from "./Components/LogIn/Organizations/LogOrg";
+import LogUser from "./Components/LogIn/User/LogUser";
 function App() {
   let routes = createBrowserRouter([
     {
@@ -46,6 +50,22 @@ function App() {
               <Volunteers />
             </ProtectedRoute>
           ),
+        },
+        {
+          path:"Signup-org",
+          element: <Organization/>
+        },
+        {
+          path:"Signup-user",
+          element: <User/>
+        },
+        {
+          path:"Signup-org/signin-org",
+          element: <LogOrg/>
+        },
+        {
+          path:"Signup-user/signin-user",
+          element: <LogUser/>
         },
         {
           path: "*",

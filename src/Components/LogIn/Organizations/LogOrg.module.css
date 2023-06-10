@@ -1,0 +1,19 @@
+.login_org {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login_org .login_org_content {
+    width: 30%;
+    border: 5px solid #ee394a ;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.login_org form {
+    padding: 50px;
+    
+
+}
