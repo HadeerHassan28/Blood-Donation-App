@@ -1,5 +1,5 @@
 .landing {
-  /* background-image: url("../../../public/assets/images/lg-background.png"); */
+  background-image: url("../../../public/assets/images/lg-background.png");
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,24 +10,29 @@
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+/* @media (min-width: 576px) {
   .landing {
     background-image: url("../../../public/assets/images/sm-background.png");
 
   }
-}
+} */
 
-@media (max-width: 767.999px) {
+/* @media (max-width: 767.999px) {
   .landing {
     background-image: none;
   }
-}
+} */
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+
+  /* .landing {
+    background-image: none;
+    height: auto;
+  } */
   .landing {
-    background-image: url("../../../public/assets/images/med-background.png");
-    height: calc(100vh - 250px);
+    background-image: url("../../../public/assets/images/lg-background.png");
+    height: calc(100vh - 120px);
   }
 }
 
@@ -52,18 +57,10 @@
   .landing {
     background-image: url("../../../public/assets/images/xxlg-background.png");
     height: calc(100vh - 50px);
-
   }
 }
 
-.header {
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+
 
 /* @media (min-width: 1200px) {
   .background {
@@ -71,11 +68,7 @@
   }
 } */
 
-.header h1 {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: bold;
-  font-size: 48px;
-}
+
 
 /* 
 .landing {
@@ -93,4 +86,6 @@
   .landing {
     background-image: none;
   }
-} */
+  */
+
+  

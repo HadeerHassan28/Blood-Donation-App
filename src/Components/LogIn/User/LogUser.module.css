@@ -1,0 +1,19 @@
+.login_user {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login_user .login_user_content {
+    width: 30%;
+    border: 5px solid #ee394a ;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.login_user form {
+    padding: 50px;
+    
+
+}
