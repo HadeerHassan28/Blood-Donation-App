@@ -1,0 +1,26 @@
+.searchBox{
+    width: 40vw;
+    padding: 15px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 2vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.select{
+    color: gray;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+@media (max-width: 576px) {
+    .searchBox{
+        width: 60vw;
+    }
+    .tableW{
+        width: 100vw;
+    }
+  }
