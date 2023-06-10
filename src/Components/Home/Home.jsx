@@ -56,6 +56,7 @@ const Home = () => {
                 fontSize: "1rem",
                 fontFamily: "Montserrat Alternates",
                 fontWeight: "bold",
+                maxWidth: "500px",
               }}
             >
               Find blood donors near your location and make a blood request in

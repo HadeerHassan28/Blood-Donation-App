@@ -1,15 +1,21 @@
 import React from "react";
 import styles from "./CauseHome.module.css";
-
+import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineClockCircle } from "react-icons/ai";
+import { TiGroupOutline } from "react-icons/ti";
+import { FaSuperpowers } from "react-icons/fa";
 const CauseHome = () => {
   return (
     <>
       <div className=" col-md-6 mt-2 text-start">
-        <i
-          className="fa-solid fa-magnifying-glass mx-2 fs-5"
-          style={{ color: "#ee394a" }}
-        ></i>
-        <span className="h4 text-muted">Find Donors in your Area</span>
+        <div className="d-flex align-items-center">
+          <AiOutlineSearch
+            color="#ee394a"
+            size={25}
+            className="mx-2 mb-1"
+          ></AiOutlineSearch>
+          <span className="h4 text-muted">Find Donors in your Area</span>
+        </div>
         <p className="ms-3 mt-3 text-black-50">
           Get connected in a matter of minutes at zero cost. Our App ships with
           a smart system that finds the closest blood donors. Our automated
@@ -480,11 +486,14 @@ const CauseHome = () => {
         </svg>
       </div>
       <div className=" col-md-6 mt-2 text-start">
-        <i
-          className="fa-regular fa-clock mx-2 fs-5"
-          style={{ color: "#ee394a" }}
-        ></i>
-        <span className="h4 text-muted">Answer to Emergencies</span>
+        <div className="d-flex align-items-center">
+          <AiOutlineClockCircle
+            color="#ee394a"
+            size={25}
+            className="mx-2 mb-1"
+          ></AiOutlineClockCircle>
+          <span className="h4 text-muted">Answer to Emergencies</span>
+        </div>
         <p className="ms-3 mt-3 text-black-50">
           As soon as a new blood request is raised, it is routed among our local
           volunteer blood donors. We know time matters! So we keep you updated
@@ -492,13 +501,14 @@ const CauseHome = () => {
         </p>
       </div>
       <div className=" col-md-6 mt-2 text-start">
-        <i
-          className="fa-regular fa-paper-plane mx-2 fs-5"
-          style={{
-            color: "#ee394a",
-          }}
-        ></i>
-        <span className="h4 text-muted">Made for Everyone</span>
+        <div className="d-flex align-items-center">
+          <TiGroupOutline
+            color="#ee394a"
+            size={25}
+            className="mx-2 mb-1"
+          ></TiGroupOutline>
+          <span className="h4 text-muted">Made for Everyone</span>
+        </div>
         <p className="ms-3 mt-3 text-black-50">
           All you need to do is send a text message to , in any language you
           want. Our system is smart enough to understand anything you write and
@@ -1052,10 +1062,11 @@ const CauseHome = () => {
         </svg>
       </div>
       <div className=" col-md-6 mt-2 text-start">
-        <i
-          className="fa-regular fa-handshake mx-2 fs-5"
-          style={{ color: "#ee394a" }}
-        ></i>
+        <FaSuperpowers
+          color="#ee394a"
+          size={25}
+          className="mx-2 mb-1"
+        ></FaSuperpowers>
         <span className="h4 text-muted">You are someone's Hero</span>
         <p className="ms-3 mt-3 text-black-50">
           In as little as few minutes, you can become someone's unnamed,
