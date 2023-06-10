@@ -5,13 +5,13 @@ const Blogs = () => {
   const imgsPrag = [
     {
       id: 1,
-      src: "/assets/blogs/1-1.png",
+      src: "/assets/blogs/11-1.png",
       description:
         "Blood donation is a regulated and safe process with thorough screening to assess donor eligibility and testing to prevent risks to recipients.",
     },
     {
       id: 2,
-      src: "/assets/blogs/2-2.png",
+      src: "/assets/blogs/222.png",
       description:
         "A single blood donation can save up to three lives by providing essential components like red blood cells, platelets, and plasma for various medical treatments, such as surgery or blood loss replacement.",
     },
@@ -29,7 +29,7 @@ const Blogs = () => {
     },
     {
       id: 5,
-      src: "/assets/blogs/5-5-5.png",
+      src: "/assets/blogs/5-5-55.png",
       description:
         "Individuals typically need to be at least 17 or 18 years old, in good health, meet weight requirements, and have an adequate hemoglobin level. Certain factors like recent travel or medical treatments may result in temporary deferral. It's important to consult the local blood donation center or blood bank for specific eligibility criteria as guidelines can vary by region.",
     },
