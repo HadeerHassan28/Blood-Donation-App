@@ -38,6 +38,7 @@
       "gender": "Male"
     },
     {
+<<<<<<< HEAD
       "id": "b448f2c0-48f0-4363-86e1-e85826afbadc",
       "firstName": "Hadeer",
       "lastName": "Hassan",
@@ -62,6 +63,19 @@
       "pNumber": "01000049875",
       "bloodType": "A-",
       "gender": "Female"
+=======
+      "id": "6bbc1643-211f-4f07-a134-8a43b7567d60",
+      "firstName": "Hossam",
+      "lastName": "Mohamed",
+      "email": "hossam.mohamed9887@gmail.com",
+      "password": "000000",
+      "confirmPassword": "000000",
+      "Address": "Hussien Sheren Louran",
+      "city": "Alexandria",
+      "pNumber": "01245678915",
+      "bloodType": "A-",
+      "gender": "Male"
+>>>>>>> c080fb4e5429eb49791728f3983d44ade372711b
     }
   ]
 }

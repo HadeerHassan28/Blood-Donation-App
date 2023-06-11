@@ -47,8 +47,11 @@ const User = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isDataValid, setIsDataValid] = useState(false);
 
+  const [isEmailExisting, setIsEmailExisting] = useState(false);
+
   const handleChange = (event) => {
     setIsSubmitted(false);
+    setIsEmailExisting(false);
     const { name, value } = event.target;
 
     const lettersRegex = /^[A-Za-z]+$/;
@@ -92,71 +95,71 @@ const User = () => {
     e.preventDefault();
     setIsSubmitted(true);
 
-    if (
-      isFirstNameValid &&
-      isLastNameValid &&
-      isEmailValid &&
-      isPasswordValid &&
-      isConfirmedPasswordValid &&
-      isAddressValid &&
-      isCityValid &&
-      isPnumberValid
-    ) {
-      axios
-        .get("http://localhost:3000/users")
-        .then((res) => {
-          const users = res.data;
-          //console.log(users);
-          const user = users.find(
-            (user) =>
-              user.email === data.email && user.password === data.password
-          );
-          if (user) console.log("this account is existed");
-          else console.log("Welcome to our Bloode Donate");
-        })
-        .catch((err) => console.log("error get"));
+    setIsSubmitted(true);
 
-      const newUser = {
-        id: uuid(),
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        password: data.password,
-        confirmPassword: data.confirmPassword,
-        Address: data.Address,
-        city: data.city,
-        pNumber: data.pNumber,
-        bloodType: data.bloodType,
-        gender: data.gender,
-      };
+    e.preventDefault();
+    axios.get("http://localhost:3000/users").then((res) => {
+      const users = res.data;
+      //console.log(users);
+      const user = users.find(
+        (user) => user.email === data.email && user.password === data.password
+      );
+      if (user) {
+        console.log("this account is existed");
+        setIsEmailExisting(true);
+      } else {
+        if (
+          isFirstNameValid &&
+          isLastNameValid &&
+          isEmailValid &&
+          isPasswordValid &&
+          isConfirmedPasswordValid &&
+          isAddressValid &&
+          isCityValid &&
+          isPnumberValid
+        ) {
+          axios
+            .get("http://localhost:3000/users")
+            .then((res) => {
+              const users = res.data;
+              //console.log(users);
+              const user = users.find(
+                (user) =>
+                  user.email === data.email && user.password === data.password
+              );
+              if (user) console.log("this account is existed");
+              else console.log("Welcome to our Bloode Donate");
+            })
+            .catch((err) => console.log("error get"));
 
-      axios
-        .get("http://localhost:3000/users")
-        .then((res) => {
-          const users = res.data;
-          //console.log(users);
-          const user = users.find(
-            (usr) => usr.email === data.email && usr.password === data.password
-          );
-          console.log(user);
-          if (user) {
-            console.log("existed");
-          } else {
-            axios
-              .post("http://localhost:3000/users", newUser)
-              .then((res) => {
-                //console.log(res.data);
-                console.log("Done post");
-              })
-              .catch((err) => console.log("error post"));
-          }
-        })
-
-        .catch((err) => console.log("error get"));
-    } else {
-      console.log("Your Form Is Not Valid");
-      setIsDataValid(false);
-    }
+          //! get data from thr form and add it to the json data:
+          const newUser = {
+            id: uuid(),
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
+            password: data.password,
+            confirmPassword: data.confirmPassword,
+            Address: data.Address,
+            city: data.city,
+            pNumber: data.pNumber,
+            bloodType: data.bloodType,
+            gender: data.gender,
+          };
+          axios
+            .post("http://localhost:3000/users", newUser)
+            .then((res) => {
+              //console.log(res.data);
+              console.log("Done post");
+            })
+            .catch((err) => console.log("error post"));
+          setIsDataValid(true);
+        } else {
+          console.log("Your Form Is Not Valid");
+          setIsDataValid(false);
+        }
+      }
+    });
   };
   return (
     <div>
@@ -180,7 +183,7 @@ const User = () => {
                 </label>
                 <input
                   type="text"
-                  className={`${styles.formControl} form-control`}
+                  className={`${styles.formControl} form-control w-100`}
                   name="firstName"
                   id="firstName"
                   aria-describedby="First Name"
@@ -205,12 +208,12 @@ const User = () => {
                 )}
               </div>
               <div className="col-lg-6">
-                <label htmlFor="lastName" className="form-label">
+                <label htmlFor="lastName" className="form-label ">
                   Last Name
                 </label>
                 <input
                   type="text"
-                  className={`${styles.formControl} form-control`}
+                  className={`${styles.formControl} form-control w-100`}
                   id="lastName"
                   name="lastName"
                   aria-describedby="Last Name"
@@ -272,7 +275,7 @@ const User = () => {
                 </label>
                 <input
                   type="password"
-                  className={`${styles.formControl} form-control`}
+                  className={`${styles.formControl} form-control w-100`}
                   name="password"
                   id="password"
                   aria-describedby="password"
@@ -304,7 +307,7 @@ const User = () => {
                 </label>
                 <input
                   type="password"
-                  className={`${styles.formControl} form-control`}
+                  className={`${styles.formControl} form-control w-100`}
                   id="confirmPassword"
                   name="confirmPassword"
                   aria-describedby="confirmPassword"
@@ -336,7 +339,7 @@ const User = () => {
                 </label>
                 <input
                   type="text"
-                  className={`${styles.formControl} form-control`}
+                  className={`${styles.formControl} form-control w-100`}
                   id="address"
                   name="Address"
                   aria-describedby="address"
@@ -368,7 +371,7 @@ const User = () => {
                 </label>
                 <input
                   type="text"
-                  className={`${styles.formControl} form-control`}
+                  className={`${styles.formControl} form-control w-100 `}
                   id="city"
                   name="city"
                   aria-describedby="city"
@@ -471,12 +474,12 @@ const User = () => {
               </p>
               <button className="btn btn-danger py-3">Sign Up</button>
             </form>
-            {isSubmitted && isDataValid && (
+            {isSubmitted && !isEmailExisting && isDataValid && (
               <div className="text-success">
                 Your Account Created Successfully
               </div>
             )}
-            {isSubmitted && !isDataValid && (
+            {isSubmitted && !isEmailExisting && !isDataValid && (
               <div className="text-danger">
                 Please Check For Any Missing Field
               </div>
@@ -484,6 +487,13 @@ const User = () => {
           </div>
         </div>
       </div>
+      {isEmailExisting && (
+        <div class="alert alert-danger mt-5" role="alert">
+          <span className="text-center fw-bold d-block">
+            This Account Exist
+          </span>
+        </div>
+      )}
     </div>
   );
 };
