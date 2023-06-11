@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "",
+      "fisrt name": "Hadeer",
+      "last name": "Hassan",
+      "email": "user1@example.com",
+      "password": "password1",
+      "address": "95 mohamed farid",
+      "city": "Cairo",
+      "phone": "01000000000",
+      "blood type": "A",
+      "gender": "Female"
+    },
+    {
+      "id": "",
+      "fisrt name": "Hadeer",
+      "last name": "Hassan",
+      "email": "user1@example.com",
+      "password": "password1",
+      "address": "95 mohamed farid",
+      "city": "Cairo",
+      "phone": "01000000000",
+      "blood type": "A",
+      "gender": "Female"
+    }
+  ]
+}
