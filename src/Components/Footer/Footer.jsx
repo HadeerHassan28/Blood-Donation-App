@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Footer.module.css";
 import logoREv from "../../heart-rev.png";
 import { AiFillFacebook } from "react-icons/ai";
-import { AiFillTwitterSquare } from "react-icons/ai";
+import { SiGmail } from "react-icons/si";
 import { AiFillLinkedin } from "react-icons/ai";
 const Footer = () => {
   return (
@@ -35,11 +35,7 @@ const Footer = () => {
           size={30}
           className="me-5"
         ></AiFillFacebook>
-        <AiFillTwitterSquare
-          color="white"
-          size={30}
-          className="me-5"
-        ></AiFillTwitterSquare>
+        <SiGmail color="white" size={30} className="me-5"></SiGmail>
         <AiFillLinkedin color="white" size={30}></AiFillLinkedin>
         <p className="text-light position-absolute bottom-0 start-0 end-0 mb-0 p-2">
           Copyright &copy;2023 <span className="main-color fw-bold">Blood</span>{" "}
