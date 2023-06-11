@@ -17,23 +17,11 @@ const User = () => {
     bloodType: "",
     gender: "",
   });
+  const [modalMsg, setModelMsg] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
   //! to get data from json server:
   const handleSubmit = (event) => {
-    event.preventDefault();
-    axios
-      .get("http://localhost:3000/users")
-      .then((res) => {
-        const users = res.data;
-        //console.log(users);
-        const user = users.find(
-          (user) => user.email === data.email && user.password === data.password
-        );
-        if (user) console.log("this account is existed");
-        else console.log("Welcome to our Bloode Donate");
-      })
-      .catch((err) => console.log("error get"));
-
-    //! get data from thr form and add it to the json data:
     const newUser = {
       id: uuid(),
       firstName: data.firstName,
@@ -47,13 +35,34 @@ const User = () => {
       bloodType: data.bloodType,
       gender: data.gender,
     };
+    event.preventDefault();
     axios
-      .post("http://localhost:3000/users", newUser)
+      .get("http://localhost:3000/users")
       .then((res) => {
-        //console.log(res.data);
-        console.log("Done post");
+        const users = res.data;
+        //console.log(users);
+        const user = users.find(
+          (usr) => usr.email === data.email && usr.password === data.password
+        );
+        console.log(user);
+        if (user) {
+          setModelMsg("this account is existed");
+          setShowModal(true);
+          console.log("existed");
+        } else {
+          axios
+            .post("http://localhost:3000/users", newUser)
+            .then((res) => {
+              //console.log(res.data);
+              console.log("Done post");
+              setModelMsg("Welcome to our Blood Donate");
+              setShowModal(true);
+            })
+            .catch((err) => console.log("error post"));
+        }
       })
-      .catch((err) => console.log("error post"));
+
+      .catch((err) => console.log("error get"));
   };
 
   const handleChange = (event) => {
@@ -64,7 +73,9 @@ const User = () => {
       [name]: value,
     }));
   };
-
+  const closeModal = () => {
+    setShowModal(false);
+  };
   return (
     <div>
       <div className="container">
@@ -236,11 +247,57 @@ const User = () => {
                   <span>Sign in Here</span>
                 </Link>
               </p>
-              <button className="btn btn-danger py-3">Sign Up</button>
+              <button
+                className="btn btn-danger py-3"
+                // data-bs-toggle="modal"
+                // data-bs-target="#exampleModal"
+              >
+                Sign Up
+              </button>
             </form>
           </div>
         </div>
       </div>
+
+      {showModal && (
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div
+            className={`modal ${showModal ? "show" : ""}`}
+            tabIndex="-1"
+            role="dialog"
+          >
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Notification</h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={closeModal}
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">{modalMsg}</div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={closeModal}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
