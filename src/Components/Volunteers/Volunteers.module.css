@@ -8,6 +8,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
+    border: 1px solid gray;
 }
 input[type="text"]{
     width: 150px;

@@ -46,7 +46,7 @@ const Volunteers = () => {
         <h2 style={{color: "#ee394a"}}>Volunteers</h2>
         <p>Search our Super Hero Volunteers</p>
       </div>
-      <div className={`${styles.searchBox} text-center`}>
+      <div className={`${styles.searchBox} py-4`}>
         <span>Filter with:</span>
         <select className={`${styles.select}`} ref={bloodGroup} onChange={searchBloodGroupLocation}>
           <option label="Blood Type" hidden></option>
