@@ -11,22 +11,13 @@ const LogUser = () => {
             <label for="email" className="form-label">
               Email address
             </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-            />
-
+            <input type="email" className="form-control" id="email" va />
           </div>
           <div className="mb-3">
             <label for="password" className="form-label">
               Password
             </label>
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-            />
+            <input type="password" className="form-control" id="password" />
           </div>
 
           <button type="submit" className="btn btn-danger w-100">

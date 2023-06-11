@@ -22,7 +22,7 @@ const Navbar = () => {
       >
         <div className="container">
           <Link
-            className={`navbar-brand ${
+            className={`navbar-brand me-5 ${
               !navScroll ? "main-color" : "text-light"
             }`}
             to="/"
@@ -55,7 +55,9 @@ const Navbar = () => {
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
               <li className="nav-item" aria-current="page">
                 <Link
-                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`}
+                  className={`nav-link ms-5 me-3  ${
+                    !navScroll ? "" : "text-light"
+                  }`}
                   to="/"
                 >
                   Home
