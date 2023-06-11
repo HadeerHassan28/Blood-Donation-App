@@ -35,7 +35,7 @@ span{
         width: 80vw;
     }
     .tableW{
-        width: 100vw;
+        width: 100vw!important;
     }
     svg{
         width: 16px;
@@ -55,7 +55,7 @@ span{
     }
   }
 @media (max-width: 847px) {
-   .select{
+   .select, span, input[type="text"]{
     margin-bottom: 10px;
    }
   }
