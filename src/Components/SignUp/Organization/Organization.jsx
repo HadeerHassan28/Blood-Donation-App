@@ -46,7 +46,7 @@ const Organization = () => {
             </form>
         </div>
         <div className="col-lg-6 mt-5 d-flex align-items-center">
-        <img src={process.env.PUBLIC_URL + '/assets/images/hospital.jpg'} className='img-fluid mt-5' /> 
+        <img src={process.env.PUBLIC_URL + '/assets/images/hospital.jpg'} className='img-fluid mt-5' alt="" /> 
         </div>
       </div>
       </div>
