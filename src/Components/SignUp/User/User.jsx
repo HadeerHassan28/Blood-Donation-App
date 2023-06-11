@@ -247,57 +247,11 @@ const User = () => {
                   <span>Sign in Here</span>
                 </Link>
               </p>
-              <button
-                className="btn btn-danger py-3"
-                // data-bs-toggle="modal"
-                // data-bs-target="#exampleModal"
-              >
-                Sign Up
-              </button>
+              <button className="btn btn-danger py-3">Sign Up</button>
             </form>
           </div>
         </div>
       </div>
-
-      {showModal && (
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div
-            className={`modal ${showModal ? "show" : ""}`}
-            tabIndex="-1"
-            role="dialog"
-          >
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title">Notification</h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    onClick={closeModal}
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div className="modal-body">{modalMsg}</div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    onClick={closeModal}
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
