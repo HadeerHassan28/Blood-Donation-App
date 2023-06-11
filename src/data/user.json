@@ -38,32 +38,6 @@
       "gender": "Male"
     },
     {
-<<<<<<< HEAD
-      "id": "b448f2c0-48f0-4363-86e1-e85826afbadc",
-      "firstName": "Hadeer",
-      "lastName": "Hassan",
-      "email": "dodyposy@gmail.com",
-      "password": "password1@12",
-      "confirmPassword": "password1@12",
-      "Address": "",
-      "city": "",
-      "pNumber": "",
-      "bloodType": "",
-      "gender": ""
-    },
-    {
-      "id": "c5c00be0-3cda-475d-9509-fb71320ea4ac",
-      "firstName": "Hadeer",
-      "lastName": "Hassan",
-      "email": "dodyposy93@gmail.com",
-      "password": "hendhadeer",
-      "confirmPassword": "hendhadeer",
-      "Address": "Mohamed Fareid",
-      "city": "Cairo",
-      "pNumber": "01000049875",
-      "bloodType": "A-",
-      "gender": "Female"
-=======
       "id": "6bbc1643-211f-4f07-a134-8a43b7567d60",
       "firstName": "Hossam",
       "lastName": "Mohamed",
@@ -75,7 +49,6 @@
       "pNumber": "01245678915",
       "bloodType": "A-",
       "gender": "Male"
->>>>>>> c080fb4e5429eb49791728f3983d44ade372711b
     }
   ]
 }
