@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 import styles from "./User.module.css";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
+import { v4 as uuid } from "uuid";
 const User = () => {
   const [data, SetData] = useState({
+    id: uuid(),
     firstName: "",
     lastName: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirmPassword:  "",
     Address: "",
     city: "",
     pNumber: "",
     bloodType: "",
     gender: "",
   });
+
+
   const [isFirstNameValid, setIsFirstNameValid] = useState(false);
   const [isFirstNameFocused, setIsFirstNameFocused] = useState(false);
 
@@ -41,6 +45,7 @@ const User = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isDataValid, setIsDataValid] = useState(false)
+
 
   const handleChange = (event) => {
     setIsSubmitted(false)
@@ -91,7 +96,40 @@ const User = () => {
     e.preventDefault()
 
     if(isFirstNameValid && isLastNameValid && isEmailValid && isPasswordValid && isConfirmedPasswordValid && isAddressValid && isCityValid && isPnumberValid){
-      setIsDataValid(true)
+      axios
+      .get("http://localhost:3000/users")
+      .then((res) => {
+        const users = res.data;
+        //console.log(users);
+        const user = users.find(
+          (user) => user.email === data.email && user.password === data.password
+        );
+        if (user) console.log("this account is existed");
+        else console.log("Welcome to our Bloode Donate");
+      })
+      .catch((err) => console.log("error get"));
+
+    //! get data from thr form and add it to the json data:
+    const newUser = {
+      id: uuid(),
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password,
+      confirmPassword: data.confirmPassword,
+      Address: data.Address,
+      city: data.city,
+      pNumber: data.pNumber,
+      bloodType: data.bloodType,
+      gender: data.gender,
+    };
+    axios
+      .post("http://localhost:3000/users", newUser)
+      .then((res) => {
+        //console.log(res.data);
+        console.log("Done post");
+      })
+      .catch((err) => console.log("error post"));
 
     } else {
       console.log("Your Form Is Not Valid")
@@ -108,6 +146,7 @@ const User = () => {
             <img
               src={process.env.PUBLIC_URL + "/assets/images/user.png"}
               className="img-fluid mt-5"
+              alt="signup img"
             />
           </div>
           <div className="col-lg-6">
