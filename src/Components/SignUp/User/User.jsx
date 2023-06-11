@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./User.module.css";
+//import styles from "./User.module.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
@@ -17,10 +17,44 @@ const User = () => {
     bloodType: "",
     gender: "",
   });
+  //! to get data from json server:
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.get("");
+    axios
+      .get("http://localhost:3000/users")
+      .then((res) => {
+        const users = res.data.users;
+        const user = users.find(
+          (user) =>
+            user.email === users.email && user.password === users.password
+        );
+        if (user) console.log("done");
+        else console.log("faild");
+      })
+      .catch((err) => console.log("error"));
+    //! get data from thr form and add it to the json data:
+    const newUser = {
+      id: uuid(),
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      Address: "",
+      city: "",
+      pNumber: "",
+      bloodType: "",
+      gender: "",
+    };
+    axios
+      .post("http://localhost:3000/users", newUser)
+      .then((res) => {
+        console.log(res.data);
+        console.log("Done");
+      })
+      .catch((err) => console.log("error"));
   };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -38,6 +72,7 @@ const User = () => {
             <img
               src={process.env.PUBLIC_URL + "/assets/images/user.png"}
               className="img-fluid mt-5"
+              alt="signup img"
             />
           </div>
           <div className="col-lg-6">
