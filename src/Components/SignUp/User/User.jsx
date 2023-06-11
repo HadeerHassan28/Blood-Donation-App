@@ -23,36 +23,37 @@ const User = () => {
     axios
       .get("http://localhost:3000/users")
       .then((res) => {
-        const users = res.data.users;
+        const users = res.data;
+        //console.log(users);
         const user = users.find(
-          (user) =>
-            user.email === users.email && user.password === users.password
+          (user) => user.email === data.email && user.password === data.password
         );
-        if (user) console.log("done");
-        else console.log("faild");
+        if (user) console.log("this account is existed");
+        else console.log("Welcome to our Bloode Donate");
       })
-      .catch((err) => console.log("error"));
+      .catch((err) => console.log("error get"));
+
     //! get data from thr form and add it to the json data:
     const newUser = {
       id: uuid(),
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      Address: "",
-      city: "",
-      pNumber: "",
-      bloodType: "",
-      gender: "",
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password,
+      confirmPassword: data.confirmPassword,
+      Address: data.Address,
+      city: data.city,
+      pNumber: data.pNumber,
+      bloodType: data.bloodType,
+      gender: data.gender,
     };
     axios
       .post("http://localhost:3000/users", newUser)
       .then((res) => {
-        console.log(res.data);
-        console.log("Done");
+        //console.log(res.data);
+        console.log("Done post");
       })
-      .catch((err) => console.log("error"));
+      .catch((err) => console.log("error post"));
   };
 
   const handleChange = (event) => {
