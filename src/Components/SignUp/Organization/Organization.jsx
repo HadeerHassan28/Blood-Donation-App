@@ -1,20 +1,28 @@
 import React, { useState } from "react";
 import styles from "./Organization.module.css";
+import axios from "axios";
+import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 const Organization = () => {
   const [data, SetData] = useState({
     id: uuid(),
-    orgName: "",
+    oName: "",
+    email: "",
     password: "",
     confirmPassword: "",
-    OrganizationCode: "",
+    oCode: "",
     Address: "",
+    pNumber: "",
     sector: "",
   });
 
-  const [isOrgNameValid, setIsOrgNameValid] = useState(false);
+  const [isOrgNameIsValid, setIsOrgNameIsValid] = useState(false);
+  const [isOrgNameIsFocused, setIsOrgNameIsFocused] = useState(false);
+
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isEmailFocused, setIsEmailFocused] = useState(false);
 
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
@@ -24,28 +32,23 @@ const Organization = () => {
   const [isConfirmedPasswordFocused, setIsConfirmedPasswordFocused] =
     useState(false);
 
+  const [isOrganiationCodeValid, setIsOrganiationCodeValid] = useState(false);
+  const [isOrganiationCodeFocused, setIsOrganiationCodeFocused] =
+    useState(false);
+
   const [isAddressValid, setIsAdressValid] = useState(false);
   const [isAddressFocused, setIsAddressFocused] = useState(false);
 
-  const [isOrgCodeValid, setIsOrgCodeValid] = useState(false);
-  const [isOrgCodeFocused, setIsOrgCodeFocused] = useState(false);
-
-  const [isSectorValid, setIsSectorValid] = useState(false);
-  const [isSectorFocused, setIsSectorFocused] = useState(false);
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isDataValid, setIsDataValid] = useState(false);
-
-  const [isEmailExisting, setIsEmailExisting] = useState(false);
+  const [isPnumberValid, setIsPnumberValid] = useState(false);
+  const [isPnumberFocused, setIsPnumberFocused] = useState(false);
 
   const handleChange = (event) => {
-    setIsSubmitted(false);
-    setIsEmailExisting(false);
     const { name, value } = event.target;
 
     const lettersRegex = /^[A-Za-z]+$/;
     const emailRegex = /^[\w\\.-]+@\w+\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2})?$/;
     const passwordRegex = /^\w{6,}$/;
+    const orgCodeRegex = /^\d{6}$/;
     const addressRegex = /^[a-zA-Z0-9,\s]+$/;
     const phoneNumberRegex = /^(010|011|012)\d{8}$/;
 
@@ -53,6 +56,7 @@ const Organization = () => {
     const isMailValid = emailRegex.test(value);
     const isEnteredPasswordValid = passwordRegex.test(value);
     const isPassWordConfirmed = value.match(data.password);
+    const isEnteredCodeValid = orgCodeRegex.test(value)
     const isEnteredAddressValid = addressRegex.test(value);
     const isEnteredPhoneNumberValid = phoneNumberRegex.test(value);
 
@@ -60,26 +64,26 @@ const Organization = () => {
       ...prevFormData,
       [name]: value,
     }));
-    if (name === "orgName") {
-      setIsOrgNameValid(isValid);
+    if (name === "oName") {
+      setIsOrgNameIsValid(isValid);
+    } else if (name === "email") {
+      setIsEmailValid(isMailValid);
+      console.log(true);
     } else if (name === "password") {
       setIsPasswordValid(isEnteredPasswordValid);
-    } else if (name === "confirmPassword") {
+    }else if (name === "oCode") {
+      setIsOrganiationCodeValid(isEnteredCodeValid);
+    }  else if (name === "confirmPassword") {
       setIsConfirmedPasswordValid(isPassWordConfirmed);
     } else if (name === "Address") {
       setIsAdressValid(isEnteredAddressValid);
-    } else if (name === "sector") {
-      setIsSectorValid(isValid);
-    } else if (name === "OrganizationCode") {
-      setIsOrgCodeValid(isEnteredPhoneNumberValid);
+    } else if (name === "pNumber") {
+      setIsPnumberValid(isEnteredPhoneNumberValid);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-
-    setIsSubmitted(true);
 
     e.preventDefault();
     axios.get(" http://localhost:3002/org").then((res) => {
@@ -92,14 +96,13 @@ const Organization = () => {
       );
       if (user) {
         console.log("this account is existed");
-        setIsEmailExisting(true);
       } else {
         if (
-          isOrgNameValid &&
+          isOrgNameIsValid &&
           isPasswordValid &&
           isConfirmedPasswordValid &&
           isAddressValid &&
-          isOrgCodeValid
+          isOrganiationCodeValid
         ) {
           //! get data from thr form and add it to the json data:
           const newUser = {
@@ -118,14 +121,13 @@ const Organization = () => {
               console.log("Done post");
             })
             .catch((err) => console.log("error post"));
-          setIsDataValid(true);
         } else {
           console.log("Your Form Is Not Valid");
-          setIsDataValid(false);
         }
       }
     });
   };
+
   return (
     <div className="">
       <div className="container">
@@ -145,6 +147,48 @@ const Organization = () => {
                   name="oName"
                   id="oName"
                   aria-describedby="emailHelp"
+                  onChange={handleChange}
+                  value={data.oName}
+                  style={
+                    !isOrgNameIsFocused
+                      ? {}
+                      : isOrgNameIsValid
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
+                  }
+                  onFocus={() => {
+                    setIsOrgNameIsFocused(true);
+                  }}
+                  onBlur={() => {
+                    setIsOrgNameIsFocused(false);
+                  }}
+                />
+              </div>
+              <div className="col-lg-12">
+                <label htmlFor="email" className="form-label">
+                  Organization Email
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  name="email"
+                  id="email"
+                  aria-describedby="emailHelp"
+                  onChange={handleChange}
+                  value={data.email}
+                  style={
+                    !isEmailFocused
+                      ? {}
+                      : isEmailValid
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
+                  }
+                  onFocus={() => {
+                    setIsEmailFocused(true);
+                  }}
+                  onBlur={() => {
+                    setIsEmailFocused(false);
+                  }}
                 />
               </div>
               <div className="col-lg-6">
@@ -157,6 +201,21 @@ const Organization = () => {
                   name="password"
                   id="password"
                   aria-describedby="password"
+                  onChange={handleChange}
+                  value={data.password}
+                  style={
+                    !isPasswordFocused
+                      ? {}
+                      : isPasswordValid
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
+                  }
+                  onFocus={() => {
+                    setIsPasswordFocused(true);
+                  }}
+                  onBlur={() => {
+                    setIsPasswordFocused(false);
+                  }}
                 />
               </div>
               <div className="col-lg-6">
@@ -169,6 +228,21 @@ const Organization = () => {
                   id="confirmPassword"
                   name="confirmPassword"
                   aria-describedby="confirmPassword"
+                  onChange={handleChange}
+                  value={data.confirmPassword}
+                  style={
+                    !isConfirmedPasswordFocused
+                      ? {}
+                      : isConfirmedPasswordValid
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
+                  }
+                  onFocus={() => {
+                    setIsConfirmedPasswordFocused(true);
+                  }}
+                  onBlur={() => {
+                    setIsConfirmedPasswordFocused(false);
+                  }}
                 />
               </div>
               <div className="col-lg-6">
@@ -181,6 +255,21 @@ const Organization = () => {
                   id="oCode"
                   name="oCode"
                   aria-describedby="oCode"
+                  onChange={handleChange}
+                  value={data.oCode}
+                  style={
+                    !isOrganiationCodeFocused
+                      ? {}
+                      : isOrganiationCodeValid
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
+                  }
+                  onFocus={() => {
+                    setIsOrganiationCodeFocused(true);
+                  }}
+                  onBlur={() => {
+                    setIsOrganiationCodeFocused(false);
+                  }}
                 />
               </div>
               <div className="col-lg-6">
@@ -189,10 +278,25 @@ const Organization = () => {
                 </label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control w-100"
                   id="Address"
                   name="Address"
                   aria-describedby="Address"
+                  onChange={handleChange}
+                  value={data.Address}
+                  style={
+                    !isAddressFocused
+                      ? {}
+                      : isAddressValid
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
+                  }
+                  onFocus={() => {
+                    setIsAddressFocused(true);
+                  }}
+                  onBlur={() => {
+                    setIsAddressFocused(false);
+                  }}
                 />
               </div>
               <div className="col-lg-12">
@@ -205,11 +309,31 @@ const Organization = () => {
                   id="pNumber"
                   name="pNumber"
                   aria-describedby="pNumber"
+                  onChange={handleChange}
+                  value={data.pNumber}
+                  style={
+                    !isPnumberFocused
+                      ? {}
+                      : isPnumberValid
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
+                  }
+                  onFocus={() => {
+                    setIsPnumberFocused(true);
+                  }}
+                  onBlur={() => {
+                    setIsPnumberFocused(false);
+                  }}
                 />
               </div>
               <div className="col-lg-4">
-                <select className="form-select" name="gender">
-                  <option selected hidden>
+                <select
+                  className="form-select"
+                  name="gender"
+                  onChange={handleChange}
+                  required
+                >
+                  <option selected hidden value="">
                     Sector
                   </option>
                   <option value="governmental">governmental</option>
@@ -225,10 +349,16 @@ const Organization = () => {
                   <span>Sign in Here</span>
                 </Link>
               </p>
-              <button className="btn btn-danger py-3" onChange={handleChange}>
-                Sign Up
-              </button>
+              <button className="btn btn-danger py-3">Sign Up</button>
             </form>
+          </div>
+          <div className="col-lg-6 mt-5 d-flex align-items-center">
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/hospital.jpg"}
+              className="img-fluid mt-5"
+              alt=""
+            />
+          </div>
           </div>
           <div className="col-lg-6 mt-5 d-flex align-items-center">
             <img
@@ -239,7 +369,7 @@ const Organization = () => {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
