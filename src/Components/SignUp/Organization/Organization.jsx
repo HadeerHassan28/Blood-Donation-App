@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styles from "./Organization.module.css";
-import { Link } from "react-router-dom";
+import axios from "axios";
 import { v4 as uuid } from "uuid";
-
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { v4 as uuid } from "uuid";
 const Organization = () => {
   const [data, SetData] = useState({
     id: uuid(),
@@ -80,6 +82,65 @@ const Organization = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    e.preventDefault();
+    axios.get(" http://localhost:3002/org").then((res) => {
+      const users = res.data;
+      console.log(users);
+      const user = users.find(
+        (user) => user.email === data.email && user.password === data.password
+      );
+      if (user) {
+        console.log("this account is existed");
+      } else {
+        if (
+          isOrgNameIsValid &&
+          isPasswordValid &&
+          isConfirmedPasswordValid &&
+          isAddressValid &&
+          isOrganiationCodeValid
+        ) {
+          axios
+            .get("http://localhost:3002/org")
+            .then((res) => {
+              const users = res.data;
+              console.log(users);
+              const user = users.find(
+                (user) =>
+                  user.OrganizationCode === data.OrganizationCode &&
+                  user.password === data.password
+              );
+              if (user) console.log("this account is existed");
+              else console.log("Welcome to our Bloode Donate");
+            })
+            .catch((err) => console.log("error get"));
+
+          //! get data from thr form and add it to the json data:
+          const newUser = {
+            id: uuid(),
+            orgName: data.orgName,
+            password: data.password,
+            confirmPassword: data.confirmPassword,
+            OrganizationCode: data.OrganizationCode,
+            Address: data.Address,
+            sector: data.sector,
+          };
+          axios
+            .post("http://localhost:3002/org", newUser)
+            .then((res) => {
+              //console.log(res.data);
+              console.log("Done post");
+            })
+            .catch((err) => console.log("error post"));
+        } else {
+          console.log("Your Form Is Not Valid");
+        }
+      }
+    });
+  };
+
   return (
     <div className="">
       <div className="container">
@@ -88,7 +149,7 @@ const Organization = () => {
             <h2 className="text-center text-danger my-5">
               Sign Up Your Organization To Save a Life
             </h2>
-            <form className="row g-3">
+            <form className="row g-3" onSubmit={handleSubmit}>
               <div className="col-lg-12">
                 <label htmlFor="oName" className="form-label">
                   Organization Name
@@ -311,9 +372,17 @@ const Organization = () => {
               alt=""
             />
           </div>
+          </div>
+          <div className="col-lg-6 mt-5 d-flex align-items-center">
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/hospital.jpg"}
+              className="img-fluid mt-5"
+              alt=""
+            />
+          </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
