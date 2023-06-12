@@ -10,7 +10,8 @@
       "city": "Cairo",
       "phone": "01000000000",
       "blood type": "A",
-      "gender": "Female"
+      "gender": "Female",
+      "isVolunteer": false
     },
     {
       "id": "3b9d1a5b-2e49-4f57-9f0a-7f6e0e65243a",
@@ -22,7 +23,8 @@
       "city": "Cairo",
       "phone": "01000000000",
       "blood type": "A",
-      "gender": "Female"
+      "gender": "Female",
+      "isVolunteer": false
     },
     {
       "id": "1465d10d-8298-4764-8caf-f35bc567587f",
@@ -35,7 +37,8 @@
       "city": "mohamed@hfkg",
       "pNumber": "01234567@hfkg",
       "bloodType": "A-",
-      "gender": "Male"
+      "gender": "Male",
+      "isVolunteer": false
     },
     {
       "id": "6bbc1643-211f-4f07-a134-8a43b7567d60",
@@ -48,7 +51,8 @@
       "city": "New York",
       "pNumber": "555-1234",
       "bloodType": "O+",
-      "gender": "Male"
+      "gender": "Male",
+      "isVolunteer": false
     },
     {
       "id": "6bbc1643-211f-4f07-a134-8a43b7567d60",
@@ -61,7 +65,8 @@
       "city": "Los Angeles",
       "pNumber": "555-5678",
       "bloodType": "B-",
-      "gender": "Female"
+      "gender": "Female",
+      "isVolunteer": false
     },
     {
       "id": "6bbc1643-211f-4f07-a134-8a43b7567d60",
@@ -74,7 +79,8 @@
       "city": "Chicago",
       "pNumber": "555-9012",
       "bloodType": "AB+",
-      "gender": "Male"
+      "gender": "Male",
+      "isVolunteer": false
     },
     {
       "id": "70b6fdf1-3508-4603-b54b-8765532b58f2",
@@ -87,7 +93,8 @@
       "city": "Alexandria",
       "pNumber": "01245678912",
       "bloodType": "O+",
-      "gender": "Male"
+      "gender": "Male",
+      "isVolunteer": false
     },
     {
       "id": "0faab389-abb2-4388-9166-21e250b0e20d",
@@ -100,7 +107,8 @@
       "city": "Cairo",
       "pNumber": "01000000000",
       "bloodType": "B+",
-      "gender": "Female"
+      "gender": "Female",
+      "isVolunteer": false
     },
     {
       "id": "125ff102-64b1-41eb-a685-0a1ee3bb0343",
@@ -113,7 +121,22 @@
       "city": "bns",
       "pNumber": "01111840140",
       "bloodType": "A+",
-      "gender": "Male"
+      "gender": "Male",
+      "isVolunteer": false
+    },
+    {
+      "id": "92152090-db4c-4926-a073-3a47f541e3b1",
+      "firstName": "ahmed",
+      "lastName": "saaed",
+      "email": "ahmed@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "Address": "Mohamed ",
+      "city": "Cairo",
+      "pNumber": "01000000000",
+      "bloodType": "A+",
+      "gender": "Male",
+      "isVolunteer": false
     }
   ]
 }

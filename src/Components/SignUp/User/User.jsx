@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const User = () => {
   const navigate = useNavigate();
@@ -109,9 +110,8 @@ const User = () => {
       );
       if (user) {
         console.log("this account is existed");
-        // toast.success("this account is existed");
+        toast.error("this account is existed");
         setIsEmailExisting(true);
-        navigate("/Signup-user/signin-user");
       } else {
         if (
           isFirstNameValid &&
@@ -136,6 +136,7 @@ const User = () => {
             pNumber: data.pNumber,
             bloodType: data.bloodType,
             gender: data.gender,
+            isVolunteer: false,
           };
           axios
             .post("http://localhost:3000/users", newUser)
@@ -185,8 +186,8 @@ const User = () => {
                     !isFirstNameFocused
                       ? {}
                       : isFirstNameValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsFirstNameFocused(true);
@@ -215,8 +216,8 @@ const User = () => {
                     !isLastNameFocused
                       ? {}
                       : isLastNameValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsLastNameFocused(true);
@@ -245,8 +246,8 @@ const User = () => {
                     !isEmailFocused
                       ? {}
                       : isEmailValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsEmailFocused(true);
@@ -277,8 +278,8 @@ const User = () => {
                     !isPasswordFocused
                       ? {}
                       : isPasswordValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsPasswordFocused(true);
@@ -309,8 +310,8 @@ const User = () => {
                     !isConfirmedPasswordFocused
                       ? {}
                       : isConfirmedPasswordValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsConfirmedPasswordFocused(true);
@@ -341,8 +342,8 @@ const User = () => {
                     !isAddressFocused
                       ? {}
                       : isAddressValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsAddressFocused(true);
@@ -373,8 +374,8 @@ const User = () => {
                     !isCityFocused
                       ? {}
                       : isCityValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsCityFocused(true);
@@ -403,8 +404,8 @@ const User = () => {
                     !isPnumberFocused
                       ? {}
                       : isPnumberValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsPnumberFocused(true);
@@ -479,12 +480,12 @@ const User = () => {
           </div>
         </div>
       </div>
-      {isEmailExisting && (
+      {/* {isEmailExisting && (
         <div class="alert alert-danger mt-5" role="alert">
           <span className="text-center fw-bold d-block">
             This Account Exist
           </span>
-        </div>
+        </div> */}
       )}
     </div>
   );
