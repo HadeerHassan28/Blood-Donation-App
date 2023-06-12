@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Organization.module.css";
-import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { v4 as uuid } from "uuid";
 const Organization = () => {
   const [data, SetData] = useState({
     id: uuid(),
@@ -120,12 +118,13 @@ const Organization = () => {
           //! get data from thr form and add it to the json data:
           const newUser = {
             id: uuid(),
-            orgName: data.orgName,
+            orgName: data.oName,
             password: data.password,
             confirmPassword: data.confirmPassword,
-            OrganizationCode: data.OrganizationCode,
+            OrganizationCode: data.oCode,
             Address: data.Address,
             sector: data.sector,
+            pNumber: data.pNumber
           };
           axios
             .post("http://localhost:3002/org", newUser)
@@ -155,7 +154,7 @@ const Organization = () => {
                   Organization Name
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
                   name="oName"
                   id="oName"
@@ -209,7 +208,7 @@ const Organization = () => {
                   Password
                 </label>
                 <input
-                  type="email"
+                  type="password"
                   className="form-control"
                   name="password"
                   id="password"
@@ -236,7 +235,7 @@ const Organization = () => {
                   Confirm Password
                 </label>
                 <input
-                  type="email"
+                  type="password"
                   className="form-control"
                   id="confirmPassword"
                   name="confirmPassword"
