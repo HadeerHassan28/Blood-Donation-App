@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-//toast.configure();
+
 const User = () => {
   const navigate = useNavigate();
   const [data, SetData] = useState({
@@ -111,7 +109,7 @@ const User = () => {
       );
       if (user) {
         console.log("this account is existed");
-        toast.success("this account is existed");
+        // toast.success("this account is existed");
         setIsEmailExisting(true);
         navigate("/Signup-user/signin-user");
       } else {
