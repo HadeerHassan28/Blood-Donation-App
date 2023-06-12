@@ -4,8 +4,8 @@
       "id": "7f5d76e0-5784-4e6d-b78c-8a0e7a6e43e1",
       "fisrt name": "Hadeer",
       "last name": "Hassan",
-      "email": "hadeer@example.com",
-      "password": "password1",
+      "email": "dodyposy93@gmail.com",
+      "password": "password1@123",
       "address": "95 mohamed farid",
       "city": "Cairo",
       "phone": "01000000000",
@@ -23,6 +23,71 @@
       "phone": "01000000000",
       "blood type": "A",
       "gender": "Female"
+    },
+    {
+      "id": "1465d10d-8298-4764-8caf-f35bc567587f",
+      "firstName": "hossam",
+      "lastName": "ezz",
+      "email": "hossam@gmail.com",
+      "password": "123@123",
+      "confirmPassword": "123@123",
+      "Address": "mohamed@hfkg",
+      "city": "mohamed@hfkg",
+      "pNumber": "01234567@hfkg",
+      "bloodType": "A-",
+      "gender": "Male"
+    },
+    {
+      "id": "6bbc1643-211f-4f07-a134-8a43b7567d60",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "johndoe@example.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "Address": "123 Main St",
+      "city": "New York",
+      "pNumber": "555-1234",
+      "bloodType": "O+",
+      "gender": "Male"
+    },
+    {
+      "id": "6bbc1643-211f-4f07-a134-8a43b7567d60",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "janesmith@example.com",
+      "password": "abcdef",
+      "confirmPassword": "abcdef",
+      "Address": "456 Elm St",
+      "city": "Los Angeles",
+      "pNumber": "555-5678",
+      "bloodType": "B-",
+      "gender": "Female"
+    },
+    {
+      "id": "6bbc1643-211f-4f07-a134-8a43b7567d60",
+      "firstName": "Michael",
+      "lastName": "Johnson",
+      "email": "michaeljohnson@example.com",
+      "password": "qwerty",
+      "confirmPassword": "qwerty",
+      "Address": "789 Oak St",
+      "city": "Chicago",
+      "pNumber": "555-9012",
+      "bloodType": "AB+",
+      "gender": "Male"
+    },
+    {
+      "id": "70b6fdf1-3508-4603-b54b-8765532b58f2",
+      "firstName": "Hossam",
+      "lastName": "Mohamed",
+      "email": "tes123t@test.com",
+      "password": "000000",
+      "confirmPassword": "000000",
+      "Address": "Hussien Sheren Louran",
+      "city": "Alexandria",
+      "pNumber": "01245678912",
+      "bloodType": "O+",
+      "gender": "Male"
     }
   ]
 }

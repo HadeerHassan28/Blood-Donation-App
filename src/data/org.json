@@ -1,0 +1,61 @@
+{
+  "org": [
+    {
+      "id": "5f91fbaf-8b1a-46f6-90db-91c91a60eef5",
+      "orgName": "ABC Company",
+      "password": "pass123",
+      "confirmPassword": "pass123",
+      "OrganizationCode": "ORG123",
+      "Address": "123 Main St",
+      "sector": "Technology"
+    },
+    {
+      "id": "f9a4345f-9a1d-4b3d-9d80-8f9427ed74a5",
+      "orgName": "XYZ Corporation",
+      "password": "securepwd",
+      "confirmPassword": "securepwd",
+      "OrganizationCode": "ORG456",
+      "Address": "456 Elm St",
+      "sector": "Finance"
+    },
+    {
+      "id": "a3eaf857-8aae-4c36-9d29-56c2cc2d5f3d",
+      "orgName": "123 Industries",
+      "password": "pwd123456",
+      "confirmPassword": "pwd123456",
+      "OrganizationCode": "ORG789",
+      "Address": "789 Oak St",
+      "sector": "Manufacturing"
+    },
+    {
+      "id": "057fda0b-38ca-4a52-be8c-52eef1691231",
+      "orgName": "Hossam",
+      "password": "000000",
+      "confirmPassword": "000000",
+      "OrganizationCode": "000000",
+      "Address": "h",
+      "sector": "",
+      "pNumber": "01200000000"
+    },
+    {
+      "id": "a008b99a-fa48-40c0-9617-48485c5dd14f",
+      "orgName": "Hossam",
+      "password": "000000",
+      "confirmPassword": "000000",
+      "OrganizationCode": "000000",
+      "Address": "h",
+      "sector": "",
+      "pNumber": "01200000000"
+    },
+    {
+      "id": "58aa1034-f120-4a62-a4e9-b5d2858c224e",
+      "orgName": "Hossam",
+      "password": "000000",
+      "confirmPassword": "000000",
+      "OrganizationCode": "123456",
+      "Address": "a",
+      "sector": "",
+      "pNumber": "01234567895"
+    }
+  ]
+}
