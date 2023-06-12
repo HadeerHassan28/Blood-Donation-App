@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import styles from "./Home.module.css";
 import InfoHome from "../InfoHome/InfoHome";
 import CauseHome from "../CauseHome/CauseHome";
-import Selection from '../Selection/Selection'
+import Selection from "../Selection/Selection";
 const Home = () => {
- const [isSelectionActive, setIsSelectionActive] = useState(false)
+  const [isSelectionActive, setIsSelectionActive] = useState(false);
 
+  const handleSelection = () => {
+    !isSelectionActive
+      ? setIsSelectionActive(true)
+      : setIsSelectionActive(false);
 
- const handleSelection = () => {
-
-  !isSelectionActive ? setIsSelectionActive(true) : setIsSelectionActive(false)
-
-  console.log(isSelectionActive)
- }
+    console.log(isSelectionActive);
+  };
   return (
     <>
       <div
@@ -72,11 +72,14 @@ const Home = () => {
               Find blood donors near your location and make a blood request in
               less than 5 minutes.
             </p>
-            <button className="btn btn-danger fs-5" onClick={handleSelection}>Donate Now</button>
+            <button className="btn btn-danger fs-5" onClick={handleSelection}>
+              Donate Now
+            </button>
           </div>
 
-          {isSelectionActive && <Selection onSelection={setIsSelectionActive}/>}
-
+          {isSelectionActive && (
+            <Selection onSelection={setIsSelectionActive} />
+          )}
         </div>
       </div>
       <div className="row container mx-auto text-center mt-5 p-5">
@@ -89,9 +92,7 @@ const Home = () => {
           right to get a blood transfusion.
         </p>
       </div>
-      <div className="row container mx-auto mt-2 mb-0 text-center align-items-center justify-content-center">
-        <CauseHome></CauseHome>
-      </div>
+      <CauseHome></CauseHome>
     </>
   );
 };

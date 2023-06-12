@@ -16,15 +16,13 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${
-          navScroll ? styles.scrollActive : styles.scrollNotActive
-        }`}
+        className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${navScroll ? styles.scrollActive : styles.scrollNotActive
+          }`}
       >
         <div className="container">
           <Link
-            className={`navbar-brand me-5 ${
-              !navScroll ? "main-color" : "text-light"
-            }`}
+            className={`navbar-brand me-5 ${!navScroll ? "main-color" : "text-light"
+              }`}
             to="/"
           >
             <img
@@ -55,9 +53,8 @@ const Navbar = () => {
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
               <li className="nav-item" aria-current="page">
                 <Link
-                  className={`nav-link ms-5 me-3  ${
-                    !navScroll ? "" : "text-light"
-                  }`}
+                  className={`nav-link ms-5 me-3  ${!navScroll ? "" : "text-light"
+                    }`}
                   to="/"
                 >
                   Home
@@ -99,9 +96,8 @@ const Navbar = () => {
                 </Link>
               </li>
               <li
-                className={`nav-item btn ${
-                  !navScroll ? "btn-danger" : "btn-light"
-                }  p-0 m-0 `}
+                className={`nav-item btn ${!navScroll ? "btn-danger" : "btn-light"
+                  }  p-0 m-0 `}
               >
                 <Link
                   className={`nav-link p-1 ${navScroll ? "" : "text-light"}`}
