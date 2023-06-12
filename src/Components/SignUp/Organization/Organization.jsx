@@ -82,9 +82,9 @@ const Organization = () => {
     setIsSubmitted(true);
 
     e.preventDefault();
-    axios.get("http://localhost:3000/users").then((res) => {
+    axios.get(" http://localhost:3002/org").then((res) => {
       const users = res.data;
-      //console.log(users);
+      console.log(users);
       const user = users.find(
         (user) => user.email === data.email && user.password === data.password
       );
