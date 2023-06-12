@@ -88,6 +88,19 @@
       "pNumber": "01245678912",
       "bloodType": "O+",
       "gender": "Male"
+    },
+    {
+      "id": "0faab389-abb2-4388-9166-21e250b0e20d",
+      "firstName": "nora",
+      "lastName": "ragheb",
+      "email": "nora@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "Address": "Mohamed Fareid",
+      "city": "Cairo",
+      "pNumber": "01000000000",
+      "bloodType": "B+",
+      "gender": "Female"
     }
   ]
 }

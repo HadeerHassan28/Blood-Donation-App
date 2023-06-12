@@ -12,6 +12,7 @@ import Organization from "./Components/SignUp/Organization/Organization";
 import User from "./Components/SignUp/User/User";
 import LogOrg from "./Components/LogIn/Organizations/LogOrg";
 import LogUser from "./Components/LogIn/User/LogUser";
+import UserProfile from "./Components/Profile/user/userProfile";
 function App() {
   let routes = createBrowserRouter([
     {
@@ -52,21 +53,26 @@ function App() {
           ),
         },
         {
-          path:"Signup-org",
-          element: <Organization/>
+          path: "Signup-org",
+          element: <Organization />,
         },
         {
-          path:"Signup-user",
-          element: <User/>
+          path: "Signup-user",
+          element: <User />,
         },
         {
-          path:"Signup-org/signin-org",
-          element: <LogOrg/>
+          path: "Signup-org/signin-org",
+          element: <LogOrg />,
         },
         {
-          path:"Signup-user/signin-user",
-          element: <LogUser/>
+          path: "Signup-user/signin-user",
+          element: <LogUser />,
         },
+        {
+          path: "userProfile",
+          element: <UserProfile />,
+        },
+
         {
           path: "*",
           element: <Notfound />,

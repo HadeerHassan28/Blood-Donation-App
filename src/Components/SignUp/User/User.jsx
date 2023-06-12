@@ -3,7 +3,12 @@ import styles from "./User.module.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+//toast.configure();
 const User = () => {
+  const navigate = useNavigate();
   const [data, SetData] = useState({
     id: uuid(),
     firstName: "",
@@ -106,7 +111,9 @@ const User = () => {
       );
       if (user) {
         console.log("this account is existed");
+        toast.success("this account is existed");
         setIsEmailExisting(true);
+        navigate("/Signup-user/signin-user");
       } else {
         if (
           isFirstNameValid &&
@@ -118,20 +125,6 @@ const User = () => {
           isCityValid &&
           isPnumberValid
         ) {
-          axios
-            .get("http://localhost:3000/users")
-            .then((res) => {
-              const users = res.data;
-              //console.log(users);
-              const user = users.find(
-                (user) =>
-                  user.email === data.email && user.password === data.password
-              );
-              if (user) console.log("this account is existed");
-              else console.log("Welcome to our Bloode Donate");
-            })
-            .catch((err) => console.log("error get"));
-
           //! get data from thr form and add it to the json data:
           const newUser = {
             id: uuid(),
@@ -151,6 +144,7 @@ const User = () => {
             .then((res) => {
               //console.log(res.data);
               console.log("Done post");
+              navigate("/Signup-user/signin-user");
             })
             .catch((err) => console.log("error post"));
           setIsDataValid(true);
