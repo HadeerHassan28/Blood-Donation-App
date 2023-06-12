@@ -3,8 +3,7 @@ import styles from "./Organization.module.css";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { v4 as uuid } from "uuid";
+
 const Organization = () => {
   const [data, SetData] = useState({
     id: uuid(),
@@ -56,7 +55,7 @@ const Organization = () => {
     const isMailValid = emailRegex.test(value);
     const isEnteredPasswordValid = passwordRegex.test(value);
     const isPassWordConfirmed = value.match(data.password);
-    const isEnteredCodeValid = orgCodeRegex.test(value)
+    const isEnteredCodeValid = orgCodeRegex.test(value);
     const isEnteredAddressValid = addressRegex.test(value);
     const isEnteredPhoneNumberValid = phoneNumberRegex.test(value);
 
@@ -71,9 +70,9 @@ const Organization = () => {
       console.log(true);
     } else if (name === "password") {
       setIsPasswordValid(isEnteredPasswordValid);
-    }else if (name === "oCode") {
+    } else if (name === "oCode") {
       setIsOrganiationCodeValid(isEnteredCodeValid);
-    }  else if (name === "confirmPassword") {
+    } else if (name === "confirmPassword") {
       setIsConfirmedPasswordValid(isPassWordConfirmed);
     } else if (name === "Address") {
       setIsAdressValid(isEnteredAddressValid);
@@ -359,17 +358,16 @@ const Organization = () => {
               alt=""
             />
           </div>
-          </div>
-          <div className="col-lg-6 mt-5 d-flex align-items-center">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/hospital.jpg"}
-              className="img-fluid mt-5"
-              alt=""
-            />
-          </div>
+        </div>
+        <div className="col-lg-6 mt-5 d-flex align-items-center">
+          <img
+            src={process.env.PUBLIC_URL + "/assets/images/hospital.jpg"}
+            className="img-fluid mt-5"
+            alt=""
+          />
         </div>
       </div>
-    
+    </div>
   );
 };
 
