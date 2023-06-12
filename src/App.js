@@ -49,6 +49,14 @@ function App() {
           ),
         },
         {
+          path: "terms",
+          element: <Terms />,
+        },
+        {
+          path: "contactus",
+          element: <ContactUs />,
+        },
+        {
           path: "volunteers",
           element: (
             <ProtectedRoute>
