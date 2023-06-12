@@ -4,7 +4,6 @@ import logoREv from "../../heart-rev.png";
 import { AiFillFacebook } from "react-icons/ai";
 import { SiGmail } from "react-icons/si";
 import { AiFillLinkedin } from "react-icons/ai";
-import Terms from "../Terms/Terms";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
