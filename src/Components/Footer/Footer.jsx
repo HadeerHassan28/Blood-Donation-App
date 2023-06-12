@@ -4,6 +4,8 @@ import logoREv from "../../heart-rev.png";
 import { AiFillFacebook } from "react-icons/ai";
 import { SiGmail } from "react-icons/si";
 import { AiFillLinkedin } from "react-icons/ai";
+import Terms from "../Terms/Terms";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
@@ -41,6 +43,9 @@ const Footer = () => {
           Copyright &copy;2023 <span className="main-color fw-bold">Blood</span>{" "}
           Donation Team
         </p>
+        <Link to="terms" className="text-decoration-none">
+          <p className=" text-light my-2 pt-2">Terms & Conditions</p>
+        </Link>
       </div>
     </>
   );
