@@ -14,6 +14,8 @@ import LogOrg from "./Components/LogIn/Organizations/LogOrg";
 import LogUser from "./Components/LogIn/User/LogUser";
 import Terms from "./Components/Terms/Terms";
 import ContactUs from "./Components/ContactUs/ContactUs";
+import toast, { Toaster } from "react-hot-toast";
+
 function App() {
   let routes = createBrowserRouter([
     {
@@ -84,7 +86,12 @@ function App() {
       ],
     },
   ]);
-  return <RouterProvider router={routes}></RouterProvider>;
+  return (
+    <>
+      <Toaster />
+      <RouterProvider router={routes}></RouterProvider>
+    </>
+  );
 }
 
 export default App;

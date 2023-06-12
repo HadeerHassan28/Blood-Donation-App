@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./ContactUs.module.css";
 import emailjs from "@emailjs/browser";
+import { toast } from "react-hot-toast";
 const ContactUs = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ const ContactUs = () => {
       setName(value);
     } else if (name === "email") {
       setEmail(value);
-    } else if (name === "subject") {
+    } else if (name === "phone") {
       setPhone(value);
     } else if (name === "message") {
       setMessage(value);
@@ -40,16 +41,16 @@ const ContactUs = () => {
     emailjs.send(serviceId, templateId, templateParams).then(
       (result) => {
         console.log(result.text);
+        toast.success("thank u for contact us", { duration: 2000 });
+        setName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
       },
       (error) => {
-        console.log(error.text);
+        toast.error("error, please try again later", { duration: 2000 });
       }
     );
-
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
   }
 
   return (
