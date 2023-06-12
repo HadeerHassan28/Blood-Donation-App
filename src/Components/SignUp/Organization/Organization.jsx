@@ -84,9 +84,11 @@ const Organization = () => {
     e.preventDefault();
     axios.get(" http://localhost:3002/org").then((res) => {
       const users = res.data;
-      console.log(users);
+      // console.log(users);
       const user = users.find(
-        (user) => user.email === data.email && user.password === data.password
+        (user) =>
+          user.OrganizationCode === data.OrganizationCode &&
+          user.password === data.password
       );
       if (user) {
         console.log("this account is existed");
@@ -99,21 +101,6 @@ const Organization = () => {
           isAddressValid &&
           isOrgCodeValid
         ) {
-          axios
-            .get("http://localhost:3002/org")
-            .then((res) => {
-              const users = res.data;
-              console.log(users);
-              const user = users.find(
-                (user) =>
-                  user.OrganizationCode === data.OrganizationCode &&
-                  user.password === data.password
-              );
-              if (user) console.log("this account is existed");
-              else console.log("Welcome to our Bloode Donate");
-            })
-            .catch((err) => console.log("error get"));
-
           //! get data from thr form and add it to the json data:
           const newUser = {
             id: uuid(),
@@ -127,7 +114,7 @@ const Organization = () => {
           axios
             .post("http://localhost:3002/org", newUser)
             .then((res) => {
-              //console.log(res.data);
+              console.log(res.data);
               console.log("Done post");
             })
             .catch((err) => console.log("error post"));
