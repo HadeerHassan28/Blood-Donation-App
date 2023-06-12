@@ -53,6 +53,9 @@ const Footer = () => {
           Copyright &copy;2023 <span className="main-color fw-bold">Blood</span>{" "}
           Donation Team
         </p>
+        <Link to="terms" className="text-decoration-none">
+          <p className=" text-light my-2 pt-2">Terms & Conditions</p>
+        </Link>
       </div>
     </>
   );

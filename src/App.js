@@ -13,6 +13,13 @@ import User from "./Components/SignUp/User/User";
 import LogOrg from "./Components/LogIn/Organizations/LogOrg";
 import LogUser from "./Components/LogIn/User/LogUser";
 import Terms from "./Components/Terms/Terms";
+<<<<<<< HEAD
+=======
+import ContactUs from "./Components/ContactUs/ContactUs";
+import { Toaster } from "react-hot-toast";
+
+import UserProfile from "./Components/Profile/user/userProfile";
+>>>>>>> 2fc7447916b602ee307a77b4bf052b60573eff7e
 function App() {
   let routes = createBrowserRouter([
     {
@@ -45,6 +52,14 @@ function App() {
           ),
         },
         {
+          path: "terms",
+          element: <Terms />,
+        },
+        {
+          path: "contactus",
+          element: <ContactUs />,
+        },
+        {
           path: "volunteers",
           element: (
             <ProtectedRoute>
@@ -53,6 +68,7 @@ function App() {
           ),
         },
         {
+<<<<<<< HEAD
           path: "terms",
           element: <Terms />,
         },
@@ -69,9 +85,28 @@ function App() {
           element: <LogOrg />,
         },
         {
+=======
+          path: "Signup-org",
+          element: <Organization />,
+        },
+        {
+          path: "Signup-user",
+          element: <User />,
+        },
+        {
+          path: "Signup-org/signin-org",
+          element: <LogOrg />,
+        },
+        {
+>>>>>>> 2fc7447916b602ee307a77b4bf052b60573eff7e
           path: "Signup-user/signin-user",
           element: <LogUser />,
         },
+        {
+          path: "userProfile",
+          element: <UserProfile />,
+        },
+
         {
           path: "*",
           element: <Notfound />,
@@ -79,7 +114,12 @@ function App() {
       ],
     },
   ]);
-  return <RouterProvider router={routes}></RouterProvider>;
+  return (
+    <>
+      <Toaster />
+      <RouterProvider router={routes}></RouterProvider>
+    </>
+  );
 }
 
 export default App;
