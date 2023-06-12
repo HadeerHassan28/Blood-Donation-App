@@ -166,42 +166,6 @@ const About = () => {
           </div>
         </div>
       </section>
-      <div className="container py-5">
-        <div className="text-center p-3 mb-3">
-          <h3 className="text-danger">Connect With Us</h3>
-          <p className="text-muted ">
-            Whether you want some help or just to ask us a question, you are
-            welcome to do it using the form below.
-          </p>
-        </div>
-        <div className={styles.customForm}>
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="form-control mb-2"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            className="form-control mb-2"
-          />
-          <input
-            type="text"
-            placeholder="Phone Number"
-            className="form-control mb-2"
-          />
-          <textarea
-            className="form-control mb-3"
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Your Message"
-          ></textarea>
-          <button type="submit" className="btn btn-outline-danger ">
-            Send
-          </button>
-        </div>
-      </div>
     </>
   );
 };

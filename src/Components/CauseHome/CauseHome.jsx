@@ -7,8 +7,8 @@ import { FaSuperpowers } from "react-icons/fa";
 const CauseHome = () => {
   return (
     <>
-      <div className="container  mt-2 mb-0 text-center align-items-center justify-content-center">
-        <div className="row">
+      <div className="container mt-2 mb-0 text-center align-items-center justify-content-center">
+        <div className="row col-gap-2">
           <div className=" col-md-6 mt-2 text-start">
             <div className="d-flex align-items-center">
               <AiOutlineSearch

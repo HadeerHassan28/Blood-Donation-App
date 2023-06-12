@@ -13,6 +13,7 @@ import User from "./Components/SignUp/User/User";
 import LogOrg from "./Components/LogIn/Organizations/LogOrg";
 import LogUser from "./Components/LogIn/User/LogUser";
 import Terms from "./Components/Terms/Terms";
+import ContactUs from "./Components/ContactUs/ContactUs";
 function App() {
   let routes = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ function App() {
         {
           path: "terms",
           element: <Terms />,
+        },
+        {
+          path: "contactus",
+          element: <ContactUs />,
         },
         {
           path: "Signup-org",
