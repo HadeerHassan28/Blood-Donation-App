@@ -4,9 +4,8 @@ import { useRef } from "react";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
 
-
 const Volunteers = () => {
-  const [volunteers, setVolunteers] = useState([])
+  const [volunteers, setVolunteers] = useState(null);
   const [searchRes, setSearchRes] = useState(volunteers);
   const bloodGroup = useRef();
   const location = useRef();
@@ -18,17 +17,23 @@ const Volunteers = () => {
   },[])
 
   const searchBloodGroupLocation = () => {
-    if (bloodGroup.current.value !== 'All' && bloodGroup.current.value !== '' && location.current.value !== '') {
-      setSearchRes(volunteers.filter(vol => vol.bloodType === bloodGroup.current.value && vol.city.toLowerCase().includes(location.current.value.toLowerCase())))
+    if(volunteers !== null){
+      if (bloodGroup.current.value !== 'All' && bloodGroup.current.value !== '' && location.current.value !== '') {
+        setSearchRes(volunteers.filter(vol => vol.bloodType === bloodGroup.current.value && vol.city.toLowerCase().includes(location.current.value.toLowerCase())))
+      }
+      else if (bloodGroup.current.value !== 'All' && bloodGroup.current.value !== '') {
+        setSearchRes(volunteers.filter(vol => vol.bloodType === bloodGroup.current.value))
+      }
+      else if (location.current.value !== '') {
+        setSearchRes(volunteers.filter(vol => vol.city.toLowerCase().includes(location.current.value.toLowerCase())))
+      }
+      else {
+        setSearchRes(volunteers)
+      }
     }
-    else if (bloodGroup.current.value !== 'All' && bloodGroup.current.value !== '') {
-      setSearchRes(volunteers.filter(vol => vol.bloodType === bloodGroup.current.value))
-    }
-    else if (location.current.value !== '') {
-      setSearchRes(volunteers.filter(vol => vol.city.toLowerCase().includes(location.current.value.toLowerCase())))
-    }
-    else {
-      setSearchRes(volunteers)
+    else{
+      location.current.value = '';
+      bloodGroup.current.value = '';
     }
   }
 
@@ -90,6 +95,7 @@ const Volunteers = () => {
         </datalist>
         <button className="btn btn-outline-danger" onClick={resetSearch}>Reset</button>
       </div>
+      <div className={searchRes? "d-none text-center text-danger fs-3": "d-block text-center text-danger fs-4"}>Please wait data loading</div>
       <table className={`${styles.tableW} table w-75 mt-5 mx-auto`}>
         <thead>
           <tr>
@@ -114,13 +120,13 @@ const Volunteers = () => {
           </tr>
         </thead>
         <tbody>
-          {searchRes?searchRes.map(vol => <tr key={uuid()}>
+          {searchRes!==null && searchRes.length === 0 ? <tr><td colSpan={3} className="fs-4">Sorry, no results</td></tr>: searchRes?searchRes.map(vol => <tr key={uuid()}>
             <td className="text-start ps-3">
               <img src="assets/images/user.jpeg" alt="profile" style={{ width: "60px", height: "60px", borderRadius: "30px" }} />
               {vol.firstName} {vol.lastName}</td>
             <td className="text-center">{vol.address}, {vol.city}</td>
             <td className="text-center">{vol.bloodType}</td>
-          </tr>):<tr>Loading......</tr>}
+          </tr>):<tr><td colSpan={3} className="fs-4">Loading...</td></tr>}
         </tbody>
       </table>
       <button className="btn btn-outline-danger d-block mx-auto fw-bold">Start saving lifes</button>
