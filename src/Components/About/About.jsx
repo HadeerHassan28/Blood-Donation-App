@@ -87,6 +87,7 @@ const About = () => {
         </div>
       </div>
     </section>
+
     <div className="container py-5">
       <div className="text-center p-3 mb-3">
         <h3 className="text-danger">Connect With Us</h3>
