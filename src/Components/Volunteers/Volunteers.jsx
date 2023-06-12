@@ -60,7 +60,7 @@ const Volunteers = () => {
           <option name="O+" value="O+">O+</option>
           <option name="O-" value="O-">O-</option>
         </select>
-        <input type="text" list="locations" name="location" id="location" placeholder="Location" ref={location} onChange={searchBloodGroupLocation} />
+        <input className={styles.customInput} type="text" list="locations" name="location" id="location" placeholder="Location" ref={location} onChange={searchBloodGroupLocation} />
         <datalist id="locations">
           <option value="Alexandria">Alexandria</option>
           <option value="Aswan">Aswan</option>
