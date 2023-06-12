@@ -1,6 +1,15 @@
 import React from "react";
 import styles from "./About.module.css";
 import aboutimg from "../../assets/About-head.svg";
+import { SiQuantconnect } from "react-icons/si";
+import { FaRegLightbulb } from "react-icons/fa";
+import { BsGlobe2 } from "react-icons/bs";
+import { AiOutlineNotification } from "react-icons/ai";
+import { FaMoneyCheckAlt } from "react-icons/fa";
+import { BsHeartPulse } from "react-icons/bs";
+import { AiOutlineUserAdd, AiOutlineHeart } from "react-icons/ai";
+import { BsDroplet } from "react-icons/bs";
+
 const About = () => {
   return (
     <>
@@ -29,7 +38,7 @@ const About = () => {
         </h3>
         <div className="row gy-2">
           <div className={`${styles.card} col-lg-4 text-center py-5 px-2`}>
-            <i class="text-danger mb-2 fa-2x fa-brands fa-nfc-symbol"></i>
+            <SiQuantconnect color="#ee394a" size={25}></SiQuantconnect>
             <h5>What we do?</h5>
             <p className="text-muted">
               We connect blood donors with recipients, without any intermediary
@@ -37,7 +46,7 @@ const About = () => {
             </p>
           </div>
           <div className={`${styles.card} col-lg-4 text-center py-5 px-2`}>
-            <i className="text-danger mb-2 fa-2x fa-regular fa-lightbulb"></i>
+            <FaRegLightbulb color="#ee394a" size={25}></FaRegLightbulb>
             <h5>Innovative</h5>
             <p className="text-muted">
               Blood donation Connect is an innovative approach to address global
@@ -45,7 +54,8 @@ const About = () => {
             </p>
           </div>
           <div className={`${styles.card} col-lg-4 text-center py-5 px-2`}>
-            <i class="text-danger mb-2 fa-2x fa-solid fa-globe"></i>
+            <BsGlobe2 color="#ee394a" size={25}></BsGlobe2>
+
             <h5>Network</h5>
             <p className="text-muted">
               Blood donation is one of several community organizations working
@@ -54,7 +64,11 @@ const About = () => {
             </p>
           </div>
           <div className={`${styles.card} col-lg-4 text-center py-5 px-2`}>
-            <i class="text-danger mb-2 fa-2x fa-regular fa-bell"></i>
+            <AiOutlineNotification
+              color="#ee394a"
+              size={25}
+            ></AiOutlineNotification>
+
             <h5>Get notified</h5>
             <p className="text-muted">
               Blood donation Connect works with network partners to connect
@@ -63,7 +77,8 @@ const About = () => {
             </p>
           </div>
           <div className={`${styles.card} col-lg-4 text-center py-5 px-2`}>
-            <i class="text-danger mb-2 fa-2x fa-solid fa-money-check-dollar"></i>
+            <FaMoneyCheckAlt color="#ee394a" size={25}></FaMoneyCheckAlt>
+
             <h5>Totally Free</h5>
             <p className="text-muted">
               Blood donation Connect's ultimate goal is to provide an
@@ -72,7 +87,7 @@ const About = () => {
             </p>
           </div>
           <div className={`${styles.card} col-lg-4 text-center py-5 px-2`}>
-            <i class="text-danger mb-2 fa-2x  fa-solid fa-kit-medical"></i>
+            <AiOutlineHeart color="#ee394a" size={25}></AiOutlineHeart>
             <h5>Save Life</h5>
             <p className="text-muted">
               We are a non profit foundation and our main objective is to make
@@ -93,7 +108,11 @@ const About = () => {
           <div className="row gy-5">
             <div className="col-lg-6 col-md-6 col-sm-12">
               <div className="d-flex align-items-center justify-content-center">
-                <i class="text-danger fa-2x fa-solid fa-user-plus me-2"></i>
+                <AiOutlineUserAdd
+                  color="#ee394a"
+                  size={25}
+                  className="me-2"
+                ></AiOutlineUserAdd>
                 <span className="fs-4">Register</span>
               </div>
               <p className="mt-2 text-muted text-center">
@@ -103,7 +122,11 @@ const About = () => {
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12">
               <div className="d-flex align-items-center justify-content-center">
-                <i class="text-danger fa-2x me-2 fa-solid fa-droplet"></i>
+                <BsDroplet
+                  color="#ee394a"
+                  size={25}
+                  className="me-2"
+                ></BsDroplet>
                 <span className="fs-4">Post a Blood request</span>
               </div>
               <p className="mt-2 text-muted text-center">
@@ -113,7 +136,11 @@ const About = () => {
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12">
               <div className="d-flex align-items-center justify-content-center">
-                <i class="text-danger fa-2x me-2 fa-regular fa-bell"></i>
+                <AiOutlineNotification
+                  color="#ee394a"
+                  size={25}
+                  className="me-2"
+                ></AiOutlineNotification>
                 <span className="fs-4">Get notified</span>
               </div>
               <p className="mt-2 text-muted text-center">
@@ -123,7 +150,12 @@ const About = () => {
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12">
               <div className="d-flex align-items-center justify-content-center">
-                <i class="text-danger fa-2x me-2 fa-solid fa-heart-pulse"></i>
+                <BsHeartPulse
+                  color="#ee394a"
+                  size={25}
+                  className="me-2"
+                ></BsHeartPulse>
+
                 <span className="fs-4">Save a Life</span>
               </div>
               <p className="mt-2 text-muted text-center">
