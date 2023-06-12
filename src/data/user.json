@@ -90,7 +90,6 @@
       "gender": "Male"
     },
     {
-<<<<<<< HEAD
       "id": "0faab389-abb2-4388-9166-21e250b0e20d",
       "firstName": "nora",
       "lastName": "ragheb",
@@ -102,7 +101,8 @@
       "pNumber": "01000000000",
       "bloodType": "B+",
       "gender": "Female"
-=======
+    },
+    {
       "id": "125ff102-64b1-41eb-a685-0a1ee3bb0343",
       "firstName": "Ahmed",
       "lastName": "Saeed",
@@ -114,7 +114,6 @@
       "pNumber": "01111840140",
       "bloodType": "A+",
       "gender": "Male"
->>>>>>> e5fa7977f7212ff8efdb481d2321ae42e5fb37c1
     }
   ]
 }

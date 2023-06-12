@@ -14,7 +14,7 @@ import LogOrg from "./Components/LogIn/Organizations/LogOrg";
 import LogUser from "./Components/LogIn/User/LogUser";
 import Terms from "./Components/Terms/Terms";
 import ContactUs from "./Components/ContactUs/ContactUs";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 import UserProfile from "./Components/Profile/user/userProfile";
 function App() {
