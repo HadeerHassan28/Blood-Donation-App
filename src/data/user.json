@@ -2,27 +2,35 @@
   "users": [
     {
       "id": "7f5d76e0-5784-4e6d-b78c-8a0e7a6e43e1",
-      "fisrt name": "Hadeer",
-      "last name": "Hassan",
+      "firstName": "Hadeer",
+      "lastName": "Hassan",
       "email": "dodyposy93@gmail.com",
       "password": "password1@123",
       "address": "95 mohamed farid",
       "city": "Cairo",
       "phone": "01000000000",
+<<<<<<< HEAD
       "blood type": "A",
+=======
+      "bloodType": "AB-",
+>>>>>>> a7cb160f4a9c66073b228fd626d2ff06066e03fb
       "gender": "Female",
       "isVolunteer": false
     },
     {
       "id": "3b9d1a5b-2e49-4f57-9f0a-7f6e0e65243a",
-      "fisrt name": "Hend",
-      "last name": "Hassan",
+      "firstName": "Hend",
+      "lastName": "Hassan",
       "email": "hend@example.com",
       "password": "password1",
       "address": "95 mohamed farid",
       "city": "Cairo",
       "phone": "01000000000",
+<<<<<<< HEAD
       "blood type": "A",
+=======
+      "bloodType": "A+",
+>>>>>>> a7cb160f4a9c66073b228fd626d2ff06066e03fb
       "gender": "Female",
       "isVolunteer": false
     },
@@ -33,8 +41,8 @@
       "email": "hossam@gmail.com",
       "password": "123@123",
       "confirmPassword": "123@123",
-      "Address": "mohamed@hfkg",
-      "city": "mohamed@hfkg",
+      "address": "mohamed@hfkg",
+      "city": "Giza",
       "pNumber": "01234567@hfkg",
       "bloodType": "A-",
       "gender": "Male",
@@ -47,8 +55,8 @@
       "email": "johndoe@example.com",
       "password": "123456",
       "confirmPassword": "123456",
-      "Address": "123 Main St",
-      "city": "New York",
+      "address": "123 Main St",
+      "city": "Aswan",
       "pNumber": "555-1234",
       "bloodType": "O+",
       "gender": "Male",
@@ -61,8 +69,8 @@
       "email": "janesmith@example.com",
       "password": "abcdef",
       "confirmPassword": "abcdef",
-      "Address": "456 Elm St",
-      "city": "Los Angeles",
+      "address": "456 Elm St",
+      "city": "Cairo",
       "pNumber": "555-5678",
       "bloodType": "B-",
       "gender": "Female",
@@ -75,8 +83,8 @@
       "email": "michaeljohnson@example.com",
       "password": "qwerty",
       "confirmPassword": "qwerty",
-      "Address": "789 Oak St",
-      "city": "Chicago",
+      "address": "789 Oak St",
+      "city": "Alexandria",
       "pNumber": "555-9012",
       "bloodType": "AB+",
       "gender": "Male",
@@ -89,10 +97,14 @@
       "email": "tes123t@test.com",
       "password": "000000",
       "confirmPassword": "000000",
-      "Address": "Hussien Sheren Louran",
+      "address": "Hussien Sheren Louran",
       "city": "Alexandria",
       "pNumber": "01245678912",
+<<<<<<< HEAD
       "bloodType": "O+",
+=======
+      "bloodType": "O-",
+>>>>>>> a7cb160f4a9c66073b228fd626d2ff06066e03fb
       "gender": "Male",
       "isVolunteer": false
     },
@@ -103,7 +115,7 @@
       "email": "nora@gmail.com",
       "password": "123456",
       "confirmPassword": "123456",
-      "Address": "Mohamed Fareid",
+      "address": "Mohamed Fareid",
       "city": "Cairo",
       "pNumber": "01000000000",
       "bloodType": "B+",
@@ -117,12 +129,13 @@
       "email": "asmah@gmail.com",
       "password": "AAA123123",
       "confirmPassword": "AAA123123",
-      "Address": "bns",
-      "city": "bns",
+      "address": "bns",
+      "city": "Luxor",
       "pNumber": "01111840140",
       "bloodType": "A+",
       "gender": "Male",
       "isVolunteer": false
+<<<<<<< HEAD
     },
     {
       "id": "92152090-db4c-4926-a073-3a47f541e3b1",
@@ -137,6 +150,8 @@
       "bloodType": "A+",
       "gender": "Male",
       "isVolunteer": false
+=======
+>>>>>>> a7cb160f4a9c66073b228fd626d2ff06066e03fb
     }
   ]
 }

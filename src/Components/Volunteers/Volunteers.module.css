@@ -26,9 +26,13 @@
     height: 38px;
 }
 
-span {
+.filterWith {
     color: #ee394a;
     font-weight: bold;
+}
+
+th, td{
+    vertical-align: middle;
 }
 
 @media (max-width: 700px) {
@@ -54,11 +58,6 @@ span {
         font-size: small;
         vertical-align: middle;
     }
-
-    td img {
-        width: 30px;
-        height: 30px;
-    }
 }
 
 @media (max-width: 847px) {
@@ -67,5 +66,17 @@ span {
     span,
     input[type="text"] {
         margin-bottom: 10px;
+    }
+
+    td img {
+        display: block;
+        width: 20vw!important;
+        height: 20vw!important;
+        border-radius: 10vw!important;
+        margin: 0 auto;
+    }
+
+    td span{
+        text-align: center!important;
     }
 }

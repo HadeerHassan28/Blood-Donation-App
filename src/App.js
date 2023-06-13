@@ -12,6 +12,7 @@ import Organization from "./Components/SignUp/Organization/Organization";
 import User from "./Components/SignUp/User/User";
 import LogOrg from "./Components/LogIn/Organizations/LogOrg";
 import LogUser from "./Components/LogIn/User/LogUser";
+import OrgProfile from "./Components/OrgProfile/OrgProfile";
 import Terms from "./Components/Terms/Terms";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import { Toaster } from "react-hot-toast";
@@ -77,8 +78,13 @@ function App() {
           element: <LogOrg />,
         },
         {
-          path: "Signup-user/signin-user",
-          element: <LogUser />,
+          path:"Signup-user/signin-user",
+          element: <LogUser/>
+        },
+        {
+          path:"orgprofile",
+          element:<OrgProfile/>
+
         },
         {
           path: "userProfile",

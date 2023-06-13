@@ -26,36 +26,6 @@
       "OrganizationCode": "ORG789",
       "Address": "789 Oak St",
       "sector": "Manufacturing"
-    },
-    {
-      "id": "057fda0b-38ca-4a52-be8c-52eef1691231",
-      "orgName": "Hossam",
-      "password": "000000",
-      "confirmPassword": "000000",
-      "OrganizationCode": "000000",
-      "Address": "h",
-      "sector": "",
-      "pNumber": "01200000000"
-    },
-    {
-      "id": "a008b99a-fa48-40c0-9617-48485c5dd14f",
-      "orgName": "Hossam",
-      "password": "000000",
-      "confirmPassword": "000000",
-      "OrganizationCode": "000000",
-      "Address": "h",
-      "sector": "",
-      "pNumber": "01200000000"
-    },
-    {
-      "id": "58aa1034-f120-4a62-a4e9-b5d2858c224e",
-      "orgName": "Hossam",
-      "password": "000000",
-      "confirmPassword": "000000",
-      "OrganizationCode": "123456",
-      "Address": "a",
-      "sector": "",
-      "pNumber": "01234567895"
     }
   ]
 }
