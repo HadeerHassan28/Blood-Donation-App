@@ -1,5 +1,4 @@
 .footerItem {
-    height: 350px;
     background-color: #344258;
     font-family: "Montserrat Alternates";
 }
@@ -17,4 +16,18 @@
 
 .textColor {
     color: #fbfbfb;
+}
+
+.links {
+    color: white;
+    transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.links:hover {
+    color: #ee394a;
 }

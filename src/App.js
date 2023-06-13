@@ -13,13 +13,9 @@ import User from "./Components/SignUp/User/User";
 import LogOrg from "./Components/LogIn/Organizations/LogOrg";
 import LogUser from "./Components/LogIn/User/LogUser";
 import Terms from "./Components/Terms/Terms";
-<<<<<<< HEAD
-=======
 import ContactUs from "./Components/ContactUs/ContactUs";
-import { Toaster } from "react-hot-toast";
-
 import UserProfile from "./Components/Profile/user/userProfile";
->>>>>>> 2fc7447916b602ee307a77b4bf052b60573eff7e
+import { Toaster } from "react-hot-toast";
 function App() {
   let routes = createBrowserRouter([
     {
@@ -68,11 +64,6 @@ function App() {
           ),
         },
         {
-<<<<<<< HEAD
-          path: "terms",
-          element: <Terms />,
-        },
-        {
           path: "Signup-org",
           element: <Organization />,
         },
@@ -85,20 +76,6 @@ function App() {
           element: <LogOrg />,
         },
         {
-=======
-          path: "Signup-org",
-          element: <Organization />,
-        },
-        {
-          path: "Signup-user",
-          element: <User />,
-        },
-        {
-          path: "Signup-org/signin-org",
-          element: <LogOrg />,
-        },
-        {
->>>>>>> 2fc7447916b602ee307a77b4bf052b60573eff7e
           path: "Signup-user/signin-user",
           element: <LogUser />,
         },

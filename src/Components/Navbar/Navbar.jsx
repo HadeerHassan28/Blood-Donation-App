@@ -15,7 +15,7 @@ const Navbar = () => {
   window.addEventListener("scroll", changeNav);
   return (
     <>
-      <nav
+      <nav style={{ zIndex: "1111111" }}
         className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${navScroll ? styles.scrollActive : styles.scrollNotActive
           }`}
       >
@@ -53,7 +53,7 @@ const Navbar = () => {
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
               <li className="nav-item" aria-current="page">
                 <Link
-                  className={`nav-link ms-5 me-3  ${!navScroll ? "" : "text-light"
+                  className={`nav-link  me-3  ${!navScroll ? "" : "text-light"
                     }`}
                   to="/"
                 >
@@ -86,7 +86,7 @@ const Navbar = () => {
               </li>
             </ul>
 
-            <ul className="navbar-nav ms-auto mt-2 mt-lg-0 d-flex align-items-center">
+            <ul className={`${styles.ulEdit} navbar-nav ms-auto mt-lg-0 d-flex align-items-center`}>
               <li className="nav-item">
                 <Link
                   className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`}
