@@ -50,7 +50,7 @@ const Volunteers = () => {
         <p>Search our Super Hero Volunteers</p>
       </div>
       <div className={`${styles.searchBox} py-4`}>
-        <span>Filter with:</span>
+        <span className={styles.filterWith}>Filter with:</span>
         <select className={`${styles.select}`} ref={bloodGroup} onChange={searchBloodGroupLocation}>
           <option label="Blood Type" hidden></option>
           <option>All</option>
@@ -121,9 +121,9 @@ const Volunteers = () => {
         </thead>
         <tbody>
           {searchRes!==null && searchRes.length === 0 ? <tr><td colSpan={3} className="fs-4">Sorry, no results</td></tr>: searchRes?searchRes.map(vol => <tr key={uuid()}>
-            <td className="text-start ps-3">
-              <img src="assets/images/user.jpeg" alt="profile" style={{ width: "60px", height: "60px", borderRadius: "30px" }} />
-              {vol.firstName} {vol.lastName}</td>
+            <td className={`${styles.volName} text-start ps-3`}>
+              <img src="assets/images/user.jpeg" alt="profile" style={{ width: "8vw", height: "8vw", borderRadius: "4vw" }} />
+              <span>{vol.firstName} {vol.lastName}</span></td>
             <td className="text-center">{vol.address}, {vol.city}</td>
             <td className="text-center">{vol.bloodType}</td>
           </tr>):<tr><td colSpan={3} className="fs-4">Loading...</td></tr>}
