@@ -7,11 +7,10 @@ const Home = () => {
  const [isSelectionActive, setIsSelectionActive] = useState(false)
 
 
+
  const handleSelection = () => {
 
   !isSelectionActive ? setIsSelectionActive(true) : setIsSelectionActive(false)
-
-  console.log(isSelectionActive)
  }
   return (
     <>
@@ -75,7 +74,7 @@ const Home = () => {
             <button className="btn btn-danger fs-5" onClick={handleSelection}>Donate Now</button>
           </div>
 
-          {isSelectionActive && <Selection onSelection={setIsSelectionActive}/>}
+          {isSelectionActive && <Selection onSelection={setIsSelectionActive} isForSignUp={true}/>}
 
         </div>
       </div>

@@ -82,8 +82,6 @@ const Organization = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    e.preventDefault();
     axios.get(" http://localhost:3002/org").then((res) => {
       const users = res.data;
       console.log(users);
@@ -155,7 +153,7 @@ const Organization = () => {
                 </label>
                 <input
                   type="text"
-                  className="form-control"
+                  className={`${styles.formControl} form-control`}
                   name="oName"
                   id="oName"
                   aria-describedby="emailHelp"
@@ -182,7 +180,7 @@ const Organization = () => {
                 </label>
                 <input
                   type="email"
-                  className="form-control"
+                  className={`${styles.formControl} form-control`}
                   name="email"
                   id="email"
                   aria-describedby="emailHelp"
@@ -209,7 +207,7 @@ const Organization = () => {
                 </label>
                 <input
                   type="password"
-                  className="form-control"
+                  className={`${styles.formControl} form-control`}
                   name="password"
                   id="password"
                   aria-describedby="password"
@@ -236,7 +234,7 @@ const Organization = () => {
                 </label>
                 <input
                   type="password"
-                  className="form-control"
+                  className={`${styles.formControl} form-control`}
                   id="confirmPassword"
                   name="confirmPassword"
                   aria-describedby="confirmPassword"
@@ -263,7 +261,7 @@ const Organization = () => {
                 </label>
                 <input
                   type="number"
-                  className="form-control"
+                  className={`${styles.formControl} form-control`}
                   id="oCode"
                   name="oCode"
                   aria-describedby="oCode"
@@ -290,7 +288,7 @@ const Organization = () => {
                 </label>
                 <input
                   type="text"
-                  className="form-control w-100"
+                  className={`${styles.formControl} form-control w-100`}
                   id="Address"
                   name="Address"
                   aria-describedby="Address"
@@ -317,7 +315,7 @@ const Organization = () => {
                 </label>
                 <input
                   type="number"
-                  className="form-control"
+                  className={`${styles.formControl} form-control`}
                   id="pNumber"
                   name="pNumber"
                   aria-describedby="pNumber"
@@ -371,13 +369,6 @@ const Organization = () => {
               alt=""
             />
           </div>
-        </div>
-        <div className="col-lg-6 mt-5 d-flex align-items-center">
-          <img
-            src={process.env.PUBLIC_URL + "/assets/images/hospital.jpg"}
-            className="img-fluid mt-5"
-            alt=""
-          />
         </div>
       </div>
     </div>
