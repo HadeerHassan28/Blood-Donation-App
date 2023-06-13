@@ -15,9 +15,8 @@ import LogUser from "./Components/LogIn/User/LogUser";
 import OrgProfile from "./Components/OrgProfile/OrgProfile";
 import Terms from "./Components/Terms/Terms";
 import ContactUs from "./Components/ContactUs/ContactUs";
-import { Toaster } from "react-hot-toast";
-
 import UserProfile from "./Components/Profile/user/userProfile";
+import { Toaster } from "react-hot-toast";
 function App() {
   let routes = createBrowserRouter([
     {

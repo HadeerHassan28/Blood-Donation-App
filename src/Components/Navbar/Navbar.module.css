@@ -9,9 +9,13 @@
 }
 
 
+.iconToggler {
+    border: none;
+}
 
 .iconToggler:focus {
     box-shadow: none;
+    outline: none;
 }
 
 @keyframes pulse {
@@ -23,4 +27,11 @@
 .heartAnim {
 
     animation: pulse 1s linear infinite;
+}
+
+@media (max-width:991px) {
+    .ulEdit {
+        display: block !important;
+        margin-bottom: 10px;
+    }
 }
