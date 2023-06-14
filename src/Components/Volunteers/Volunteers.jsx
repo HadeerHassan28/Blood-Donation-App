@@ -145,7 +145,7 @@ const Volunteers = () => {
             <td className={`${styles.volName} text-start ps-3`}>
               <img src="assets/images/user.jpeg" alt="profile" style={{ width: "8vw", height: "8vw", borderRadius: "4vw" }} />
               <span>{vol.firstName} {vol.lastName}</span></td>
-            <td className="text-center">{vol.address}, {vol.city}</td>
+            <td className="text-center">{vol.Address}, {vol.city}</td>
             <td className="text-center">{vol.bloodType}</td>
           </tr>):<tr><td colSpan={3} className="fs-4">Loading...</td></tr>}
         </tbody>
