@@ -4,3 +4,21 @@
     }
 
 }
+
+.customimg {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 75%;
+    -webkit-border-radius: 75%;
+    -moz-border-radius: 75%;
+    -ms-border-radius: 75%;
+    -o-border-radius: 75%;
+}
+
+.qout {
+    font-size: 2rem;
+}
+
+.ratingColor {
+    color: #ffbf00;
+}

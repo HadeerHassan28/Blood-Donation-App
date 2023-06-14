@@ -3,19 +3,33 @@ import styles from "./CauseHome.module.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { TiGroupOutline } from "react-icons/ti";
+import { AiFillStar } from "react-icons/ai";
 import { FaSuperpowers } from "react-icons/fa";
+import { BsQuote } from "react-icons/bs";
 import imgArea from '../../assets/imgArea.svg'
 import emergencies from '../../assets/emergencies.svg'
 import everyone from '../../assets/everyone.svg'
 import hero from '../../assets/hero.svg'
-// Start Animation Library
-import Aos from "aos";
-import 'aos/dist/aos.css'
-// End Animation Library
+import Slider from "react-slick";
 const CauseHome = () => {
-  useEffect(() => {
-    Aos.init({ duration: 1500 })
-  })
+  const settings = {
+    dots: true,
+    autoplay: true,
+    infinite: true,
+    speed: 400,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      }
+    ],
+  };
   return (
     <>
       <div className="container py-5 mt-5">
@@ -78,10 +92,156 @@ const CauseHome = () => {
           </div>
         </div>
       </div>
-      <div style={{ backgroundColor: "#ee394a" }} className="py-5  mb-5 text-white text-center rounded">
+      <div style={{ backgroundColor: "#344258" }} className="py-5  mb-5 text-white text-center rounded">
         <h2 className="mb-3">Start Saving Lives</h2>
         <p className="mb-3 fs-5">Become a donor or request for blood and help save<br /> lives</p>
-        <button className="btn btn-light text-danger">Register</button>
+        <button className="btn btn-danger">Register</button>
+      </div>
+      <div className="container testimonials py-5 mb-5">
+        <div className="text-center">
+          <h2 className="text-danger">Lives Saved</h2>
+          <p className="fs-5 text-muted">Blood Donation helped saving the live of more <span className="fw-bold ">20000 people</span> <br />help us saving more</p>
+        </div>
+        <div className="row">
+          <Slider {...settings}>
+            <div className="col-lg-3 p-2 mb-3">
+              <div className="card border-danger">
+                <div className="d-flex p-3 justify-content-start align-items-center">
+                  <img src="assets/images/user.jpeg" alt="" className={`${styles.customimg} mr-4`} />
+                  <div className="name-review">
+                    <p className="fw-bold mb-0">Person One</p>
+                    <ul className="list-inline text-center m-0">
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="card-body">
+                  <blockquote>
+                    <p className="mb-0"><BsQuote className={`${styles.qout} text-danger`}></BsQuote> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, eum minima in cumque cum assumenda accusamus. Qui autem non ipsum!</p>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3 p-2 mb-3">
+              <div className="card border-danger">
+                <div className="d-flex p-3 justify-content-start align-items-center">
+                  <img src="assets/images/user.jpeg" alt="" className={`${styles.customimg} mr-4`} />
+                  <div className="name-review">
+                    <p className="fw-bold mb-0">Person Two</p>
+                    <ul className="list-inline text-center m-0">
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="card-body">
+                  <blockquote>
+                    <p className="mb-0"><BsQuote className={`${styles.qout} text-danger`}></BsQuote> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, eum minima in cumque cum assumenda accusamus. Qui autem non ipsum!</p>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3 p-2 mb-3">
+              <div className="card border-danger">
+                <div className="d-flex p-3 justify-content-start align-items-center">
+                  <img src="assets/images/user.jpeg" alt="" className={`${styles.customimg} mr-4`} />
+                  <div className="name-review">
+                    <p className="fw-bold mb-0">Person Three</p>
+                    <ul className="list-inline text-center m-0">
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="card-body">
+                  <blockquote>
+                    <p className="mb-0"><BsQuote className={`${styles.qout} text-danger`}></BsQuote> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, eum minima in cumque cum assumenda accusamus. Qui autem non ipsum!</p>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3 p-2 mb-3">
+              <div className="card border-danger">
+                <div className="d-flex p-3 justify-content-start align-items-center">
+                  <img src="assets/images/user.jpeg" alt="" className={`${styles.customimg} mr-4`} />
+                  <div className="name-review">
+                    <p className="fw-bold mb-0">Person Four</p>
+                    <ul className="list-inline text-center m-0">
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="card-body">
+                  <blockquote>
+                    <p className="mb-0"><BsQuote className={`${styles.qout} text-danger`}></BsQuote> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, eum minima in cumque cum assumenda accusamus. Qui autem non ipsum!</p>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3 p-2 mb-3">
+              <div className="card border-danger">
+                <div className="d-flex p-3 justify-content-start align-items-center">
+                  <img src="assets/images/user.jpeg" alt="" className={`${styles.customimg} mr-4`} />
+                  <div className="name-review">
+                    <p className="fw-bold mb-0">Person Five</p>
+                    <ul className="list-inline text-center m-0">
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="card-body">
+                  <blockquote>
+                    <p className="mb-0"><BsQuote className={`${styles.qout} text-danger`}></BsQuote> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, eum minima in cumque cum assumenda accusamus. Qui autem non ipsum!</p>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3 p-2 mb-3">
+              <div className="card border-danger">
+                <div className="d-flex p-3 justify-content-start align-items-center">
+                  <img src="assets/images/user.jpeg" alt="" className={`${styles.customimg} mr-4`} />
+                  <div className="name-review">
+                    <p className="fw-bold mb-0">Person Six</p>
+                    <ul className="list-inline text-center m-0">
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                      <li className="list-inline-item"><AiFillStar className={`${styles.ratingColor}`}></AiFillStar></li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="card-body">
+                  <blockquote>
+                    <p className="mb-0"><BsQuote className={`${styles.qout} text-danger`}></BsQuote> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, eum minima in cumque cum assumenda accusamus. Qui autem non ipsum!</p>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </Slider>
+
+
+
+
+        </div>
       </div>
     </>
   );
