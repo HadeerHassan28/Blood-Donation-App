@@ -123,6 +123,19 @@
       "bloodType": "A+",
       "gender": "Male",
       "isVolunteer": false
+    },
+    {
+      "id": "dcc49f27-7076-42d2-8740-8c45984594e0",
+      "firstName": "Ahmed",
+      "lastName": "Saeed",
+      "email": "ahmedsaeed@gmail.com",
+      "password": "aaa123",
+      "confirmPassword": "aaa123",
+      "Address": "bns",
+      "city": "bns",
+      "pNumber": "01111111111",
+      "bloodType": "B+",
+      "gender": "Male"
     }
   ]
 }
