@@ -4,7 +4,7 @@ import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
 
-const LogUser = () => {
+const LogUser = ({ saveUserData }) => {
   const navigate = useNavigate();
   const [data, SetData] = useState({
     id: uuid(),
@@ -62,6 +62,8 @@ const LogUser = () => {
       );
       if (user) {
         console.log("Done");
+        localStorage.setItem("userToken", user.token);
+        saveUserData();
         setIsEmailExisting(true);
         navigate("/userProfile");
       } else console.log("error");
@@ -73,7 +75,7 @@ const LogUser = () => {
         <h2 className="text-center text-danger">Log In - Users </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label for="email" className="form-label">
+            <label htmlFor="email" className="form-label">
               Email address
             </label>
             <input
@@ -99,7 +101,7 @@ const LogUser = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="password" className="form-label">
+            <label htmlFor="password" className="form-label">
               Password
             </label>
             <input
