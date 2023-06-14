@@ -5,6 +5,7 @@
 
 body {
   background-color: #fbf1f0;
+  overflow-x: hidden;
 }
 
 .main-color {
@@ -13,4 +14,8 @@ body {
 
 .secondary-color {
   background-color: var(--secondary-color);
+}
+
+a {
+  text-decoration: none;
 }

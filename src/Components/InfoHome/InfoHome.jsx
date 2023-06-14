@@ -1,109 +1,27 @@
 import React from "react";
 import styles from "./InfoHome.module.css";
-
+import findblood from '../../assets/findblood.svg'
+import getnotified from '../../assets/getnotified.svg'
+import foreverfree from '../../assets/foreverfree.svg'
 const InfoHome = () => {
   return (
     <>
       <div className="col-md-4">
-        <svg
-          width="65"
-          height="65"
-          viewBox="0 0 65 65"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M39.0683 55.7743H33.8189V65H39.0683V55.7743Z"
-            fill="#6DAAE2"
-          />
-          <path
-            d="M26.6011 46.5879H21.3517V55.7742H26.6011V46.5879Z"
-            fill="#ACD8F9"
-          />
-          <path
-            d="M32.5066 15.6036V46.5879H54.0289V15.6036C43.5302 18.3202 38.0184 16.9553 32.5066 15.6036Z"
-            fill="#C61469"
-          />
-          <path
-            d="M32.5066 0V15.6037C38.0184 16.9685 43.5302 18.3333 54.0289 15.6037V0H32.5066Z"
-            fill="#6DAAE2"
-          />
-          <path
-            d="M32.5066 15.6037C26.9948 14.2388 21.4698 12.874 10.9843 15.6037V46.5879H29.2257V55.7743H43.6614V46.5879H32.5066V15.6037Z"
-            fill="#FF3F62"
-          />
-          <path
-            d="M32.5066 15.6037V0H10.9843V15.6037C21.4698 12.874 26.9816 14.2388 32.5066 15.6037Z"
-            fill="#ACD8F9"
-          />
-        </svg>
+        <img src={findblood} alt="" />
         <h5 className="mt-2">Find Blood</h5>
         <p className="text-black-50">
           Find blood donors near your location and request the needed blood type
         </p>
       </div>
       <div className="col-md-4">
-        <svg
-          width="65"
-          height="65"
-          viewBox="0 0 65 65"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clip-path="url(#clip0_1_497)">
-            <path
-              d="M43.3112 27.2204V21.6888H37.7796V16.3827H43.3112V10.851H45.9643V0C35.4714 0 26.9286 8.54286 26.9286 19.0357C26.9286 22.4316 27.8173 25.7214 29.5153 28.6265L26.0796 38.9204L36.3735 35.4847C39.2786 37.1827 42.5684 38.0714 45.9643 38.0714V27.2204H43.3112Z"
-              fill="#ACD8F9"
-            />
-            <path
-              d="M45.9643 0V10.851H48.6174V16.3827H54.149V21.6888H48.6174V27.2204H45.9643V38.0714C56.4572 38.0714 65 29.5286 65 19.0357C65 8.54286 56.4572 0 45.9643 0Z"
-              fill="#6DAAE2"
-            />
-            <path
-              d="M18.9031 31.9561L23.3735 27.4857L8.47654 12.5887L6.60614 14.3132C6.53981 14.3663 5.10716 15.7061 3.60818 17.5632C1.43267 20.2561 0.238789 22.7102 0.0398093 24.8592C-0.530599 31.001 5.17348 41.0428 14.5653 50.4347L25.9735 39.0265L18.9031 31.9561Z"
-              fill="#FF3F62"
-            />
-            <path
-              d="M33.0439 46.0969L25.9735 39.0265L14.5653 50.4347C18.7969 54.6663 23.2939 58.2612 27.5918 60.8612C30.7225 62.7581 35.299 65 39.2388 65C39.5439 65 39.849 64.9867 40.1408 64.9602C42.2898 64.7612 44.7439 63.554 47.45 61.3918C49.3071 59.8928 50.6337 58.4602 50.7 58.3938L52.4245 56.5234L37.5276 41.6265L33.0439 46.0969Z"
-              fill="#C61469"
-            />
-            <path
-              d="M43.3112 16.3827H37.7796V21.6888H43.3112V27.2205H48.6174V21.6888H54.149V16.3827H48.6174V10.8511H43.3112V16.3827Z"
-              fill="#4F91C1"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_1_497">
-              <rect width="65" height="65" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
+        <img src={getnotified} alt="" />
         <h5 className="mt-2">Get Notification</h5>
         <p className="text-black-50">
           Get notified about requests instantly, either on our app or by sms
         </p>
       </div>
       <div className="col-md-4">
-        <svg
-          width="65"
-          height="65"
-          viewBox="0 0 65 65"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M5.63348 55.7756L12.9714 58.3516L17.0306 64.9999L32.5 45.9007L23.0674 34.2563L5.63348 55.7756Z"
-            fill="#FF3F62"
-          />
-          <path
-            d="M41.9325 34.2564L32.5 22.6121L30.1061 19.6587C29.6507 19.0993 29.4295 18.4488 29.4295 17.7332C29.4295 16.0418 30.8086 14.6627 32.5 14.6627V0C22.7161 0 14.7668 7.94936 14.7668 17.7332C14.7668 21.7794 16.1719 25.7476 18.7219 28.8961L23.0674 34.2564L32.5 45.9007L47.9693 65L52.0156 58.3517L59.3535 55.7626L41.9325 34.2564Z"
-            fill="#C61469"
-          />
-          <path
-            d="M35.5705 17.7332C35.5705 18.4618 35.3363 19.0993 34.8939 19.6587L32.5 22.6121L41.9325 34.2564L46.278 28.8961C48.8281 25.7476 50.2332 21.7924 50.2332 17.7332C50.2332 7.94936 42.2838 0 32.5 0V14.6627C34.1914 14.6627 35.5705 16.0418 35.5705 17.7332Z"
-            fill="#FF3F62"
-          />
-        </svg>
+        <img src={foreverfree} alt="" />
         <h5 className="mt-2">Forever Free</h5>
         <p className="text-black-50">
           You don't have to pay anything, Save Life Connect is forever Free !
