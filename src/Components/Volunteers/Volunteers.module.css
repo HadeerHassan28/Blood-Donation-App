@@ -35,6 +35,20 @@ th, td{
     vertical-align: middle;
 }
 
+.navigateRes{
+    width: 30px;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    vertical-align: middle;
+}
+
+.navigateRes:hover{
+    color: #ffffff;
+    border: 1px solid #ee394a;
+    background-color: #ee394a;
+}
+
 @media (max-width: 700px) {
     .searchBox {
         width: 80vw;
