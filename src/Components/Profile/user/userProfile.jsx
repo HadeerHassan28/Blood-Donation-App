@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./userProfile.module.css";
 import { Link } from "react-router-dom";
-const UserProfile = ({ userTokenData }) => {
-  console.log(userTokenData);
+const UserProfile = ({ TokenData }) => {
+  console.log(TokenData);
   return (
     <div className="text-center my-5 py-5">
-      <div>{userTokenData.firstName}</div>
-      <div>{userTokenData.email}</div>
-      <div>{userTokenData.role}</div>
+      <div>{TokenData.firstName}</div>
+      <div>{TokenData.email}</div>
+      <div>{TokenData.role}</div>
     </div>
   );
 };

@@ -3,11 +3,10 @@ import styles from "./LogOrg.module.css";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
-const LogOrg = () => {
+const LogOrg = ({ saveTokenData }) => {
   const [orgCode, setOrgCode] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
 
   const handleOrgCode = (e) => {
     let code = e.target.value;
@@ -26,18 +25,20 @@ const LogOrg = () => {
 
     if (orgCode.trim().length !== 0 && password.trim().length !== 0) {
       axios.get(" http://localhost:3002/org").then((res) => {
-       const orgLogin =  res.data.filter(elem => {
-          return elem.OrganizationCode === orgCode && elem.password === password
-        })
-        if(orgLogin){
-          navigate("orgprofile")
+        const orgLogin = res.data.filter((elem) => {
+          return (
+            elem.OrganizationCode === orgCode && elem.password === password
+          );
+        });
+        console.log(orgLogin[0].token);
+
+        if (orgLogin) {
+          localStorage.setItem("token", orgLogin[0].token);
+          saveTokenData();
+          navigate("/orgprofile");
         }
-        console.log(orgLogin)
-      })
-
+      });
     }
-
-      
   };
   return (
     <div className={styles.login_org}>
@@ -45,7 +46,7 @@ const LogOrg = () => {
         <h2 className="text-center text-danger">Log In - Organizations </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label for="oCode" className="form-label">
+            <label htmlFor="oCode" className="form-label">
               Organization Code
             </label>
             <input
@@ -57,7 +58,7 @@ const LogOrg = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="password" className="form-label">
+            <label htmlFor="password" className="form-label">
               Password
             </label>
             <input

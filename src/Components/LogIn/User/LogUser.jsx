@@ -4,7 +4,7 @@ import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
 
-const LogUser = ({ saveUserData }) => {
+const LogUser = ({ saveTokenData }) => {
   const navigate = useNavigate();
   const [data, SetData] = useState({
     id: uuid(),
@@ -62,8 +62,8 @@ const LogUser = ({ saveUserData }) => {
       );
       if (user) {
         console.log("Done");
-        localStorage.setItem("userToken", user.token);
-        saveUserData();
+        localStorage.setItem("token", user.token);
+        saveTokenData();
         setIsEmailExisting(true);
         navigate("/userProfile");
       } else console.log("error");

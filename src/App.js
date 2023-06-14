@@ -25,13 +25,11 @@ import jwtDecode from "jwt-decode";
 
 // End Animation Library
 function App() {
-  const [userTokenData, setuserTokenData] = useState(
-    localStorage.getItem("userToken")
-  );
-  function saveUserData() {
-    let encodedToken = localStorage.getItem("userToken");
+  const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
+  function saveTokenData() {
+    let encodedToken = localStorage.getItem("token");
     let decodedToken = jwtDecode(encodedToken);
-    setuserTokenData(decodedToken);
+    setTokenData(decodedToken);
   }
 
   useEffect(() => {
@@ -93,19 +91,19 @@ function App() {
         },
         {
           path: "Signup-org/signin-org",
-          element: <LogOrg />,
+          element: <LogOrg saveTokenData={saveTokenData} />,
         },
         {
           path: "Signup-user/signin-user",
-          element: <LogUser saveUserData={saveUserData} />,
+          element: <LogUser saveTokenData={saveTokenData} />,
         },
         {
           path: "orgprofile",
-          element: <OrgProfile />,
+          element: <OrgProfile TokenData={TokenData} />,
         },
         {
           path: "userProfile",
-          element: <UserProfile userTokenData={userTokenData} />,
+          element: <UserProfile TokenData={TokenData} />,
         },
 
         {
