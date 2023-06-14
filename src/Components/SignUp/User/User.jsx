@@ -130,7 +130,14 @@ const User = () => {
         ) {
           const payload = {
             firstName: data.firstName,
+            lastName: data.lastName,
             email: data.email,
+            Address: data.Address,
+            city: data.city,
+            pNumber: data.pNumber,
+            bloodType: data.bloodType,
+            gender: data.gender,
+            isVolunteer: false,
             role: "user",
           };
 
@@ -152,6 +159,7 @@ const User = () => {
             pNumber: data.pNumber,
             bloodType: data.bloodType,
             gender: data.gender,
+            isVolunteer: false,
             token: token,
           };
           axios

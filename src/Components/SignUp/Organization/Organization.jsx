@@ -110,7 +110,11 @@ const Organization = () => {
         ) {
           const payload = {
             orgName: data.oName,
-            address: data.Address,
+            OrganizationCode: data.oCode,
+            Address: data.Address,
+            sector: data.sector,
+            isNeedsVolunteers: false,
+            pNumber: data.pNumber,
             role: "org",
           };
 
