@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
@@ -20,12 +20,21 @@ import UserProfile from "./Components/Profile/user/userProfile";
 import { Toaster } from "react-hot-toast";
 // Start Animation Library
 import Aos from "aos";
-import 'aos/dist/aos.css'
+import "aos/dist/aos.css";
+import jwtDecode from "jwt-decode";
+
 // End Animation Library
 function App() {
+  const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
+  function saveTokenData() {
+    let encodedToken = localStorage.getItem("token");
+    let decodedToken = jwtDecode(encodedToken);
+    setTokenData(decodedToken);
+  }
+
   useEffect(() => {
-    Aos.init({ duration: 1500 })
-  })
+    Aos.init({ duration: 1500 });
+  });
   let routes = createBrowserRouter([
     {
       path: "",
@@ -82,20 +91,19 @@ function App() {
         },
         {
           path: "Signup-org/signin-org",
-          element: <LogOrg />,
+          element: <LogOrg saveTokenData={saveTokenData} />,
         },
         {
           path: "Signup-user/signin-user",
-          element: <LogUser />
+          element: <LogUser saveTokenData={saveTokenData} />,
         },
         {
           path: "orgprofile",
-          element: <OrgProfile />
-
+          element: <OrgProfile TokenData={TokenData} />,
         },
         {
           path: "userProfile",
-          element: <UserProfile />,
+          element: <UserProfile TokenData={TokenData} />,
         },
 
         {
