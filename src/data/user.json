@@ -8,7 +8,7 @@
       "password": "password1@123",
       "address": "95 mohamed farid",
       "city": "Cairo",
-      "phone": "01000000000",
+      "pNumber": "01000000000",
       "bloodType": "AB-",
       "gender": "Female",
       "isVolunteer": false
@@ -21,7 +21,7 @@
       "password": "password1",
       "address": "95 mohamed farid",
       "city": "Cairo",
-      "phone": "01000000000",
+      "pNumber": "01000000000",
       "bloodType": "A+",
       "gender": "Female",
       "isVolunteer": false
