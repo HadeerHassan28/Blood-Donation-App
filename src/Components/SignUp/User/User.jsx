@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
+import jwtEncode from "jwt-encode";
 
 const User = () => {
   const navigate = useNavigate();
+  const secretKey =
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15);
   const [data, SetData] = useState({
     id: uuid(),
     firstName: "",
@@ -19,6 +23,7 @@ const User = () => {
     pNumber: "",
     bloodType: "",
     gender: "",
+    token: "",
   });
 
   const [isFirstNameValid, setIsFirstNameValid] = useState(false);
@@ -123,6 +128,17 @@ const User = () => {
           isCityValid &&
           isPnumberValid
         ) {
+          const payload = {
+            firstName: data.firstName,
+            email: data.email,
+            role: "user",
+          };
+
+          // Set the secret key for the token
+
+          // Generate the token
+          const token = jwtEncode(payload, secretKey);
+          console.log(token);
           //! get data from thr form and add it to the json data:
           const newUser = {
             id: uuid(),
@@ -136,6 +152,7 @@ const User = () => {
             pNumber: data.pNumber,
             bloodType: data.bloodType,
             gender: data.gender,
+            token: token,
           };
           axios
             .post("http://localhost:3000/users", newUser)
@@ -185,8 +202,8 @@ const User = () => {
                     !isFirstNameFocused
                       ? {}
                       : isFirstNameValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsFirstNameFocused(true);
@@ -215,8 +232,8 @@ const User = () => {
                     !isLastNameFocused
                       ? {}
                       : isLastNameValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsLastNameFocused(true);
@@ -245,8 +262,8 @@ const User = () => {
                     !isEmailFocused
                       ? {}
                       : isEmailValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsEmailFocused(true);
@@ -277,8 +294,8 @@ const User = () => {
                     !isPasswordFocused
                       ? {}
                       : isPasswordValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsPasswordFocused(true);
@@ -309,8 +326,8 @@ const User = () => {
                     !isConfirmedPasswordFocused
                       ? {}
                       : isConfirmedPasswordValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsConfirmedPasswordFocused(true);
@@ -326,7 +343,7 @@ const User = () => {
                 )}
               </div>
               <div className="col-lg-6">
-                <label for="address" className="form-label">
+                <label htmlFor="address" className="form-label">
                   Address
                 </label>
                 <input
@@ -341,8 +358,8 @@ const User = () => {
                     !isAddressFocused
                       ? {}
                       : isAddressValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsAddressFocused(true);
@@ -358,7 +375,7 @@ const User = () => {
                 )}
               </div>
               <div className="col-lg-6">
-                <label for="city" className="form-label">
+                <label htmlFor="city" className="form-label">
                   City
                 </label>
                 <input
@@ -373,8 +390,8 @@ const User = () => {
                     !isCityFocused
                       ? {}
                       : isCityValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsCityFocused(true);
@@ -388,7 +405,7 @@ const User = () => {
                 )}
               </div>
               <div className="col-lg-12">
-                <label for="pNumber" className="form-label">
+                <label htmlFor="pNumber" className="form-label">
                   Phone Number
                 </label>
                 <input
@@ -403,8 +420,8 @@ const User = () => {
                     !isPnumberFocused
                       ? {}
                       : isPnumberValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsPnumberFocused(true);
