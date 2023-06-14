@@ -82,7 +82,7 @@ const Home = () => {
           )}
         </div>
       </div>
-      <div className="row container mx-auto text-center mt-5 p-5">
+      <div className="row container mx-auto text-center mt-5 p-5" data-aos="fade-up">
         <InfoHome></InfoHome>
       </div>
       <div className="text-center mt-5">

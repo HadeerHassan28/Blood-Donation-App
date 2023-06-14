@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { useEffect } from "react";
 import "./App.css";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
@@ -17,7 +18,14 @@ import Terms from "./Components/Terms/Terms";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import UserProfile from "./Components/Profile/user/userProfile";
 import { Toaster } from "react-hot-toast";
+// Start Animation Library
+import Aos from "aos";
+import 'aos/dist/aos.css'
+// End Animation Library
 function App() {
+  useEffect(() => {
+    Aos.init({ duration: 1500 })
+  })
   let routes = createBrowserRouter([
     {
       path: "",
@@ -77,12 +85,12 @@ function App() {
           element: <LogOrg />,
         },
         {
-          path:"Signup-user/signin-user",
-          element: <LogUser/>
+          path: "Signup-user/signin-user",
+          element: <LogUser />
         },
         {
-          path:"orgprofile",
-          element:<OrgProfile/>
+          path: "orgprofile",
+          element: <OrgProfile />
 
         },
         {

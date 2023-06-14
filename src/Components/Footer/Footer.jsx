@@ -82,7 +82,6 @@ const Footer = () => {
             </div>
 
             <div className="col-md-3 col-lg-3 col-xl-3 p-4">
-              <h6 className="ms-2">Save Life</h6>
               <div className="links d-flex flex-column mt-3">
                 <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>Register</Link></div>
                 <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>Find Blood</Link></div>
@@ -92,7 +91,7 @@ const Footer = () => {
             </div>
 
             <div className="col-md-3 col-lg-3 col-xl-3 p-4">
-              <h6 className="ms-2">Links</h6>
+              {/* <h6 className="ms-2">Links</h6> */}
               <div className="links d-flex flex-column mt-3">
                 <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>About Us</Link></div>
                 <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>Contact Us</Link></div>

@@ -8,7 +8,6 @@ const LogOrg = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-
   const handleOrgCode = (e) => {
     let code = e.target.value;
 
@@ -26,19 +25,19 @@ const LogOrg = () => {
 
     if (orgCode.trim().length !== 0 && password.trim().length !== 0) {
       axios.get(" http://localhost:3002/org").then((res) => {
-       const orgLogin =  res.data.filter(elem => {
-          return elem.OrganizationCode === orgCode && elem.password === password
-        })
-        if(orgLogin){
-          navigate("orgprofile")
+        const orgLogin = res.data.filter((elem) => {
+          return (
+            elem.OrganizationCode === orgCode && elem.password === password
+          );
+        });
+        if (orgLogin) {
+          navigate("orgprofile");
         }
-        console.log(orgLogin)
-      })
-
+        console.log(orgLogin);
+      });
     }
-
-      
   };
+
   return (
     <div className={styles.login_org}>
       <div className={styles.login_org_content}>
@@ -77,5 +76,4 @@ const LogOrg = () => {
     </div>
   );
 };
-
 export default LogOrg;

@@ -136,6 +136,7 @@
       "gender": "Male",
       "isVolunteer": false
 <<<<<<< HEAD
+<<<<<<< HEAD
     },
     {
       "id": "92152090-db4c-4926-a073-3a47f541e3b1",
@@ -152,6 +153,21 @@
       "isVolunteer": false
 =======
 >>>>>>> a7cb160f4a9c66073b228fd626d2ff06066e03fb
+=======
+    },
+    {
+      "id": "dcc49f27-7076-42d2-8740-8c45984594e0",
+      "firstName": "Ahmed",
+      "lastName": "Saeed",
+      "email": "ahmedsaeed@gmail.com",
+      "password": "aaa123",
+      "confirmPassword": "aaa123",
+      "Address": "bns",
+      "city": "bns",
+      "pNumber": "01111111111",
+      "bloodType": "B+",
+      "gender": "Male"
+>>>>>>> 417fcda264a883ecf30c2b8856aba923d9760d53
     }
   ]
 }
