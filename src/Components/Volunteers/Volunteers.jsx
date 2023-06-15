@@ -5,8 +5,11 @@ import { v4 as uuid } from "uuid";
 import axios from "axios";
 
 const Volunteers = () => {
+  const searchResStep = 9;
   const [volunteers, setVolunteers] = useState(null);
   const [searchRes, setSearchRes] = useState(volunteers);
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(searchResStep);
   const bloodGroup = useRef();
   const location = useRef();
   useEffect(()=>{
@@ -35,12 +38,30 @@ const Volunteers = () => {
       location.current.value = '';
       bloodGroup.current.value = '';
     }
+
+    setStartIndex(0);
+    setEndIndex(searchResStep);
   }
 
   const resetSearch = () => {
     setSearchRes(volunteers);
+    setStartIndex(0);
+    setEndIndex(searchResStep);
     location.current.value = '';
     bloodGroup.current.value = '';
+  }
+
+  const handlePrev = ()=>{
+    if(startIndex > 0){
+      setStartIndex(oldStart => oldStart - searchResStep)
+      setEndIndex(oldEnd => oldEnd - searchResStep)
+    }
+  }
+  const handleNext = ()=>{
+    if(endIndex < searchRes.length){
+      setStartIndex(oldStart => oldStart + searchResStep)
+      setEndIndex(oldEnd => oldEnd + searchResStep)
+    }
   }
 
   return (
@@ -120,16 +141,32 @@ const Volunteers = () => {
           </tr>
         </thead>
         <tbody>
-          {searchRes!==null && searchRes.length === 0 ? <tr><td colSpan={3} className="fs-4">Sorry, no results</td></tr>: searchRes?searchRes.map(vol => <tr key={uuid()}>
+          {searchRes!==null && searchRes.length === 0 ? <tr><td colSpan={3} className="fs-4">Sorry, no results</td></tr>: searchRes?searchRes.slice(startIndex, endIndex).map(vol => !vol.isVolunteer&&<tr key={uuid()}>
             <td className={`${styles.volName} text-start ps-3`}>
               <img src="assets/images/user.jpeg" alt="profile" style={{ width: "8vw", height: "8vw", borderRadius: "4vw" }} />
               <span>{vol.firstName} {vol.lastName}</span></td>
-            <td className="text-center">{vol.address}, {vol.city}</td>
+            <td className="text-center">{vol.Address}, {vol.city}</td>
             <td className="text-center">{vol.bloodType}</td>
           </tr>):<tr><td colSpan={3} className="fs-4">Loading...</td></tr>}
         </tbody>
+        <tfoot>
+          {searchRes&&searchRes.length > searchResStep&& <tr>
+            <td colSpan={3} className="text-center">
+              <button onClick={handlePrev} className={`${styles.navigateRes} text-center m-2`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+              </button>
+              <button onClick={handleNext} className={`${styles.navigateRes} text-center m-2`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
+              </button>
+            </td>
+          </tr>}
+        </tfoot>
       </table>
-      <button className="btn btn-outline-danger d-block mx-auto fw-bold">Start saving lifes</button>
+      <button className="btn btn-outline-danger d-block mx-auto fw-bold my-2 mb-5">Start saving lifes</button>
     </>
   );
 };

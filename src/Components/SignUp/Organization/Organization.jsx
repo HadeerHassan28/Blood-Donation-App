@@ -3,7 +3,12 @@ import styles from "./Organization.module.css";
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import jwtEncode from "jwt-encode";
+import { useNavigate } from "react-router-dom";
+
 const Organization = () => {
+  const navigate = useNavigate();
+
   const [data, SetData] = useState({
     id: uuid(),
     oName: "",
@@ -14,6 +19,7 @@ const Organization = () => {
     Address: "",
     pNumber: "",
     sector: "",
+    token: "",
   });
 
   const [isOrgNameIsValid, setIsOrgNameIsValid] = useState(false);
@@ -39,7 +45,9 @@ const Organization = () => {
 
   const [isPnumberValid, setIsPnumberValid] = useState(false);
   const [isPnumberFocused, setIsPnumberFocused] = useState(false);
-
+  const secretKey =
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15);
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -100,6 +108,20 @@ const Organization = () => {
           isAddressValid &&
           isOrganiationCodeValid
         ) {
+          const payload = {
+            orgName: data.oName,
+            OrganizationCode: data.oCode,
+            Address: data.Address,
+            sector: data.sector,
+            isNeedsVolunteers: false,
+            pNumber: data.pNumber,
+            role: "org",
+          };
+
+          // Set the secret key for the token
+
+          // Generate the token
+          const token = jwtEncode(payload, secretKey);
           //! get data from thr form and add it to the json data:
           const newUser = {
             id: uuid(),
@@ -110,12 +132,14 @@ const Organization = () => {
             Address: data.Address,
             sector: data.sector,
             pNumber: data.pNumber,
+            token: token,
           };
           axios
             .post("http://localhost:3002/org", newUser)
             .then((res) => {
               console.log(res.data);
               console.log("Done post");
+              navigate("/Signup-org/signin-org");
             })
             .catch((err) => console.log("error post"));
         } else {
@@ -243,7 +267,7 @@ const Organization = () => {
                 />
               </div>
               <div className="col-lg-6">
-                <label for="oCode" className="form-label">
+                <label htmlFor="oCode" className="form-label">
                   Organization Code
                 </label>
                 <input
@@ -270,7 +294,7 @@ const Organization = () => {
                 />
               </div>
               <div className="col-lg-6">
-                <label for="Address" className="form-label">
+                <label htmlFor="Address" className="form-label">
                   Address
                 </label>
                 <input
@@ -297,7 +321,7 @@ const Organization = () => {
                 />
               </div>
               <div className="col-lg-12">
-                <label for="pNumber" className="form-label">
+                <label htmlFor="pNumber" className="form-label">
                   Phone Number
                 </label>
                 <input
@@ -325,14 +349,13 @@ const Organization = () => {
               </div>
               <div className="col-lg-4">
                 <select
+                  defaultValue="sector"
                   className="form-select"
                   name="gender"
                   onChange={handleChange}
                   required
                 >
-                  <option selected hidden value="">
-                    Sector
-                  </option>
+                  <option value="sector">Sector</option>
                   <option value="governmental">governmental</option>
                   <option value="Private">Private</option>
                 </select>
