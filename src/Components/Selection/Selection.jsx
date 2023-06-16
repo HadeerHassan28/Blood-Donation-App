@@ -11,7 +11,7 @@ const Selection = (props) => {
     const [isOptionOneSelected , setIsOptionOneSelected] = useState(false)
     const [isOptionTwoSelected , setIsOptionTwoSelected] = useState(false)
 
-
+    console.log(props.isForSignUp)
     const toggleSelection = () => {
         props.onSelection(false)
 
@@ -82,7 +82,7 @@ const Selection = (props) => {
                     <Link to="signup-user"> <button className='btn btn-danger px-4 py-2 ms-3' onClick={toggleSelection}>Sign Up</button></Link>
                     </div> }
 
-                    {isOptionOneSelected && !props.isForSignUp && 
+                    {isOptionOneSelected && !props.isForSignUp  && 
                     <div className='buttons d-flex justify-content-end'>
                     <button className='btn btn-secondary px-4 py-2' onClick={toggleSelection} >Cancel</button>
 
