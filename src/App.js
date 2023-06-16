@@ -17,6 +17,7 @@ import OrgProfile from "./Components/OrgProfile/OrgProfile";
 import Terms from "./Components/Terms/Terms";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import UserProfile from "./Components/Profile/user/userProfile";
+import UserEdit from "./Components/Edit/UserEdit/UserEdit";
 import { Toaster } from "react-hot-toast";
 // Start Animation Library
 import Aos from "aos";
@@ -27,9 +28,15 @@ import jwtDecode from "jwt-decode";
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
-    let encodedToken = localStorage.getItem("token");
-    let decodedToken = jwtDecode(encodedToken);
-    setTokenData(decodedToken);
+    if(localStorage.getItem("token") === null){
+      setTokenData(null)
+    } else {
+      let encodedToken = localStorage.getItem("token");
+      let decodedToken = jwtDecode(encodedToken);
+      setTokenData(decodedToken);
+      console.log(encodedToken)
+    }
+
   }
 
   useEffect(() => {
@@ -107,6 +114,10 @@ function App() {
         {
           path: "userProfile",
           element: <UserProfile TokenData={TokenData} />,
+        },
+        {
+          path: "userProfile/edit",
+          element: <UserEdit TokenData={TokenData} />,
         },
 
         {
