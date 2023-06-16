@@ -3,6 +3,7 @@ import styles from "./Home.module.css";
 import InfoHome from "../InfoHome/InfoHome";
 import CauseHome from "../CauseHome/CauseHome";
 import Selection from "../Selection/Selection";
+
 const Home = () => {
   const [isSelectionActive, setIsSelectionActive] = useState(false);
 
@@ -82,7 +83,10 @@ const Home = () => {
           )}
         </div>
       </div>
-      <div className="row container mx-auto text-center mt-5 p-5" data-aos="fade-up">
+      <div
+        className="row container mx-auto text-center mt-5 p-5"
+        data-aos="fade-up"
+      >
         <InfoHome></InfoHome>
       </div>
       <div className="text-center mt-5">

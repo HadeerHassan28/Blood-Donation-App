@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
@@ -17,19 +17,36 @@ import OrgProfile from "./Components/OrgProfile/OrgProfile";
 import Terms from "./Components/Terms/Terms";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import UserProfile from "./Components/Profile/user/userProfile";
+import UserEdit from "./Components/Edit/UserEdit/UserEdit";
 import { Toaster } from "react-hot-toast";
 // Start Animation Library
 import Aos from "aos";
-import 'aos/dist/aos.css'
-// End Animation Library
+import "aos/dist/aos.css";
+import jwtDecode from "jwt-decode";
+
+import ToggleColorMode from "./Components/Darkthem/DarkThem"; // End Animation Library
 function App() {
+  const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
+  function saveTokenData() {
+    if (localStorage.getItem("token") === null) {
+      setTokenData(null);
+    } else {
+      let encodedToken = localStorage.getItem("token");
+      let decodedToken = jwtDecode(encodedToken);
+      setTokenData(decodedToken);
+      console.log(encodedToken);
+    }
+  }
+
   useEffect(() => {
-    Aos.init({ duration: 1500 })
-  })
+    Aos.init({ duration: 1500 });
+  });
+  useEffect(() => {
+    saveTokenData();
+  }, []);
   let routes = createBrowserRouter([
     {
       path: "",
-
       element: <Layout />,
       children: [
         {
@@ -82,20 +99,23 @@ function App() {
         },
         {
           path: "Signup-org/signin-org",
-          element: <LogOrg />,
+          element: <LogOrg saveTokenData={saveTokenData} />,
         },
         {
           path: "Signup-user/signin-user",
-          element: <LogUser />
+          element: <LogUser saveTokenData={saveTokenData} />,
         },
         {
           path: "orgprofile",
-          element: <OrgProfile />
-
+          element: <OrgProfile TokenData={TokenData} />,
         },
         {
           path: "userProfile",
-          element: <UserProfile />,
+          element: <UserProfile TokenData={TokenData} />,
+        },
+        {
+          path: "userProfile/edit",
+          element: <UserEdit TokenData={TokenData} />,
         },
 
         {
@@ -105,10 +125,14 @@ function App() {
       ],
     },
   ]);
+
   return (
     <>
       <Toaster />
-      <RouterProvider router={routes}></RouterProvider>
+      <ToggleColorMode />
+      <RouterProvider router={routes}>
+        <Layout />
+      </RouterProvider>
     </>
   );
 }
