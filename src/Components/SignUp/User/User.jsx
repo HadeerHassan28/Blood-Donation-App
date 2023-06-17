@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import jwtEncode from "jwt-encode";
 
 const User = () => {
@@ -114,9 +115,8 @@ const User = () => {
       );
       if (user) {
         console.log("this account is existed");
-        // toast.success("this account is existed");
+        toast.error("this account is existed");
         setIsEmailExisting(true);
-        navigate("/Signup-user/signin-user");
       } else {
         if (
           isFirstNameValid &&
@@ -505,12 +505,12 @@ const User = () => {
           </div>
         </div>
       </div>
-      {isEmailExisting && (
+      {/* {isEmailExisting && (
         <div class="alert alert-danger mt-5" role="alert">
           <span className="text-center fw-bold d-block">
             This Account Exist
           </span>
-        </div>
+        </div> */}
       )}
     </div>
   );
