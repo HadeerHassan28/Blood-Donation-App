@@ -1,0 +1,60 @@
+.landing {
+  background-image: url("../../../public/assets/images/lg-background.png");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+/* @media (min-width: 576px) {
+  .landing {
+    background-image: url("../../../public/assets/images/sm-background.png");
+
+  }
+} */
+
+/* @media (max-width: 767.999px) {
+  .landing {
+    background-image: none;
+  }
+} */
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  /* .landing {
+    background-image: none;
+    height: auto;
+  } */
+  .landing {
+    background-image: url("../../../public/assets/images/lg-background.png");
+    height: calc(100vh - 120px);
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .landing {
+    background-image: url("../../../public/assets/images/lg-background.png");
+    height: calc(100vh - 180px);
+  }
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .landing {
+    background-image: url("../../../public/assets/images/xlg-background.png");
+    height: calc(100vh - 120px);
+  }
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .landing {
+    background-image: url("../../../public/assets/images/xxlg-background.png");
+    height: calc(100vh - 50px);
+  }
+}
