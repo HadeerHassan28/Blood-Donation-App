@@ -3,7 +3,7 @@ import styles from "./InfoHome.module.css";
 import findblood from '../../assets/findblood.svg'
 import getnotified from '../../assets/getnotified.svg'
 import foreverfree from '../../assets/foreverfree.svg'
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const InfoHome = () => {
   const {t} = useTranslation();

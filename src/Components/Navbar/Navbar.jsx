@@ -12,7 +12,6 @@ const Navbar = () => {
   const [isForLogin, setIsForLogin] = useState(false)
   const { t } = useTranslation();
   const { i18n } = useTranslation();
-const Navbar = ({ theme }) => {}
  
   const changeNav = () => {
     if (window.scrollY > 56) {
@@ -115,8 +114,8 @@ const Navbar = ({ theme }) => {}
               <li className="nav-item">
                 <select onChange={changeLanguage}
                 className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`}>
-                  <option value="en">English (en)</option>
-                  <option value="ar">العربية (ar)</option>
+                  <option style={{color: "#000000"}} value="en">English (en)</option>
+                  <option style={{color: "#000000"}} value="ar">العربية (ar)</option>
                 </select>
               </li>
             </ul>
