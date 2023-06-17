@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 import logo from "../../heart.png";
 import logoREv from "../../heart-rev.png";
 import Selection from "../Selection/Selection";
+import { useTranslation } from 'react-i18next';
+
 const Navbar = () => {
   const [navScroll, setnavScroll] = useState(false);
   const [isSelectionActive, setIsSelectionActive] = useState(false)
   const [isForLogin, setIsForLogin] = useState(false)
+  const { t } = useTranslation();
+  const { i18n } = useTranslation();
   const changeNav = () => {
     if (window.scrollY > 56) {
       setnavScroll(true);
@@ -28,6 +32,9 @@ const Navbar = () => {
     console.log(isSelectionActive)
   }
   window.addEventListener("scroll", changeNav);
+  const changeLanguage = (e)=>{
+    i18n.changeLanguage(e.target.value);
+  }
   return (
     <>
       <nav style={{ zIndex: "1111111" }}
@@ -72,7 +79,7 @@ const Navbar = () => {
                     }`}
                   to="/"
                 >
-                  Home
+                  {t("Home")}
                 </Link>
               </li>
               <li className="nav-item">
@@ -80,7 +87,7 @@ const Navbar = () => {
                   className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`}
                   to="about"
                 >
-                  About
+                  {t("About")}
                 </Link>
               </li>
               <li className="nav-item">
@@ -88,7 +95,7 @@ const Navbar = () => {
                   className={`nav-link me-3 ${!navScroll ? "" : "text-light"}`}
                   to="blogs"
                 >
-                  Blogs
+                  {t("Blogs")}
                 </Link>
               </li>
               <li className="nav-item">
@@ -96,15 +103,22 @@ const Navbar = () => {
                   className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`}
                   to="volunteers"
                 >
-                  Volunteers
+                  {t("Volunteers")}
                 </Link>
+              </li>
+              <li className="nav-item">
+                <select onChange={changeLanguage}
+                className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`}>
+                  <option value="en">English (en)</option>
+                  <option value="ar">العربية (ar)</option>
+                </select>
               </li>
             </ul>
 
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0 d-flex align-items-center">
               <li className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`} style={{ cursor: "pointer" }} onClick={handleSelectionForLogin}>
 
-                Login
+                {t("Login")}
               </li>
               <li
                 className={`nav-item btn p-1 ${!navScroll ? "btn-danger" : "btn-light"
@@ -113,7 +127,7 @@ const Navbar = () => {
 
               >
 
-                Register
+                {t("Register")}
               </li>
             </ul>
           </div>
