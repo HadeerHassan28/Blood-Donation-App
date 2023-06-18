@@ -23,7 +23,6 @@ import { Toaster } from "react-hot-toast";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import jwtDecode from "jwt-decode";
-
 // End Animation Library
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
@@ -42,6 +41,7 @@ function App() {
   useEffect(() => {
     Aos.init({ duration: 1500 });
   });
+
   useEffect(() => {
     saveTokenData();
   }, []);
