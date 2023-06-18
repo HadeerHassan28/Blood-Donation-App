@@ -27,9 +27,13 @@ import jwtDecode from "jwt-decode";
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
-    let encodedToken = localStorage.getItem("token");
-    let decodedToken = jwtDecode(encodedToken);
-    setTokenData(decodedToken);
+    if (localStorage.getItem("token") == null) {
+      setTokenData(null);
+    } else {
+      let encodedToken = localStorage.getItem("token");
+      let decodedToken = jwtDecode(encodedToken);
+      setTokenData(decodedToken);
+    }
   }
 
   useEffect(() => {
