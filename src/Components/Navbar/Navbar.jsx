@@ -46,15 +46,13 @@ const Navbar = ({ toggleTheme }) => {
     <>
       <nav
         style={{ zIndex: "1111111" }}
-        className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${
-          navScroll ? styles.scrollActive : styles.scrollNotActive
-        }`}
+        className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${navScroll ? styles.scrollActive : styles.scrollNotActive
+          }`}
       >
         <div className="container">
           <Link
-            className={`navbar-brand me-5 ${
-              !navScroll ? "main-color" : "text-light"
-            }`}
+            className={`navbar-brand me-5 ${!navScroll ? "main-color" : "text-light"
+              }`}
             to="/"
           >
             <img
@@ -85,9 +83,8 @@ const Navbar = ({ toggleTheme }) => {
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
               <li className="nav-item" aria-current="page">
                 <Link
-                  className={`nav-link me-3  ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
                   to="/"
                 >
                   {t("Home")}
@@ -95,9 +92,8 @@ const Navbar = ({ toggleTheme }) => {
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link me-3  ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
                   to="about"
                 >
                   {t("About")}
@@ -105,9 +101,8 @@ const Navbar = ({ toggleTheme }) => {
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link me-3 ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3 ${!navScroll ? "" : "text-light"
+                    } isColor`}
                   to="blogs"
                 >
                   {t("Blogs")}
@@ -115,36 +110,26 @@ const Navbar = ({ toggleTheme }) => {
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link me-3  ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
                   to="volunteers"
                 >
                   {t("Volunteers")}
                 </Link>
               </li>
               <li className="nav-item">
-                <select
-                  onChange={changeLanguage}
-                  className={`nav-link me-3 ${
-                    !navScroll ? "" : "text-light"
-                  }isColor`}
-                >
-                  <option style={{ color: "#000000" }} value="en">
-                    English (en)
-                  </option>
-                  <option style={{ color: "#000000" }} value="ar">
-                    العربية (ar)
-                  </option>
+                <select onChange={changeLanguage}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`}>
+                  <option style={{ color: "#000000" }} value="en">English (en)</option>
+                  <option style={{ color: "#000000" }} value="ar">العربية (ar)</option>
                 </select>
               </li>
             </ul>
 
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0 d-flex align-items-center">
               <li
-                className={`nav-link me-3  ${
-                  !navScroll ? "" : "text-light"
-                } isColor`}
+                className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                  } isColor`}
                 style={{ cursor: "pointer" }}
                 onClick={handleSelectionForLogin}
               >
@@ -152,13 +137,13 @@ const Navbar = ({ toggleTheme }) => {
               </li>
 
               <li
-                className={`nav-item btn p-1 ${
-                  !navScroll ? "btn-danger" : "btn-light"
-                }  p-0 m-0 `}
+                className={`nav-item btn p-1 ${!navScroll ? "btn-danger" : "btn-light"
+                  }  p-0 m-0 `}
                 onClick={handleSelection}
               >
                 {t("Register")}
               </li>
+
             </ul>
             <button
               className={`btn btn-link ${styles.themeToggle}`}

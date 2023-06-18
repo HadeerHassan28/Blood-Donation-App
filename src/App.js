@@ -40,6 +40,7 @@ function App() {
   useEffect(() => {
     Aos.init({ duration: 1500 });
   });
+
   useEffect(() => {
     saveTokenData();
   }, []);
