@@ -10,7 +10,10 @@ import { SiGmail } from "react-icons/si";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { Trans, useTranslation } from 'react-i18next';
+
 const Footer = () => {
+  const {t} = useTranslation();
   return (
     <>
       {/* <div className={`${styles.footerItem} text-center position-relative mt-5`} >
@@ -68,10 +71,9 @@ const Footer = () => {
             <div className="col-md-4 col-lg-4 col-xl-4" >
               <div className="d-flex align-items-center ">
                 <img src={logoREv} style={{ width: "50px" }} alt="" />
-                <h5 className="ms-3 text-uppercase fw-bold"><span className="text-danger">Blood</span> Donation</h5>
+                <h5 className="ms-3 text-uppercase fw-bold"><Trans i18nKey="Blood-Donation-footer"><span className="text-danger"></span></Trans></h5>
               </div>
-              <p className="mt-2 fs-5 text-white-50"> is a simple act of kindness that can have a profound impact on someone's life.It only takes a few minutes to donate blood,
-                but the impact can last a lifetime.</p>
+              <p className="mt-2 fs-5 text-white-50">{t("blood-donation-definition")}</p>
               <div className="icons mt-4">
                 <AiFillFacebook className={`${styles.links} me-2`} size={30}></AiFillFacebook>
                 <SiGmail className={`${styles.links} me-2`} size={30}></SiGmail>
@@ -83,31 +85,31 @@ const Footer = () => {
 
             <div className="col-md-3 col-lg-3 col-xl-3 p-4">
               <div className="links d-flex flex-column mt-3">
-                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>Register</Link></div>
-                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>Find Blood</Link></div>
-                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>Donate</Link></div>
-                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>Volunteers</Link></div>
+                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>{t("Register")}</Link></div>
+                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>{t("Find Blood")}</Link></div>
+                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>{t("Donate")}</Link></div>
+                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>{t("Volunteers")}</Link></div>
               </div>
             </div>
 
             <div className="col-md-3 col-lg-3 col-xl-3 p-4">
               {/* <h6 className="ms-2">Links</h6> */}
               <div className="links d-flex flex-column mt-3">
-                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>About Us</Link></div>
-                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>Contact Us</Link></div>
-                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>Blogs</Link></div>
-                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>Terms & Conditions</Link></div>
+                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>{t("About Us")}</Link></div>
+                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>{t("Contact Us")}</Link></div>
+                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>{t("Blogs")}</Link></div>
+                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>{t("Terms & Conditions")}</Link></div>
               </div>
             </div>
 
             <div className="col-md-2 col-lg-2 col-xl-2 p-4">
-              <h6>Download App</h6>
+              <h6>{t("Download App")}</h6>
               <Link> <img className="mt-2 mb-2" src={googlePlay} alt="" /></Link>
               <Link><img src={appStore} alt="" /></Link>
             </div>
           </div>
           <hr className="mt-4" />
-          <p className="text-center fs-5"><span className="text-danger">&copy;2023</span> All Rights Reserved For Blood Donation Team</p>
+          <p className="text-center fs-5"><span className="text-danger">&copy;2023</span> {t("All Rights Reserved For Blood Donation Team")}</p>
         </div>
 
       </footer>

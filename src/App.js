@@ -17,17 +17,18 @@ import OrgProfile from "./Components/OrgProfile/OrgProfile";
 import Terms from "./Components/Terms/Terms";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import UserProfile from "./Components/Profile/user/userProfile";
+import UserEdit from "./Components/Edit/UserEdit/UserEdit";
 import { Toaster } from "react-hot-toast";
 // Start Animation Library
 import Aos from "aos";
 import "aos/dist/aos.css";
 import jwtDecode from "jwt-decode";
 
-// End Animation Library
+import ToggleColorMode from "./Components/Darkthem/DarkThem"; // End Animation Library
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
-    if (localStorage.getItem("token") == null) {
+    if (localStorage.getItem("token") === null) {
       setTokenData(null);
     } else {
       let encodedToken = localStorage.getItem("token");
@@ -45,7 +46,6 @@ function App() {
   let routes = createBrowserRouter([
     {
       path: "",
-
       element: <Layout />,
       children: [
         {
@@ -112,6 +112,12 @@ function App() {
           path: "userProfile",
           element: <UserProfile TokenData={TokenData} />,
         },
+        {
+          path: "userProfile/edit",
+          element: (
+            <UserEdit TokenData={TokenData} saveTokenData={saveTokenData} />
+          ),
+        },
 
         {
           path: "*",
@@ -120,10 +126,14 @@ function App() {
       ],
     },
   ]);
+
   return (
     <>
       <Toaster />
-      <RouterProvider router={routes}></RouterProvider>
+      <ToggleColorMode />
+      <RouterProvider router={routes}>
+        <Layout />
+      </RouterProvider>
     </>
   );
 }
