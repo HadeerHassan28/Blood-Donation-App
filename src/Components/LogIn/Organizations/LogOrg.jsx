@@ -40,6 +40,7 @@ const LogOrg = ({ saveTokenData }) => {
       });
     }
   };
+
   return (
     <div className={styles.login_org}>
       <div className={styles.login_org_content}>
@@ -78,5 +79,4 @@ const LogOrg = ({ saveTokenData }) => {
     </div>
   );
 };
-
 export default LogOrg;

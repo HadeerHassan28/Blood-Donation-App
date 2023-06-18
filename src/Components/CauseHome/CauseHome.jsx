@@ -11,6 +11,8 @@ import emergencies from '../../assets/emergencies.svg'
 import everyone from '../../assets/everyone.svg'
 import hero from '../../assets/hero.svg'
 import Slider from "react-slick";
+import { Trans, useTranslation } from 'react-i18next';
+
 const CauseHome = () => {
   const settings = {
     dots: true,
@@ -30,6 +32,7 @@ const CauseHome = () => {
       }
     ],
   };
+  const { t } = useTranslation();
   return (
     <>
       <div className="container py-5 mt-5">
@@ -37,10 +40,10 @@ const CauseHome = () => {
           <div className="col-md-8 col-sm-12 ">
             <div className="d-flex align-items-center">
               <AiOutlineSearch className="text-danger me-1 fs-4"></AiOutlineSearch>
-              <h3 className="text-muted">Find Donors in your Area</h3>
+              <h3 className="text-muted">{t("Find Donors in your Area")}</h3>
             </div>
             <p className="text-black-50 mt-3 fs-5">
-              Get connected in a matter of minutes at zero cost. Our App ships with a smart system that finds the closest blood donors. Our automated blood donation system works efficiently whenever someone needs a blood transfusion.
+              {t("Get connected in a matter of minutes at zero cost")}
             </p>
           </div>
           <div className="col-md-4  col-sm-12">
@@ -54,10 +57,10 @@ const CauseHome = () => {
           <div className="col-md-8 col-sm-12 ">
             <div className="d-flex align-items-center">
               <AiOutlineClockCircle className="text-danger me-1 fs-4"></AiOutlineClockCircle>
-              <h3 className="text-muted">Answer to Emergencies</h3>
+              <h3 className="text-muted">{t("Answer to Emergencies")}</h3>
             </div>
             <p className="text-black-50 mt-3 fs-5">
-              As soon as a new blood request is raised, it is routed among our local volunteer blood donors. We know time matters! So we keep you updated with real-time notifications sent directly to you via SMS(text message) or the installed mobile app
+            {t("Answer to Emergencies Paragraph")}
             </p>
           </div>
         </div>
@@ -65,10 +68,10 @@ const CauseHome = () => {
           <div className="col-md-8  col-sm-12 ">
             <div className="d-flex  align-items-center">
               <TiGroupOutline className="text-danger me-2 fs-1"></TiGroupOutline>
-              <h3 className="text-muted">Made for Everyone</h3>
+              <h3 className="text-muted">{t("Made for Everyone")}</h3>
             </div>
             <p className="text-black-50  mt-3 fs-5">
-              All you need to do is send a text message to 8655, "blood need (blood-group) in (your-city)", in any language you want. Our system is smart enough to understand anything you write and helps you find a donor within minutes if not seconds
+            {t("Made for Everyone Paragraph")}
             </p>
           </div>
           <div className="col-md-4 col-sm-12">
@@ -82,25 +85,23 @@ const CauseHome = () => {
           <div className="col-md-8 col-sm-12 ">
             <div className="d-flex align-items-center">
               <FaSuperpowers className="text-danger me-2 fs-1"></FaSuperpowers>
-              <h3 className="text-muted">You are someone's Hero</h3>
+              <h3 className="text-muted">{t("You are someone's Hero")}</h3>
             </div>
             <p className="text-black-50 mt-3 fs-5">
-              In as little as few minutes, you can become someone's unnamed, unknown, but all-important Hero. Saving a life is a noble work that starts very simply and easily. Donate Blood or donate Money, every form of contribution you make is important, valued and essential in our shared mission to save lives.
-
-
+            {t("You are someone's Hero Paragraph")}
             </p>
           </div>
         </div>
       </div>
       <div style={{ backgroundColor: "#344258" }} className="py-5  mb-5 text-white text-center rounded">
-        <h2 className="mb-3">Start Saving Lives</h2>
-        <p className="mb-3 fs-5">Become a donor or request for blood and help save<br /> lives</p>
-        <button className="btn btn-danger">Register</button>
+        <h2 className="mb-3">{t("Start Saving Lifes")}</h2>
+        <p className="mb-3 fs-5"><Trans>Start Saving Lifes Paragraph</Trans></p>
+        <button className="btn btn-danger">{t("Register")}</button>
       </div>
       <div className="container testimonials py-5 mb-5">
         <div className="text-center">
-          <h2 className="text-danger">Lives Saved</h2>
-          <p className="fs-5 text-muted">Blood Donation helped saving the live of more <span className="fw-bold ">20000 people</span> <br />help us saving more</p>
+          <h2 className="text-danger">{t("Lifes Saved")}</h2>
+          <p className="fs-5 text-muted"><Trans i18nKey="Lifes Saved Paragraph"><span className="fw-bold "></span></Trans></p>
         </div>
         <div className="row">
           <Slider {...settings}>

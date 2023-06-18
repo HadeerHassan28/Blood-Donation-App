@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import jwtEncode from "jwt-encode";
 
 const User = () => {
@@ -85,7 +86,6 @@ const User = () => {
       setIsLastNameValid(isValid);
     } else if (name === "email") {
       setIsEmailValid(isMailValid);
-      console.log(true);
     } else if (name === "password") {
       setIsPasswordValid(isEnteredPasswordValid);
     } else if (name === "confirmPassword") {
@@ -108,15 +108,13 @@ const User = () => {
     e.preventDefault();
     axios.get("http://localhost:3000/users").then((res) => {
       const users = res.data;
-      //console.log(users);
       const user = users.find(
         (user) => user.email === data.email && user.password === data.password
       );
       if (user) {
         console.log("this account is existed");
-        // toast.success("this account is existed");
+        toast.error("this account is existed");
         setIsEmailExisting(true);
-        navigate("/Signup-user/signin-user");
       } else {
         if (
           isFirstNameValid &&
@@ -139,6 +137,8 @@ const User = () => {
             bloodType: data.bloodType,
             gender: data.gender,
             isVolunteer: false,
+            image: process.env.PUBLIC_URL + "/assets/images/userImage.jpg",
+
             role: "user",
           };
 
@@ -505,13 +505,13 @@ const User = () => {
           </div>
         </div>
       </div>
-      {isEmailExisting && (
+      {/* {isEmailExisting && (
         <div class="alert alert-danger mt-5" role="alert">
           <span className="text-center fw-bold d-block">
             This Account Exist
           </span>
-        </div>
-      )}
+        </div> }
+      )*/}
     </div>
   );
 };

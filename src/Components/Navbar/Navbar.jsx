@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 import logo from "../../heart.png";
 import logoREv from "../../heart-rev.png";
 import Selection from "../Selection/Selection";
+import { useTranslation } from "react-i18next";
+
 const Navbar = () => {
   const [navScroll, setnavScroll] = useState(false);
-  const [isSelectionActive, setIsSelectionActive] = useState(false)
-  const [isForLogin, setIsForLogin] = useState(false)
+  const [isSelectionActive, setIsSelectionActive] = useState(false);
+  const [isForLogin, setIsForLogin] = useState(false);
+  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+
   const changeNav = () => {
     if (window.scrollY > 56) {
       setnavScroll(true);
@@ -15,29 +20,37 @@ const Navbar = () => {
       setnavScroll(false);
     }
   };
+
   const handleSelection = () => {
+    !isSelectionActive
+      ? setIsSelectionActive(true)
+      : setIsSelectionActive(false);
 
-    !isSelectionActive ? setIsSelectionActive(true) : setIsSelectionActive(false)
-
-    console.log(isSelectionActive)
-  }
+    console.log(isSelectionActive);
+  };
   const handleSelectionForLogin = () => {
+    !isForLogin ? setIsForLogin(true) : setIsForLogin(false);
 
-    !isForLogin ? setIsForLogin(true) : setIsForLogin(false)
+    console.log(isSelectionActive);
+  };
 
-    console.log(isSelectionActive)
-  }
   window.addEventListener("scroll", changeNav);
+  const changeLanguage = (e) => {
+    i18n.changeLanguage(e.target.value);
+  };
   return (
     <>
-      <nav style={{ zIndex: "1111111" }}
-        className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${navScroll ? styles.scrollActive : styles.scrollNotActive
-          }`}
+      <nav
+        style={{ zIndex: "1111111" }}
+        className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${
+          navScroll ? styles.scrollActive : styles.scrollNotActive
+        }`}
       >
         <div className="container">
           <Link
-            className={`navbar-brand me-5 ${!navScroll ? "main-color" : "text-light"
-              }`}
+            className={`navbar-brand me-5 ${
+              !navScroll ? "main-color" : "text-light"
+            }`}
             to="/"
           >
             <img
@@ -68,57 +81,89 @@ const Navbar = () => {
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
               <li className="nav-item" aria-current="page">
                 <Link
-                  className={`nav-link  me-3  ${!navScroll ? "" : "text-light"
-                    }`}
+                  className={`nav-link me-3  ${
+                    !navScroll ? "" : "text-light"
+                  } isColor`}
                   to="/"
                 >
-                  Home
+                  {t("Home")}
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`}
+                  className={`nav-link me-3  ${
+                    !navScroll ? "" : "text-light"
+                  } isColor`}
                   to="about"
                 >
-                  About
+                  {t("About")}
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link me-3 ${!navScroll ? "" : "text-light"}`}
+                  className={`nav-link me-3 ${
+                    !navScroll ? "" : "text-light"
+                  } isColor`}
                   to="blogs"
                 >
-                  Blogs
+                  {t("Blogs")}
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`}
+                  className={`nav-link me-3  ${
+                    !navScroll ? "" : "text-light"
+                  } isColor`}
                   to="volunteers"
                 >
-                  Volunteers
+                  {t("Volunteers")}
                 </Link>
+              </li>
+              <li className="nav-item">
+                <select
+                  onChange={changeLanguage}
+                  className={`nav-link me-3 ${
+                    !navScroll ? "" : "text-light"
+                  }isColor`}
+                >
+                  <option style={{ color: "#000000" }} value="en">
+                    English (en)
+                  </option>
+                  <option style={{ color: "#000000" }} value="ar">
+                    العربية (ar)
+                  </option>
+                </select>
               </li>
             </ul>
 
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0 d-flex align-items-center">
-              <li className={`nav-link me-3  ${!navScroll ? "" : "text-light"}`} style={{ cursor: "pointer" }} onClick={handleSelectionForLogin}>
-
-                Login
-              </li>
               <li
-                className={`nav-item btn p-1 ${!navScroll ? "btn-danger" : "btn-light"
-                  }  p-0 m-0 `}
-                onClick={handleSelection}
-
+                className={`nav-link me-3  ${
+                  !navScroll ? "" : "text-light"
+                } isColor`}
+                style={{ cursor: "pointer" }}
+                onClick={handleSelectionForLogin}
               >
+                {t("Login")}
+              </li>
 
-                Register
+              <li
+                className={`nav-item btn p-1 ${
+                  !navScroll ? "btn-danger" : "btn-light"
+                }  p-0 m-0 `}
+                onClick={handleSelection}
+              >
+                {t("Register")}
               </li>
             </ul>
           </div>
-          {isForLogin && <Selection onSelection={setIsForLogin} isForSignUp={false} />}
-          {isSelectionActive && <Selection onSelection={setIsSelectionActive} isForSignUp={true} />}
+
+          {isForLogin && (
+            <Selection onSelection={setIsForLogin} isForSignUp={false} />
+          )}
+          {isSelectionActive && (
+            <Selection onSelection={setIsSelectionActive} isForSignUp={true} />
+          )}
         </div>
       </nav>
     </>
