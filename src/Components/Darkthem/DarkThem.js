@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-
+import Navbar from "../Navbar/Navbar";
 function ToggleColorMode() {
   const [theme, setTheme] = useState(false);
 
@@ -18,7 +18,7 @@ function ToggleColorMode() {
   return (
     <ThemeProvider theme={themeConfig}>
       <CssBaseline />
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <Navbar toggleTheme={toggleTheme} />
     </ThemeProvider>
   );
 }

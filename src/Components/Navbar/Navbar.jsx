@@ -5,11 +5,13 @@ import logo from "../../heart.png";
 import logoREv from "../../heart-rev.png";
 import Selection from "../Selection/Selection";
 import { useTranslation } from "react-i18next";
+import { Brightness4, Brightness7 } from "@mui/icons-material";
 
-const Navbar = () => {
+const Navbar = ({ toggleTheme }) => {
   const [navScroll, setnavScroll] = useState(false);
   const [isSelectionActive, setIsSelectionActive] = useState(false);
   const [isForLogin, setIsForLogin] = useState(false);
+  const [theme, setTheme] = useState("light");
   const { t } = useTranslation();
   const { i18n } = useTranslation();
 
@@ -33,7 +35,9 @@ const Navbar = () => {
 
     console.log(isSelectionActive);
   };
-
+  const handleToggleTheme = () => {
+    toggleTheme();
+  };
   window.addEventListener("scroll", changeNav);
   const changeLanguage = (e) => {
     i18n.changeLanguage(e.target.value);
@@ -156,6 +160,16 @@ const Navbar = () => {
                 {t("Register")}
               </li>
             </ul>
+            <button
+              className={`btn btn-link ${styles.themeToggle}`}
+              onClick={handleToggleTheme}
+            >
+              {theme === "light" ? (
+                <Brightness4 fontSize="small" />
+              ) : (
+                <Brightness7 fontSize="small" />
+              )}
+            </button>
           </div>
 
           {isForLogin && (
