@@ -137,6 +137,8 @@ const User = () => {
             bloodType: data.bloodType,
             gender: data.gender,
             isVolunteer: false,
+            image: process.env.PUBLIC_URL + "/assets/images/userImage.jpg",
+
             role: "user",
           };
 
