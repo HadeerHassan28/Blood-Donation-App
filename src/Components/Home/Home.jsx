@@ -3,8 +3,10 @@ import styles from "./Home.module.css";
 import InfoHome from "../InfoHome/InfoHome";
 import CauseHome from "../CauseHome/CauseHome";
 import Selection from "../Selection/Selection";
+import { Trans, useTranslation } from 'react-i18next';
 const Home = () => {
   const [isSelectionActive, setIsSelectionActive] = useState(false);
+  const { t } = useTranslation();
 
   const handleSelection = () => {
     !isSelectionActive
@@ -31,7 +33,7 @@ const Home = () => {
                 color: "#ff4951",
               }}
             >
-              BLOOD <br /> DONATION
+              <Trans>Blood-Donation</Trans>
             </h2>
             <p
               style={{
@@ -42,7 +44,7 @@ const Home = () => {
                 marginBottom: 5,
               }}
             >
-              Saves Lifes,
+              {t("Saves Lifes,")}
             </p>
             <div className="mb-3">
               <span
@@ -56,7 +58,7 @@ const Home = () => {
                   borderRadius: 20,
                 }}
               >
-                Together we are stronger
+                {t("Together we are stronger")}
               </span>
             </div>
 
@@ -69,11 +71,10 @@ const Home = () => {
                 maxWidth: "500px",
               }}
             >
-              Find blood donors near your location and make a blood request in
-              less than 5 minutes.
+              {t("Find-blood-donors")}
             </p>
             <button className="btn btn-danger fs-5" onClick={handleSelection}>
-              Donate Now
+              {t("Donate Now")}
             </button>
           </div>
 
@@ -82,14 +83,16 @@ const Home = () => {
           )}
         </div>
       </div>
-      <div className="row container mx-auto text-center mt-5 p-5" data-aos="fade-up">
+      <div
+        className="row container mx-auto text-center mt-5 p-5"
+        data-aos="fade-up"
+      >
         <InfoHome></InfoHome>
       </div>
       <div className="text-center mt-5">
-        <h2 className="main-color">Join The Cause</h2>
+        <h2 className="main-color">{t("Join The Cause")}</h2>
         <p className="text-muted">
-          Join our cause and help us save more lives. Everyone should have the
-          right to get a blood transfusion.
+          {t("Join-our-cause")}
         </p>
       </div>
       <CauseHome></CauseHome>

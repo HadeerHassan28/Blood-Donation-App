@@ -23,19 +23,19 @@ import { Toaster } from "react-hot-toast";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import jwtDecode from "jwt-decode";
-// End Animation Library
+
+import ToggleColorMode from "./Components/Darkthem/DarkThem"; // End Animation Library
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
     if (localStorage.getItem("token") === null) {
-      setTokenData(null)
+      setTokenData(null);
     } else {
       let encodedToken = localStorage.getItem("token");
       let decodedToken = jwtDecode(encodedToken);
       setTokenData(decodedToken);
-      console.log(encodedToken)
+      console.log(encodedToken);
     }
-
   }
 
   useEffect(() => {
@@ -48,7 +48,6 @@ function App() {
   let routes = createBrowserRouter([
     {
       path: "",
-
       element: <Layout />,
       children: [
         {
@@ -127,10 +126,14 @@ function App() {
       ],
     },
   ]);
+
   return (
     <>
       <Toaster />
-      <RouterProvider router={routes}></RouterProvider>
+      <ToggleColorMode />
+      <RouterProvider router={routes}>
+        <Layout />
+      </RouterProvider>
     </>
   );
 }

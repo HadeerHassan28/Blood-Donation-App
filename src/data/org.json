@@ -70,6 +70,17 @@
       "sector": "",
       "pNumber": "08245331245",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdOYW1lIjoiZWxnYW1hYSIsIk9yZ2FuaXphdGlvbkNvZGUiOiI1MCIsIkFkZHJlc3MiOiJibnMiLCJzZWN0b3IiOiIiLCJpc05lZWRzVm9sdW50ZWVycyI6ZmFsc2UsInBOdW1iZXIiOiIwODI0NTMzMTI0NSIsInJvbGUiOiJvcmcifQ.3uNPebyL4GLGzetiJvxmzzGajkrQPlzTVP1xZFsDiUQ"
+    },
+    {
+      "id": "7f42cda3-0d73-4901-8eeb-09cb8dde7b0c",
+      "orgName": "NaserInstitute",
+      "password": "123123",
+      "confirmPassword": "123123",
+      "OrganizationCode": "6060",
+      "Address": "cairo",
+      "sector": "",
+      "pNumber": "0823548210",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdOYW1lIjoiTmFzZXJJbnN0aXR1dGUiLCJPcmdhbml6YXRpb25Db2RlIjoiNjA2MCIsIkFkZHJlc3MiOiJjYWlybyIsInNlY3RvciI6IiIsImlzTmVlZHNWb2x1bnRlZXJzIjpmYWxzZSwicE51bWJlciI6IjA4MjM1NDgyMTAiLCJyb2xlIjoib3JnIn0.Aysy9YPwYQa2cYS9SP817NBOEN3H9KqnOTDfg5xhN9M"
     }
   ]
 }

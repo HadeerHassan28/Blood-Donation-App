@@ -1,25 +1,26 @@
-@media (max-width:991px) {
-    .aboutContent {
-        text-align: center;
-    }
+@media (max-width: 991px) {
+  .aboutContent {
+    text-align: center;
+  }
 }
 
 .card {
-    transition: 0.3s ease;
-    -webkit-transition: 0.3s ease;
-    -moz-transition: 0.3s ease;
-    -ms-transition: 0.3s ease;
-    -o-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .card p {
-    font-size: 17px;
+  font-size: 17px;
 }
 
 .card h5 {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .card:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }

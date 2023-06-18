@@ -4,7 +4,7 @@ export const OrgProfile = ({ TokenData }) => {
   console.log(TokenData);
   return (
     <>
-      <section className="py-5 mb-4" style={{ backgroundColor: "#fbf1f0" }}>
+      <section style={{ backgroundColor: "#fbf1f0" }}>
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-4">
@@ -16,7 +16,8 @@ export const OrgProfile = ({ TokenData }) => {
                     className="rounded-circle img-fluid"
                     style={{ width: "150px" }}
                   />
-                  <div className="d-flex justify-content-center mt-4 mb-2">
+                  <h5 className="my-3">{TokenData.orgName}</h5>
+                  <div className="d-flex justify-content-center mb-2">
                     <Link style={{ color: "white" }} to="edit">
                       <button type="button" className="btn btn-danger  px-5">
                         Edit
@@ -44,6 +45,7 @@ export const OrgProfile = ({ TokenData }) => {
                     </div>
                   </div>
                   <hr />
+
                   <div className="row">
                     <div className="col-sm-3">
                       <p className="mb-0">Phone</p>
@@ -61,8 +63,19 @@ export const OrgProfile = ({ TokenData }) => {
                       <p className="text-muted mb-0">{TokenData.Address}</p>
                     </div>
                   </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">Sector</p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{TokenData.sector}</p>
+                    </div>
+                  </div>
                 </div>
+
               </div>
+
             </div>
           </div>
         </div>
