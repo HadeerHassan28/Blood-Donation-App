@@ -34,7 +34,6 @@ function App() {
       let encodedToken = localStorage.getItem("token");
       let decodedToken = jwtDecode(encodedToken);
       setTokenData(decodedToken);
-      console.log(encodedToken);
     }
   }
 
@@ -116,7 +115,9 @@ function App() {
         },
         {
           path: "userProfile/edit",
-          element: <UserEdit TokenData={TokenData} />,
+          element: (
+            <UserEdit TokenData={TokenData} saveTokenData={saveTokenData} />
+          ),
         },
 
         {

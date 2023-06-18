@@ -86,7 +86,6 @@ const User = () => {
       setIsLastNameValid(isValid);
     } else if (name === "email") {
       setIsEmailValid(isMailValid);
-      console.log(true);
     } else if (name === "password") {
       setIsPasswordValid(isEnteredPasswordValid);
     } else if (name === "confirmPassword") {
@@ -109,7 +108,6 @@ const User = () => {
     e.preventDefault();
     axios.get("http://localhost:3000/users").then((res) => {
       const users = res.data;
-      //console.log(users);
       const user = users.find(
         (user) => user.email === data.email && user.password === data.password
       );
@@ -139,6 +137,8 @@ const User = () => {
             bloodType: data.bloodType,
             gender: data.gender,
             isVolunteer: false,
+            image: process.env.PUBLIC_URL + "/assets/images/userImage.jpg",
+
             role: "user",
           };
 
@@ -510,8 +510,8 @@ const User = () => {
           <span className="text-center fw-bold d-block">
             This Account Exist
           </span>
-        </div> */}
-      )}
+        </div> }
+      )*/}
     </div>
   );
 };
