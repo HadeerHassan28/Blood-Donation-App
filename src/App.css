@@ -3,7 +3,8 @@
 
 p,
 span,
-h3 {
+h3,
+.isColor {
   color: black !important;
 }
 
@@ -14,5 +15,8 @@ h3:not([style*="color"]) {
   color: inherit !important;
 }
 span:not([style*="color"]) {
+  color: inherit !important;
+}
+.isColor:not([style*="color"]) {
   color: inherit !important;
 }
