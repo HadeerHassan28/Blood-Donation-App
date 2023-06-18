@@ -94,14 +94,14 @@ const CauseHome = () => {
         </div>
       </div>
       <div style={{ backgroundColor: "#344258" }} className="py-5  mb-5 text-white text-center rounded">
-        <h2 className="mb-3">{t("Start Saving Lifes")}</h2>
-        <p className="mb-3 fs-5"><Trans>Start Saving Lifes Paragraph</Trans></p>
+        <h2 className="mb-3">{t("Start Saving Lives")}</h2>
+        <p className="mb-3 fs-5"><Trans>Start Saving Lives Paragraph</Trans></p>
         <button className="btn btn-danger">{t("Register")}</button>
       </div>
       <div className="container testimonials py-5 mb-5">
         <div className="text-center">
-          <h2 className="text-danger">{t("Lifes Saved")}</h2>
-          <p className="fs-5 text-muted"><Trans i18nKey="Lifes Saved Paragraph"><span className="fw-bold "></span></Trans></p>
+          <h2 className="text-danger">{t("Lives Saved")}</h2>
+          <p className="fs-5 text-muted"><Trans i18nKey="Lives Saved Paragraph"><span className="fw-bold "></span></Trans></p>
         </div>
         <div className="row">
           <Slider {...settings}>

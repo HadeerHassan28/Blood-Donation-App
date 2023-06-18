@@ -44,7 +44,7 @@ const Home = () => {
                 marginBottom: 5,
               }}
             >
-              {t("Saves Lifes,")}
+              {t("Saves Lives,")}
             </p>
             <div className="mb-3">
               <span

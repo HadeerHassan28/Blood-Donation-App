@@ -18,7 +18,7 @@ function ToggleColorMode() {
   return (
     <ThemeProvider theme={themeConfig}>
       <CssBaseline />
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <button onClick={toggleTheme}>Dark Mode</button>
     </ThemeProvider>
   );
 }
