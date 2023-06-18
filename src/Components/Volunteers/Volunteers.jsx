@@ -14,15 +14,16 @@ const Volunteers = () => {
   const bloodGroup = useRef();
   const location = useRef();
   const {t} = useTranslation();
-  useEffect(()=>{
+
+  useEffect(() => {
     axios.get("http://localhost:3000/users").then(res => {
       setVolunteers(res.data)
       setSearchRes(res.data)
     })
-  },[])
+  }, [])
 
   const searchBloodGroupLocation = () => {
-    if(volunteers !== null){
+    if (volunteers !== null) {
       if (bloodGroup.current.value !== 'All' && bloodGroup.current.value !== '' && location.current.value !== '') {
         setSearchRes(volunteers.filter(vol => vol.bloodType === bloodGroup.current.value && vol.city.toLowerCase().includes(location.current.value.toLowerCase())))
       }
@@ -36,7 +37,7 @@ const Volunteers = () => {
         setSearchRes(volunteers)
       }
     }
-    else{
+    else {
       location.current.value = '';
       bloodGroup.current.value = '';
     }
@@ -53,14 +54,14 @@ const Volunteers = () => {
     bloodGroup.current.value = '';
   }
 
-  const handlePrev = ()=>{
-    if(startIndex > 0){
+  const handlePrev = () => {
+    if (startIndex > 0) {
       setStartIndex(oldStart => oldStart - searchResStep)
       setEndIndex(oldEnd => oldEnd - searchResStep)
     }
   }
-  const handleNext = ()=>{
-    if(endIndex < searchRes.length){
+  const handleNext = () => {
+    if (endIndex < searchRes.length) {
       setStartIndex(oldStart => oldStart + searchResStep)
       setEndIndex(oldEnd => oldEnd + searchResStep)
     }
@@ -119,6 +120,7 @@ const Volunteers = () => {
         <button className="btn btn-outline-danger" onClick={resetSearch}>{t("Reset")}</button>
       </div>
       <div className={searchRes? "d-none text-center text-danger fs-3": "d-block text-center text-danger fs-4"}>{t("Please wait data loading")}</div>
+      <div className={searchRes ? "d-none text-center text-danger fs-3" : "d-block text-center text-danger fs-4"}>Please wait data loading</div>
       <table className={`${styles.tableW} table w-75 mt-5 mx-auto`}>
         <thead>
           <tr>
@@ -152,16 +154,16 @@ const Volunteers = () => {
           </tr>):<tr><td colSpan={3} className="fs-4">{t("Loading...")}</td></tr>}
         </tbody>
         <tfoot>
-          {searchRes&&searchRes.length > searchResStep&& <tr>
+          {searchRes && searchRes.length > searchResStep && <tr>
             <td colSpan={3} className="text-center">
               <button onClick={handlePrev} className={`${styles.navigateRes} text-center m-2`}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 24 24">
-                  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
                 </svg>
               </button>
               <button onClick={handleNext} className={`${styles.navigateRes} text-center m-2`}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 24 24">
-                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
                 </svg>
               </button>
             </td>

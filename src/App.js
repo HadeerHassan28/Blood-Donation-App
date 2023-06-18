@@ -34,13 +34,13 @@ function App() {
       let encodedToken = localStorage.getItem("token");
       let decodedToken = jwtDecode(encodedToken);
       setTokenData(decodedToken);
-      console.log(encodedToken);
     }
   }
 
   useEffect(() => {
     Aos.init({ duration: 1500 });
   });
+
   useEffect(() => {
     saveTokenData();
   }, []);
@@ -115,7 +115,9 @@ function App() {
         },
         {
           path: "userProfile/edit",
-          element: <UserEdit TokenData={TokenData} />,
+          element: (
+            <UserEdit TokenData={TokenData} saveTokenData={saveTokenData} />
+          ),
         },
 
         {
