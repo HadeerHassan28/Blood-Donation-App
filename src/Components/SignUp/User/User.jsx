@@ -510,8 +510,8 @@ const User = () => {
           <span className="text-center fw-bold d-block">
             This Account Exist
           </span>
-        </div> */}
-      )}
+        </div> }
+      )*/}
     </div>
   );
 };
