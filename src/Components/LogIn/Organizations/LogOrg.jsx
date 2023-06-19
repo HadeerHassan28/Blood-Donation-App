@@ -3,10 +3,13 @@ import styles from "./LogOrg.module.css";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+
 const LogOrg = ({ saveTokenData }) => {
   const [orgCode, setOrgCode] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const {t} = useTranslation();
 
   const handleOrgCode = (e) => {
     let code = e.target.value;
@@ -44,11 +47,11 @@ const LogOrg = ({ saveTokenData }) => {
   return (
     <div className={styles.login_org}>
       <div className={styles.login_org_content}>
-        <h2 className="text-center text-danger">Log In - Organizations </h2>
+        <h2 className="text-center text-danger">{t("Log In - Organizations")}</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="oCode" className="form-label">
-              Organization Code
+              {t("Organization Code")}
             </label>
             <input
               type="text"
@@ -60,7 +63,7 @@ const LogOrg = ({ saveTokenData }) => {
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
-              Password
+              {t("Password")}
             </label>
             <input
               type="password"
@@ -72,7 +75,7 @@ const LogOrg = ({ saveTokenData }) => {
           </div>
 
           <button type="submit" className="btn btn-danger w-100">
-            Sign In
+            {t("Sign In")}
           </button>
         </form>
       </div>
