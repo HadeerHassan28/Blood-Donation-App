@@ -25,6 +25,7 @@ import "aos/dist/aos.css";
 import jwtDecode from "jwt-decode";
 
 import ToggleColorMode from "./Components/Darkthem/DarkThem"; // End Animation Library
+import OrgEdit from "./Components/OrgEdit/OrgEdit";
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
@@ -117,6 +118,12 @@ function App() {
           path: "userProfile/edit",
           element: (
             <UserEdit TokenData={TokenData} saveTokenData={saveTokenData} />
+          ),
+        },
+        {
+          path: "orgProfile/edit",
+          element: (
+            <OrgEdit TokenData={TokenData} saveTokenData={saveTokenData} />
           ),
         },
 
