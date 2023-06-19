@@ -15,7 +15,7 @@ export const OrgProfile = ({ TokenData }) => {
               <div className="card mb-4">
                 <div className="card-body text-center">
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                    src={TokenData.image}
                     alt="avatar"
                     className="rounded-circle img-fluid"
                     style={{ width: "150px" }}
@@ -43,7 +43,6 @@ export const OrgProfile = ({ TokenData }) => {
                     </div>
                     <div className="col-sm-9">
                       <p className="text-muted mb-0">
-                        {" "}
                         {TokenData.orgName}
                       </p>
                     </div>
@@ -52,10 +51,10 @@ export const OrgProfile = ({ TokenData }) => {
 
                   <div className="row">
                     <div className="col-sm-3">
-                      <p className="mb-0">{t("Phone")}</p>
+                      <p className="mb-0">{t("Code")}</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{TokenData.pNumber}</p>
+                      <p className="text-muted mb-0">{TokenData.OrganizationCode}</p>
                     </div>
                   </div>
                   <hr />
