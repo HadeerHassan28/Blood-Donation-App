@@ -27,7 +27,7 @@ const InfoHome = () => {
         <img src={foreverfree} alt="" />
         <h5 className="mt-2">{t("Forever Free")}</h5>
         <p className="text-black-50">
-          {t("You don't have to pay anything, Save Life Connect is forever Free !")}
+          {t("You don't have to pay anything, Blood Donation Connect is forever Free !")}
         </p>
       </div>
     </>

@@ -4,9 +4,11 @@ import axios from "axios";
 import jwtEncode from "jwt-encode";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const UserEdit = ({ TokenData, saveTokenData }) => {
   const navigate = useNavigate();
+  const {t} = useTranslation();
 
   const secretKey =
     Math.random().toString(36).substring(2, 15) +
@@ -143,11 +145,11 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
   return (
     <div>
       <div className="container">
-        <h2 className="text-center">Edit Account</h2>
+        <h2 className="text-center">{t("Edit Account")}</h2>
         <form className="row g-3" onSubmit={handleSubmit}>
           <div className="col-lg-6">
             <label htmlFor="firstName" className="form-label">
-              First Name
+              {t("First Name")}
             </label>
             <input
               type="text"
@@ -174,7 +176,7 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
           </div>
           <div className="col-lg-6">
             <label htmlFor="lastName" className="form-label ">
-              Last Name
+              {t("Last Name")}
             </label>
             <input
               type="text"
@@ -201,7 +203,7 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
           </div>
           <div className="col-lg-12">
             <label htmlFor="exampleInputEmail1" className="form-label">
-              Email address
+              {t("Email address")}
             </label>
             <input
               type="email"
@@ -257,7 +259,7 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
             */}
           <div className="col-lg-6">
             <label htmlFor="address" className="form-label">
-              Address
+              {t("Address")}
             </label>
             <input
               type="text"
@@ -284,7 +286,7 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
           </div>
           <div className="col-lg-6">
             <label htmlFor="city" className="form-label">
-              City
+              {t("City")}
             </label>
             <input
               type="text"
@@ -311,7 +313,7 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
           </div>
           <div className="col-lg-12">
             <label htmlFor="pNumber" className="form-label">
-              Phone Number
+              {t("Phone Number")}
             </label>
             <input
               type="number"
@@ -352,7 +354,7 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
           </div>
 
           <button className="btn btn-danger w-25 mx-auto mb-3">
-            Edit Data
+            {t("Edit Data")}
           </button>
         </form>
       </div>

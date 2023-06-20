@@ -6,12 +6,14 @@ import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import jwtEncode from "jwt-encode";
+import { useTranslation } from 'react-i18next';
 
 const User = () => {
   const navigate = useNavigate();
   const secretKey =
     Math.random().toString(36).substring(2, 15) +
     Math.random().toString(36).substring(2, 15);
+  const {t} = useTranslation();
   const [data, SetData] = useState({
     id: uuid(),
     firstName: "",
@@ -192,12 +194,12 @@ const User = () => {
           </div>
           <div className="col-lg-6">
             <h2 className="text-center my-5 text-danger">
-              Sign Up To Save A Life!
+              {t("Sign Up To Save A Life!")}
             </h2>
             <form className="row g-3" onSubmit={handleSubmit} method="POST">
               <div className="col-lg-6">
                 <label htmlFor="firstName" className="form-label">
-                  First Name
+                  {t("First Name")}
                 </label>
                 <input
                   type="text"
@@ -222,12 +224,12 @@ const User = () => {
                   }}
                 />
                 {!isFirstNameValid && isFirstNameFocused && (
-                  <div className="text-danger">* This Field Can't be Empty</div>
+                  <div className="text-danger">{t("* This Field Can't be Empty")}</div>
                 )}
               </div>
               <div className="col-lg-6">
                 <label htmlFor="lastName" className="form-label ">
-                  Last Name
+                  {t("Last Name")}
                 </label>
                 <input
                   type="text"
@@ -252,12 +254,12 @@ const User = () => {
                   }}
                 />
                 {!isLastNameValid && isLastNameFocused && (
-                  <div className="text-danger">* This Field Can't be Empty</div>
+                  <div className="text-danger">{t("* This Field Can't be Empty")}</div>
                 )}
               </div>
               <div className="col-lg-12">
                 <label htmlFor="exampleInputEmail1" className="form-label">
-                  Email address
+                  {t("Email address")}
                 </label>
                 <input
                   type="email"
@@ -283,13 +285,13 @@ const User = () => {
                 />
                 {!isEmailValid && isEmailFocused && (
                   <div className="text-danger">
-                    * Please Enter A Valid Email
+                    {t("* Please Enter A Valid Email")}
                   </div>
                 )}
               </div>
               <div className="col-lg-6">
                 <label htmlFor="password" className="form-label">
-                  Password
+                  {t("Password")}
                 </label>
                 <input
                   type="password"
@@ -315,13 +317,13 @@ const User = () => {
                 />
                 {!isPasswordValid && isPasswordFocused && (
                   <div className="text-danger">
-                    * Password Must be At least 6 Characters
+                    {t("* Password Must be At least 6 Characters")}
                   </div>
                 )}
               </div>
               <div className="col-lg-6">
                 <label htmlFor="confirmPassword" className="form-label">
-                  Confirm Password
+                  {t("Confirm Password")}
                 </label>
                 <input
                   type="password"
@@ -347,13 +349,13 @@ const User = () => {
                 />
                 {!isConfirmedPasswordValid && isConfirmedPasswordFocused && (
                   <div className="text-danger">
-                    * The Password Is Not Matching
+                    {t("* The Password Is Not Matching")}
                   </div>
                 )}
               </div>
               <div className="col-lg-6">
                 <label htmlFor="address" className="form-label">
-                  Address
+                  {t("Address")}
                 </label>
                 <input
                   type="text"
@@ -379,13 +381,13 @@ const User = () => {
                 />
                 {!isAddressValid && isAddressFocused && (
                   <div className="text-danger">
-                    * Please Enter A Valid Address
+                    {t("* Please Enter A Valid Address")}
                   </div>
                 )}
               </div>
               <div className="col-lg-6">
                 <label htmlFor="city" className="form-label">
-                  City
+                  {t("City")}
                 </label>
                 <input
                   type="text"
@@ -410,12 +412,12 @@ const User = () => {
                   }}
                 />
                 {!isCityValid && isCityFocused && (
-                  <div className="text-danger">* Please Enter A Valid City</div>
+                  <div className="text-danger">{t("* Please Enter A Valid City")}</div>
                 )}
               </div>
               <div className="col-lg-12">
                 <label htmlFor="pNumber" className="form-label">
-                  Phone Number
+                  {t("Phone Number")}
                 </label>
                 <input
                   type="number"
@@ -441,7 +443,7 @@ const User = () => {
                 />
                 {!isPnumberValid && isPnumberFocused && (
                   <div className="text-danger">
-                    * Please Enter A Valid Phone Number
+                    {t("* Please Enter A Valid Phone Number")}
                   </div>
                 )}
               </div>
@@ -454,7 +456,7 @@ const User = () => {
                   required
                 >
                   <option value="" hidden>
-                    Select Blood Type
+                    {t("Select Blood Type")}
                   </option>
                   <option value="A+">A+</option>
                   <option value="A-">A-</option>
@@ -475,31 +477,31 @@ const User = () => {
                   required
                 >
                   <option value="" hidden>
-                    Gender
+                    {t("Gender")}
                   </option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
+                  <option value="Male">{t("Male")}</option>
+                  <option value="Female">{t("Female")}</option>
                 </select>
               </div>
               <p>
-                Have an Account?{" "}
+                {t("Have an Account?")}{" "}
                 <Link
                   to="signin-user"
                   className="text-decoration-none text-danger fw-bold"
                 >
-                  <span>Sign in Here</span>
+                  <span>{t("Sign in Here")}</span>
                 </Link>
               </p>
-              <button className="btn btn-danger py-3">Sign Up</button>
+              <button className="btn btn-danger py-3">{t("Sign Up")}</button>
             </form>
             {isSubmitted && !isEmailExisting && isDataValid && (
               <div className="text-success">
-                Your Account Created Successfully
+                {t("Your Account Created Successfully")}
               </div>
             )}
             {isSubmitted && !isEmailExisting && !isDataValid && (
               <div className="text-danger">
-                Please Check For Any Missing Field
+                {t("Please Check For Any Missing Field")}
               </div>
             )}
           </div>
