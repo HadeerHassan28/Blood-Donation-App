@@ -3,7 +3,6 @@ import styles from "./userProfile.module.css";
 import { Link } from "react-router-dom";
 import user from "../../../assets/user.jpg";
 const UserProfile = ({ TokenData }) => {
-  console.log(TokenData);
   return (
     <>
       <section style={{ backgroundColor: "#fbf1f0" }}>
