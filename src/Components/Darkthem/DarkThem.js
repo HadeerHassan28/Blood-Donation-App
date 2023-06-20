@@ -1,30 +1,25 @@
-import { useState } from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import Navbar from "../Navbar/Navbar";
-function ToggleColorMode() {
-  const [theme, setTheme] = useState(false);
+// import { useState } from "react";
+// import { ThemeProvider, createTheme } from "@mui/material/styles";
+// import CssBaseline from "@mui/material/CssBaseline";
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => !prevTheme);
-  };
+// function ToggleColorMode() {
+//   const [theme, setTheme] = useState(false);
 
-  const themeConfig = createTheme({
-    palette: {
-      mode: theme ? "dark" : "light",
-    },
-  });
+//   const toggleTheme = () => {
+//     setTheme((prevTheme) => !prevTheme);
+//   };
 
-  return (
-    <ThemeProvider theme={themeConfig}>
-      <CssBaseline />
-<<<<<<< HEAD
-      <Navbar toggleTheme={toggleTheme} />
-=======
-      <button onClick={toggleTheme}>Dark Mode</button>
->>>>>>> d40eaeaa120c14858d4fa0448ce0b4c8576184eb
-    </ThemeProvider>
-  );
-}
+//   const themeConfig = createTheme({
+//     palette: {
+//       mode: theme ? "dark" : "light",
+//     },
+//   });
 
-export default ToggleColorMode;
+//   return;
+//      <ThemeProvider theme={themeConfig}>
+//      <CssBaseline />
+//       <button onClick={toggleTheme}>Toggle Theme</button>
+//    </ThemeProvider>
+// }
+
+// export default ToggleColorMode;

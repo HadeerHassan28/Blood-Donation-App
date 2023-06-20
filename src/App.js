@@ -1,10 +1,14 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  BrowserRouter,
+} from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
 import Notfound from "./Components/Notfound/Notfound";
-import About from "./Components/About/About";
+//import About from "./Components/About/About";
 import Blogs from "./Components/Blogs/Blogs";
 import Volunteers from "./Components/Volunteers/Volunteers";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
@@ -24,7 +28,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import jwtDecode from "jwt-decode";
 
-import ToggleColorMode from "./Components/Darkthem/DarkThem"; // End Animation Library
+// End Animation Library
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
@@ -131,10 +135,12 @@ function App() {
   return (
     <>
       <Toaster />
-      <ToggleColorMode />
+
+      {/* <BrowserRouter> */}
       <RouterProvider router={routes}>
         <Layout />
       </RouterProvider>
+      {/* </BrowserRouter> */}
     </>
   );
 }
