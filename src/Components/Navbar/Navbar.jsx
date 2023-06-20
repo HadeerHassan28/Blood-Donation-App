@@ -7,7 +7,7 @@ import Selection from "../Selection/Selection";
 import { useTranslation } from "react-i18next";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 import { conTheme } from "../../Context/Context";
-import ContextTheme from "../../Context/Context";
+//import ContextTheme from "../../Context/Context";
 const Navbar = ({ TokenData, setTokenData }) => {
   console.log(TokenData);
   const [navScroll, setnavScroll] = useState(false);
@@ -49,7 +49,7 @@ const Navbar = ({ TokenData, setTokenData }) => {
         style={{ zIndex: "1111111" }}
         className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${
           navScroll ? styles.scrollActive : styles.scrollNotActive
-        } navColor`}
+        } ${theme === "light" ? styles.lightTheme : styles.darkTheme}`}
       >
         <div className="container">
           <Link
@@ -171,7 +171,7 @@ const Navbar = ({ TokenData, setTokenData }) => {
                         setTokenData(null);
                         localStorage.removeItem("token");
                       }}
-                      className="nav-link"
+                      className={`nav-link isColor`}
                       to="Signup-user/signin-user"
                     >
                       Logout

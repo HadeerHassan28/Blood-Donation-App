@@ -27,6 +27,7 @@ import jwtDecode from "jwt-decode";
 // End Animation Library
 
 import OrgEdit from "./Components/OrgEdit/OrgEdit";
+import ContextTheme from "./Context/Context";
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
@@ -139,11 +140,13 @@ function App() {
 
   return (
     <>
-      <Toaster />
+      <ContextTheme>
+        <Toaster />
 
-      <RouterProvider router={routes}>
-        <Layout />
-      </RouterProvider>
+        <RouterProvider router={routes}>
+          <Layout />
+        </RouterProvider>
+      </ContextTheme>
     </>
   );
 }
