@@ -3,9 +3,11 @@ import styles from "./LogUser.module.css";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
+import { Trans, useTranslation } from 'react-i18next';
 
 const LogUser = ({ saveTokenData }) => {
   const navigate = useNavigate();
+  const {t} = useTranslation();
   const [data, SetData] = useState({
     id: uuid(),
     firstName: "",
@@ -72,11 +74,11 @@ const LogUser = ({ saveTokenData }) => {
   return (
     <div className={styles.login_user}>
       <div className={styles.login_user_content}>
-        <h2 className="text-center text-danger">Log In - Users </h2>
+        <h2 className="text-center text-danger">{t("Log In - Users")}</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
-              Email address
+              {t("Email address")}
             </label>
             <input
               type="email"
@@ -102,7 +104,7 @@ const LogUser = ({ saveTokenData }) => {
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
-              Password
+              {t("Password")}
             </label>
             <input
               aria-describedby="Password"
@@ -133,7 +135,7 @@ const LogUser = ({ saveTokenData }) => {
             className="btn btn-danger w-100"
             onChange={handleChange}
           >
-            Sign In
+            {t("Sign In")}
           </button>
         </form>
       </div>
