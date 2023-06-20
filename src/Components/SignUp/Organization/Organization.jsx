@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import jwtEncode from "jwt-encode";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const Organization = () => {
   const navigate = useNavigate();
+  const {t} = useTranslation();
 
   const [data, SetData] = useState({
     id: uuid(),
@@ -155,12 +157,12 @@ const Organization = () => {
         <div className="row">
           <div className="col-lg-6">
             <h2 className="text-center text-danger my-5">
-              Sign Up Your Organization To Save a Life
+              {t("Sign Up Your Organization To Save a Life")}
             </h2>
             <form className="row g-3" onSubmit={handleSubmit}>
               <div className="col-lg-12">
                 <label htmlFor="oName" className="form-label">
-                  Organization Name
+                  {t("Organization Name")}
                 </label>
                 <input
                   type="text"
@@ -187,7 +189,7 @@ const Organization = () => {
               </div>
               <div className="col-lg-12">
                 <label htmlFor="email" className="form-label">
-                  Organization Email
+                  {t("Organization Email")}
                 </label>
                 <input
                   type="email"
@@ -214,7 +216,7 @@ const Organization = () => {
               </div>
               <div className="col-lg-6">
                 <label htmlFor="password" className="form-label">
-                  Password
+                  {t("Password")}
                 </label>
                 <input
                   type="password"
@@ -241,7 +243,7 @@ const Organization = () => {
               </div>
               <div className="col-lg-6">
                 <label htmlFor="confirmPassword" className="form-label">
-                  Confirm Password
+                  {t("Confirm Password")}
                 </label>
                 <input
                   type="password"
@@ -268,7 +270,7 @@ const Organization = () => {
               </div>
               <div className="col-lg-6">
                 <label htmlFor="oCode" className="form-label">
-                  Organization Code
+                  {t("Organization Code")}
                 </label>
                 <input
                   type="number"
@@ -295,7 +297,7 @@ const Organization = () => {
               </div>
               <div className="col-lg-6">
                 <label htmlFor="Address" className="form-label">
-                  Address
+                  {t("Address")}
                 </label>
                 <input
                   type="text"
@@ -322,7 +324,7 @@ const Organization = () => {
               </div>
               <div className="col-lg-12">
                 <label htmlFor="pNumber" className="form-label">
-                  Phone Number
+                  {t("Phone Number")}
                 </label>
                 <input
                   type="number"
@@ -355,21 +357,21 @@ const Organization = () => {
                   onChange={handleChange}
                   required
                 >
-                  <option value="sector">Sector</option>
-                  <option value="governmental">governmental</option>
-                  <option value="Private">Private</option>
+                  <option value="sector">{t("Sector")}</option>
+                  <option value="governmental">{t("governmental")}</option>
+                  <option value="Private">{t("Private")}</option>
                 </select>
               </div>
               <p>
-                Have an Account?{" "}
+                {t("Have an Account?")}{" "}
                 <Link
                   to="signin-org"
                   className="text-decoration-none text-danger fw-bold"
                 >
-                  <span>Sign in Here</span>
+                  <span>{t("Sign in Here")}</span>
                 </Link>
               </p>
-              <button className="btn btn-danger py-3">Sign Up</button>
+              <button className="btn btn-danger py-3">{t("Sign Up")}</button>
             </form>
           </div>
           <div className="col-lg-6 mt-5 d-flex align-items-center">

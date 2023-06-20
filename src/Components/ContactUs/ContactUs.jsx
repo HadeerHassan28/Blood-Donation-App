@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import styles from "./ContactUs.module.css";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
+import { useTranslation } from 'react-i18next';
+
 const ContactUs = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const {t} = useTranslation();
+
 
   const serviceId = "service_qikwrd7";
   const templateId = "template_gpnjabj";
@@ -56,16 +60,15 @@ const ContactUs = () => {
   return (
     <div className="container py-5">
       <div className="text-center p-3 mb-3">
-        <h3 className="text-danger">Connect With Us</h3>
+        <h3 className="text-danger">{t("Connect With Us")}</h3>
         <p className="text-muted ">
-          Whether you want some help or just to ask us a question, you are
-          welcome to do it using the form below.
+          {t("Whether you want some help or just to ask us a question, you are welcome to do it using the form below.")}
         </p>
       </div>
       <form className={styles.customForm} onSubmit={sendEmail}>
         <input
           type="text"
-          placeholder="Full Name"
+          placeholder={t("Full Name")}
           name="name"
           className="form-control mb-2"
           value={name}
@@ -73,7 +76,7 @@ const ContactUs = () => {
         />
         <input
           type="email"
-          placeholder="Email"
+          placeholder={t("Email")}
           name="email"
           className="form-control mb-2"
           value={email}
@@ -81,7 +84,7 @@ const ContactUs = () => {
         />
         <input
           type="text"
-          placeholder="Phone Number"
+          placeholder={t("Phone Number")}
           name="phone"
           className="form-control mb-2"
           value={phone}
@@ -92,12 +95,12 @@ const ContactUs = () => {
           name="message"
           cols="30"
           rows="10"
-          placeholder="Your Message"
+          placeholder={t("Your Message")}
           value={message}
           onChange={handleChange}
         ></textarea>
         <button type="submit" className="btn btn-outline-danger d-flex ms-auto">
-          Send
+          {t("Send")}
         </button>
       </form>
     </div>
