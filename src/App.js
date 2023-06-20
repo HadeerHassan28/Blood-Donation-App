@@ -1,8 +1,4 @@
-import {
-  RouterProvider,
-  createBrowserRouter,
-  BrowserRouter,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Layout from "./Components/Layout/Layout";
@@ -145,11 +141,9 @@ function App() {
     <>
       <Toaster />
 
-      {/* <BrowserRouter> */}
       <RouterProvider router={routes}>
         <Layout />
       </RouterProvider>
-      {/* </BrowserRouter> */}
     </>
   );
 }
