@@ -4,9 +4,10 @@
 }
 
 body {
-  background-color: #fbf1f0;
+  background-color: #fbf1f0 !important;
   overflow-x: hidden;
 }
+
 
 .main-color {
   color: var(--main-color);

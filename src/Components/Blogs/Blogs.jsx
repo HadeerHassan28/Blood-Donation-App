@@ -2,7 +2,9 @@ import React from "react";
 import styles from "./Blogs.module.css";
 import { useTranslation } from 'react-i18next';
 
-const Blogs = () => {
+const Blogs = (props) => {
+
+
   const {t} = useTranslation();
   const imgsPrag = [
     {

@@ -103,12 +103,12 @@ const Organization = () => {
       if (user) {
         console.log("this account is existed");
       } else {
-        if (true
-          // isOrgNameIsValid &&
-          // isPasswordValid &&
-          // isConfirmedPasswordValid &&
-          // isAddressValid &&
-          // isOrganiationCodeValid
+        if (
+           isOrgNameIsValid &&
+           isPasswordValid &&
+           isConfirmedPasswordValid &&
+           isAddressValid &&
+           isOrganiationCodeValid
         ) {
           const payload = {
             orgName: data.oName,
