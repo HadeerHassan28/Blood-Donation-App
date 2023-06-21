@@ -127,7 +127,6 @@ function App() {
           path: "orgProfile/edit",
           element: (
             <ProtectedRoute>
-              {" "}
               <OrgEdit TokenData={TokenData} saveTokenData={saveTokenData} />
             </ProtectedRoute>
           ),

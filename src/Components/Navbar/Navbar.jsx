@@ -11,7 +11,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { conTheme } from "../../Context/Context";
 
 const Navbar = ({ TokenData, setTokenData }) => {
-  console.log(TokenData);
   const [navScroll, setnavScroll] = useState(false);
   const [isSelectionActive, setIsSelectionActive] = useState(false);
   const [isForLogin, setIsForLogin] = useState(false);
@@ -32,13 +31,9 @@ const Navbar = ({ TokenData, setTokenData }) => {
     !isSelectionActive
       ? setIsSelectionActive(true)
       : setIsSelectionActive(false);
-
-    console.log(isSelectionActive);
   };
   const handleSelectionForLogin = () => {
     !isForLogin ? setIsForLogin(true) : setIsForLogin(false);
-
-    console.log(isSelectionActive);
   };
 
   window.addEventListener("scroll", changeNav);
