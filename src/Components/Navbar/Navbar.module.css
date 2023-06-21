@@ -1,37 +1,40 @@
 .scrollActive {
-    background-color: var(--main-color);
-    transition: 0.6s all;
+  background-color: var(--main-color);
+  transition: 0.6s all;
 }
 
 .scrollNotActive {
-    background-color: #fbf1f0;
-    transition: 0.6s all;
+  /* background-color: #fbf1f0; */
+  transition: 0.6s all;
 }
-
-
+.lightTheme {
+  background-color: #fbf1f0;
+}
+.darkTheme {
+  background-color: #020100;
+}
 .iconToggler {
-    border: none;
+  border: none;
 }
 
 .iconToggler:focus {
-    box-shadow: none;
-    outline: none;
+  box-shadow: none;
+  outline: none;
 }
 
 @keyframes pulse {
-    10% {
-        transform: scale(1.1);
-    }
+  10% {
+    transform: scale(1.1);
+  }
 }
 
 .heartAnim {
-
-    animation: pulse 1s linear infinite;
+  animation: pulse 1s linear infinite;
 }
 
-@media (max-width:991px) {
-    .ulEdit {
-        display: block !important;
-        margin-bottom: 10px;
-    }
+@media (max-width: 991px) {
+  .ulEdit {
+    display: block !important;
+    margin-bottom: 10px;
+  }
 }

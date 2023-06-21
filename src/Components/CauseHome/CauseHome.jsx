@@ -38,8 +38,8 @@ const CauseHome = () => {
       <div className="container py-5 mt-5">
         <div className="row  align-items-center" data-aos="zoom-in-down">
           <div className="col-md-8 col-sm-12 ">
-            <div className="d-flex align-items-center">
-              <AiOutlineSearch className="text-danger me-1 fs-4"></AiOutlineSearch>
+            <div className="d-flex ">
+              <AiOutlineSearch className="text-danger me-1 fs-2"></AiOutlineSearch>
               <h3 className="text-muted">{t("Find Donors in your Area")}</h3>
             </div>
             <p className="text-black-50 mt-3 fs-5">
@@ -55,23 +55,23 @@ const CauseHome = () => {
             <img src={emergencies} alt="" className="img-fluid" />
           </div>
           <div className="col-md-8 col-sm-12 ">
-            <div className="d-flex align-items-center">
-              <AiOutlineClockCircle className="text-danger me-1 fs-4"></AiOutlineClockCircle>
+            <div className="d-flex ">
+              <AiOutlineClockCircle className="text-danger me-1 fs-2"></AiOutlineClockCircle>
               <h3 className="text-muted">{t("Answer to Emergencies")}</h3>
             </div>
             <p className="text-black-50 mt-3 fs-5">
-            {t("Answer to Emergencies Paragraph")}
+              {t("Answer to Emergencies Paragraph")}
             </p>
           </div>
         </div>
         <div className="row align-items-center mt-5" data-aos="fade-left">
           <div className="col-md-8  col-sm-12 ">
-            <div className="d-flex  align-items-center">
-              <TiGroupOutline className="text-danger me-2 fs-1"></TiGroupOutline>
+            <div className="d-flex">
+              <TiGroupOutline className="text-danger me-2 fs-2"></TiGroupOutline>
               <h3 className="text-muted">{t("Made for Everyone")}</h3>
             </div>
             <p className="text-black-50  mt-3 fs-5">
-            {t("Made for Everyone Paragraph")}
+              {t("Made for Everyone Paragraph")}
             </p>
           </div>
           <div className="col-md-4 col-sm-12">
@@ -84,11 +84,11 @@ const CauseHome = () => {
           </div>
           <div className="col-md-8 col-sm-12 ">
             <div className="d-flex align-items-center">
-              <FaSuperpowers className="text-danger me-2 fs-1"></FaSuperpowers>
+              <FaSuperpowers className="text-danger me-2 fs-2"></FaSuperpowers>
               <h3 className="text-muted">{t("You are someone's Hero")}</h3>
             </div>
             <p className="text-black-50 mt-3 fs-5">
-            {t("You are someone's Hero Paragraph")}
+              {t("You are someone's Hero Paragraph")}
             </p>
           </div>
         </div>

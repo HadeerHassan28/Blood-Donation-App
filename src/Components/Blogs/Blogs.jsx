@@ -5,25 +5,25 @@ import { useTranslation } from 'react-i18next';
 const Blogs = (props) => {
 
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const imgsPrag = [
     {
       id: 1,
-      src: "/assets/blogs/11-1.png",
+      src: "",
       description:
-        `${t("Blood donation is a regulated and safe process with thorough screening to assess donor eligibility and testing to prevent risks to recipients.")}`,
+        ``,
     },
     {
       id: 2,
-      src: "/assets/blogs/222.png",
+      src: "",
       description:
-        `${t("A single blood donation can save up to three lives by providing essential components like red blood cells, platelets, and plasma for various medical treatments, such as surgery or blood loss replacement.")}`,
+        `$`,
     },
     {
       id: 3,
-      src: "/assets/blogs/3-3.png",
+      src: "",
       description:
-        `${t("Blood donation relies on volunteers' generosity, and regular donors are crucial to meet the constant need for blood. Your donation can bring hope to those in need, contributing to a compassionate community dedicated to saving lives and improving well-being.")}`,
+        `$`,
     },
     {
       id: 4,
@@ -39,30 +39,35 @@ const Blogs = (props) => {
     },
   ];
   return (
-    <div className="container-fluid">
-      <h1 className={`text-danger mt-3  text-center ${styles.h1}`}>
-        {t("Saving Lives Through Donation")}
-      </h1>
-      {imgsPrag.map((img, index) => (
-        <div
-          className="row d-flex align-items-center justify-content-end mb-5 mx-5 "
-          key={img.id}
-        >
-          <div className="col-md-4">
-            <img
-              src={img.src}
-              alt={`Image ${index + 1}`}
-              className="img-fluid rounded "
-            />
-          </div>
-          <div className="col-md-8 ">
-            <p className={`${styles.p} text-justify justify-content-center `}>
-              {img.description}
-            </p>
+    <>
+      <div className="container py-5 ">
+        <div className="text-center mt-4 mb-4">
+          <h2 className="text-danger fw-bold">{t("Saving Lives Through Donation")}</h2>
+        </div>
+        <div className="row mt-3">
+          <div className="col-lg-12">
+            <div className="row justify-content-center align-items-center">
+              <div className="col-lg-6">
+                <img className="img-fluid rounded mb-3" src="/assets/blogs/11-1.png" alt="" />
+              </div>
+              <div className="col-lg-6">
+                <p className="text-muted fs-3">{t("Blood donation is a regulated and safe process with thorough screening to assess donor eligibility and testing to prevent risks to recipients.")}</p>
+              </div>
+            </div>
           </div>
         </div>
-      ))}
-    </div>
+
+        <div className="col-lg-4 py-5 text-center">
+          <img className="img-fluid mb-3" src="/assets/blogs/222.png" alt="" />
+          <p className="text-muted fs-5">{t("A single blood donation can save up to three lives by providing essential components like red blood cells, platelets, and plasma for various medical treatments, such as surgery or blood loss replacement.")}</p>
+        </div>
+
+        <div className="col-lg-4 py-5 text-center">
+          <img className="img-fluid mb-3" src="/assets/blogs/3-3.png" alt="" />
+          <p className="text-muted fs-5">{t("Blood donation relies on volunteers' generosity, and regular donors are crucial to meet the constant need for blood. Your donation can bring hope to those in need, contributing to a compassionate community dedicated to saving lives and improving well-being.")}</p>
+        </div>
+      </div>
+    </>
   );
 };
 

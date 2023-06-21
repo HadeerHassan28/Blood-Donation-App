@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 const Organization = () => {
   const navigate = useNavigate();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   const [data, SetData] = useState({
     id: uuid(),
@@ -104,11 +104,11 @@ const Organization = () => {
         console.log("this account is existed");
       } else {
         if (
-           isOrgNameIsValid &&
-           isPasswordValid &&
-           isConfirmedPasswordValid &&
-           isAddressValid &&
-           isOrganiationCodeValid
+          isOrgNameIsValid &&
+          isPasswordValid &&
+          isConfirmedPasswordValid &&
+          isAddressValid &&
+          isOrganiationCodeValid
         ) {
           const payload = {
             orgName: data.oName,
