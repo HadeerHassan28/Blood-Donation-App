@@ -199,10 +199,10 @@ const Navbar = ({ TokenData, setTokenData }) => {
           </div>
 
           {isForLogin && (
-            <Selection onSelection={setIsForLogin} isForSignUp={false} />
+            <Selection onSelection={setIsForLogin} isForSignUp={true} />
           )}
           {isSelectionActive && (
-            <Selection onSelection={setIsSelectionActive} isForSignUp={true} />
+            <Selection onSelection={setIsSelectionActive} isForSignUp={false} />
           )}
         </div>
       </nav>
