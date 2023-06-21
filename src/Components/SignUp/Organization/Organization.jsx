@@ -92,7 +92,7 @@ const Organization = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.get(" http://localhost:3002/org").then((res) => {
+    axios.get("http://localhost:3002/org").then((res) => {
       const users = res.data;
       // console.log(users);
       const user = users.find(
