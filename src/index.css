@@ -4,8 +4,35 @@
 }
 
 body {
-  background-color: #fbf1f0;
+  background-color: #fbf1f0 !important;
   overflow-x: hidden;
+}
+
+body[data-theme="dark"] {
+  background-color: #000 !important;
+}
+
+p,
+span,
+h3,
+.isColor {
+  color: black !important;
+}
+
+p:not([style*="color"]) {
+  color: inherit !important;
+}
+
+h3:not([style*="color"]) {
+  color: inherit !important;
+}
+
+span:not([style*="color"]) {
+  color: inherit !important;
+}
+
+.isColor:not([style*="color"]) {
+  color: inherit !important;
 }
 
 .main-color {

@@ -15,7 +15,7 @@ const Selection = (props) => {
     const {t} = useTranslation();
 
 
-    console.log(props.isForSignUp)
+    console.log(props)
     const toggleSelection = () => {
         props.onSelection(false)
 
@@ -33,6 +33,8 @@ const Selection = (props) => {
             optionOne.current.style.border = "2px solid #ee394a "
             setIsOptionOneSelected(true)
         }
+        props.onSelection(false)
+
     }
 
 
@@ -48,6 +50,8 @@ const Selection = (props) => {
             optionTwo.current.style.border = "2px solid #ee394a"
             setIsOptionTwoSelected(true)
         }
+        props.onSelection(false)
+
     }
 
     return (
@@ -56,24 +60,30 @@ const Selection = (props) => {
         <div className={`${styles.selection} w-75 `}>
             <div className="container">
             <h2 className='mb-4'>{t("Choose Your Plan")}</h2>
+
                 <div className="row mb-5">
-                    <div className={`${styles.option} col-lg-6 rounded`} onClick={handleOptionOne} ref={optionOne} >
+                <Link to={!props.isForSignUp ? "signup-org" : "Signup-org/signin-org"} className='col-lg-6 text-dark'>
+
+                    <div className={`${styles.option} rounded`} onClick={handleOptionOne} ref={optionOne} >
                        <h4>{t("Organization")}</h4>
                         <BsHospital size={64} color='#ee394a'/>
                         <p>{t("This Plan Include Hospitals and Blood Banks")}</p>
                         {isOptionOneSelected && props.isForSignUp && <span className='text-danger'>{t("* Your are Following the Organizational Plan")}</span>}
 
                     </div>
-                    <div className={`${styles.option} col-lg-6 rounded`} onClick={handleOptionTwo} ref={optionTwo} >
+                    </Link>
+                    <Link to={!props.isForSignUp ? "signup-user"  : "Signup-user/signin-user" }className='col-lg-6 text-dark'>
+                    <div className={`${styles.option} rounded`} onClick={handleOptionTwo} ref={optionTwo} >
                         <h4>{t("User")}</h4>
                         <AiOutlineUser size={64} color='#ee394a '/>
                         <p>{t("This Plan Include Donors and recipients")}</p>
                         {isOptionTwoSelected && props.isForSignUp && <span className='text-danger'>{t("* Your are Following the Users Plan")}</span>}
                      </div>
+                     </Link>
                     </div>
 
   
-                    {isOptionOneSelected && props.isForSignUp && 
+                    {/*isOptionOneSelected && props.isForSignUp && 
                     <div className='buttons d-flex justify-content-end'>
                     <button className='btn btn-secondary px-4 py-2' onClick={toggleSelection} >{t("Cancel")}</button>
 
@@ -98,6 +108,7 @@ const Selection = (props) => {
 
                     <Link to="Signup-user/signin-user"> <button className='btn btn-danger px-4 py-2 ms-3' onClick={toggleSelection}>{t("Sign In")}</button></Link>
                     </div> }
+                    */}
 
 
  

@@ -8,6 +8,7 @@ const ContextTheme = (props) => {
   const [isTheme, setIsTheme] = useState(false);
   const toggleTheme = () => {
     setIsTheme((prevTheme) => !prevTheme);
+    document.body.setAttribute("data-theme", isTheme ? "light" : "dark");
   };
 
   const themeConfig = createTheme({

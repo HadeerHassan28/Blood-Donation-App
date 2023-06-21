@@ -6,15 +6,12 @@ import logoREv from "../../heart-rev.png";
 import Selection from "../Selection/Selection";
 import { useTranslation } from "react-i18next";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import { conTheme } from "../../Context/Context";
-
+//import ContextTheme from "../../Context/Context";
 const Navbar = ({ TokenData, setTokenData }) => {
   const [navScroll, setnavScroll] = useState(false);
   const [isSelectionActive, setIsSelectionActive] = useState(false);
   const [isForLogin, setIsForLogin] = useState(false);
-  //const [theme] = useState("light");
   const { t } = useTranslation();
   const { i18n } = useTranslation();
   let { toggleTheme, themeConfig } = useContext(conTheme);
@@ -45,15 +42,13 @@ const Navbar = ({ TokenData, setTokenData }) => {
     <>
       <nav
         style={{ zIndex: "1111111" }}
-        className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${
-          navScroll ? styles.scrollActive : styles.scrollNotActive
-        }`}
+        className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${navScroll ? styles.scrollActive : styles.scrollNotActive
+          } ${theme === "light" ? styles.lightTheme : styles.darkTheme}`}
       >
         <div className="container">
           <Link
-            className={`navbar-brand me-5 ${
-              !navScroll ? "main-color" : "text-light"
-            }`}
+            className={`navbar-brand me-5 ${!navScroll ? "main-color" : "text-light"
+              }`}
             to="/"
           >
             <img
@@ -84,9 +79,8 @@ const Navbar = ({ TokenData, setTokenData }) => {
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
               <li className="nav-item" aria-current="page">
                 <Link
-                  className={`nav-link me-3  ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
                   to="/"
                 >
                   {t("Home")}
@@ -94,9 +88,8 @@ const Navbar = ({ TokenData, setTokenData }) => {
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link me-3  ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
                   to="about"
                 >
                   {t("About")}
@@ -104,30 +97,36 @@ const Navbar = ({ TokenData, setTokenData }) => {
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link me-3 ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
-                  to="blogs"
-                >
-                  {t("Blogs")}
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className={`nav-link me-3  ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
                   to="volunteers"
                 >
                   {t("Volunteers")}
                 </Link>
               </li>
               <li className="nav-item">
+                <Link
+                  className={`nav-link me-3 ${!navScroll ? "" : "text-light"
+                    } isColor`}
+                  to="Hospitals"
+                >
+                  {t("Hospitals")}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
+                  to="Announcement"
+                >
+                  {t("Announcements")}
+                </Link>
+              </li>
+              <li className="nav-item">
                 <select
                   onChange={changeLanguage}
-                  className={`nav-link me-3  ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
                 >
                   <option style={{ color: "#000000" }} value="en">
                     English (en)
@@ -143,9 +142,8 @@ const Navbar = ({ TokenData, setTokenData }) => {
               {TokenData === null ? (
                 <>
                   <li
-                    className={`nav-link me-3  ${
-                      !navScroll ? "" : "text-light"
-                    } isColor`}
+                    className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                      } isColor`}
                     style={{ cursor: "pointer" }}
                     onClick={handleSelectionForLogin}
                   >
@@ -153,9 +151,8 @@ const Navbar = ({ TokenData, setTokenData }) => {
                   </li>
 
                   <li
-                    className={`nav-item btn p-1 ${
-                      !navScroll ? "btn-danger" : "btn-light"
-                    }  p-0 m-0 `}
+                    className={`nav-item btn p-1 ${!navScroll ? "btn-danger" : "btn-light"
+                      }  p-0 m-0 `}
                     onClick={handleSelection}
                   >
                     {t("Register")}
@@ -169,7 +166,7 @@ const Navbar = ({ TokenData, setTokenData }) => {
                         setTokenData(null);
                         localStorage.removeItem("token");
                       }}
-                      className="nav-link"
+                      className={`nav-link isColor`}
                       to="Signup-user/signin-user"
                     >
                       Logout
@@ -178,26 +175,24 @@ const Navbar = ({ TokenData, setTokenData }) => {
                 </>
               )}
             </ul>
-            <ThemeProvider theme={themeConfig}>
-              <CssBaseline />
-              <button
-                className={`btn btn-link ${styles.themeToggle}`}
-                onClick={toggleTheme}
-              >
-                {theme === "light" ? (
-                  <Brightness4 fontSize="small" />
-                ) : (
-                  <Brightness7 fontSize="small" />
-                )}
-              </button>
-            </ThemeProvider>
+
+            <button
+              className={`btn btn-link ${styles.themeToggle}`}
+              onClick={toggleTheme}
+            >
+              {theme === "light" ? (
+                <Brightness4 fontSize="small" />
+              ) : (
+                <Brightness7 fontSize="small" />
+              )}
+            </button>
           </div>
 
           {isForLogin && (
-            <Selection onSelection={setIsForLogin} isForSignUp={false} />
+            <Selection onSelection={setIsForLogin} isForSignUp={true} />
           )}
           {isSelectionActive && (
-            <Selection onSelection={setIsSelectionActive} isForSignUp={true} />
+            <Selection onSelection={setIsSelectionActive} isForSignUp={false} />
           )}
         </div>
       </nav>

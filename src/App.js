@@ -1,8 +1,4 @@
-import {
-  RouterProvider,
-  createBrowserRouter,
-  BrowserRouter,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Layout from "./Components/Layout/Layout";
@@ -11,6 +7,8 @@ import Notfound from "./Components/Notfound/Notfound";
 //import About from "./Components/About/About";
 import Blogs from "./Components/Blogs/Blogs";
 import Volunteers from "./Components/Volunteers/Volunteers";
+import Hospitals from "./Components/Hospitals/Hospitals";
+import Announcement from "./Components/Announcement/Announcement";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import AboutPage from "./Pages/Landing/AboutPage";
 import Organization from "./Components/SignUp/Organization/Organization";
@@ -27,10 +25,9 @@ import { Toaster } from "react-hot-toast";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import jwtDecode from "jwt-decode";
-
 // End Animation Library
-
 import OrgEdit from "./Components/OrgEdit/OrgEdit";
+import ContextTheme from "./Context/Context";
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
@@ -82,6 +79,14 @@ function App() {
         {
           path: "volunteers",
           element: <Volunteers />,
+        },
+        {
+          path: "Hospitals",
+          element: <Hospitals />,
+        },
+        {
+          path: "Announcement",
+          element: <Announcement />,
         },
         {
           path: "Signup-org",
@@ -142,13 +147,13 @@ function App() {
 
   return (
     <>
-      <Toaster />
+      <ContextTheme>
+        <Toaster />
 
-      {/* <BrowserRouter> */}
-      <RouterProvider router={routes}>
-        <Layout />
-      </RouterProvider>
-      {/* </BrowserRouter> */}
+        <RouterProvider router={routes}>
+          <Layout />
+        </RouterProvider>
+      </ContextTheme>
     </>
   );
 }

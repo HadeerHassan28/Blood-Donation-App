@@ -25,6 +25,7 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
       TokenData.image === ""
         ? process.env.PUBLIC_URL + "/assets/images/userImage.jpg"
         : TokenData.image,
+    token: TokenData    
   });
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
