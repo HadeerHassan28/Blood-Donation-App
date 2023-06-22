@@ -6,7 +6,6 @@ import { useTranslation } from "react-i18next";
 
 const UserProfile = ({ TokenData }) => {
   const { t } = useTranslation();
-  console.log(TokenData);
   return (
     <>
       <section style={{ backgroundColor: "#fbf1f0" }}>

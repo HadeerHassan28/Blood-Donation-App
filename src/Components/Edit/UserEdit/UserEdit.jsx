@@ -4,12 +4,11 @@ import axios from "axios";
 import jwtEncode from "jwt-encode";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
-const UserEdit = ({ TokenData, saveTokenData }) => {
+const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
   const navigate = useNavigate();
-  const {t} = useTranslation();
-
+  const { t } = useTranslation();
   const secretKey =
     Math.random().toString(36).substring(2, 15) +
     Math.random().toString(36).substring(2, 15);
@@ -25,7 +24,6 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
       TokenData.image === ""
         ? process.env.PUBLIC_URL + "/assets/images/userImage.jpg"
         : TokenData.image,
-    token: TokenData    
   });
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -35,7 +33,7 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
     fReader.onloadend = () => {
       // setimgSrc(fReader.result);
       setNewData((prevFormData) => ({
-        ...prevFormData,
+        ...newData,
         image: fReader.result,
       }));
     };
@@ -101,31 +99,36 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
       // isPnumberValid
       true
     ) {
+      const payload = {
+        id: TokenData.id,
+        firstName: newData.firstName,
+        lastName: newData.lastName,
+        email: newData.email,
+        Address: newData.Address,
+        city: newData.city,
+        pNumber: newData.pNumber,
+        bloodType: TokenData.bloodType,
+        gender: TokenData.gender,
+        isVolunteer: false,
+        image: newData.image,
+        role: "user",
+      };
+      console.log(payload);
+      const token = jwtEncode(payload, secretKey);
+      localStorage.setItem("token", token);
+      saveTokenData();
+      setNewData({
+        ...newData,
+        token: token,
+      });
+      navigate("/userProfile");
+
       axios.get("http://localhost:3000/users").then((res) => {
         const users = res.data;
         const editableUser = users.find((user) => {
           return user.email === TokenData.email;
         });
         if (editableUser) {
-          const payload = {
-            id: newData.id,
-            firstName: newData.firstName,
-            lastName: newData.lastName,
-            email: newData.email,
-            Address: newData.Address,
-            city: newData.city,
-            pNumber: newData.pNumber,
-            bloodType: editableUser.bloodType,
-            gender: newData.gender,
-            isVolunteer: false,
-            image: newData.image,
-            role: "user",
-          };
-          const token = jwtEncode(payload, secretKey);
-          localStorage.setItem("token", token);
-          saveTokenData();
-          navigate("/userProfile");
-
           axios
             .patch(`http://localhost:3000/users/${editableUser.id}`, newData)
             .then((response) => {

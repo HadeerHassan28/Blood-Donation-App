@@ -186,6 +186,7 @@ const Organization = () => {
                     setIsOrgNameIsFocused(false);
                   }}
                 />
+                {isOrgNameIsFocused && !isOrgNameIsValid && <div className="text-danger">Please Enter A valid Organization Name</div>}
               </div>
               <div className="col-lg-12">
                 <label htmlFor="email" className="form-label">
@@ -213,6 +214,8 @@ const Organization = () => {
                     setIsEmailFocused(false);
                   }}
                 />
+                {isEmailFocused && !isEmailValid && <div className="text-danger">Please Enter A valid Email</div>}
+
               </div>
               <div className="col-lg-6">
                 <label htmlFor="password" className="form-label">
@@ -240,6 +243,8 @@ const Organization = () => {
                     setIsPasswordFocused(false);
                   }}
                 />
+                {isPasswordFocused && !isPasswordValid && <div className="text-danger">Please Enter A valid Password</div>}
+
               </div>
               <div className="col-lg-6">
                 <label htmlFor="confirmPassword" className="form-label">
@@ -267,6 +272,8 @@ const Organization = () => {
                     setIsConfirmedPasswordFocused(false);
                   }}
                 />
+                {isConfirmedPasswordFocused && !isConfirmedPasswordValid && <div className="text-danger">Passwords Are Not Matching</div>}
+
               </div>
               <div className="col-lg-6">
                 <label htmlFor="oCode" className="form-label">
@@ -294,6 +301,8 @@ const Organization = () => {
                     setIsOrganiationCodeFocused(false);
                   }}
                 />
+                {isOrganiationCodeFocused && !isOrganiationCodeValid && <div className="text-danger">Please Enter A valid Organization Code</div>}
+
               </div>
               <div className="col-lg-6">
                 <label htmlFor="Address" className="form-label">
@@ -321,6 +330,8 @@ const Organization = () => {
                     setIsAddressFocused(false);
                   }}
                 />
+                {isAddressFocused && !isAddressValid && <div className="text-danger">Please Enter A valid Adress</div>}
+
               </div>
               <div className="col-lg-12">
                 <label htmlFor="pNumber" className="form-label">
@@ -348,6 +359,7 @@ const Organization = () => {
                     setIsPnumberFocused(false);
                   }}
                 />
+                {isPnumberFocused && !isPnumberValid && <div className="text-danger">Please Enter A valid Phone Number</div>}
               </div>
               <div className="col-lg-4">
                 <select
