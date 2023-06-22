@@ -1,0 +1,64 @@
+{
+  "announcements": [
+    {
+      "bloodType": "A-",
+      "quantity": 1,
+      "msg": "test",
+      "id": 1
+    },
+    {
+      "bloodType": "A-",
+      "quantity": 1,
+      "msg": "test",
+      "id": 2
+    },
+    {
+      "bloodType": "A-",
+      "quantity": 1,
+      "id": 3
+    },
+    {
+      "bloodType": "A-",
+      "quantity": 1,
+      "msg": "test",
+      "id": 4
+    },
+    {
+      "bloodType": "A-",
+      "quantity": 1,
+      "id": 5
+    },
+    {
+      "bloodType": "A-",
+      "quantity": 1,
+      "msg": "test",
+      "id": 6
+    },
+    {
+      "bloodType": "B+",
+      "quantity": 5,
+      "id": 7
+    },
+    {
+      "bloodType": "AB+",
+      "quantity": 2,
+      "id": 8
+    },
+    {
+      "bloodType": "B+",
+      "quantity": 2,
+      "id": 9
+    },
+    {
+      "bloodType": "B-",
+      "quantity": 2,
+      "id": 10
+    },
+    {
+      "bloodType": "AB+",
+      "quantity": 1,
+      "msg": "important",
+      "id": 11
+    }
+  ]
+}

@@ -4,7 +4,7 @@
 }
 
 .scrollNotActive {
-  /* background-color: #fbf1f0; */
+  background-color: #fbf1f0;
   transition: 0.6s all;
 }
 

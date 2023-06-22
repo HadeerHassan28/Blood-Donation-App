@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 export const OrgProfile = ({ TokenData }) => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   console.log(TokenData);
   return (
@@ -27,7 +27,10 @@ export const OrgProfile = ({ TokenData }) => {
                         {t("Edit")}
                       </button>
                     </Link>
-                    <button type="button" className="btn btn-outline-danger ms-2 px-5">
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger ms-2 px-5"
+                    >
                       {t("Message")}
                     </button>
                   </div>
@@ -42,9 +45,7 @@ export const OrgProfile = ({ TokenData }) => {
                       <p className="mb-0">{t("Hospital Name")}</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">
-                        {TokenData.orgName}
-                      </p>
+                      <p className="text-muted mb-0">{TokenData.orgName}</p>
                     </div>
                   </div>
                   <hr />
@@ -54,7 +55,9 @@ export const OrgProfile = ({ TokenData }) => {
                       <p className="mb-0">{t("Code")}</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{TokenData.OrganizationCode}</p>
+                      <p className="text-muted mb-0">
+                        {TokenData.OrganizationCode}
+                      </p>
                     </div>
                   </div>
                   <hr />
@@ -74,17 +77,22 @@ export const OrgProfile = ({ TokenData }) => {
                     <div className="col-sm-9">
                       <p className="text-muted mb-0">{TokenData.sector}</p>
                     </div>
+                    <div>
+                      <Link style={{ color: "white" }} to="Announcement">
+                        <button type="button" className="btn btn-danger  px-5">
+                          {t("Announce")}
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-
               </div>
-
             </div>
           </div>
         </div>
       </section>
     </>
   );
-}
+};
 
 export default OrgProfile;
