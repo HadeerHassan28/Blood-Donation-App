@@ -1,9 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-
+import axios from 'axios'
 export const OrgProfile = ({ TokenData }) => {
   const {t} = useTranslation();
+
+
+  const handleDonation = () => {
+    const requestBody = {
+      items: [
+        { id: 1, quantity: 3 },
+        { id: 2, quantity: 1 },
+      ],
+    };
+  
+    const requestHeaders = {
+      'Content-Type': 'application/json',
+    };
+  
+    axios
+      .post('http://localhost:3000/create-checkout-session', requestBody, { headers: requestHeaders })
+      .then(({ data }) => {
+        window.location = data.url;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   console.log(TokenData);
   return (
@@ -29,6 +52,9 @@ export const OrgProfile = ({ TokenData }) => {
                     </Link>
                     <button type="button" className="btn btn-outline-danger ms-2 px-5">
                       {t("Message")}
+                    </button>
+                    <button type="button" className="btn btn-outline-danger ms-2 px-5" onClick={handleDonation}>
+                      Checkout
                     </button>
                   </div>
                 </div>
