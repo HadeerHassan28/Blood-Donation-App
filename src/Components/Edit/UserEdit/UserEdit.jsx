@@ -6,10 +6,9 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const UserEdit = ({ TokenData, saveTokenData }) => {
+const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-
   const secretKey =
     Math.random().toString(36).substring(2, 15) +
     Math.random().toString(36).substring(2, 15);
@@ -25,7 +24,6 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
       TokenData.image === ""
         ? process.env.PUBLIC_URL + "/assets/images/userImage.jpg"
         : TokenData.image,
-    token: TokenData    
   });
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -119,13 +117,10 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
       const token = jwtEncode(payload, secretKey);
       localStorage.setItem("token", token);
       saveTokenData();
-      console.log(token);
-      // setNewData({ ...newData, token: token });
-      setNewData((prevFormData) => ({
-        ...prevFormData,
-        mesada: "makdmada",
+      setNewData({
+        ...newData,
         token: token,
-      }));
+      });
       navigate("/userProfile");
 
       axios.get("http://localhost:3000/users").then((res) => {
@@ -139,8 +134,6 @@ const UserEdit = ({ TokenData, saveTokenData }) => {
             .then((response) => {
               // Set the secret key for the token
               // Generate the token
-
-              console.log(newData);
               console.log("Update successful:", response.data);
             })
             .catch((error) => {

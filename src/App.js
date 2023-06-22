@@ -28,6 +28,7 @@ import jwtDecode from "jwt-decode";
 // End Animation Library
 import OrgEdit from "./Components/OrgEdit/OrgEdit";
 import ContextTheme from "./Context/Context";
+import VolunteerProfile from "./Components/VolunteerProfile/VolunteerProfile";
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
@@ -42,6 +43,7 @@ function App() {
 
   useEffect(() => {
     Aos.init({ duration: 1500 });
+    console.log(TokenData);
   });
 
   useEffect(() => {
@@ -90,7 +92,11 @@ function App() {
         },
         {
           path: "Signup-org",
-          element: <Organization />,
+          element: (
+            <ProtectedRoute>
+              <Organization />
+            </ProtectedRoute>
+          ),
         },
         {
           path: "Signup-user",
@@ -106,25 +112,25 @@ function App() {
         },
         {
           path: "orgprofile",
-          element: (
-            <ProtectedRoute>
-              <OrgProfile TokenData={TokenData} />
-            </ProtectedRoute>
-          ),
+          element: <OrgProfile TokenData={TokenData} />,
         },
         {
           path: "userProfile",
-          element: (
-            <ProtectedRoute>
-              <UserProfile TokenData={TokenData} />
-            </ProtectedRoute>
-          ),
+          element: <UserProfile TokenData={TokenData} />,
+        },
+        {
+          path: "volunteerprofile/:id",
+          element: <VolunteerProfile />,
         },
         {
           path: "userProfile/edit",
           element: (
             <ProtectedRoute>
-              <UserEdit TokenData={TokenData} saveTokenData={saveTokenData} />
+              <UserEdit
+                TokenData={TokenData}
+                saveTokenData={saveTokenData}
+                setTokenData={setTokenData}
+              />
             </ProtectedRoute>
           ),
         },

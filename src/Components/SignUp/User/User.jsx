@@ -6,14 +6,14 @@ import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import jwtEncode from "jwt-encode";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 const User = () => {
   const navigate = useNavigate();
   const secretKey =
     Math.random().toString(36).substring(2, 15) +
     Math.random().toString(36).substring(2, 15);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [data, SetData] = useState({
     id: uuid(),
     firstName: "",
@@ -140,7 +140,6 @@ const User = () => {
             gender: data.gender,
             isVolunteer: false,
             image: process.env.PUBLIC_URL + "/assets/images/userImage.jpg",
-
             role: "user",
           };
 
@@ -224,7 +223,9 @@ const User = () => {
                   }}
                 />
                 {!isFirstNameValid && isFirstNameFocused && (
-                  <div className="text-danger">{t("* This Field Can't be Empty")}</div>
+                  <div className="text-danger">
+                    {t("* This Field Can't be Empty")}
+                  </div>
                 )}
               </div>
               <div className="col-lg-6">
@@ -254,7 +255,9 @@ const User = () => {
                   }}
                 />
                 {!isLastNameValid && isLastNameFocused && (
-                  <div className="text-danger">{t("* This Field Can't be Empty")}</div>
+                  <div className="text-danger">
+                    {t("* This Field Can't be Empty")}
+                  </div>
                 )}
               </div>
               <div className="col-lg-12">
@@ -412,7 +415,9 @@ const User = () => {
                   }}
                 />
                 {!isCityValid && isCityFocused && (
-                  <div className="text-danger">{t("* Please Enter A Valid City")}</div>
+                  <div className="text-danger">
+                    {t("* Please Enter A Valid City")}
+                  </div>
                 )}
               </div>
               <div className="col-lg-12">
