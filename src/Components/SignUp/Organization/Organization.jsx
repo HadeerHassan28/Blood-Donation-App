@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import jwtEncode from "jwt-encode";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 const Organization = () => {
   const navigate = useNavigate();
@@ -176,8 +176,8 @@ const Organization = () => {
                     !isOrgNameIsFocused
                       ? {}
                       : isOrgNameIsValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsOrgNameIsFocused(true);
@@ -186,7 +186,11 @@ const Organization = () => {
                     setIsOrgNameIsFocused(false);
                   }}
                 />
-                {isOrgNameIsFocused && !isOrgNameIsValid && <div className="text-danger">Please Enter A valid Organization Name</div>}
+                {isOrgNameIsFocused && !isOrgNameIsValid && (
+                  <div className="text-danger">
+                    Please Enter A valid Organization Name
+                  </div>
+                )}
               </div>
               <div className="col-lg-12">
                 <label htmlFor="email" className="form-label">
@@ -204,8 +208,8 @@ const Organization = () => {
                     !isEmailFocused
                       ? {}
                       : isEmailValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsEmailFocused(true);
@@ -214,8 +218,9 @@ const Organization = () => {
                     setIsEmailFocused(false);
                   }}
                 />
-                {isEmailFocused && !isEmailValid && <div className="text-danger">Please Enter A valid Email</div>}
-
+                {isEmailFocused && !isEmailValid && (
+                  <div className="text-danger">Please Enter A valid Email</div>
+                )}
               </div>
               <div className="col-lg-6">
                 <label htmlFor="password" className="form-label">
@@ -233,8 +238,8 @@ const Organization = () => {
                     !isPasswordFocused
                       ? {}
                       : isPasswordValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsPasswordFocused(true);
@@ -243,8 +248,11 @@ const Organization = () => {
                     setIsPasswordFocused(false);
                   }}
                 />
-                {isPasswordFocused && !isPasswordValid && <div className="text-danger">Please Enter A valid Password</div>}
-
+                {isPasswordFocused && !isPasswordValid && (
+                  <div className="text-danger">
+                    Please Enter A valid Password
+                  </div>
+                )}
               </div>
               <div className="col-lg-6">
                 <label htmlFor="confirmPassword" className="form-label">
@@ -262,8 +270,8 @@ const Organization = () => {
                     !isConfirmedPasswordFocused
                       ? {}
                       : isConfirmedPasswordValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsConfirmedPasswordFocused(true);
@@ -272,8 +280,9 @@ const Organization = () => {
                     setIsConfirmedPasswordFocused(false);
                   }}
                 />
-                {isConfirmedPasswordFocused && !isConfirmedPasswordValid && <div className="text-danger">Passwords Are Not Matching</div>}
-
+                {isConfirmedPasswordFocused && !isConfirmedPasswordValid && (
+                  <div className="text-danger">Passwords Are Not Matching</div>
+                )}
               </div>
               <div className="col-lg-6">
                 <label htmlFor="oCode" className="form-label">
@@ -291,8 +300,8 @@ const Organization = () => {
                     !isOrganiationCodeFocused
                       ? {}
                       : isOrganiationCodeValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsOrganiationCodeFocused(true);
@@ -301,8 +310,11 @@ const Organization = () => {
                     setIsOrganiationCodeFocused(false);
                   }}
                 />
-                {isOrganiationCodeFocused && !isOrganiationCodeValid && <div className="text-danger">Please Enter A valid Organization Code</div>}
-
+                {isOrganiationCodeFocused && !isOrganiationCodeValid && (
+                  <div className="text-danger">
+                    Please Enter A valid Organization Code
+                  </div>
+                )}
               </div>
               <div className="col-lg-6">
                 <label htmlFor="Address" className="form-label">
@@ -320,8 +332,8 @@ const Organization = () => {
                     !isAddressFocused
                       ? {}
                       : isAddressValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsAddressFocused(true);
@@ -330,8 +342,9 @@ const Organization = () => {
                     setIsAddressFocused(false);
                   }}
                 />
-                {isAddressFocused && !isAddressValid && <div className="text-danger">Please Enter A valid Adress</div>}
-
+                {isAddressFocused && !isAddressValid && (
+                  <div className="text-danger">Please Enter A valid Adress</div>
+                )}
               </div>
               <div className="col-lg-12">
                 <label htmlFor="pNumber" className="form-label">
@@ -349,8 +362,8 @@ const Organization = () => {
                     !isPnumberFocused
                       ? {}
                       : isPnumberValid
-                        ? { border: "2px solid green" }
-                        : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsPnumberFocused(true);
@@ -359,7 +372,11 @@ const Organization = () => {
                     setIsPnumberFocused(false);
                   }}
                 />
-                {isPnumberFocused && !isPnumberValid && <div className="text-danger">Please Enter A valid Phone Number</div>}
+                {isPnumberFocused && !isPnumberValid && (
+                  <div className="text-danger">
+                    Please Enter A valid Phone Number
+                  </div>
+                )}
               </div>
               <div className="col-lg-4">
                 <select

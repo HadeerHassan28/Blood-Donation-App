@@ -1,0 +1,97 @@
+.searchBox {
+    width: 50vw;
+    padding: 15px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 2vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid gray;
+}
+
+.customInput {
+    width: 150px;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.select {
+    color: gray;
+    border-radius: 5px;
+    border: 1px solid gray;
+    height: 38px;
+}
+
+.filterWith {
+    color: #ee394a;
+    font-weight: bold;
+}
+
+th,
+td {
+    vertical-align: middle;
+}
+
+.navigateRes {
+    width: 30px;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    vertical-align: middle;
+}
+
+.navigateRes:hover {
+    color: #ffffff;
+    border: 1px solid #ee394a;
+    background-color: #ee394a;
+}
+
+@media (max-width: 700px) {
+    .searchBox {
+        width: 80vw;
+    }
+
+    .tableW {
+        width: 95vw !important;
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    th {
+        font-size: smaller;
+        vertical-align: middle;
+    }
+
+    td {
+        font-size: small;
+        vertical-align: middle;
+    }
+}
+
+@media (max-width: 847px) {
+
+    .select,
+    span,
+    input[type="text"] {
+        margin-bottom: 10px;
+    }
+
+    td img {
+        display: block;
+        width: 20vw !important;
+        height: 20vw !important;
+        border-radius: 10vw !important;
+        margin: 0 auto;
+    }
+
+    td span {
+        text-align: center !important;
+    }
+}

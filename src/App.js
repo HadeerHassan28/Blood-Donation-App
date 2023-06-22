@@ -24,11 +24,13 @@ import { Toaster } from "react-hot-toast";
 // Start Animation Library
 import Aos from "aos";
 import "aos/dist/aos.css";
-import jwtDecode from "jwt-decode";
 // End Animation Library
+import jwtDecode from "jwt-decode";
 import OrgEdit from "./Components/OrgEdit/OrgEdit";
 import ContextTheme from "./Context/Context";
 import VolunteerProfile from "./Components/VolunteerProfile/VolunteerProfile";
+import OrganizationProfile from "./Components/OrganizationProfile/OrganizationProfile";
+
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
@@ -43,12 +45,8 @@ function App() {
 
   useEffect(() => {
     Aos.init({ duration: 1500 });
-    console.log(TokenData);
   });
 
-  useEffect(() => {
-    saveTokenData();
-  }, []);
   let routes = createBrowserRouter([
     {
       path: "",
@@ -121,6 +119,10 @@ function App() {
         {
           path: "volunteerprofile/:id",
           element: <VolunteerProfile />,
+        },
+        {
+          path: "organizationprofile/:id",
+          element: <OrganizationProfile />,
         },
         {
           path: "userProfile/edit",
