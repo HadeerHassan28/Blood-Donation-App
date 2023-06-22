@@ -78,7 +78,7 @@ export const OrgProfile = ({ TokenData }) => {
                       <p className="text-muted mb-0">{TokenData.sector}</p>
                     </div>
                     <div>
-                      <Link style={{ color: "white" }} to="edit">
+                      <Link style={{ color: "white" }} to="Announcement">
                         <button type="button" className="btn btn-danger  px-5">
                           {t("Announce")}
                         </button>
