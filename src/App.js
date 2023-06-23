@@ -66,11 +66,7 @@ function App() {
         },
         {
           path: "terms",
-          element: (
-            <ProtectedRoute>
-              <Terms />,
-            </ProtectedRoute>
-          ),
+          element: <Terms />,
         },
         {
           path: "contactus",
@@ -90,11 +86,7 @@ function App() {
         },
         {
           path: "Signup-org",
-          element: (
-            <ProtectedRoute>
-              <Organization />
-            </ProtectedRoute>
-          ),
+          element: <Organization />,
         },
         {
           path: "Signup-user",
@@ -127,21 +119,17 @@ function App() {
         {
           path: "userProfile/edit",
           element: (
-            <ProtectedRoute>
-              <UserEdit
-                TokenData={TokenData}
-                saveTokenData={saveTokenData}
-                setTokenData={setTokenData}
-              />
-            </ProtectedRoute>
+            <UserEdit
+              TokenData={TokenData}
+              saveTokenData={saveTokenData}
+              setTokenData={setTokenData}
+            />
           ),
         },
         {
           path: "orgProfile/edit",
           element: (
-            <ProtectedRoute>
-              <OrgEdit TokenData={TokenData} saveTokenData={saveTokenData} />
-            </ProtectedRoute>
+            <OrgEdit TokenData={TokenData} saveTokenData={saveTokenData} />
           ),
         },
 
