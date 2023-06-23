@@ -22,12 +22,12 @@ const UserProfile = ({ TokenData }) => {
   const updateUser = (updatedTokenData)=>{
         axios.get("http://localhost:3000/users").then((res) => {
         const users = res.data;
-        const editableUser = users.find((user) => {
+        const updatedUser = users.find((user) => {
           return user.email === TokenData.email;
         });
-        if (editableUser) {
+        if (updatedUser) {
           axios
-            .patch(`http://localhost:3000/users/${editableUser.id}`, {...updatedTokenData})
+            .patch(`http://localhost:3000/users/${updatedUser.id}`, {...updatedTokenData})
             .then((response) => {
               console.log("Update successful:", response.data);
             })

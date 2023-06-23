@@ -215,5 +215,12 @@
     "Send": "إرسال",
     "Dark Mode": "الوضع الداكن",
     "Page not found": "الصفحة غير موجودة",
-    "Oops! The page you are looking for does not exist. It might have been removed or deleted": "عفوًا! الصفحة التي تبحث عنها غير موجودة. ربما تمت إزالته أو حذفه"
+    "Oops! The page you are looking for does not exist. It might have been removed or deleted": "عفوًا! الصفحة التي تبحث عنها غير موجودة. ربما تمت إزالته أو حذفه",
+    "Announcements:": ": الأعلانات",
+    "Post": "أرسال",
+    "TheMassage:": "الرسالة",
+    "SelectBloodType": "Select Blood Type",
+    "quantity": "كمية",
+    "BloodType": "نوع الدم",
+    "Announce": "أتبرع"
 }

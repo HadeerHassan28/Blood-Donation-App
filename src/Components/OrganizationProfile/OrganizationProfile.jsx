@@ -1,11 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import styles from "./OrganizationProfile.module.css";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import { useTranslation } from "react-i18next";
-
-export const OrgProfile = ({ TokenData }) => {
+const OrganizationProfile = () => {
+  const { id } = useParams();
+  const [hospitalsData, setHospitalsData] = useState({});
+  useEffect(() => {
+    axios.get("http://localhost:3002/org").then((res) => {
+      const orgs = res.data;
+      const hospitals = orgs.find((user) => {
+        return user.id === id;
+      });
+      setHospitalsData(hospitals);
+    });
+  }, [id]);
   const { t } = useTranslation();
-
-  console.log(TokenData);
   return (
     <>
       <section style={{ backgroundColor: "#fbf1f0" }}>
@@ -15,18 +25,17 @@ export const OrgProfile = ({ TokenData }) => {
               <div className="card mb-4">
                 <div className="card-body text-center">
                   <img
-                    src={TokenData.image}
+                    src={hospitalsData.image}
                     alt="avatar"
                     className="rounded-circle img-fluid"
                     style={{ width: "150px" }}
                   />
-                  <h5 className="my-3">{TokenData.orgName}</h5>
+                  <h5 className="my-3">{hospitalsData.orgName}</h5>
+
+                  <p className="text-muted mb-4">
+                    {t("Address")}: {hospitalsData.Address}
+                  </p>
                   <div className="d-flex justify-content-center mb-2">
-                    <Link style={{ color: "white" }} to="edit">
-                      <button type="button" className="btn btn-danger  px-5">
-                        {t("Edit")}
-                      </button>
-                    </Link>
                     <button
                       type="button"
                       className="btn btn-outline-danger ms-2 px-5"
@@ -42,31 +51,12 @@ export const OrgProfile = ({ TokenData }) => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">
-                      <p className="mb-0">{t("Hospital Name")}</p>
-                    </div>
-                    <div className="col-sm-9">
-                      <p className="text-muted mb-0">{TokenData.orgName}</p>
-                    </div>
-                  </div>
-                  <hr />
-
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <p className="mb-0">{t("Code")}</p>
+                      <p className="mb-0">{t("Organization Code")}</p>
                     </div>
                     <div className="col-sm-9">
                       <p className="text-muted mb-0">
-                        {TokenData.OrganizationCode}
+                        {hospitalsData.OrganizationCode}
                       </p>
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <p className="mb-0">{t("Address")}</p>
-                    </div>
-                    <div className="col-sm-9">
-                      <p className="text-muted mb-0">{TokenData.Address}</p>
                     </div>
                   </div>
                   <hr />
@@ -75,14 +65,34 @@ export const OrgProfile = ({ TokenData }) => {
                       <p className="mb-0">{t("Sector")}</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{TokenData.sector}</p>
+                      <p className="text-muted mb-0">{hospitalsData.sector}</p>
                     </div>
-                    <div>
-                      <Link style={{ color: "white" }} to="Announcement">
-                        <button type="button" className="btn btn-danger  px-5">
-                          {t("Announce")}
-                        </button>
-                      </Link>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">{t("Phone")}</p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{hospitalsData.pNumber}</p>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">{t("Address")}</p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{hospitalsData.Address}</p>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">{t("Need Volunteers")}</p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{`${`${t("yes")}`}`}</p>
                     </div>
                   </div>
                 </div>
@@ -95,4 +105,4 @@ export const OrgProfile = ({ TokenData }) => {
   );
 };
 
-export default OrgProfile;
+export default OrganizationProfile;

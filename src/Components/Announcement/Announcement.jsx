@@ -2,7 +2,9 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import styles from "./Announcement.module.css";
 import { v4 as uuid } from "uuid";
+import { useTranslation } from "react-i18next";
 const Announcement = () => {
+  const { t } = useTranslation();
   const [isInput, setIsInput] = useState("");
   const [bloodType, setBloodType] = useState("");
   const [ann, setAnn] = useState([]);
@@ -45,13 +47,13 @@ const Announcement = () => {
   return (
     <div>
       <div>
-        <label htmlFor="bloodType">Blood Type:</label>
+        <label htmlFor="bloodType">{t("BloodType:")}</label>
         <select
           id="bloodType"
-          value={bloodType}
+          value={t("BloodType")}
           onChange={handleChangeBloodType}
         >
-          <option value="">Select Blood Type</option>
+          <option value="">{t("SelectBloodType")}</option>
           <option value="A+">A+</option>
           <option value="A-">A-</option>
           <option value="B+">B+</option>
@@ -63,35 +65,39 @@ const Announcement = () => {
         </select>
       </div>
       <div>
-        <label htmlFor="quantity">Quantity:</label>
+        <label htmlFor="quantity">{t("quantity")}</label>
         <input
           id="quantity"
           type="number"
-          value={quantity}
+          value={t("quantity")}
           onChange={handleChangeQuantity}
         />
       </div>
       <div>
-        <label>The Massage:</label>
+        <label>{t("TheMassage:")}</label>
         <input
           value={isInput}
           onChange={handleChangeMsg}
-          placeholder="Enter your announcement"
+          placeholder={t("Enter your announcement")}
           className={styles.inputField}
         />
       </div>
       <button className="btn btn-danger" type="button" onClick={handleDisplay}>
-        Post
+        {t("Post")}
       </button>
-      <h3>Announcements:</h3>
+      <h3>{t("Announcements:")}</h3>
       {ann &&
         ann.map((ele) => (
           <div>
             <p>
               {" "}
-              The blood type: {ele.bloodType}, The quantity: {ele.quantity}
+              {t("BloodType")} {ele.bloodType}, {t("quantity")} {ele.quantity}
             </p>
-            {ele.msg && <p>The massage: {ele.msg}</p>}
+            {ele.msg && (
+              <p>
+                {t("TheMassage:")} {ele.msg}
+              </p>
+            )}
             <button
               className="btn btn-danger"
               type="button"
