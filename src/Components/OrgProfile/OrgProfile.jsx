@@ -1,11 +1,13 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-export const OrgProfile = ({ TokenData }) => {
+export const OrgProfile = ({ TokenData, saveTokenData }) => {
   const { t } = useTranslation();
-
-  console.log(TokenData);
+  useEffect(() => {
+    saveTokenData();
+    // }
+  }, []);
   return (
     <>
       <section style={{ backgroundColor: "#fbf1f0" }}>

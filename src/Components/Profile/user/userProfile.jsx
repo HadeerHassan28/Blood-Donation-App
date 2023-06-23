@@ -7,9 +7,16 @@ import axios from "axios";
 import { useEffect } from "react";
 import jwtEncode from "jwt-encode";
 const UserProfile = ({ TokenData, saveTokenData }) => {
+  useEffect(() => {
+    // const storedTokenData = localStorage.getItem("tokenData");
+    // if (storedTokenData) {
+    // const parsedTokenData = JSON.parse(storedTokenData);
+    saveTokenData();
+    setIsAvailable(TokenData.isVolunteer);
+    // }
+  }, []);
   const { t } = useTranslation();
   const [isAvailable, setIsAvailable] = useState(TokenData.isVolunteer);
-  console.log(TokenData.isVolunteer);
   const secretKey =
     Math.random().toString(36).substring(2, 10) +
     Math.random().toString(36).substring(2, 10);
@@ -27,24 +34,24 @@ const UserProfile = ({ TokenData, saveTokenData }) => {
   };
 
   const updateUser = (updatedTokenData) => {
-    axios.get("http://localhost:3000/users").then((res) => {
-      const users = res.data;
-      const updatedUser = users.find((user) => {
-        return user.email === TokenData.email;
+    // axios.get("http://localhost:3000/users").then((res) => {
+    //   const users = res.data;
+    //   const updatedUser = users.find((user) => {
+    //     return user.email === TokenData.email;
+    //   });
+    //   if (updatedUser) {
+    axios
+      .patch(`http://localhost:3000/users/${TokenData.id}`, {
+        ...updatedTokenData,
+      })
+      .then((response) => {
+        console.log("Update successful:", response.data);
+      })
+      .catch((error) => {
+        console.error("Update failed:", error);
       });
-      if (updatedUser) {
-        axios
-          .patch(`http://localhost:3000/users/${updatedUser.id}`, {
-            ...updatedTokenData,
-          })
-          .then((response) => {
-            console.log("Update successful:", response.data);
-          })
-          .catch((error) => {
-            console.error("Update failed:", error);
-          });
-      }
-    });
+    //   }
+    // });
   };
 
   useEffect(() => {

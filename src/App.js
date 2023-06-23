@@ -42,9 +42,9 @@ function App() {
       setTokenData(decodedToken);
     }
   }
-  useEffect(() => {
-    saveTokenData();
-  }, []);
+  // useEffect(() => {
+  //   saveTokenData();
+  // }, []);
 
   useEffect(() => {
     Aos.init({ duration: 1500 });
@@ -105,7 +105,9 @@ function App() {
         },
         {
           path: "orgprofile",
-          element: <OrgProfile TokenData={TokenData} />,
+          element: (
+            <OrgProfile TokenData={TokenData} saveTokenData={saveTokenData} />
+          ),
         },
         {
           path: "userProfile",
@@ -134,7 +136,11 @@ function App() {
         {
           path: "orgProfile/edit",
           element: (
-            <OrgEdit TokenData={TokenData} saveTokenData={saveTokenData} />
+            <OrgEdit
+              TokenData={TokenData}
+              saveTokenData={saveTokenData}
+              setTokenData={setTokenData}
+            />
           ),
         },
 

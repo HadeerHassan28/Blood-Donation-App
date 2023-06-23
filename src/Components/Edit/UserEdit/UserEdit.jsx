@@ -30,7 +30,6 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
     fReader.readAsDataURL(file);
 
     fReader.onloadend = () => {
-      // setimgSrc(fReader.result);
       setNewData({
         ...newData,
         image: fReader.result,
@@ -86,16 +85,6 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
       setIsPnumberValid(isEnteredPhoneNumberValid);
     }
   };
-  const [editableUser, setEditableUser] = useState(null);
-  useEffect(() => {
-    axios.get("http://localhost:3000/users").then((res) => {
-      const users = res.data;
-      const editableUser = users.find((user) => {
-        return user.email === TokenData.email;
-      });
-      setEditableUser(editableUser);
-    });
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -127,25 +116,20 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
       localStorage.setItem("token", token);
       saveTokenData();
       lastData = { ...newData, token: token };
-      // setNewData({
-      //   ...newData,
-      //   token: token,
-      // });
-      if (editableUser) {
-        console.log(lastData);
-        axios
-          .patch(`http://localhost:3000/users/${editableUser.id}`, lastData)
-          .then((response) => {
-            // Set the secret key for the token
-            // Generate the token
-            console.log("Update successful:", response.data);
-          })
-          .catch((error) => {
-            console.error("Update failed:", error);
-          });
-      }
 
       navigate("/userProfile");
+
+      console.log(lastData);
+      axios
+        .patch(`http://localhost:3000/users/${newData.id}`, lastData)
+        .then((response) => {
+          // Set the secret key for the token
+          // Generate the token
+          console.log("Update successful:", response.data);
+        })
+        .catch((error) => {
+          console.error("Update failed:", error);
+        });
     } else {
       console.log("Check Your Fields");
     }
