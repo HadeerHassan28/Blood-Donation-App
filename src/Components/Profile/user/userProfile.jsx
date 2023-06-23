@@ -1,11 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./userProfile.module.css";
 import { Link } from "react-router-dom";
 import user from "../../../assets/user.jpg";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
+import { useEffect } from "react";
+
 
 const UserProfile = ({ TokenData }) => {
   const { t } = useTranslation();
+  const [isAvailable, setIsAvailable] = useState(TokenData.isVolunteer);
+  const toggleAvialability  = () => {
+    TokenData.isVolunteer = !isAvailable;
+    localStorage.setItem('tokenData', JSON.stringify(TokenData));
+    updateUser(TokenData);
+    setIsAvailable(oldState => !oldState);
+  }
+
+
+
+  const updateUser = (updatedTokenData)=>{
+        axios.get("http://localhost:3000/users").then((res) => {
+        const users = res.data;
+        const editableUser = users.find((user) => {
+          return user.email === TokenData.email;
+        });
+        if (editableUser) {
+          axios
+            .patch(`http://localhost:3000/users/${editableUser.id}`, {...updatedTokenData})
+            .then((response) => {
+              console.log("Update successful:", response.data);
+            })
+            .catch((error) => {
+              console.error("Update failed:", error);
+            });
+        }
+      });
+  }
+
+  useEffect(() => {
+    const storedTokenData = localStorage.getItem('tokenData');
+    if (storedTokenData) {
+      const parsedTokenData = JSON.parse(storedTokenData);
+      setIsAvailable(parsedTokenData.isVolunteer);
+    }
+  }, []);
+
+
   return (
     <>
       <section style={{ backgroundColor: "#fbf1f0" }}>
@@ -91,7 +132,7 @@ const UserProfile = ({ TokenData }) => {
                     </div>
                     <div className="col-sm-9">
                       <p className="text-muted mb-0">{`${
-                        TokenData.isVolunteer
+                        isAvailable
                           ? `${t("Avialable")}`
                           : `${t("Not Available")}`
                       }`}</p>
@@ -100,8 +141,8 @@ const UserProfile = ({ TokenData }) => {
                 </div>
               </div>
               <div>
-                <button className="d-block mx-auto btn btn-danger">
-                  {t("Be Available for Volunteering")}
+                <button className="d-block mx-auto btn btn-danger" onClick={toggleAvialability}>
+                {isAvailable? t("Be Unavailable for Volunteering") : t("Be Available for Volunteering")}
                 </button>
               </div>
             </div>
