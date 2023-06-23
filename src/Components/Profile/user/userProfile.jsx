@@ -5,47 +5,55 @@ import user from "../../../assets/user.jpg";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { useEffect } from "react";
-
-
-const UserProfile = ({ TokenData }) => {
+import jwtEncode from "jwt-encode";
+const UserProfile = ({ TokenData, saveTokenData }) => {
   const { t } = useTranslation();
   const [isAvailable, setIsAvailable] = useState(TokenData.isVolunteer);
-  const toggleAvialability  = () => {
+  console.log(TokenData.isVolunteer);
+  const secretKey =
+    Math.random().toString(36).substring(2, 10) +
+    Math.random().toString(36).substring(2, 10);
+  console.log(TokenData.isVolunteer);
+  const toggleAvialability = () => {
     TokenData.isVolunteer = !isAvailable;
-    localStorage.setItem('tokenData', JSON.stringify(TokenData));
+    const payload = {
+      ...TokenData,
+    };
+    const token = jwtEncode(payload, secretKey);
+    localStorage.setItem("token", token);
+    saveTokenData();
     updateUser(TokenData);
-    setIsAvailable(oldState => !oldState);
-  }
+    setIsAvailable((oldState) => !oldState);
+  };
 
-
-
-  const updateUser = (updatedTokenData)=>{
-        axios.get("http://localhost:3000/users").then((res) => {
-        const users = res.data;
-        const updatedUser = users.find((user) => {
-          return user.email === TokenData.email;
-        });
-        if (updatedUser) {
-          axios
-            .patch(`http://localhost:3000/users/${updatedUser.id}`, {...updatedTokenData})
-            .then((response) => {
-              console.log("Update successful:", response.data);
-            })
-            .catch((error) => {
-              console.error("Update failed:", error);
-            });
-        }
+  const updateUser = (updatedTokenData) => {
+    axios.get("http://localhost:3000/users").then((res) => {
+      const users = res.data;
+      const updatedUser = users.find((user) => {
+        return user.email === TokenData.email;
       });
-  }
+      if (updatedUser) {
+        axios
+          .patch(`http://localhost:3000/users/${updatedUser.id}`, {
+            ...updatedTokenData,
+          })
+          .then((response) => {
+            console.log("Update successful:", response.data);
+          })
+          .catch((error) => {
+            console.error("Update failed:", error);
+          });
+      }
+    });
+  };
 
   useEffect(() => {
-    const storedTokenData = localStorage.getItem('tokenData');
-    if (storedTokenData) {
-      const parsedTokenData = JSON.parse(storedTokenData);
-      setIsAvailable(parsedTokenData.isVolunteer);
-    }
-  }, []);
-
+    // const storedTokenData = localStorage.getItem("tokenData");
+    // if (storedTokenData) {
+    // const parsedTokenData = JSON.parse(storedTokenData);
+    setIsAvailable(TokenData.isVolunteer);
+    // }
+  }, [TokenData.isVolunteer]);
 
   return (
     <>
@@ -141,8 +149,13 @@ const UserProfile = ({ TokenData }) => {
                 </div>
               </div>
               <div>
-                <button className="d-block mx-auto btn btn-danger" onClick={toggleAvialability}>
-                {isAvailable? t("Be Unavailable for Volunteering") : t("Be Available for Volunteering")}
+                <button
+                  className="d-block mx-auto btn btn-danger"
+                  onClick={toggleAvialability}
+                >
+                  {isAvailable
+                    ? t("Be Unavailable for Volunteering")
+                    : t("Be Available for Volunteering")}
                 </button>
               </div>
             </div>

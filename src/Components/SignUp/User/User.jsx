@@ -28,6 +28,7 @@ const User = () => {
     gender: "",
     token: "",
   });
+  let lastData = {};
 
   const [isFirstNameValid, setIsFirstNameValid] = useState(false);
   const [isFirstNameFocused, setIsFirstNameFocused] = useState(false);
@@ -147,25 +148,14 @@ const User = () => {
 
           // Generate the token
           const token = jwtEncode(payload, secretKey);
-          console.log(token);
           //! get data from thr form and add it to the json data:
-          const newUser = {
-            id: uuid(),
-            firstName: data.firstName,
-            lastName: data.lastName,
-            email: data.email,
-            password: data.password,
-            confirmPassword: data.confirmPassword,
-            Address: data.Address,
-            city: data.city,
-            pNumber: data.pNumber,
-            bloodType: data.bloodType,
-            gender: data.gender,
-            isVolunteer: false,
+          lastData = {
+            ...data,
+            ...payload,
             token: token,
           };
           axios
-            .post("http://localhost:3000/users", newUser)
+            .post("http://localhost:3000/users", lastData)
             .then((res) => {
               //console.log(res.data);
               console.log("Done post");

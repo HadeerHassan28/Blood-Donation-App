@@ -22,8 +22,8 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
     ? process.env.PUBLIC_URL + "/assets/images/userImage.jpg"
     : TokenData.image,
     */
-  const [newData, setNewData] = useState(TokenData);
-  console.log(1);
+  let [newData, setNewData] = useState(TokenData);
+  let lastData = null;
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     var fReader = new FileReader();
@@ -86,6 +86,16 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
       setIsPnumberValid(isEnteredPhoneNumberValid);
     }
   };
+  const [editableUser, setEditableUser] = useState(null);
+  useEffect(() => {
+    axios.get("http://localhost:3000/users").then((res) => {
+      const users = res.data;
+      const editableUser = users.find((user) => {
+        return user.email === TokenData.email;
+      });
+      setEditableUser(editableUser);
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -108,7 +118,7 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
         pNumber: newData.pNumber,
         bloodType: TokenData.bloodType,
         gender: TokenData.gender,
-        isVolunteer: false,
+        isVolunteer: TokenData.isVolunteer,
         image: newData.image,
         role: "user",
       };
@@ -116,30 +126,26 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
       const token = jwtEncode(payload, secretKey);
       localStorage.setItem("token", token);
       saveTokenData();
-      setNewData({
-        ...newData,
-        token: token,
-      });
-      navigate("/userProfile");
+      lastData = { ...newData, token: token };
+      // setNewData({
+      //   ...newData,
+      //   token: token,
+      // });
+      if (editableUser) {
+        console.log(lastData);
+        axios
+          .patch(`http://localhost:3000/users/${editableUser.id}`, lastData)
+          .then((response) => {
+            // Set the secret key for the token
+            // Generate the token
+            console.log("Update successful:", response.data);
+          })
+          .catch((error) => {
+            console.error("Update failed:", error);
+          });
+      }
 
-      axios.get("http://localhost:3000/users").then((res) => {
-        const users = res.data;
-        const editableUser = users.find((user) => {
-          return user.email === TokenData.email;
-        });
-        if (editableUser) {
-          axios
-            .patch(`http://localhost:3000/users/${editableUser.id}`, newData)
-            .then((response) => {
-              // Set the secret key for the token
-              // Generate the token
-              // console.log("Update successful:", response.data);
-            })
-            .catch((error) => {
-              console.error("Update failed:", error);
-            });
-        }
-      });
+      navigate("/userProfile");
     } else {
       console.log("Check Your Fields");
     }

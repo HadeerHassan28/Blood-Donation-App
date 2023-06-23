@@ -42,6 +42,9 @@ function App() {
       setTokenData(decodedToken);
     }
   }
+  useEffect(() => {
+    saveTokenData();
+  }, []);
 
   useEffect(() => {
     Aos.init({ duration: 1500 });
@@ -106,7 +109,9 @@ function App() {
         },
         {
           path: "userProfile",
-          element: <UserProfile TokenData={TokenData} />,
+          element: (
+            <UserProfile TokenData={TokenData} saveTokenData={saveTokenData} />
+          ),
         },
         {
           path: "volunteerprofile/:id",
