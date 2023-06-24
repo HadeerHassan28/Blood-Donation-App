@@ -93,7 +93,7 @@ const Hospitals = () => {
   return (
     <>
       <div className="text-center p-5">
-        <h2 style={{ color: "#ee394a" }}>{t("hospitals")}</h2>
+        <h2 style={{ color: "#ee394a" }}>{t("Hospitals")}</h2>
         <p>{t("Discover hospitals")}</p>
       </div>
       <div className={`${styles.searchBox} py-4`}>
@@ -106,10 +106,10 @@ const Hospitals = () => {
           <option label={`${t("Sector")}`} hidden></option>
           <option>{t("All")}</option>
           <option name="Private" value="Private">
-            Private
+            {t("Private")}
           </option>
           <option name="Governmental" value="Governmental">
-            Governmental
+            {t("Governmental")}
           </option>
         </select>
         <input
@@ -171,7 +171,7 @@ const Hospitals = () => {
             : "d-block text-center text-danger fs-4"
         }
       >
-        Please wait data loading
+        {t("Please wait data loading")}
       </div>
       <table className={`${styles.tableW} table w-75 mt-5 mx-auto`}>
         <thead>
@@ -188,7 +188,7 @@ const Hospitals = () => {
                 <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702 1.509.229z" />
                 <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
               </svg>
-              {t("Hospital")}
+              {t("HOSPITAL")}
             </th>
             <th className="text-center text-danger p-3">
               <svg
@@ -222,7 +222,7 @@ const Hospitals = () => {
                   d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
                 />
               </svg>
-              {t("Sector")}
+              {t("SECTOR")}
             </th>
           </tr>
         </thead>

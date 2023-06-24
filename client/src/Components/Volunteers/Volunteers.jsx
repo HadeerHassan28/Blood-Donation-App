@@ -275,6 +275,7 @@ const Volunteers = () => {
           {searchRes && searchRes.length > searchResStep && (
             <tr>
               <td colSpan={3} className="text-center">
+                <span>{endIndex <= searchRes.length ? endIndex: searchRes.length} <span className="text-danger">/</span> {searchRes.length}</span>
                 <button
                   onClick={handlePrev}
                   className={`${styles.navigateRes} text-center m-2`}
