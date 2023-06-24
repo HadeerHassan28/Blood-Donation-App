@@ -47,9 +47,6 @@ const Announcement = () => {
           </div>
           )
         }
-
-
-
       </div>
     </div>
 

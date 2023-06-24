@@ -4,7 +4,7 @@ import "./App.css";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
 import Notfound from "./Components/Notfound/Notfound";
-//import About from "./Components/About/About";
+import About from "./Components/About/About";
 import Blogs from "./Components/Blogs/Blogs";
 import Volunteers from "./Components/Volunteers/Volunteers";
 import Hospitals from "./Components/Hospitals/Hospitals";
@@ -17,6 +17,7 @@ import LogOrg from "./Components/LogIn/Organizations/LogOrg";
 import LogUser from "./Components/LogIn/User/LogUser";
 import OrgProfile from "./Components/OrgProfile/OrgProfile";
 import Terms from "./Components/Terms/Terms";
+import AnnouForm from "./Components/AnnouForm/AnnouForm";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import UserProfile from "./Components/Profile/user/userProfile";
 import UserEdit from "./Components/Edit/UserEdit/UserEdit";
@@ -24,11 +25,12 @@ import { Toaster } from "react-hot-toast";
 // Start Animation Library
 import Aos from "aos";
 import "aos/dist/aos.css";
-import jwtDecode from "jwt-decode";
 // End Animation Library
+import jwtDecode from "jwt-decode";
 import OrgEdit from "./Components/OrgEdit/OrgEdit";
 import ContextTheme from "./Context/Context";
 import VolunteerProfile from "./Components/VolunteerProfile/VolunteerProfile";
+import OrganizationProfile from "./Components/OrganizationProfile/OrganizationProfile";
 import Payment from "./Components/Payment/Payment";
 import Completion from "./Components/Payment/Completion";
 function App() {
@@ -42,10 +44,12 @@ function App() {
       setTokenData(decodedToken);
     }
   }
+  // useEffect(() => {
+  //   saveTokenData();
+  // }, []);
 
   useEffect(() => {
     Aos.init({ duration: 1500 });
-    console.log(TokenData);
   });
 
   let routes = createBrowserRouter([
@@ -67,11 +71,7 @@ function App() {
         },
         {
           path: "terms",
-          element: (
-            <ProtectedRoute>
-              <Terms />,
-            </ProtectedRoute>
-          ),
+          element: <Terms />,
         },
         {
           path: "contactus",
@@ -91,11 +91,7 @@ function App() {
         },
         {
           path: "Signup-org",
-          element: (
-            <ProtectedRoute>
-              <Organization />
-            </ProtectedRoute>
-          ),
+          element: <Organization />,
         },
         {
           path: "Signup-user",
@@ -111,34 +107,42 @@ function App() {
         },
         {
           path: "orgprofile",
-          element: <OrgProfile TokenData={TokenData} />,
+          element: (
+            <OrgProfile TokenData={TokenData} saveTokenData={saveTokenData} />
+          ),
         },
         {
           path: "userProfile",
-          element: <UserProfile TokenData={TokenData} />,
+          element: (
+            <UserProfile TokenData={TokenData} saveTokenData={saveTokenData} />
+          ),
         },
         {
           path: "volunteerprofile/:id",
           element: <VolunteerProfile />,
         },
         {
+          path: "organizationprofile/:id",
+          element: <OrganizationProfile />,
+        },
+        {
           path: "userProfile/edit",
           element: (
-            <ProtectedRoute>
-              <UserEdit
-                TokenData={TokenData}
-                saveTokenData={saveTokenData}
-                setTokenData={setTokenData}
-              />
-            </ProtectedRoute>
+            <UserEdit
+              TokenData={TokenData}
+              saveTokenData={saveTokenData}
+              setTokenData={setTokenData}
+            />
           ),
         },
         {
           path: "orgProfile/edit",
           element: (
-            <ProtectedRoute>
-              <OrgEdit TokenData={TokenData} saveTokenData={saveTokenData} />
-            </ProtectedRoute>
+            <OrgEdit
+              TokenData={TokenData}
+              saveTokenData={saveTokenData}
+              setTokenData={setTokenData}
+            />
           ),
         },
         {
@@ -148,6 +152,10 @@ function App() {
         {
           path:"completion",
           element: <Completion/>
+        },
+        {
+          path: "announcForm",
+          element: <AnnouForm TokenData={TokenData}/>
         },
         {
           path: "*",
@@ -171,3 +179,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+

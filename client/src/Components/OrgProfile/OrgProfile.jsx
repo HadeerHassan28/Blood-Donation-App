@@ -1,40 +1,16 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
-import axios from 'axios'
-export const OrgProfile = ({ TokenData }) => {
-  const {t} = useTranslation();
+import { useTranslation } from "react-i18next";
 
-
-
-{/*
-  const handleDonation = () => {
-    const requestBody = {
-      items: [
-        { id: 1, quantity: 3 },
-        { id: 2, quantity: 1 },
-      ],
-    };
-  
-    const requestHeaders = {
-      'Content-Type': 'application/json',
-    };
-  
-    axios
-      .post('http://localhost:3001/create-checkout-session', requestBody, { headers: requestHeaders })
-      .then(({ url }) => {
-        window.location = url;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-*/}
-
-  console.log(TokenData);
+export const OrgProfile = ({ TokenData, saveTokenData }) => {
+  const { t } = useTranslation();
+  useEffect(() => {
+    saveTokenData();
+    // }
+  }, []);
   return (
     <>
-      <section style={{ backgroundColor: "#fbf1f0" }}>
+      <section className="py-4" style={{ backgroundColor: "#fbf1f0" }}>
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-4">
@@ -53,7 +29,10 @@ export const OrgProfile = ({ TokenData }) => {
                         {t("Edit")}
                       </button>
                     </Link>
-                    <button type="button" className="btn btn-outline-danger ms-2 px-5">
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger ms-2 px-5"
+                    >
                       {t("Message")}
                     </button>
                     <Link to="payment">
@@ -62,6 +41,7 @@ export const OrgProfile = ({ TokenData }) => {
                     </button>
                     </Link>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -73,9 +53,7 @@ export const OrgProfile = ({ TokenData }) => {
                       <p className="mb-0">{t("Hospital Name")}</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">
-                        {TokenData.orgName}
-                      </p>
+                      <p className="text-muted mb-0">{TokenData.orgName}</p>
                     </div>
                   </div>
                   <hr />
@@ -85,7 +63,9 @@ export const OrgProfile = ({ TokenData }) => {
                       <p className="mb-0">{t("Code")}</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{TokenData.OrganizationCode}</p>
+                      <p className="text-muted mb-0">
+                        {TokenData.OrganizationCode}
+                      </p>
                     </div>
                   </div>
                   <hr />
@@ -107,15 +87,26 @@ export const OrgProfile = ({ TokenData }) => {
                     </div>
                   </div>
                 </div>
-
               </div>
-
             </div>
+          </div>
+          <div className="announcementbtn w-100 mt-5">
+            <Link style={{ color: "white" }} to={'/announcForm'}>
+              <button type="button" className="btn btn-danger w-100">
+                {t("Make an Announcement")}
+              </button>
+            </Link>
           </div>
         </div>
       </section>
     </>
   );
-}
+};
 
 export default OrgProfile;
+
+{/* 
+
+
+
+*/}

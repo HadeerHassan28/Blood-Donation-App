@@ -15,6 +15,7 @@ const UserProfile = ({ TokenData, saveTokenData }) => {
     setIsAvailable(TokenData.isVolunteer);
     // }
   }, []);
+  console.log(TokenData.isVolunteer)
   const { t } = useTranslation();
   const [isAvailable, setIsAvailable] = useState(TokenData.isVolunteer);
   const secretKey =
