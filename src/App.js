@@ -17,6 +17,7 @@ import LogOrg from "./Components/LogIn/Organizations/LogOrg";
 import LogUser from "./Components/LogIn/User/LogUser";
 import OrgProfile from "./Components/OrgProfile/OrgProfile";
 import Terms from "./Components/Terms/Terms";
+import AnnouForm from "./Components/AnnouForm/AnnouForm";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import UserProfile from "./Components/Profile/user/userProfile";
 import UserEdit from "./Components/Edit/UserEdit/UserEdit";
@@ -75,6 +76,14 @@ function App() {
           ),
         },
         {
+          path: "announcForm",
+          element: (
+            <ProtectedRoute>
+              <AnnouForm TokenData={TokenData} />,
+            </ProtectedRoute>
+          ),
+        },
+        {
           path: "contactus",
           element: <ContactUs />,
         },
@@ -93,9 +102,9 @@ function App() {
         {
           path: "Signup-org",
           element: (
-            <ProtectedRoute>
-              <Organization />
-            </ProtectedRoute>
+
+            <Organization />
+
           ),
         },
         {

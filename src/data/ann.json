@@ -1,64 +1,49 @@
 {
   "announcements": [
     {
-      "bloodType": "A-",
-      "quantity": 1,
-      "msg": "test",
-      "id": 1
-    },
-    {
-      "bloodType": "A-",
-      "quantity": 1,
-      "msg": "test",
-      "id": 2
-    },
-    {
-      "bloodType": "A-",
-      "quantity": 1,
-      "id": 3
-    },
-    {
-      "bloodType": "A-",
-      "quantity": 1,
-      "msg": "test",
-      "id": 4
-    },
-    {
-      "bloodType": "A-",
-      "quantity": 1,
-      "id": 5
-    },
-    {
-      "bloodType": "A-",
-      "quantity": 1,
-      "msg": "test",
-      "id": 6
+      "bloodType": "B+",
+      "quantity": 10,
+      "message": "swredf",
+      "orgData": {
+        "orgName": "ElsalamInternational",
+        "OrganizationCode": "808080",
+        "Address": "cairo",
+        "sector": "",
+        "isNeedsVolunteers": false,
+        "pNumber": "01234567899",
+        "role": "org"
+      },
+      "id": 12
     },
     {
       "bloodType": "B+",
+      "quantity": 8,
+      "message": "ElsalamInternational hospital hiring volunteers to donate",
+      "orgData": {
+        "orgName": "ElsalamInternational",
+        "OrganizationCode": "808080",
+        "Address": "cairo",
+        "sector": "",
+        "isNeedsVolunteers": false,
+        "pNumber": "01234567899",
+        "role": "org"
+      },
+      "id": 13
+    },
+    {
+      "bloodType": "A+",
       "quantity": 5,
-      "id": 7
-    },
-    {
-      "bloodType": "AB+",
-      "quantity": 2,
-      "id": 8
-    },
-    {
-      "bloodType": "B+",
-      "quantity": 2,
-      "id": 9
-    },
-    {
-      "bloodType": "B-",
-      "quantity": 2,
-      "id": 10
-    },
-    {
-      "bloodType": "AB+",
-      "quantity": 1,
-      "msg": "important",
-      "id": 11
+      "message": "بلناةفسخاتخهلاتهقفتنابياموفخةناتهحخف",
+      "orgData": {
+        "orgName": "ElsalamInternational",
+        "OrganizationCode": "808080",
+        "Address": "cairo",
+        "sector": "",
+        "isNeedsVolunteers": false,
+        "pNumber": "01234567899",
+        "role": "org"
+      },
+      "id": 14
     }
   ]
 }

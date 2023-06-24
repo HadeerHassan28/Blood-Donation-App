@@ -8,7 +8,7 @@ export const OrgProfile = ({ TokenData }) => {
   console.log(TokenData);
   return (
     <>
-      <section style={{ backgroundColor: "#fbf1f0" }}>
+      <section className="py-4" style={{ backgroundColor: "#fbf1f0" }}>
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-4">
@@ -34,6 +34,7 @@ export const OrgProfile = ({ TokenData }) => {
                       {t("Message")}
                     </button>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -77,17 +78,17 @@ export const OrgProfile = ({ TokenData }) => {
                     <div className="col-sm-9">
                       <p className="text-muted mb-0">{TokenData.sector}</p>
                     </div>
-                    <div>
-                      <Link style={{ color: "white" }} to="Announcement">
-                        <button type="button" className="btn btn-danger  px-5">
-                          {t("Announce")}
-                        </button>
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div className="announcementbtn w-100 mt-5">
+            <Link style={{ color: "white" }} to={'/announcForm'}>
+              <button type="button" className="btn btn-danger w-100">
+                {t("Make an Announcement")}
+              </button>
+            </Link>
           </div>
         </div>
       </section>

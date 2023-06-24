@@ -1,0 +1,16 @@
+/* .annoCard {
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+} */
+
+.annoCard {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.map {
+    filter: grayscale();
+    -webkit-filter: grayscale();
+}
