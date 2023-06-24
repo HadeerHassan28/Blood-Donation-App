@@ -104,6 +104,7 @@
     "LOCATION": "LOCATION",
     "BLOOD GROUP": "BLOOD GROUP",
     "Blood Type": "Blood Type",
+    "of": "of",
     "Sorry, no results found": "Sorry, no results found",
     "Loading...": "Loading...",
     "Start saving lives": "Start saving lives",
@@ -222,5 +223,12 @@
     "SelectBloodType": "Select Blood Type",
     "quantity": "Quantity",
     "BloodType": "Blood Type",
-    "Announce": "Announce"
+    "Announce": "Announce",
+    "Contact With Hospital": "Contact With {{hosName}} Hospital:",
+    "Make an Announcement": "Make an Announcement",
+    "Enter Message": "Enter Message",
+    "Hospitals": "Hospitals",
+    "SECTOR": "SECTOR",
+    "HOSPITAL": "HOSPITAL",
+    "Discover hospitals": "Discover hospitals"
 }

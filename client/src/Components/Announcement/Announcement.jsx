@@ -37,11 +37,11 @@ const Announcement = () => {
         }}
       >
         <div className="text-center mt-5 mb-5 text-danger ">
-          <h2>Announcements</h2>
+          <h2>{t("Announcements")}</h2>
         </div>
         <div className="row gy-3 ">
           {isLoading ? (
-            <div>Loading.....</div>
+            <div>{t("Loading...")}</div>
           ) : (
             announcements.map((a) => (
               <div
@@ -51,7 +51,7 @@ const Announcement = () => {
                 }}
               >
                 <h4>
-                  Hospital Name :{" "}
+                  {t("Hospital Name")} :{" "}
                   <span
                     className="h4 text-danger isDark"
                     style={{
@@ -66,7 +66,7 @@ const Announcement = () => {
                     color: isTheme === true ? "white" : "black",
                   }}
                 >
-                  Blood Type :{" "}
+                  {t("Blood Type")} :{" "}
                   <span
                     className="h4 text-danger"
                     style={{
@@ -81,7 +81,7 @@ const Announcement = () => {
                     color: isTheme === true ? "white" : "black",
                   }}
                 >
-                  Quantity :{" "}
+                  {t("quantity")}:{" "}
                   <span
                     className="h4 text-danger"
                     style={{
@@ -106,7 +106,7 @@ const Announcement = () => {
                   }}
                 >
                   <p className="fs-5">
-                    Contact With {a.orgData.orgName} Hospital :
+                    {t("Contact With Hospital", {hosName: a.orgData.orgName} )} :
                   </p>
                   <Link className="me-3" to={`tel:+${a.orgData.pNumber}`}>
                     <BsTelephoneOutbound
