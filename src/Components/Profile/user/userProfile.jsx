@@ -7,6 +7,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import jwtEncode from "jwt-encode";
 const UserProfile = ({ TokenData, saveTokenData }) => {
+  let lastData = null;
   useEffect(() => {
     // const storedTokenData = localStorage.getItem("tokenData");
     // if (storedTokenData) {
@@ -29,6 +30,7 @@ const UserProfile = ({ TokenData, saveTokenData }) => {
     const token = jwtEncode(payload, secretKey);
     localStorage.setItem("token", token);
     saveTokenData();
+    // lastData = { ...TokenData, isVolunteer: TokenData.isVolunteer };
     updateUser(TokenData);
     setIsAvailable((oldState) => !oldState);
   };
