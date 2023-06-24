@@ -6,6 +6,8 @@ export const OrgProfile = ({ TokenData }) => {
   const {t} = useTranslation();
 
 
+
+{/*
   const handleDonation = () => {
     const requestBody = {
       items: [
@@ -19,14 +21,15 @@ export const OrgProfile = ({ TokenData }) => {
     };
   
     axios
-      .post('http://localhost:3000/create-checkout-session', requestBody, { headers: requestHeaders })
-      .then(({ data }) => {
-        window.location = data.url;
+      .post('http://localhost:3001/create-checkout-session', requestBody, { headers: requestHeaders })
+      .then(({ url }) => {
+        window.location = url;
       })
       .catch((error) => {
         console.error(error);
       });
   };
+*/}
 
   console.log(TokenData);
   return (
@@ -53,9 +56,11 @@ export const OrgProfile = ({ TokenData }) => {
                     <button type="button" className="btn btn-outline-danger ms-2 px-5">
                       {t("Message")}
                     </button>
-                    <button type="button" className="btn btn-outline-danger ms-2 px-5" onClick={handleDonation}>
+                    <Link to="payment">
+                    <button type="button" className="btn btn-outline-danger ms-2 px-5">
                       Checkout
                     </button>
+                    </Link>
                   </div>
                 </div>
               </div>

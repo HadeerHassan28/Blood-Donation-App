@@ -1,47 +1,53 @@
-require("dotenv").config()
+const express = require("express");
+const app = express();
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+const { resolve } = require("path");
+// Replace if using a different env file or config
+const env = require("dotenv").config({ path: "./.env" });
 
-const express = require("express")
-const app = express()
-const cors = require("cors")
-app.use(express.json())
-app.use(
-  cors({
-    origin: "http://localhost:5500",
-  })
-)
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: "2022-08-01",
+});
 
-const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
+app.use(express.static(process.env.STATIC_DIR));
 
-const storeItems = new Map([
-  [1, { priceInCents: 10000, name: "Learn React Today" }],
-  [2, { priceInCents: 20000, name: "Learn CSS Today" }],
-])
+app.get("/", (req, res) => {
+  const path = resolve(process.env.STATIC_DIR + "/index.html");
+  res.sendFile(path);
+});
 
-app.post("/create-checkout-session", async (req, res) => {
+app.get("/config", (req, res) => {
+  res.send({
+    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+  });
+});
+
+app.post("/create-payment-intent", async (req, res) => {
   try {
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
-      mode: "payment",
-      line_items: req.body.items.map(item => {
-        const storeItem = storeItems.get(item.id)
-        return {
-          price_data: {
-            currency: "usd",
-            product_data: {
-              name: storeItem.name,
-            },
-            unit_amount: storeItem.priceInCents,
-          },
-          quantity: item.quantity,
-        }
-      }),
-      success_url: `${process.env.CLIENT_URL}/success.html`,
-      cancel_url: `${process.env.CLIENT_URL}/cancel.html`,
-    })
-    res.json({ url: session.url })
-  } catch (e) {
-    res.status(500).json({ error: e.message })
-  }
-})
+    const paymentIntent = await stripe.paymentIntents.create({
+      currency: "EGP",
+      amount: 5,
+      automatic_payment_methods: { enabled: true },
+    });
 
-app.listen(3000)
+    // Send publishable key and PaymentIntent details to client
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (e) {
+    return res.status(400).send({
+      error: {
+        message: e.message,
+      },
+    });
+  }
+});
+
+app.listen(5252, () =>
+  console.log(`Node server listening at http://localhost:5252`)
+);

@@ -29,6 +29,8 @@ import jwtDecode from "jwt-decode";
 import OrgEdit from "./Components/OrgEdit/OrgEdit";
 import ContextTheme from "./Context/Context";
 import VolunteerProfile from "./Components/VolunteerProfile/VolunteerProfile";
+import Payment from "./Components/Payment/Payment";
+import Completion from "./Components/Payment/Completion";
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
@@ -142,7 +144,14 @@ function App() {
             </ProtectedRoute>
           ),
         },
-
+        {
+          path: "orgprofile/payment",
+          element: <Payment TokenData={TokenData} saveTokenData={saveTokenData}/>
+        },
+        {
+          path:"completion",
+          element: <Completion/>
+        },
         {
           path: "*",
           element: <Notfound />,
