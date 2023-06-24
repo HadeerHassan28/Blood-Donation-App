@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from "./Volunteers.module.css";
 import { useRef } from "react";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-
+import { conTheme } from "../../Context/Context";
 const Volunteers = () => {
+  const { isTheme } = useContext(conTheme);
   const searchResStep = 9;
   const [volunteers, setVolunteers] = useState(null);
   const [searchRes, setSearchRes] = useState(volunteers);
@@ -16,11 +17,39 @@ const Volunteers = () => {
   const location = useRef();
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const governates = ["Alexandria","Aswan","Asyut","Beheira","Beni Suef","Cairo","Dakahlia","Damietta","Faiyum","Gharbia","Giza","Ismailia","Kafr El Sheikh","Luxor","Matruh","Minya","Monufia","New Valley","North Sinai","Port Said","Qalyubia","Qena","Red Sea","Sharqia","Sohag","South Sinai","Suez"]
-  
+  const governates = [
+    "Alexandria",
+    "Aswan",
+    "Asyut",
+    "Beheira",
+    "Beni Suef",
+    "Cairo",
+    "Dakahlia",
+    "Damietta",
+    "Faiyum",
+    "Gharbia",
+    "Giza",
+    "Ismailia",
+    "Kafr El Sheikh",
+    "Luxor",
+    "Matruh",
+    "Minya",
+    "Monufia",
+    "New Valley",
+    "North Sinai",
+    "Port Said",
+    "Qalyubia",
+    "Qena",
+    "Red Sea",
+    "Sharqia",
+    "Sohag",
+    "South Sinai",
+    "Suez",
+  ];
+
   useEffect(() => {
     axios.get("http://localhost:3000/users").then((res) => {
-      const volunteers = res.data.filter(user => user.isVolunteer === true)
+      const volunteers = res.data.filter((user) => user.isVolunteer === true);
       setVolunteers(volunteers);
       setSearchRes(volunteers);
     });
@@ -99,7 +128,9 @@ const Volunteers = () => {
         <p>{t("Search our Super Hero Volunteers")}</p>
       </div>
       <div className={`${styles.searchBox} py-4`}>
-        <span className={`${styles.filterWith} text-danger`}>{t("Filter with:")}</span>
+        <span className={`${styles.filterWith} text-danger`}>
+          {t("Filter with:")}
+        </span>
         <select
           className={`${styles.select}`}
           ref={bloodGroup}
@@ -143,7 +174,11 @@ const Volunteers = () => {
           onChange={searchBloodGroupLocation}
         />
         <datalist id="locations">
-          {governates.map(gov => <option key={uuid()} value={gov}>{t(gov)}</option>)}
+          {governates.map((gov) => (
+            <option key={uuid()} value={gov}>
+              {t(gov)}
+            </option>
+          ))}
         </datalist>
         <button className="btn btn-outline-danger" onClick={resetSearch}>
           {t("Reset")}
@@ -228,7 +263,6 @@ const Volunteers = () => {
               </td>
             </tr>
           ) : searchRes ? (
-<<<<<<< HEAD
             searchRes.slice(startIndex, endIndex).map((vol) => (
               <tr
                 onClick={() => {
@@ -242,50 +276,27 @@ const Volunteers = () => {
                 <td
                   className={`${styles.volName} text-start ps-3`}
                   style={{
-                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
-                    color: isTheme === true ? "white" : "black",
+                    backgroundColor: isTheme === "dark" ? "black" : "#fbf1f0",
+                    color: isTheme === "dark" ? "white" : "black",
                   }}
                 >
                   <img
                     src={vol.image}
                     alt="profile"
-=======
-            searchRes.slice(startIndex, endIndex).map(
-              (vol) =>
-                (
-                  <tr
-                    onClick={() => {
-                      navigateTOVolunteer(vol.id);
-                    }}
-                    key={uuid()}
->>>>>>> 74d4db71b8974b4902d4be5389498595373cd639
                     style={{
                       cursor: "pointer",
                     }}
-                  >
-                    <td className={`${styles.volName} text-start ps-3`}>
-                      <img
-                        src={vol.image}
-                        alt="profile"
-                        style={{
-                          width: "8vw",
-                          height: "8vw",
-                          borderRadius: "4vw",
-                          padding: "10px",
-                          cursor: "pointer",
-                        }}
-                      />
-                      <span>
-                        {vol.firstName} {vol.lastName}
-                      </span>
-                    </td>
-                    <td className="text-center">
-                      {vol.Address}, {vol.city}
-                    </td>
-                    <td className="text-center">{vol.bloodType}</td>
-                  </tr>
-                )
-            )
+                  />
+                  <span>
+                    {vol.firstName} {vol.lastName}
+                  </span>
+                </td>
+                <td className="text-center">
+                  {vol.Address}, {vol.city}
+                </td>
+                <td className="text-center">{vol.bloodType}</td>
+              </tr>
+            ))
           ) : (
             <tr>
               <td colSpan={3} className="fs-4">
@@ -298,7 +309,10 @@ const Volunteers = () => {
           {searchRes && searchRes.length > searchResStep && (
             <tr>
               <td colSpan={3} className="text-center">
-                <span>{endIndex <= searchRes.length ? endIndex: searchRes.length} <span className="text-danger">/</span> {searchRes.length}</span>
+                <span>
+                  {endIndex <= searchRes.length ? endIndex : searchRes.length}{" "}
+                  <span className="text-danger">/</span> {searchRes.length}
+                </span>
                 <button
                   onClick={handlePrev}
                   className={`${styles.navigateRes} text-center m-2`}
@@ -308,11 +322,11 @@ const Volunteers = () => {
                     width="24"
                     height="24"
                     fill="currentColor"
-                    class="bi bi-arrow-left"
+                    className="bi bi-arrow-left"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
                     />
                   </svg>
@@ -326,11 +340,11 @@ const Volunteers = () => {
                     width="24"
                     height="24"
                     fill="currentColor"
-                    class="bi bi-arrow-right"
+                    className="bi bi-arrow-right"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
                     />
                   </svg>
