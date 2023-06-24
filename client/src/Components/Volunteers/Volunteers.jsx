@@ -48,8 +48,9 @@ const Volunteers = () => {
   const { isTheme } = useContext(conTheme);
   useEffect(() => {
     axios.get("http://localhost:3000/users").then((res) => {
-      setVolunteers(res.data);
-      setSearchRes(res.data);
+      const volunteers = res.data.filter(user => user.isVolunteer === true)
+      setVolunteers(volunteers);
+      setSearchRes(volunteers);
     });
   }, []);
   function navigateTOVolunteer(id) {
@@ -299,7 +300,7 @@ const Volunteers = () => {
           ) : searchRes ? (
             searchRes.slice(startIndex, endIndex).map(
               (vol) =>
-                vol.isVolunteer && (
+                (
                   <tr
                     onClick={() => {
                       navigateTOVolunteer(vol.id);
