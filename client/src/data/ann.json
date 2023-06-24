@@ -1,0 +1,49 @@
+{
+  "announcements": [
+    {
+      "bloodType": "B+",
+      "quantity": 10,
+      "message": "swredf",
+      "orgData": {
+        "orgName": "ElsalamInternational",
+        "OrganizationCode": "808080",
+        "Address": "cairo",
+        "sector": "",
+        "isNeedsVolunteers": false,
+        "pNumber": "01234567899",
+        "role": "org"
+      },
+      "id": 12
+    },
+    {
+      "bloodType": "B+",
+      "quantity": 8,
+      "message": "ElsalamInternational hospital hiring volunteers to donate",
+      "orgData": {
+        "orgName": "ElsalamInternational",
+        "OrganizationCode": "808080",
+        "Address": "cairo",
+        "sector": "",
+        "isNeedsVolunteers": false,
+        "pNumber": "01234567899",
+        "role": "org"
+      },
+      "id": 13
+    },
+    {
+      "bloodType": "A+",
+      "quantity": 5,
+      "message": "بلناةفسخاتخهلاتهقفتنابياموفخةناتهحخف",
+      "orgData": {
+        "orgName": "ElsalamInternational",
+        "OrganizationCode": "808080",
+        "Address": "cairo",
+        "sector": "",
+        "isNeedsVolunteers": false,
+        "pNumber": "01234567899",
+        "role": "org"
+      },
+      "id": 14
+    }
+  ]
+}

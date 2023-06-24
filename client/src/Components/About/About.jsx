@@ -12,10 +12,10 @@ import { BsDroplet } from "react-icons/bs";
 import { useTranslation } from 'react-i18next';
 
 const About = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   return (
     <>
-      <div className="container py-5 mt-5">
+      <div className="container py-5 mt-5 mb-4">
         <div className="row gy-2 mt-4">
           <div className="col-lg-6  col-sm-12 d-flex align-items-center justify-content-center">
             <div className={styles.aboutContent}>
@@ -76,7 +76,7 @@ const About = () => {
 
             <h5>{t("Totally Free")}</h5>
             <p className="text-muted">
-            {t("Totally Free paragraph")}
+              {t("Totally Free paragraph")}
             </p>
           </div>
           <div className={`${styles.card} col-lg-4 text-center py-5 px-2`}>

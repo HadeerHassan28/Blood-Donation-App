@@ -159,6 +159,7 @@
     "Avialable": "متاح",
     "Not Available": "غير متاح",
     "Be Available for Volunteering": "كن متاحاً للتطوع",
+    "Be Unavailable for Volunteering": "كن غير متاح للتطوع",
     "Hospital Name": "اسم المستشفى",
     "Code": "الكود",
     "Edit Account": "تعديل الحساب",
@@ -214,5 +215,12 @@
     "Send": "إرسال",
     "Dark Mode": "الوضع الداكن",
     "Page not found": "الصفحة غير موجودة",
-    "Oops! The page you are looking for does not exist. It might have been removed or deleted": "عفوًا! الصفحة التي تبحث عنها غير موجودة. ربما تمت إزالته أو حذفه"
+    "Oops! The page you are looking for does not exist. It might have been removed or deleted": "عفوًا! الصفحة التي تبحث عنها غير موجودة. ربما تمت إزالته أو حذفه",
+    "Announcements:": ": الأعلانات",
+    "Post": "أرسال",
+    "TheMassage:": "الرسالة",
+    "SelectBloodType": "Select Blood Type",
+    "quantity": "كمية",
+    "BloodType": "نوع الدم",
+    "Announce": "أتبرع"
 }

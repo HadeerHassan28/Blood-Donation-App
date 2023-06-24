@@ -48,9 +48,6 @@ function App() {
     console.log(TokenData);
   });
 
-  useEffect(() => {
-    saveTokenData();
-  }, []);
   let routes = createBrowserRouter([
     {
       path: "",

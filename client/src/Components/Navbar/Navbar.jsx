@@ -162,7 +162,12 @@ const Navbar = ({ TokenData, setTokenData }) => {
               ) : (
                 <>
                   <li className="nav-item">
-                    <Link className={`nav-link isColor`} to={`userProfile`}>
+                    <Link
+                      className={`nav-link isColor`}
+                      to={
+                        TokenData.role === "user" ? "userProfile" : "orgProfile"
+                      }
+                    >
                       Profile
                     </Link>
                   </li>
@@ -173,7 +178,11 @@ const Navbar = ({ TokenData, setTokenData }) => {
                         localStorage.removeItem("token");
                       }}
                       className={`nav-link isColor`}
-                      to="Signup-user/signin-user"
+                      to={
+                        TokenData.role === "user"
+                          ? "Signup-user/signin-user"
+                          : "Signup-org/signin-org"
+                      }
                     >
                       Logout
                     </Link>
