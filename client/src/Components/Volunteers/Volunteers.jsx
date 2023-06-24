@@ -106,7 +106,7 @@ const Volunteers = () => {
           onChange={searchBloodGroupLocation}
         >
           <option label={`${t("Blood Type")}`} hidden></option>
-          <option>{t("All")}</option>
+          <option name="All" value="All">{t("All")}</option>
           <option name="A+" value="A+">
             A+
           </option>
