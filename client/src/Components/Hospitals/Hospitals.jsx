@@ -289,6 +289,7 @@ const Hospitals = () => {
                   className={`${styles.volName} text-start ps-3`}
                   style={{
                     backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                    color: isTheme === true ? "white" : "black",
                   }}
                 >
                   <img
