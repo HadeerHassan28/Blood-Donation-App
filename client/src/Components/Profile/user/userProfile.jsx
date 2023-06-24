@@ -8,11 +8,8 @@ import { useEffect } from "react";
 import jwtEncode from "jwt-encode";
 import { conTheme } from "../../../Context/Context";
 const UserProfile = ({ TokenData, saveTokenData }) => {
-<<<<<<< HEAD
   const { isTheme } = useContext(conTheme);
-=======
   let lastData = null;
->>>>>>> f85a495aea6357d157a5bdf2fb9018f21bc980c3
   useEffect(() => {
     // const storedTokenData = localStorage.getItem("tokenData");
     // if (storedTokenData) {

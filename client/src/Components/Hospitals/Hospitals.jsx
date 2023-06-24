@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from "./Hospitals.module.css";
 import { useRef } from "react";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-
+import { conTheme } from "../../Context/Context";
 const Hospitals = () => {
   const searchResStep = 9;
   const [hospitals, setHospitals] = useState(null);
@@ -16,7 +16,7 @@ const Hospitals = () => {
   const location = useRef();
   const { t } = useTranslation();
   const navigate = useNavigate();
-
+  const { isTheme } = useContext(conTheme);
   useEffect(() => {
     axios.get("http://localhost:3002/org").then((res) => {
       setHospitals(res.data);
@@ -92,16 +92,29 @@ const Hospitals = () => {
 
   return (
     <>
-      <div className="text-center p-5">
-        <h2 style={{ color: "#ee394a" }}>{t("hospitals")}</h2>
+      <div
+        className="text-center p-5"
+        style={{
+          backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+        }}
+      >
+        <h2 style={{ color: "#ee394a" }}>{t("Hospitals")}</h2>
         <p>{t("Discover hospitals")}</p>
       </div>
-      <div className={`${styles.searchBox} py-4`}>
+      <div
+        className={`${styles.searchBox} py-4 border border-danger`}
+        style={{
+          backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+        }}
+      >
         <span className={styles.filterWith}>{t("Filter with:")}</span>
         <select
           className={`${styles.select}`}
           ref={Sector}
           onChange={searchSectorLocation}
+          style={{
+            backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+          }}
         >
           <option label={`${t("Sector")}`} hidden></option>
           <option>{t("All")}</option>
@@ -121,6 +134,9 @@ const Hospitals = () => {
           placeholder={`${t("Location")}`}
           ref={location}
           onChange={searchSectorLocation}
+          style={{
+            backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+          }}
         />
         <datalist id="locations">
           <option value="Alexandria">{t("Alexandria")}</option>
@@ -173,10 +189,21 @@ const Hospitals = () => {
       >
         Please wait data loading
       </div>
-      <table className={`${styles.tableW} table w-75 mt-5 mx-auto`}>
-        <thead>
+      <table
+        className={`${styles.tableW} table w-75 mt-5 mx-auto border border-danger`}
+      >
+        <thead
+          style={{
+            backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+          }}
+        >
           <tr>
-            <th className="text-start text-danger p-3">
+            <th
+              className="text-start text-danger p-3"
+              style={{
+                backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -190,7 +217,12 @@ const Hospitals = () => {
               </svg>
               {t("Hospital")}
             </th>
-            <th className="text-center text-danger p-3">
+            <th
+              className="text-center text-danger p-3"
+              style={{
+                backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -204,7 +236,12 @@ const Hospitals = () => {
               </svg>
               {t("LOCATION")}
             </th>
-            <th className="text-center text-danger p-3">
+            <th
+              className="text-center text-danger p-3"
+              style={{
+                backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -228,7 +265,11 @@ const Hospitals = () => {
         </thead>
         <tbody>
           {searchRes !== null && searchRes.length === 0 ? (
-            <tr>
+            <tr
+              style={{
+                backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+              }}
+            >
               <td colSpan={3} className="fs-4">
                 {t("Sorry, no results found")}
               </td>
@@ -244,7 +285,12 @@ const Hospitals = () => {
                   cursor: "pointer",
                 }}
               >
-                <td className={`${styles.volName} text-start ps-3`}>
+                <td
+                  className={`${styles.volName} text-start ps-3`}
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                  }}
+                >
                   <img
                     src={hos.image}
                     alt="profile"
@@ -258,8 +304,24 @@ const Hospitals = () => {
                   />
                   <span>{hos.orgName}</span>
                 </td>
-                <td className="text-center">{hos.Address}</td>
-                <td className="text-center">{hos.sector}</td>
+                <td
+                  className="text-center"
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
+                  {hos.Address}
+                </td>
+                <td
+                  className="text-center"
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
+                  {hos.sector}
+                </td>
               </tr>
             ))
           ) : (

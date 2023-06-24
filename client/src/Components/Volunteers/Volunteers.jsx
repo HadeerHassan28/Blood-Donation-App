@@ -48,7 +48,7 @@ const Volunteers = () => {
   const { isTheme } = useContext(conTheme);
   useEffect(() => {
     axios.get("http://localhost:3000/users").then((res) => {
-      const volunteers = res.data.filter(user => user.isVolunteer === true)
+      const volunteers = res.data.filter((user) => user.isVolunteer === true);
       setVolunteers(volunteers);
       setSearchRes(volunteers);
     });
@@ -134,7 +134,7 @@ const Volunteers = () => {
       <div
         className={`${styles.searchBox} py-4 border border-danger`}
         style={{
-          backgroundColor: isTheme === true ? "black" : "white",
+          backgroundColor: isTheme === true ? "black" : "#fbf1f0",
         }}
       >
         <span className={`${styles.filterWith} text-danger`}>
@@ -228,7 +228,7 @@ const Volunteers = () => {
             <th
               className="text-start text-danger p-3"
               style={{
-                backgroundColor: isTheme === true ? "black" : "white",
+                backgroundColor: isTheme === true ? "black" : "#fbf1f0",
               }}
             >
               <svg
@@ -247,7 +247,7 @@ const Volunteers = () => {
             <th
               className="text-center text-danger p-3"
               style={{
-                backgroundColor: isTheme === true ? "black" : "white",
+                backgroundColor: isTheme === true ? "black" : "#fbf1f0",
               }}
             >
               <svg
@@ -266,7 +266,7 @@ const Volunteers = () => {
             <th
               className="text-center text-danger p-3"
               style={{
-                backgroundColor: isTheme === true ? "black" : "white",
+                backgroundColor: isTheme === true ? "black" : "#fbf1f0",
               }}
             >
               <svg
@@ -298,60 +298,57 @@ const Volunteers = () => {
               </td>
             </tr>
           ) : searchRes ? (
-            searchRes.slice(startIndex, endIndex).map(
-              (vol) =>
-                (
-                  <tr
-                    onClick={() => {
-                      navigateTOVolunteer(vol.id);
-                    }}
-                    key={uuid()}
+            searchRes.slice(startIndex, endIndex).map((vol) => (
+              <tr
+                onClick={() => {
+                  navigateTOVolunteer(vol.id);
+                }}
+                key={uuid()}
+                style={{
+                  cursor: "pointer",
+                }}
+              >
+                <td
+                  className={`${styles.volName} text-start ps-3`}
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                  }}
+                >
+                  <img
+                    src={vol.image}
+                    alt="profile"
                     style={{
+                      width: "8vw",
+                      height: "8vw",
+                      borderRadius: "4vw",
+                      padding: "10px",
                       cursor: "pointer",
                     }}
-                  >
-                    <td
-                      className={`${styles.volName} text-start ps-3`}
-                      style={{
-                        backgroundColor: isTheme === true ? "black" : "white",
-                      }}
-                    >
-                      <img
-                        src={vol.image}
-                        alt="profile"
-                        style={{
-                          width: "8vw",
-                          height: "8vw",
-                          borderRadius: "4vw",
-                          padding: "10px",
-                          cursor: "pointer",
-                        }}
-                      />
-                      <span>
-                        {vol.firstName} {vol.lastName}
-                      </span>
-                    </td>
-                    <td
-                      className="text-center"
-                      style={{
-                        backgroundColor: isTheme === true ? "black" : "white",
-                        color: isTheme === true ? "white" : "black",
-                      }}
-                    >
-                      {vol.Address}, {vol.city}
-                    </td>
-                    <td
-                      className="text-center"
-                      style={{
-                        backgroundColor: isTheme === true ? "black" : "white",
-                        color: isTheme === true ? "white" : "black",
-                      }}
-                    >
-                      {vol.bloodType}
-                    </td>
-                  </tr>
-                )
-            )
+                  />
+                  <span>
+                    {vol.firstName} {vol.lastName}
+                  </span>
+                </td>
+                <td
+                  className="text-center"
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
+                  {vol.Address}, {vol.city}
+                </td>
+                <td
+                  className="text-center"
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
+                  {vol.bloodType}
+                </td>
+              </tr>
+            ))
           ) : (
             <tr>
               <td colSpan={3} className="fs-4">
