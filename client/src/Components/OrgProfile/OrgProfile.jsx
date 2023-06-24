@@ -1,21 +1,36 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
+import { conTheme } from "../../Context/Context";
 export const OrgProfile = ({ TokenData, saveTokenData }) => {
   const { t } = useTranslation();
+  const { isTheme } = useContext(conTheme);
+  //console.log(isTheme);
   useEffect(() => {
     saveTokenData();
     // }
   }, []);
+
   return (
     <>
-      <section className="py-4" style={{ backgroundColor: "#fbf1f0" }}>
-        <div className="container py-5">
+      <section
+        className="py-4 "
+        style={{
+          backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+        }}
+      >
+        <div className="container py-5 ">
           <div className="row">
             <div className="col-lg-4">
               <div className="card mb-4">
-                <div className="card-body text-center">
+                <div
+                  className="card-body  text-center"
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "white",
+
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
                   <img
                     src={TokenData.image}
                     alt="avatar"
@@ -36,18 +51,26 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
                       {t("Message")}
                     </button>
                     <Link to="payment">
-                    <button type="button" className="btn btn-outline-danger ms-2 px-5">
-                      Checkout
-                    </button>
+                      <button
+                        type="button"
+                        className="btn btn-outline-danger ms-2 px-5"
+                      >
+                        Checkout
+                      </button>
                     </Link>
                   </div>
-
                 </div>
               </div>
             </div>
             <div className="col-lg-8">
               <div className="card mb-4">
-                <div className="card-body">
+                <div
+                  className="card-body"
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "white",
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
                   <div className="row">
                     <div className="col-sm-3">
                       <p className="mb-0">{t("Hospital Name")}</p>
@@ -91,7 +114,7 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
             </div>
           </div>
           <div className="announcementbtn w-100 mt-5">
-            <Link style={{ color: "white" }} to={'/announcForm'}>
+            <Link style={{ color: "white" }} to={"/announcForm"}>
               <button type="button" className="btn btn-danger w-100">
                 {t("Make an Announcement")}
               </button>
@@ -105,8 +128,10 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
 
 export default OrgProfile;
 
-{/* 
+{
+  /* 
 
 
 
-*/}
+*/
+}

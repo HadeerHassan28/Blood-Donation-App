@@ -3,7 +3,7 @@ import styles from "./Home.module.css";
 import InfoHome from "../InfoHome/InfoHome";
 import CauseHome from "../CauseHome/CauseHome";
 import Selection from "../Selection/Selection";
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from "react-i18next";
 const Home = () => {
   const [isSelectionActive, setIsSelectionActive] = useState(false);
   const { t } = useTranslation();
@@ -42,6 +42,7 @@ const Home = () => {
                 fontFamily: "Covered By Your Grace",
                 fontWeight: "bold",
                 marginBottom: 5,
+                color: "black",
               }}
             >
               {t("Saves Lives,")}
@@ -69,6 +70,7 @@ const Home = () => {
                 fontFamily: "Montserrat Alternates",
                 fontWeight: "bold",
                 maxWidth: "500px",
+                color: "black",
               }}
             >
               {t("Find-blood-donors")}
@@ -91,9 +93,7 @@ const Home = () => {
       </div>
       <div className="text-center mt-5">
         <h2 className="main-color">{t("Join The Cause")}</h2>
-        <p className="text-muted">
-          {t("Join-our-cause")}
-        </p>
+        <p className="text-muted">{t("Join-our-cause")}</p>
       </div>
       <CauseHome></CauseHome>
     </>
