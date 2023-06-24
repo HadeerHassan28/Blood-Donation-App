@@ -4,7 +4,7 @@ import "./App.css";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
 import Notfound from "./Components/Notfound/Notfound";
-//import About from "./Components/About/About";
+import About from "./Components/About/About";
 import Blogs from "./Components/Blogs/Blogs";
 import Volunteers from "./Components/Volunteers/Volunteers";
 import Hospitals from "./Components/Hospitals/Hospitals";
@@ -25,11 +25,13 @@ import { Toaster } from "react-hot-toast";
 // Start Animation Library
 import Aos from "aos";
 import "aos/dist/aos.css";
-import jwtDecode from "jwt-decode";
 // End Animation Library
+import jwtDecode from "jwt-decode";
 import OrgEdit from "./Components/OrgEdit/OrgEdit";
 import ContextTheme from "./Context/Context";
 import VolunteerProfile from "./Components/VolunteerProfile/VolunteerProfile";
+import OrganizationProfile from "./Components/OrganizationProfile/OrganizationProfile";
+
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
@@ -41,15 +43,14 @@ function App() {
       setTokenData(decodedToken);
     }
   }
+  // useEffect(() => {
+  //   saveTokenData();
+  // }, []);
 
   useEffect(() => {
     Aos.init({ duration: 1500 });
-    console.log(TokenData);
   });
 
-  useEffect(() => {
-    saveTokenData();
-  }, []);
   let routes = createBrowserRouter([
     {
       path: "",
@@ -69,19 +70,7 @@ function App() {
         },
         {
           path: "terms",
-          element: (
-            <ProtectedRoute>
-              <Terms />,
-            </ProtectedRoute>
-          ),
-        },
-        {
-          path: "announcForm",
-          element: (
-            <ProtectedRoute>
-              <AnnouForm TokenData={TokenData} />,
-            </ProtectedRoute>
-          ),
+          element: <Terms />,
         },
         {
           path: "contactus",
@@ -101,11 +90,7 @@ function App() {
         },
         {
           path: "Signup-org",
-          element: (
-
-            <Organization />
-
-          ),
+          element: <Organization />,
         },
         {
           path: "Signup-user",
@@ -121,34 +106,42 @@ function App() {
         },
         {
           path: "orgprofile",
-          element: <OrgProfile TokenData={TokenData} />,
+          element: (
+            <OrgProfile TokenData={TokenData} saveTokenData={saveTokenData} />
+          ),
         },
         {
           path: "userProfile",
-          element: <UserProfile TokenData={TokenData} />,
+          element: (
+            <UserProfile TokenData={TokenData} saveTokenData={saveTokenData} />
+          ),
         },
         {
           path: "volunteerprofile/:id",
           element: <VolunteerProfile />,
         },
         {
+          path: "organizationprofile/:id",
+          element: <OrganizationProfile />,
+        },
+        {
           path: "userProfile/edit",
           element: (
-            <ProtectedRoute>
-              <UserEdit
-                TokenData={TokenData}
-                saveTokenData={saveTokenData}
-                setTokenData={setTokenData}
-              />
-            </ProtectedRoute>
+            <UserEdit
+              TokenData={TokenData}
+              saveTokenData={saveTokenData}
+              setTokenData={setTokenData}
+            />
           ),
         },
         {
           path: "orgProfile/edit",
           element: (
-            <ProtectedRoute>
-              <OrgEdit TokenData={TokenData} saveTokenData={saveTokenData} />
-            </ProtectedRoute>
+            <OrgEdit
+              TokenData={TokenData}
+              saveTokenData={saveTokenData}
+              setTokenData={setTokenData}
+            />
           ),
         },
 

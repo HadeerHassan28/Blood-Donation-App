@@ -3,23 +3,14 @@ import styles from "./LogUser.module.css";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from "react-i18next";
 
 const LogUser = ({ saveTokenData }) => {
   const navigate = useNavigate();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [data, SetData] = useState({
-    id: uuid(),
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
-    confirmPassword: "",
-    Address: "",
-    city: "",
-    pNumber: "",
-    bloodType: "",
-    gender: "",
   });
 
   const [isEmailValid, setIsEmailValid] = useState(false);

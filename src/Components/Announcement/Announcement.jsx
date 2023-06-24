@@ -12,32 +12,6 @@ const Announcement = () => {
   const { t } = useTranslation();
   const [announcements, setAnnouncements] = useState([]);
   const [isLoading, setisLoading] = useState(false)
-  // const [isInput, setIsInput] = useState("");
-  // const [bloodType, setBloodType] = useState("");
-  // const [quantity, setQuantity] = useState(0);
-  // const handleChangeMsg = (e) => {
-  //   setIsInput(e.target.value);
-  // };
-  // const handleChangeBloodType = (e) => {
-  //   setBloodType(e.target.value);
-  // };
-  // const handleChangeQuantity = (e) => {
-  //   setQuantity(parseInt(e.target.value));
-  // };
-  // const handleDisplay = () => {
-  //   const newAnn = {
-  //     id: uuid,
-  //     bloodType: bloodType,
-  //     quantity: quantity,
-  //     msg: isInput,
-  //   };
-  //   axios.post("http://localhost:3005/announcements", newAnn);
-  //   console.log("done");
-  //   setAnn([...ann, newAnn]);
-  //   setBloodType("");
-  //   setQuantity(0);
-  //   setIsInput("");
-  // };
   useEffect(() => {
     setisLoading(true);
     axios

@@ -16,7 +16,8 @@ const Volunteers = () => {
   const location = useRef();
   const { t } = useTranslation();
   const navigate = useNavigate();
-
+  const governates = ["Alexandria","Aswan","Asyut","Beheira","Beni Suef","Cairo","Dakahlia","Damietta","Faiyum","Gharbia","Giza","Ismailia","Kafr El Sheikh","Luxor","Matruh","Minya","Monufia","New Valley","North Sinai","Port Said","Qalyubia","Qena","Red Sea","Sharqia","Sohag","South Sinai","Suez"]
+  
   useEffect(() => {
     axios.get("http://localhost:3000/users").then((res) => {
       setVolunteers(res.data);
@@ -97,7 +98,7 @@ const Volunteers = () => {
         <p>{t("Search our Super Hero Volunteers")}</p>
       </div>
       <div className={`${styles.searchBox} py-4`}>
-        <span className={styles.filterWith}>{t("Filter with:")}</span>
+        <span className={`${styles.filterWith} text-danger`}>{t("Filter with:")}</span>
         <select
           className={`${styles.select}`}
           ref={bloodGroup}
@@ -141,33 +142,7 @@ const Volunteers = () => {
           onChange={searchBloodGroupLocation}
         />
         <datalist id="locations">
-          <option value="Alexandria">{t("Alexandria")}</option>
-          <option value="Aswan">{t("Aswan")}</option>
-          <option value="Asyut">{t("Asyut")}</option>
-          <option value="Beheira">{t("Beheira")}</option>
-          <option value="Beni Suef">{t("Beni Suef")}</option>
-          <option value="Cairo">{t("Cairo")}</option>
-          <option value="Dakahlia">{t("Dakahlia")}</option>
-          <option value="Damietta">{t("Damietta")}</option>
-          <option value="Faiyum">{t("Faiyum")}</option>
-          <option value="Gharbia">{t("Gharbia")}</option>
-          <option value="Giza">{t("Giza")}</option>
-          <option value="Ismailia">{t("Ismailia")}</option>
-          <option value="Kafr El Sheikh">{t("Kafr El Sheikh")}</option>
-          <option value="Luxor">{t("Luxor")}</option>
-          <option value="Matruh">{t("Matruh")}</option>
-          <option value="Minya">{t("Minya")}</option>
-          <option value="Monufia">{t("Monufia")}</option>
-          <option value="New Valley">{t("New Valley")}</option>
-          <option value="North Sinai">{t("North Sinai")}</option>
-          <option value="Port Said">{t("Port Said")}</option>
-          <option value="Qalyubia">{t("Qalyubia")}</option>
-          <option value="Qena">{t("Qena")}</option>
-          <option value="Red Sea">{t("Red Sea")}</option>
-          <option value="Sharqia">{t("Sharqia")}</option>
-          <option value="Sohag">{t("Sohag")}</option>
-          <option value="South Sinai">{t("South Sinai")}</option>
-          <option value="Suez">{t("Suez")}</option>
+          {governates.map(gov => <option key={uuid()} value={gov}>{t(gov)}</option>)}
         </datalist>
         <button className="btn btn-outline-danger" onClick={resetSearch}>
           {t("Reset")}

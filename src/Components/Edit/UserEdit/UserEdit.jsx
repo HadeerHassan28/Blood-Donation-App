@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./UserEdit.module.css";
 import axios from "axios";
 import jwtEncode from "jwt-encode";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -10,32 +9,31 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const secretKey =
-    Math.random().toString(36).substring(2, 15) +
-    Math.random().toString(36).substring(2, 15);
-
-  const [newData, setNewData] = useState({
-    firstName: TokenData.firstName,
+    Math.random().toString(36).substring(2, 20) +
+    Math.random().toString(36).substring(2, 20);
+  /*  firstName: TokenData.firstName,
     lastName: TokenData.lastName,
     email: TokenData.email,
     Address: TokenData.Address,
     city: TokenData.city,
     pNumber: TokenData.pNumber,
     image:
-      TokenData.image === ""
-        ? process.env.PUBLIC_URL + "/assets/images/userImage.jpg"
-        : TokenData.image,
-  });
+    TokenData.image === ""
+    ? process.env.PUBLIC_URL + "/assets/images/userImage.jpg"
+    : TokenData.image,
+    */
+  let [newData, setNewData] = useState(TokenData);
+  let lastData = null;
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     var fReader = new FileReader();
     fReader.readAsDataURL(file);
 
     fReader.onloadend = () => {
-      // setimgSrc(fReader.result);
-      setNewData((prevFormData) => ({
+      setNewData({
         ...newData,
         image: fReader.result,
-      }));
+      });
     };
   };
   const [isFirstNameValid, setIsFirstNameValid] = useState(false);
@@ -69,10 +67,10 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
     const isEnteredAddressValid = addressRegex.test(value);
     const isEnteredPhoneNumberValid = phoneNumberRegex.test(value);
 
-    setNewData((prevFormData) => ({
-      ...prevFormData,
+    setNewData({
+      ...newData,
       [name]: value,
-    }));
+    });
     if (name === "firstName") {
       setIsFirstNameValid(isValid);
     } else if (name === "lastName") {
@@ -109,38 +107,29 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
         pNumber: newData.pNumber,
         bloodType: TokenData.bloodType,
         gender: TokenData.gender,
-        isVolunteer: false,
+        isVolunteer: TokenData.isVolunteer,
         image: newData.image,
         role: "user",
       };
-      console.log(payload);
+      // console.log(payload);
       const token = jwtEncode(payload, secretKey);
       localStorage.setItem("token", token);
       saveTokenData();
-      setNewData({
-        ...newData,
-        token: token,
-      });
+      lastData = { ...newData, token: token };
+
       navigate("/userProfile");
 
-      axios.get("http://localhost:3000/users").then((res) => {
-        const users = res.data;
-        const editableUser = users.find((user) => {
-          return user.email === TokenData.email;
+      console.log(lastData);
+      axios
+        .patch(`http://localhost:3000/users/${newData.id}`, lastData)
+        .then((response) => {
+          // Set the secret key for the token
+          // Generate the token
+          console.log("Update successful:", response.data);
+        })
+        .catch((error) => {
+          console.error("Update failed:", error);
         });
-        if (editableUser) {
-          axios
-            .patch(`http://localhost:3000/users/${editableUser.id}`, newData)
-            .then((response) => {
-              // Set the secret key for the token
-              // Generate the token
-              console.log("Update successful:", response.data);
-            })
-            .catch((error) => {
-              console.error("Update failed:", error);
-            });
-        }
-      });
     } else {
       console.log("Check Your Fields");
     }
