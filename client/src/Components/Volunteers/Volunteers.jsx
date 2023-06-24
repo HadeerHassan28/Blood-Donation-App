@@ -228,6 +228,28 @@ const Volunteers = () => {
               </td>
             </tr>
           ) : searchRes ? (
+<<<<<<< HEAD
+            searchRes.slice(startIndex, endIndex).map((vol) => (
+              <tr
+                onClick={() => {
+                  navigateTOVolunteer(vol.id);
+                }}
+                key={uuid()}
+                style={{
+                  cursor: "pointer",
+                }}
+              >
+                <td
+                  className={`${styles.volName} text-start ps-3`}
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
+                  <img
+                    src={vol.image}
+                    alt="profile"
+=======
             searchRes.slice(startIndex, endIndex).map(
               (vol) =>
                 (
@@ -236,6 +258,7 @@ const Volunteers = () => {
                       navigateTOVolunteer(vol.id);
                     }}
                     key={uuid()}
+>>>>>>> 74d4db71b8974b4902d4be5389498595373cd639
                     style={{
                       cursor: "pointer",
                     }}
