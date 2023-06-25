@@ -230,5 +230,9 @@
     "Hospitals": "المستشفيات",
     "SECTOR": "القطاع",
     "HOSPITAL": "المستشفى",
-    "Discover hospitals": "اكتشف المستشفيات"
+    "Discover hospitals": "اكتشف المستشفيات",
+    "Profile": "الملف الشخصي",
+    "Logout": "تسجيل الخروج",
+    "Check my announcements": "التحقق من إعلاناتي",
+    "Checkout": "الدفع"
 }
