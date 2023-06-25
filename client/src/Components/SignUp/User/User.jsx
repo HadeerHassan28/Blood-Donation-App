@@ -172,7 +172,7 @@ const User = () => {
   };
   return (
     <div>
-      <div className="container">
+      <div className="container py-5">
         <div className="row ">
           <div className="col-lg-6 d-flex justify-content-center">
             <img
@@ -202,8 +202,8 @@ const User = () => {
                     !isFirstNameFocused
                       ? {}
                       : isFirstNameValid
-                      ? { border: "2px solid green" }
-                      : { border: "2px solid red" }
+                        ? { border: "2px solid green" }
+                        : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsFirstNameFocused(true);
@@ -234,8 +234,8 @@ const User = () => {
                     !isLastNameFocused
                       ? {}
                       : isLastNameValid
-                      ? { border: "2px solid green" }
-                      : { border: "2px solid red" }
+                        ? { border: "2px solid green" }
+                        : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsLastNameFocused(true);
@@ -266,8 +266,8 @@ const User = () => {
                     !isEmailFocused
                       ? {}
                       : isEmailValid
-                      ? { border: "2px solid green" }
-                      : { border: "2px solid red" }
+                        ? { border: "2px solid green" }
+                        : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsEmailFocused(true);
@@ -298,8 +298,8 @@ const User = () => {
                     !isPasswordFocused
                       ? {}
                       : isPasswordValid
-                      ? { border: "2px solid green" }
-                      : { border: "2px solid red" }
+                        ? { border: "2px solid green" }
+                        : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsPasswordFocused(true);
@@ -330,8 +330,8 @@ const User = () => {
                     !isConfirmedPasswordFocused
                       ? {}
                       : isConfirmedPasswordValid
-                      ? { border: "2px solid green" }
-                      : { border: "2px solid red" }
+                        ? { border: "2px solid green" }
+                        : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsConfirmedPasswordFocused(true);
@@ -362,8 +362,8 @@ const User = () => {
                     !isAddressFocused
                       ? {}
                       : isAddressValid
-                      ? { border: "2px solid green" }
-                      : { border: "2px solid red" }
+                        ? { border: "2px solid green" }
+                        : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsAddressFocused(true);
@@ -394,8 +394,8 @@ const User = () => {
                     !isCityFocused
                       ? {}
                       : isCityValid
-                      ? { border: "2px solid green" }
-                      : { border: "2px solid red" }
+                        ? { border: "2px solid green" }
+                        : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsCityFocused(true);
@@ -426,8 +426,8 @@ const User = () => {
                     !isPnumberFocused
                       ? {}
                       : isPnumberValid
-                      ? { border: "2px solid green" }
-                      : { border: "2px solid red" }
+                        ? { border: "2px solid green" }
+                        : { border: "2px solid red" }
                   }
                   onFocus={() => {
                     setIsPnumberFocused(true);

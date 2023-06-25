@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./VolunteerProfile.module.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-
+import { AiOutlineWhatsApp } from "react-icons/ai";
+import { BsTelephoneOutbound } from "react-icons/bs";
 const VolunteerProfile = () => {
   const { id } = useParams();
   const [VolunteerData, setVolunteerData] = useState({});
@@ -39,12 +40,22 @@ const VolunteerProfile = () => {
                     {t("City")}: {VolunteerData.city}
                   </p>
                   <div className="d-flex justify-content-center mb-2">
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger ms-2 px-5"
+                    <Link className="me-3" to={`tel:+${VolunteerData.pNumber}`}>
+                      <BsTelephoneOutbound
+                        size={20}
+                        className="text-danger"
+                      ></BsTelephoneOutbound>
+                    </Link>
+                    <Link
+                      className="me-2"
+                      target="_blank"
+                      to={`https://wa.me/+${VolunteerData.pNumber}`}
                     >
-                      {t("Message")}
-                    </button>
+                      <AiOutlineWhatsApp
+                        size={25}
+                        className="text-danger"
+                      ></AiOutlineWhatsApp>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -96,11 +107,10 @@ const VolunteerProfile = () => {
                       <p className="mb-0">{t("Available to Donate")}</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{`${
-                        VolunteerData.isVolunteer
-                          ? `${t("Avialable")}`
-                          : `${t("Not Available")}`
-                      }`}</p>
+                      <p className="text-muted mb-0">{`${VolunteerData.isVolunteer
+                        ? `${t("Avialable")}`
+                        : `${t("Not Available")}`
+                        }`}</p>
                     </div>
                   </div>
                 </div>

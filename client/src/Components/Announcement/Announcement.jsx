@@ -106,7 +106,7 @@ const Announcement = () => {
                   }}
                 >
                   <p className="fs-5">
-                    {t("Contact With Hospital", {hosName: a.orgData.orgName} )} :
+                    {t("Contact With Hospital", { hosName: a.orgData.orgName })}
                   </p>
                   <Link className="me-3" to={`tel:+${a.orgData.pNumber}`}>
                     <BsTelephoneOutbound
