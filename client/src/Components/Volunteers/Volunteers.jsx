@@ -137,7 +137,9 @@ const Volunteers = () => {
           onChange={searchBloodGroupLocation}
         >
           <option label={`${t("Blood Type")}`} hidden></option>
-          <option>{t("All")}</option>
+          <option name="All" value="All">
+            {t("All")}
+          </option>
           <option name="A+" value="A+">
             A+
           </option>
@@ -276,8 +278,8 @@ const Volunteers = () => {
                 <td
                   className={`${styles.volName} text-start ps-3`}
                   style={{
-                    backgroundColor: isTheme === "dark" ? "black" : "#fbf1f0",
-                    color: isTheme === "dark" ? "white" : "black",
+                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                    color: isTheme === true ? "white" : "black",
                   }}
                 >
                   <img
