@@ -37,7 +37,7 @@ const Footer = () => {
             <div className="col-md-3 col-lg-3 col-xl-3 p-4">
               <div className="links d-flex flex-column mt-3">
                 <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link to={"/"} className={`${styles.links}`}>{t("Register")}</Link></div>
-                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>{t("Find Blood")}</Link></div>
+                <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link to={"/volunteers"} className={`${styles.links}`}>{t("Find Blood")}</Link></div>
                 <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link className={`${styles.links}`}>{t("Donate")}</Link></div>
                 <div><AiOutlineArrowRight className="text-danger me-2"></AiOutlineArrowRight><Link to={"/volunteers"} className={`${styles.links}`}>{t("Volunteers")}</Link></div>
               </div>

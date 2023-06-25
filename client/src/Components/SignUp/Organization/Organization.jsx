@@ -150,7 +150,7 @@ const Organization = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container py-5">
       <div className="row">
         <div className="col-lg-6">
           <h2 className="text-center text-danger my-5">
@@ -173,8 +173,8 @@ const Organization = () => {
                   !isOrgNameIsFocused
                     ? {}
                     : isOrgNameIsValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsOrgNameIsFocused(true);
@@ -205,8 +205,8 @@ const Organization = () => {
                   !isEmailFocused
                     ? {}
                     : isEmailValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsEmailFocused(true);
@@ -235,8 +235,8 @@ const Organization = () => {
                   !isPasswordFocused
                     ? {}
                     : isPasswordValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsPasswordFocused(true);
@@ -265,8 +265,8 @@ const Organization = () => {
                   !isConfirmedPasswordFocused
                     ? {}
                     : isConfirmedPasswordValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsConfirmedPasswordFocused(true);
@@ -295,8 +295,8 @@ const Organization = () => {
                   !isOrganiationCodeFocused
                     ? {}
                     : isOrganiationCodeValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsOrganiationCodeFocused(true);
@@ -327,8 +327,8 @@ const Organization = () => {
                   !isAddressFocused
                     ? {}
                     : isAddressValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsAddressFocused(true);
@@ -357,8 +357,8 @@ const Organization = () => {
                   !isPnumberFocused
                     ? {}
                     : isPnumberValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsPnumberFocused(true);

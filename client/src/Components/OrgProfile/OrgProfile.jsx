@@ -44,12 +44,6 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
                         {t("Edit")}
                       </button>
                     </Link>
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger ms-2 px-5"
-                    >
-                      {t("Message")}
-                    </button>
                     <Link to="payment">
                       <button
                         type="button"
