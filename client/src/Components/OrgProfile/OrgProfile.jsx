@@ -116,7 +116,7 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
               </button>
             </Link>
           </div>
-        </div>
+
       </section>
     </ >
   )
