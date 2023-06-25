@@ -3,8 +3,12 @@ import styles from './AnnouForm.module.css'
 import { useFormik } from 'formik'
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import { useTranslation } from "react-i18next";
+
 const AnnouForm = ({ TokenData }) => {
     const [orgnizationData, setorgnizationData] = useState(TokenData)
+    const { t } = useTranslation();
+
     function handlePost(values) {
         axios.post("http://localhost:3005/announcements", values);
         toast.success("Announcement Added Successfully", {
@@ -49,14 +53,14 @@ const AnnouForm = ({ TokenData }) => {
     return <>
         <div className="container py-5">
             <div className="text-center p-2">
-                <h2 className="text-danger">Make an Announcement</h2>
+                <h2 className="text-danger">{t("Make an Announcement")}</h2>
             </div>
             <form onSubmit={formik.handleSubmit} className='py-4'>
 
                 <div className="form-group mb-4">
-                    <label className='mb-2' htmlFor="bloodType">Select Blood Type :</label>
+                    <label className='mb-2' htmlFor="bloodType">{t("Select Blood Type")} :</label>
                     <select value={formik.values.bloodType} onChange={formik.handleChange} onBlur={formik.handleBlur} name="bloodType" id="bloodType" className=' form-control'>
-                        <option label="Select" hidden></option>
+                        <option label={t("Select Blood Type")} hidden></option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
                         <option value="B+">B+</option>
@@ -71,20 +75,20 @@ const AnnouForm = ({ TokenData }) => {
                 </div>
 
                 <div className="form-group mb-4">
-                    <label className='mb-2' htmlFor="quantity">Quantity :</label>
+                    <label className='mb-2' htmlFor="quantity">{t("quantity")} :</label>
                     <input value={formik.values.quantity} onChange={formik.handleChange} onBlur={formik.handleBlur} type="number" name="quantity" id="quantity" className='form-control' placeholder='Enter Quantity of Blood' />
                     {formik.errors.quantity && formik.touched.quantity ? <div className="alert alert-danger mt-2 p-1">{formik.errors.quantity}</div> : null}
 
                 </div>
 
                 <div className="form-group mb-4">
-                    <label className='mb-2' htmlFor="message">Message :</label>
-                    <textarea value={formik.values.message} onChange={formik.handleChange} onBlur={formik.handleBlur} className='form-control' name="message" id="message" cols="30" rows="10" placeholder='Enter Message'></textarea>
+                    <label className='mb-2' htmlFor="message">{t("Message")} :</label>
+                    <textarea value={formik.values.message} onChange={formik.handleChange} onBlur={formik.handleBlur} className='form-control' name="message" id="message" cols="30" rows="10" placeholder={t('Enter Message')}></textarea>
                     {formik.errors.message && formik.touched.message ? <div className="alert alert-danger mt-2 p-1">{formik.errors.message}</div> : null}
 
                 </div>
 
-                <button type='submit' className='btn btn-danger'>Announce</button>
+                <button type='submit' className='btn btn-danger'>{t("Announce")}</button>
 
             </form>
 

@@ -17,6 +17,7 @@ const ContextTheme = (props) => {
     },
   });
   const themes = {
+    isTheme: isTheme,
     toggleTheme: toggleTheme,
     themeConfig: themeConfig,
   };

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import styles from "./userProfile.module.css";
 import { Link } from "react-router-dom";
 import user from "../../../assets/user.jpg";
@@ -6,19 +6,20 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { useEffect } from "react";
 import jwtEncode from "jwt-encode";
-import { conTheme } from "../../../Context/Context";
 const UserProfile = ({ TokenData, saveTokenData }) => {
-  const { isTheme } = useContext(conTheme);
   let lastData = null;
   useEffect(() => {
     // const storedTokenData = localStorage.getItem("tokenData");
     // if (storedTokenData) {
     // const parsedTokenData = JSON.parse(storedTokenData);
     saveTokenData();
-    setIsAvailable(TokenData.isVolunteer);
+    // setIsAvailable(TokenData.isVolunteer);
     // }
-  }, []);
-  console.log(TokenData.isVolunteer);
+    setIsAvailable(TokenData.isVolunteer);
+  }, [isAvailable]);
+
+  console.log(TokenData);
+
   const { t } = useTranslation();
   const [isAvailable, setIsAvailable] = useState(TokenData.isVolunteer);
   const secretKey =
@@ -39,6 +40,7 @@ const UserProfile = ({ TokenData, saveTokenData }) => {
   };
 
   const updateUser = (updatedTokenData) => {
+    console.log(updatedTokenData);
     // axios.get("http://localhost:3000/users").then((res) => {
     //   const users = res.data;
     //   const updatedUser = users.find((user) => {
@@ -59,34 +61,22 @@ const UserProfile = ({ TokenData, saveTokenData }) => {
     // });
   };
 
-  useEffect(() => {
-    // const storedTokenData = localStorage.getItem("tokenData");
-    // if (storedTokenData) {
-    // const parsedTokenData = JSON.parse(storedTokenData);
-    setIsAvailable(TokenData.isVolunteer);
-    // }
-  }, [TokenData.isVolunteer]);
+  // useEffect(() => {
+  //   // const storedTokenData = localStorage.getItem("tokenData");
+  //   // if (storedTokenData) {
+  //   // const parsedTokenData = JSON.parse(storedTokenData);
+  //   setIsAvailable(TokenData.isVolunteer);
+  //   // }
+  // }, [TokenData.isVolunteer]);
 
   return (
     <>
-      <section
-        style={{
-          backgroundColor: isTheme === true ? "black" : "#fbf1f0",
-        }}
-      >
+      <section style={{ backgroundColor: "#fbf1f0" }}>
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-4">
               <div className="card mb-4">
-                <div
-                  className="card-body text-center"
-                  style={{
-                    backgroundColor: isTheme === true ? "black" : "white",
-                    // borderColor: isTheme === true ? "green" : "",
-                    // borderWidth: isTheme === true ? 10 : 0,
-                    color: isTheme === true ? "white" : "black",
-                  }}
-                >
+                <div className="card-body text-center">
                   <img
                     src={TokenData.image}
                     alt="avatar"

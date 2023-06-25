@@ -20,8 +20,9 @@ const Volunteers = () => {
   
   useEffect(() => {
     axios.get("http://localhost:3000/users").then((res) => {
-      setVolunteers(res.data);
-      setSearchRes(res.data);
+      const volunteers = res.data.filter(user => user.isVolunteer === true)
+      setVolunteers(volunteers);
+      setSearchRes(volunteers);
     });
   }, []);
   function navigateTOVolunteer(id) {
@@ -105,7 +106,7 @@ const Volunteers = () => {
           onChange={searchBloodGroupLocation}
         >
           <option label={`${t("Blood Type")}`} hidden></option>
-          <option>{t("All")}</option>
+          <option name="All" value="All">{t("All")}</option>
           <option name="A+" value="A+">
             A+
           </option>
@@ -229,7 +230,7 @@ const Volunteers = () => {
           ) : searchRes ? (
             searchRes.slice(startIndex, endIndex).map(
               (vol) =>
-                vol.isVolunteer && (
+                (
                   <tr
                     onClick={() => {
                       navigateTOVolunteer(vol.id);
@@ -274,6 +275,7 @@ const Volunteers = () => {
           {searchRes && searchRes.length > searchResStep && (
             <tr>
               <td colSpan={3} className="text-center">
+                <span>{endIndex <= searchRes.length ? endIndex: searchRes.length} <span className="text-danger">/</span> {searchRes.length}</span>
                 <button
                   onClick={handlePrev}
                   className={`${styles.navigateRes} text-center m-2`}
