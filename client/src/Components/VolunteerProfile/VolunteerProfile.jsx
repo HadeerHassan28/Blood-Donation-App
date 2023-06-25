@@ -22,9 +22,13 @@ const VolunteerProfile = () => {
   const { t } = useTranslation();
   return (
     <>
+<<<<<<< HEAD
       <section
         style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}
       >
+=======
+      <section className="py-4" style={{ backgroundColor: "#fbf1f0" }}>
+>>>>>>> c115080648046f11207212e2748e2c0e3a02f42a
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-4">

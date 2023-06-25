@@ -17,7 +17,7 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
         style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}
       >
         <div className="container py-5 ">
-          <div className="row">
+          <div className="row py-3 mb-3">
             <div className="col-lg-4">
               <div className="card mb-4">
                 <div
@@ -114,7 +114,7 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
             </div>
             <div className="col-lg-12">
               <Link to={"/myAnnoucnments"}>
-                <button type="button" className="btn btn-danger w-100">
+                <button type="button" className="btn btn-outline-danger w-100">
                   Check My announcements
                 </button>
               </Link>
