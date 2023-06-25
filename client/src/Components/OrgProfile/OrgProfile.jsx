@@ -114,11 +114,20 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
             </div>
           </div>
           <div className="announcementbtn w-100 mt-5">
-            <Link style={{ color: "white" }} to={"/announcForm"}>
+            <Link style={{ color: "white" }} to={'/announcForm'}>
               <button type="button" className="btn btn-danger w-100">
                 {t("Make an Announcement")}
               </button>
             </Link>
+            </div>
+            <div className="col-lg-6">
+            <Link  to={'/myAnnoucnments'}>
+              <button type="button" className="btn btn-danger w-100">
+                Check My announcements
+              </button>
+            </Link>
+            </div>
+
           </div>
         </div>
       </section>
