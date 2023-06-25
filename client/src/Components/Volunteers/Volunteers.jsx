@@ -100,13 +100,13 @@ const Volunteers = () => {
         <h2 style={{ color: "#ee394a" }}>{t("Volunteers")}</h2>
         <p>{t("Search our Super Hero Volunteers")}</p>
       </div>
-      <div className={`${styles.searchBox} py-4`} style={{backgroundColor: isTheme? "black": "white", color: isTheme? "white": "black"}}>
+      <div className={`${styles.searchBox} py-4`} style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
         <span className={`${styles.filterWith} text-danger`}>{t("Filter with:")}</span>
         <select
           className={`${styles.select}`}
           ref={bloodGroup}
           onChange={searchBloodGroupLocation}
-          style={{backgroundColor: isTheme? "black": "white", color: isTheme? "white": "gray"}}
+          style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "gray"}}
         >
           <option label={`${t("Blood Type")}`} hidden></option>
           <option name="All" value="All">{t("All")}</option>
@@ -144,7 +144,7 @@ const Volunteers = () => {
           placeholder={`${t("Location")}`}
           ref={location}
           onChange={searchBloodGroupLocation}
-          style={{backgroundColor: isTheme? "black": "white", color: isTheme? "white": "black"}}
+          style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}
         />
         <datalist id="locations">
           {governates.map(gov => <option key={uuid()} value={gov}>{t(gov)}</option>)}
@@ -172,10 +172,12 @@ const Volunteers = () => {
       >
         Please wait data loading
       </div>
-      <table className={`${styles.tableW} table w-75 mt-5 mx-auto`}>
+      <table className={`${styles.tableW} table w-75 mt-5 mx-auto ${isTheme? 'border': 'border-0'} border-bottom`}
+        style={{borderColor: "lightgray!important"}}
+      >
         <thead>
           <tr>
-            <th className="text-start text-danger p-3" style={{backgroundColor: isTheme? "black": "white", border: isTheme? "1px solid lightgray": "0px", borderRight: "0px", borderBottom:"1px solid lightgray"}}>
+            <th className="text-start text-danger p-3" style={{backgroundColor: isTheme? "#282c34": "white"}}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -189,7 +191,7 @@ const Volunteers = () => {
               </svg>
               {t("VOLUNTEER")}
             </th>
-            <th className="text-center text-danger p-3" style={{backgroundColor: isTheme? "black": "white", border: isTheme? "1px solid lightgray": "0px", borderLeft: "0px", borderRight: "0px", borderBottom:"1px solid lightgray"}}>
+            <th className="text-center text-danger p-3" style={{backgroundColor: isTheme? "#282c34": "white"}}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -203,7 +205,7 @@ const Volunteers = () => {
               </svg>
               {t("LOCATION")}
             </th>
-            <th className="text-center text-danger p-3" style={{backgroundColor: isTheme? "black": "white", border: isTheme? "1px solid lightgray": "0px", borderLeft: "0px", borderBottom:"1px solid lightgray"}}>
+            <th className="text-center text-danger p-3" style={{backgroundColor: isTheme? "#282c34": "white"}}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -228,7 +230,7 @@ const Volunteers = () => {
         <tbody>
           {searchRes !== null && searchRes.length === 0 ? (
             <tr>
-              <td colSpan={3} className="fs-4" style={{backgroundColor: isTheme? "black": "white", border: isTheme? "1px solid lightgray": "0px", borderBottom:"1px solid lightgray", color: isTheme? "white": "black"}}>
+              <td colSpan={3} className="fs-4" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
                 {t("Sorry, no results found")}
               </td>
             </tr>
@@ -245,7 +247,7 @@ const Volunteers = () => {
                       cursor: "pointer",
                     }}
                   >
-                    <td className={`${styles.volName} text-start ps-3`} style={{backgroundColor: isTheme? "black": "white", border: isTheme? "1px solid lightgray": "0px",borderRight: "0px", borderBottom:"1px solid lightgray", color: isTheme? "white": "black"}}>
+                    <td className={`${styles.volName} text-start ps-3`} style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
                       <img
                         src={vol.image}
                         alt="profile"
@@ -262,16 +264,16 @@ const Volunteers = () => {
                         {vol.firstName} {vol.lastName}
                       </span>
                     </td>
-                    <td className="text-center" style={{backgroundColor: isTheme? "black": "white", border: isTheme? "1px solid lightgray": "0px",borderLeft: "0px", borderRight: "0px", borderBottom:"1px solid lightgray", color: isTheme? "white": "black"}}>
+                    <td className="text-center" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
                       {vol.Address}, {vol.city}
                     </td>
-                    <td className="text-center" style={{backgroundColor: isTheme? "black": "white", border: isTheme? "1px solid lightgray": "0px",borderLeft: "0px", borderBottom:"1px solid lightgray",color: isTheme? "white": "black"}}>{vol.bloodType}</td>
+                    <td className="text-center" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>{vol.bloodType}</td>
                   </tr>
                 )
             )
           ) : (
             <tr>
-              <td colSpan={3} className="fs-4" style={{backgroundColor: isTheme? "black": "white", border: isTheme? "1px solid lightgray": "0px", borderBottom:"1px solid lightgray", color: isTheme? "white": "black"}}>
+              <td colSpan={3} className="fs-4" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
                 {t("Loading...")}
               </td>
             </tr>
@@ -280,7 +282,7 @@ const Volunteers = () => {
         <tfoot>
           {searchRes && searchRes.length > searchResStep && (
             <tr>
-              <td colSpan={3} className="text-center" style={{backgroundColor: isTheme? "black": "white", border: isTheme? "1px solid lightgray": "0px", borderBottom:"1px solid lightgray", color: isTheme? "white": "black"}}>
+              <td colSpan={3} className="text-center" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
                 <span>{endIndex <= searchRes.length ? endIndex: searchRes.length} <span className="text-danger">/</span> {searchRes.length}</span>
                 <button
                   onClick={handlePrev}

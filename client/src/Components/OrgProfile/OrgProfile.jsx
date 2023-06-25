@@ -129,7 +129,7 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
             </div>
 
           </div>
-        </div>
+
       </section>
     </>
   );
