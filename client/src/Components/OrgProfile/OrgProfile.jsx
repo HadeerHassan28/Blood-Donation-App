@@ -5,7 +5,6 @@ import { conTheme } from "../../Context/Context";
 export const OrgProfile = ({ TokenData, saveTokenData }) => {
   const { t } = useTranslation();
   const { isTheme } = useContext(conTheme);
-  //console.log(isTheme);
   useEffect(() => {
     saveTokenData();
     // }
@@ -116,7 +115,7 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
               </button>
             </Link>
           </div>
-
+        </div>
       </section>
     </ >
   )
