@@ -6,12 +6,8 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { conTheme } from "../../Context/Context";
-<<<<<<< HEAD
-=======
 
->>>>>>> 5365c379b9c7c11f5d3d1875c4002491add13d41
 const Volunteers = () => {
-  const { isTheme } = useContext(conTheme);
   const searchResStep = 9;
   const [volunteers, setVolunteers] = useState(null);
   const [searchRes, setSearchRes] = useState(volunteers);
@@ -21,7 +17,6 @@ const Volunteers = () => {
   const location = useRef();
   const { t } = useTranslation();
   const navigate = useNavigate();
-<<<<<<< HEAD
   const governates = [
     "Alexandria",
     "Aswan",
@@ -51,12 +46,8 @@ const Volunteers = () => {
     "South Sinai",
     "Suez",
   ];
-
-=======
-  const governates = ["Alexandria","Aswan","Asyut","Beheira","Beni Suef","Cairo","Dakahlia","Damietta","Faiyum","Gharbia","Giza","Ismailia","Kafr El Sheikh","Luxor","Matruh","Minya","Monufia","New Valley","North Sinai","Port Said","Qalyubia","Qena","Red Sea","Sharqia","Sohag","South Sinai","Suez"]
   const { isTheme } = useContext(conTheme);
-  
->>>>>>> 5365c379b9c7c11f5d3d1875c4002491add13d41
+
   useEffect(() => {
     axios.get("http://localhost:3000/users").then((res) => {
       const volunteers = res.data.filter((user) => user.isVolunteer === true);
@@ -137,20 +128,24 @@ const Volunteers = () => {
         <h2 style={{ color: "#ee394a" }}>{t("Volunteers")}</h2>
         <p>{t("Search our Super Hero Volunteers")}</p>
       </div>
-<<<<<<< HEAD
-      <div className={`${styles.searchBox} py-4`}>
+      <div
+        className={`${styles.searchBox} py-4`}
+        style={{
+          backgroundColor: isTheme ? "#282c34" : "white",
+          color: isTheme ? "white" : "black",
+        }}
+      >
         <span className={`${styles.filterWith} text-danger`}>
           {t("Filter with:")}
         </span>
-=======
-      <div className={`${styles.searchBox} py-4`} style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
-        <span className={`${styles.filterWith} text-danger`}>{t("Filter with:")}</span>
->>>>>>> 5365c379b9c7c11f5d3d1875c4002491add13d41
         <select
           className={`${styles.select}`}
           ref={bloodGroup}
           onChange={searchBloodGroupLocation}
-          style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "gray"}}
+          style={{
+            backgroundColor: isTheme ? "#282c34" : "white",
+            color: isTheme ? "white" : "gray",
+          }}
         >
           <option label={`${t("Blood Type")}`} hidden></option>
           <option name="All" value="All">
@@ -190,7 +185,10 @@ const Volunteers = () => {
           placeholder={`${t("Location")}`}
           ref={location}
           onChange={searchBloodGroupLocation}
-          style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}
+          style={{
+            backgroundColor: isTheme ? "#282c34" : "white",
+            color: isTheme ? "white" : "black",
+          }}
         />
         <datalist id="locations">
           {governates.map((gov) => (
@@ -209,7 +207,7 @@ const Volunteers = () => {
             ? "d-none text-center text-danger fs-3"
             : "d-block text-center text-danger fs-4"
         }
-        style={{color: isTheme? "white": "black"}}
+        style={{ color: isTheme ? "white" : "black" }}
       >
         {t("Please wait data loading")}
       </div>
@@ -222,12 +220,18 @@ const Volunteers = () => {
       >
         Please wait data loading
       </div>
-      <table className={`${styles.tableW} table w-75 mt-5 mx-auto ${isTheme? 'border': 'border-0'} border-bottom`}
-        style={{borderColor: "lightgray!important"}}
+      <table
+        className={`${styles.tableW} table w-75 mt-5 mx-auto ${
+          isTheme ? "border" : "border-0"
+        } border-bottom`}
+        style={{ borderColor: "lightgray!important" }}
       >
         <thead>
           <tr>
-            <th className="text-start text-danger p-3" style={{backgroundColor: isTheme? "#282c34": "white"}}>
+            <th
+              className="text-start text-danger p-3"
+              style={{ backgroundColor: isTheme ? "#282c34" : "white" }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -241,7 +245,10 @@ const Volunteers = () => {
               </svg>
               {t("VOLUNTEER")}
             </th>
-            <th className="text-center text-danger p-3" style={{backgroundColor: isTheme? "#282c34": "white"}}>
+            <th
+              className="text-center text-danger p-3"
+              style={{ backgroundColor: isTheme ? "#282c34" : "white" }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -255,7 +262,10 @@ const Volunteers = () => {
               </svg>
               {t("LOCATION")}
             </th>
-            <th className="text-center text-danger p-3" style={{backgroundColor: isTheme? "#282c34": "white"}}>
+            <th
+              className="text-center text-danger p-3"
+              style={{ backgroundColor: isTheme ? "#282c34" : "white" }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -280,7 +290,14 @@ const Volunteers = () => {
         <tbody>
           {searchRes !== null && searchRes.length === 0 ? (
             <tr>
-              <td colSpan={3} className="fs-4" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
+              <td
+                colSpan={3}
+                className="fs-4"
+                style={{
+                  backgroundColor: isTheme ? "#282c34" : "white",
+                  color: isTheme ? "white" : "black",
+                }}
+              >
                 {t("Sorry, no results found")}
               </td>
             </tr>
@@ -298,58 +315,55 @@ const Volunteers = () => {
                 <td
                   className={`${styles.volName} text-start ps-3`}
                   style={{
-                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
-                    color: isTheme === true ? "white" : "black",
+                    backgroundColor: isTheme ? "#282c34" : "white",
+                    color: isTheme ? "white" : "black",
                   }}
                 >
                   <img
                     src={vol.image}
                     alt="profile"
                     style={{
+                      width: "8vw",
+                      height: "8vw",
+                      borderRadius: "4vw",
+                      padding: "10px",
                       cursor: "pointer",
                     }}
-<<<<<<< HEAD
                   />
                   <span>
                     {vol.firstName} {vol.lastName}
                   </span>
                 </td>
-                <td className="text-center">
+                <td
+                  className="text-center"
+                  style={{
+                    backgroundColor: isTheme ? "#282c34" : "white",
+                    color: isTheme ? "white" : "black",
+                  }}
+                >
                   {vol.Address}, {vol.city}
                 </td>
-                <td className="text-center">{vol.bloodType}</td>
+                <td
+                  className="text-center"
+                  style={{
+                    backgroundColor: isTheme ? "#282c34" : "white",
+                    color: isTheme ? "white" : "black",
+                  }}
+                >
+                  {vol.bloodType}
+                </td>
               </tr>
             ))
-=======
-                  >
-                    <td className={`${styles.volName} text-start ps-3`} style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
-                      <img
-                        src={vol.image}
-                        alt="profile"
-                        style={{
-                          width: "8vw",
-                          height: "8vw",
-                          borderRadius: "4vw",
-                          padding: "10px",
-                          cursor: "pointer",
-                        }}
-
-                      />
-                      <span>
-                        {vol.firstName} {vol.lastName}
-                      </span>
-                    </td>
-                    <td className="text-center" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
-                      {vol.Address}, {vol.city}
-                    </td>
-                    <td className="text-center" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>{vol.bloodType}</td>
-                  </tr>
-                )
-            )
->>>>>>> 5365c379b9c7c11f5d3d1875c4002491add13d41
           ) : (
             <tr>
-              <td colSpan={3} className="fs-4" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
+              <td
+                colSpan={3}
+                className="fs-4"
+                style={{
+                  backgroundColor: isTheme ? "#282c34" : "white",
+                  color: isTheme ? "white" : "black",
+                }}
+              >
                 {t("Loading...")}
               </td>
             </tr>
@@ -358,16 +372,18 @@ const Volunteers = () => {
         <tfoot>
           {searchRes && searchRes.length > searchResStep && (
             <tr>
-<<<<<<< HEAD
-              <td colSpan={3} className="text-center">
+              <td
+                colSpan={3}
+                className="text-center"
+                style={{
+                  backgroundColor: isTheme ? "#282c34" : "white",
+                  color: isTheme ? "white" : "black",
+                }}
+              >
                 <span>
                   {endIndex <= searchRes.length ? endIndex : searchRes.length}{" "}
                   <span className="text-danger">/</span> {searchRes.length}
                 </span>
-=======
-              <td colSpan={3} className="text-center" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
-                <span>{endIndex <= searchRes.length ? endIndex: searchRes.length} <span className="text-danger">/</span> {searchRes.length}</span>
->>>>>>> 5365c379b9c7c11f5d3d1875c4002491add13d41
                 <button
                   onClick={handlePrev}
                   className={`${styles.navigateRes} text-center m-2`}
@@ -377,11 +393,11 @@ const Volunteers = () => {
                     width="24"
                     height="24"
                     fill="currentColor"
-                    className="bi bi-arrow-left"
+                    class="bi bi-arrow-left"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      fillRule="evenodd"
+                      fill-rule="evenodd"
                       d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
                     />
                   </svg>
@@ -395,11 +411,11 @@ const Volunteers = () => {
                     width="24"
                     height="24"
                     fill="currentColor"
-                    className="bi bi-arrow-right"
+                    class="bi bi-arrow-right"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      fillRule="evenodd"
+                      fill-rule="evenodd"
                       d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
                     />
                   </svg>

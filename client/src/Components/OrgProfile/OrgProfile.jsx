@@ -12,7 +12,10 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
 
   return (
     <>
-      <section className="py-4 " style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0", }}>
+      <section
+        className="py-4 "
+        style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}
+      >
         <div className="container py-5 ">
           <div className="row">
             <div className="col-lg-4">
@@ -119,10 +122,8 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
           </div>
         </div>
       </section>
-    </ >
-  )
-}
+    </>
+  );
+};
 
 export default OrgProfile;
-
-
