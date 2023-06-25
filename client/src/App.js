@@ -33,6 +33,8 @@ import VolunteerProfile from "./Components/VolunteerProfile/VolunteerProfile";
 import OrganizationProfile from "./Components/OrganizationProfile/OrganizationProfile";
 import Payment from "./Components/Payment/Payment";
 import Completion from "./Components/Payment/Completion";
+import MyAnnoucement from "./Components/MyAnnoucement/MyAnnoucement";
+import AnnouncementEdit from "./Components/AnnouncementEdit/AnnouncementEdit";
 function App() {
   const [TokenData, setTokenData] = useState(localStorage.getItem("token"));
   function saveTokenData() {
@@ -156,6 +158,14 @@ function App() {
         {
           path: "announcForm",
           element: <AnnouForm TokenData={TokenData}/>
+        },
+        {
+          path: "myAnnoucnments",
+          element: <MyAnnoucement TokenData={TokenData} saveTokenData={saveTokenData}/>
+        },
+        {
+          path: "myAnnoucnments/edit",
+          element: <AnnouncementEdit TokenData={TokenData} saveTokenData={saveTokenData}/>
         },
         {
           path: "*",

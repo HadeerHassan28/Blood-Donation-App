@@ -13,12 +13,7 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
 
   return (
     <>
-      <section
-        className="py-4 "
-        style={{
-          backgroundColor: isTheme === true ? "black" : "#fbf1f0",
-        }}
-      >
+      <section className="py-4 " style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0", }}>
         <div className="container py-5 ">
           <div className="row">
             <div className="col-lg-4">
@@ -108,24 +103,25 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
             </div>
           </div>
           <div className="announcementbtn w-100 mt-5">
-            <Link style={{ color: "white" }} to={"/announcForm"}>
+            <Link style={{ color: "white" }} to={'/announcForm'}>
               <button type="button" className="btn btn-danger w-100">
                 {t("Make an Announcement")}
               </button>
             </Link>
           </div>
+          <div className="col-lg-6">
+            <Link to={'/myAnnoucnments'}>
+              <button type="button" className="btn btn-danger w-100">
+                Check My announcements
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
-    </>
-  );
-};
+    </ >
+  )
+}
 
 export default OrgProfile;
 
-{
-  /* 
 
-
-
-*/
-}
