@@ -41,7 +41,7 @@ const Announcement = () => {
         </div>
         <div className="row gy-3 ">
           {isLoading ? (
-            <div>{t("Loading...")}</div>
+            <div className="text-center"><h2 className="fs-2 text-danger">{t("Loading...")}</h2></div>
           ) : (
             announcements.map((a) => (
               <div

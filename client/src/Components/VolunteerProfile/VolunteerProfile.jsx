@@ -20,7 +20,7 @@ const VolunteerProfile = () => {
   const { t } = useTranslation();
   return (
     <>
-      <section style={{ backgroundColor: "#fbf1f0" }}>
+      <section className="py-4" style={{ backgroundColor: "#fbf1f0" }}>
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-4">
