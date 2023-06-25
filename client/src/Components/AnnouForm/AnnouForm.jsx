@@ -13,8 +13,8 @@ const AnnouForm = ({ TokenData }) => {
         axios.post("http://localhost:3005/announcements", values);
         toast.success("Announcement Added Successfully", {
             position: 'bottom-right'
-        })
 
+        });
 
     }
     console.log(orgnizationData);
@@ -27,6 +27,10 @@ const AnnouForm = ({ TokenData }) => {
 
         } else if (!values.quantity) {
             errors.quantity = "Please Enter Quantity Of Blood You Need";
+        }
+
+        else if (values.quantity > 40) {
+            errors.quantity = "Maximum Is 40";
         }
 
         else if (!values.message) {

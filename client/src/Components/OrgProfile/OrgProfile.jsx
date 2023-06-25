@@ -5,7 +5,6 @@ import { conTheme } from "../../Context/Context";
 export const OrgProfile = ({ TokenData, saveTokenData }) => {
   const { t } = useTranslation();
   const { isTheme } = useContext(conTheme);
-  //console.log(isTheme);
   useEffect(() => {
     saveTokenData();
     // }
@@ -15,12 +14,10 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
     <>
       <section
         className="py-4 "
-        style={{
-          backgroundColor: isTheme === true ? "black" : "#fbf1f0",
-        }}
+        style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}
       >
         <div className="container py-5 ">
-          <div className="row">
+          <div className="row py-3 mb-3">
             <div className="col-lg-4">
               <div className="card mb-4">
                 <div
@@ -44,12 +41,6 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
                         {t("Edit")}
                       </button>
                     </Link>
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger ms-2 px-5"
-                    >
-                      {t("Message")}
-                    </button>
                     <Link to="payment">
                       <button
                         type="button"
@@ -113,34 +104,26 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
               </div>
             </div>
           </div>
-          <div className="announcementbtn w-100 mt-5">
-            <Link style={{ color: "white" }} to={'/announcForm'}>
-              <button type="button" className="btn btn-danger w-100">
-                {t("Make an Announcement")}
-              </button>
-            </Link>
+          <div className="row">
+            <div className="announcementbtn col-lg-12 mb-2">
+              <Link style={{ color: "white" }} to={"/announcForm"}>
+                <button type="button" className="btn btn-danger w-100">
+                  {t("Make an Announcement")}
+                </button>
+              </Link>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-12">
             <Link  to={'/myAnnoucnments'}>
               <button type="button" className="btn btn-danger w-100">
                 {t("Check my announcements")}
               </button>
             </Link>
-            </div>
-
           </div>
-
+        </div>
+        </div>
       </section>
     </>
   );
 };
 
 export default OrgProfile;
-
-{
-  /* 
-
-
-
-*/
-}

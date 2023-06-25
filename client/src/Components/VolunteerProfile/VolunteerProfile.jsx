@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from "./VolunteerProfile.module.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-
+import { AiOutlineWhatsApp } from "react-icons/ai";
+import { BsTelephoneOutbound } from "react-icons/bs";
+import { conTheme } from "../../Context/Context";
 const VolunteerProfile = () => {
+  const { isTheme } = useContext(conTheme);
   const { id } = useParams();
   const [VolunteerData, setVolunteerData] = useState({});
   useEffect(() => {
@@ -19,12 +22,22 @@ const VolunteerProfile = () => {
   const { t } = useTranslation();
   return (
     <>
-      <section style={{ backgroundColor: "#fbf1f0" }}>
+      <section
+        className="py-4"
+        style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}
+      >
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-4">
               <div className="card mb-4">
-                <div className="card-body text-center">
+                <div
+                  className="card-body text-center"
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "white",
+
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
                   <img
                     src={VolunteerData.image}
                     alt="avatar"
@@ -39,19 +52,36 @@ const VolunteerProfile = () => {
                     {t("City")}: {VolunteerData.city}
                   </p>
                   <div className="d-flex justify-content-center mb-2">
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger ms-2 px-5"
+                    <Link className="me-3" to={`tel:+${VolunteerData.pNumber}`}>
+                      <BsTelephoneOutbound
+                        size={20}
+                        className="text-danger"
+                      ></BsTelephoneOutbound>
+                    </Link>
+                    <Link
+                      className="me-2"
+                      target="_blank"
+                      to={`https://wa.me/+${VolunteerData.pNumber}`}
                     >
-                      {t("Message")}
-                    </button>
+                      <AiOutlineWhatsApp
+                        size={25}
+                        className="text-danger"
+                      ></AiOutlineWhatsApp>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-8">
               <div className="card mb-4">
-                <div className="card-body">
+                <div
+                  className="card-body"
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "white",
+
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
                   <div className="row">
                     <div className="col-sm-3">
                       <p className="mb-0">{t("Full Name")}</p>

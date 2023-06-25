@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./OrganizationProfile.module.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
+import { AiOutlineWhatsApp } from "react-icons/ai";
+import { CiLocationOn } from "react-icons/ci";
+import { BsTelephoneOutbound } from "react-icons/bs";
 const OrganizationProfile = () => {
   const { id } = useParams();
   const [hospitalsData, setHospitalsData] = useState({});
@@ -18,7 +21,7 @@ const OrganizationProfile = () => {
   const { t } = useTranslation();
   return (
     <>
-      <section style={{ backgroundColor: "#fbf1f0" }}>
+      <section className="py-5" style={{ backgroundColor: "#fbf1f0" }}>
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-4">
@@ -36,12 +39,28 @@ const OrganizationProfile = () => {
                     {t("Address")}: {hospitalsData.Address}
                   </p>
                   <div className="d-flex justify-content-center mb-2">
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger ms-2 px-5"
+                    <Link className="me-3" to={`tel:+${hospitalsData.pNumber}`}>
+                      <BsTelephoneOutbound
+                        size={20}
+                        className="text-danger"
+                      ></BsTelephoneOutbound>
+                    </Link>
+                    <Link
+                      className="me-2"
+                      target="_blank"
+                      to={`https://wa.me/+${hospitalsData.pNumber}`}
                     >
-                      {t("Message")}
-                    </button>
+                      <AiOutlineWhatsApp
+                        size={25}
+                        className="text-danger"
+                      ></AiOutlineWhatsApp>
+                    </Link>
+                    <Link to={""}>
+                      <CiLocationOn
+                        size={25}
+                        className="text-danger"
+                      ></CiLocationOn>
+                    </Link>
                   </div>
                 </div>
               </div>

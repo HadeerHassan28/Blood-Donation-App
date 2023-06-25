@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from "./UserEdit.module.css";
 import axios from "axios";
 import jwtEncode from "jwt-encode";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
+import { conTheme } from "../../../Context/Context";
 const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
+  const { isTheme } = useContext(conTheme);
   const navigate = useNavigate();
   const { t } = useTranslation();
   const secretKey =
@@ -137,7 +138,10 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
 
   return (
     <div>
-      <div className="container">
+      <div
+        className="container"
+        style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}
+      >
         <h2 className="text-center">{t("Edit Account")}</h2>
         <form className="row g-3" onSubmit={handleSubmit}>
           <div className="col-lg-6">
