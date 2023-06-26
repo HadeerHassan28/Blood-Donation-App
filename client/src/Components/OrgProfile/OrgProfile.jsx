@@ -12,7 +12,10 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
 
   return (
     <>
-      <section className="py-4 " style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0", }}>
+      <section
+        className="py-4 "
+        style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}
+      >
         <div className="container py-5 ">
           <div className="row py-3 mb-3">
             <div className="col-lg-4">
@@ -43,7 +46,7 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
                         type="button"
                         className="btn btn-outline-danger ms-2 px-5"
                       >
-                        Checkout
+                        {t("Checkout")}
                       </button>
                     </Link>
                   </div>
@@ -110,19 +113,17 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
               </Link>
             </div>
             <div className="col-lg-12">
-              <Link to={"/myAnnoucnments"}>
-                <button type="button" className="btn btn-outline-danger w-100">
-                  Check My announcements
-                </button>
-              </Link>
-            </div>
+            <Link  to={'/myAnnoucnments'}>
+              <button type="button" className="btn btn-danger w-100">
+                {t("Check my announcements")}
+              </button>
+            </Link>
           </div>
         </div>
+        </div>
       </section>
-    </ >
-  )
-}
+    </>
+  );
+};
 
 export default OrgProfile;
-
-

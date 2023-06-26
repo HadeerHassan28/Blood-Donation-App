@@ -159,7 +159,7 @@ const Navbar = ({ TokenData, setTokenData }) => {
                         TokenData.role === "user" ? "userProfile" : "orgProfile"
                       }
                     >
-                      Profile
+                      {t("Profile")}
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -175,7 +175,7 @@ const Navbar = ({ TokenData, setTokenData }) => {
                           : "Signup-org/signin-org"
                       }
                     >
-                      Logout
+                      {t("Logout")}
                     </Link>
                   </li>
                 </>

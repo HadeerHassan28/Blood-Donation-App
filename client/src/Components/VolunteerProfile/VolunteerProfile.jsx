@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from "./VolunteerProfile.module.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { AiOutlineWhatsApp } from "react-icons/ai";
-import { conTheme } from "../../Context/Context";
 import { BsTelephoneOutbound } from "react-icons/bs";
+import { conTheme } from "../../Context/Context";
 const VolunteerProfile = () => {
   const { id } = useParams();
   const [VolunteerData, setVolunteerData] = useState({});
@@ -20,18 +20,21 @@ const VolunteerProfile = () => {
     });
   }, [id]);
   const { t } = useTranslation();
-  return (
-    <>
-      <section className="py-4" style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}>
-        <div className="container py-5">
-          <div className="row">
-            <div className="col-lg-4">
-              <div className="card mb-4" style={{
-                backgroundColor: isTheme === true ? "black" : "white",
-                border: "1px solid white",
-                color: isTheme === true ? "white" : "black",
-              }}>
-                <div className="card-body text-center">
+  return (<>
+    <section className="py-4" style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}>
+      <div className="container py-5">
+        <div className="row">
+          <div className="col-lg-4">
+
+            <div className="card-body text-center">
+              <div className="card mb-4">
+                <div
+                  className="card-body text-center"
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "white",
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
                   <img
                     src={VolunteerData.image}
                     alt="avatar"
@@ -66,70 +69,75 @@ const VolunteerProfile = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-8">
-              <div className="card mb-4">
-                <div className="card-body" style={{
+          </div>
+
+          <div className="col-lg-8">
+            <div className="card mb-4">
+              <div
+                className="card-body"
+                style={{
                   backgroundColor: isTheme === true ? "black" : "white",
 
                   color: isTheme === true ? "white" : "black",
-                }}>
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <p className="mb-0">{t("Full Name")}</p>
-                    </div>
-                    <div className="col-sm-9">
-                      <p className="text-muted mb-0">
-                        {" "}
-                        {VolunteerData.firstName} {VolunteerData.lastName}
-                      </p>
-                    </div>
+                }}
+              >
+                <div className="row">
+                  <div className="col-sm-3">
+                    <p className="mb-0">{t("Full Name")}</p>
                   </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <p className="mb-0">{t("Email")}</p>
-                    </div>
-                    <div className="col-sm-9">
-                      <p className="text-muted mb-0">{VolunteerData.email}</p>
-                    </div>
+                  <div className="col-sm-9">
+                    <p className="text-muted mb-0">
+                      {" "}
+                      {VolunteerData.firstName} {VolunteerData.lastName}
+                    </p>
                   </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <p className="mb-0">{t("Phone")}</p>
-                    </div>
-                    <div className="col-sm-9">
-                      <p className="text-muted mb-0">{VolunteerData.pNumber}</p>
-                    </div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <p className="mb-0">{t("Email")}</p>
                   </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <p className="mb-0">{t("Address")}</p>
-                    </div>
-                    <div className="col-sm-9">
-                      <p className="text-muted mb-0">{VolunteerData.Address}</p>
-                    </div>
+                  <div className="col-sm-9">
+                    <p className="text-muted mb-0">{VolunteerData.email}</p>
                   </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <p className="mb-0">{t("Available to Donate")}</p>
-                    </div>
-                    <div className="col-sm-9">
-                      <p className="text-muted mb-0">{`${VolunteerData.isVolunteer
-                        ? `${t("Avialable")}`
-                        : `${t("Not Available")}`
-                        }`}</p>
-                    </div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <p className="mb-0">{t("Phone")}</p>
+                  </div>
+                  <div className="col-sm-9">
+                    <p className="text-muted mb-0">{VolunteerData.pNumber}</p>
+                  </div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <p className="mb-0">{t("Address")}</p>
+                  </div>
+                  <div className="col-sm-9">
+                    <p className="text-muted mb-0">{VolunteerData.Address}</p>
+                  </div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <p className="mb-0">{t("Available to Donate")}</p>
+                  </div>
+                  <div className="col-sm-9">
+                    <p className="text-muted mb-0">{`${VolunteerData.isVolunteer
+                      ? `${t("Avialable")}`
+                      : `${t("Not Available")}`
+                      }`}</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
+  </>
   );
 };
 
