@@ -247,6 +247,23 @@
       "role": "org",
       "latitude": 30.0960088,
       "langitude": 31.2740701
+    },
+    {
+      "id": "97a9980f-4c6b-4950-9b3b-c44be03c0636",
+      "orgName": "Cairo International ",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "OrganizationCode": "951753",
+      "email": "Cairooo@gmail.com",
+      "Address": "Cairo",
+      "pNumber": "01000000000",
+      "sector": "governmental",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk3YTk5ODBmLTRjNmItNDk1MC05YjNiLWM0NGJlMDNjMDYzNiIsIm9yZ05hbWUiOiJDYWlybyBJbnRlcm5hdGlvbmFsICIsIk9yZ2FuaXphdGlvbkNvZGUiOiI5NTE3NTMiLCJBZGRyZXNzIjoiQ2Fpcm8iLCJlbWFpbCI6IkNhaXJvb29AZ21haWwuY29tIiwic2VjdG9yIjoiZ292ZXJubWVudGFsIiwiaXNOZWVkc1ZvbHVudGVlcnMiOmZhbHNlLCJwTnVtYmVyIjoiMDEwMDAwMDAwMDAiLCJpbWFnZSI6Ii9hc3NldHMvaW1hZ2VzL3VzZXJJbWFnZS5qcGciLCJyb2xlIjoib3JnIn0.VFsfPkvyVM0aHbKFUm_KWp9P6j6oLkQtEYK0G6kK9Wk",
+      "isNeedsVolunteers": false,
+      "image": "/assets/images/userImage.jpg",
+      "role": "org",
+      "latitude": 31.2311808,
+      "langitude": 29.9597824
     }
   ]
 }

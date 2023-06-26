@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import styles from "./Home.module.css";
 import InfoHome from "../InfoHome/InfoHome";
 import CauseHome from "../CauseHome/CauseHome";
 import Selection from "../Selection/Selection";
 import { useNavigate } from 'react-router-dom';
 import { Trans, useTranslation } from "react-i18next";
+import { conTheme } from "../../Context/Context";
+
 const Home = ({ TokenData }) => {
+
+  let { toggleTheme, themeConfig } = useContext(conTheme);
+  const theme = themeConfig.palette.mode;
+
   let navigate = useNavigate()
   const [isSelectionActive, setIsSelectionActive] = useState(false);
   const { t } = useTranslation();
@@ -25,8 +31,8 @@ const Home = ({ TokenData }) => {
   // console.log(isSelectionActive);
   return (
     <>
-      <div
-        className={`${styles.landing} d-flex justify-content-center align-items-start`}
+      <div 
+        className={`${theme === "light" ? styles.landing : styles.landingDark} d-flex justify-content-center align-items-start ` }
       >
         <div className="landing-content">
           <div className=" text-center">
@@ -44,13 +50,15 @@ const Home = ({ TokenData }) => {
               <Trans>Blood-Donation</Trans>
             </h2>
             <p
-              style={{
+            s
+              style={
+                {
                 letterSpacing: 4,
                 fontSize: "2.5rem",
                 fontFamily: "Covered By Your Grace",
                 fontWeight: "bold",
                 marginBottom: 5,
-                color: "black",
+                
               }}
             >
               {t("Saves Lives,")}
@@ -78,7 +86,7 @@ const Home = ({ TokenData }) => {
                 fontFamily: "Montserrat Alternates",
                 fontWeight: "bold",
                 maxWidth: "500px",
-                color: "black",
+             
               }}
             >
               {t("Find-blood-donors")}

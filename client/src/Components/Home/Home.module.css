@@ -1,5 +1,5 @@
 .landing {
-  background-image: url("../../../public/assets/images/xxlg-background.png");
+  background-image: url("../../../public/assets/images/H.jpeg");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 100% 95%;
@@ -7,6 +7,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.landingDark {
+  background-image: url("../../../public/assets/images/HDark.jpeg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% 95%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 /* Small devices (landscape phones, 576px and up) */

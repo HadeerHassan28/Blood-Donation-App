@@ -4,8 +4,12 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from './CheckoutForm';
 
-const Payment = ({TokenData}) => {
+const Payment = ({TokenData, saveTokenData}) => {
   console.log(TokenData)
+
+  useEffect(() => {
+    saveTokenData();
+  }, []);
 
     const [stripePromise, setStripePromise] = useState(null);
     const [clientSecret, setClientSecret] = useState("");
@@ -28,8 +32,8 @@ const Payment = ({TokenData}) => {
       });
     }, []);
     return (
-        <div className='container'>
-        <h1 className='text-center'>Donate To {TokenData.orgName} </h1>
+        <div className='container py-5'>
+        <h1 className='text-center text-danger my-3'>Donate To {TokenData.orgName} </h1>
         {clientSecret && stripePromise && (
           <Elements stripe={stripePromise} options={{ clientSecret }}>
             <CheckoutForm/>
