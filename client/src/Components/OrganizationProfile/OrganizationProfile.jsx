@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import { BsTelephoneOutbound } from "react-icons/bs";
+import { MdPayment } from "react-icons/md";
 import { conTheme } from "../../Context/Context";
 const OrganizationProfile = () => {
   const { id } = useParams();
@@ -61,11 +62,21 @@ const OrganizationProfile = () => {
                         className="text-danger"
                       ></AiOutlineWhatsApp>
                     </Link>
-                    <Link to={""}>
+                    <Link to={``}>
                       <CiLocationOn
                         size={25}
-                        className="text-danger"
+                        className="text-danger me-2"
                       ></CiLocationOn>
+                    </Link>
+                    <Link to="payment">
+                      <MdPayment size={25}
+                        className="text-danger"></MdPayment>
+                      {/* <button
+                        type="button"
+                        className="btn btn-outline-danger ms-2 px-5"
+                      >
+                        {t("Checkout")}
+                      </button> */}
                     </Link>
                   </div>
                 </div>

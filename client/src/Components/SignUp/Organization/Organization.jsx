@@ -6,11 +6,10 @@ import axios from "axios";
 import jwtEncode from "jwt-encode";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
+import { toast } from "react-hot-toast";
 const Organization = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-
   const [data, SetData] = useState({
     id: uuid(),
     orgName: "",
@@ -102,7 +101,10 @@ const Organization = () => {
           user.password === data.password
       );
       if (user) {
-        console.log("this account is existed");
+        toast.error("this account is existed, try another one", {
+          position: 'bottom-center',
+        });
+
       } else {
         if (
           isOrgNameIsValid &&

@@ -148,7 +148,7 @@ function App() {
           ),
         },
         {
-          path: "orgprofile/payment",
+          path: "/organizationprofile/:id/payment",
           element: <Payment TokenData={TokenData} saveTokenData={saveTokenData} />
         },
         {

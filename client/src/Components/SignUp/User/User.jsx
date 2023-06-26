@@ -115,8 +115,7 @@ const User = () => {
         (user) => user.email === data.email && user.password === data.password
       );
       if (user) {
-        console.log("this account is existed");
-        toast.error("this account is existed");
+        toast.error("this account is existed, try another one");
         setIsEmailExisting(true);
       } else {
         if (
