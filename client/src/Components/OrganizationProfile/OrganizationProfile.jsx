@@ -8,6 +8,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { BsTelephoneOutbound } from "react-icons/bs";
 import { MdPayment } from "react-icons/md";
 import { conTheme } from "../../Context/Context";
+
 const OrganizationProfile = () => {
   const { id } = useParams();
   const { isTheme } = useContext(conTheme);
@@ -21,19 +22,33 @@ const OrganizationProfile = () => {
       setHospitalsData(hospitals);
     });
   }, [id]);
+
+  function openGoogleMaps(address) {
+    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      address
+    )}`;
+    window.open(url, "_blank");
+  }
+
   const { t } = useTranslation();
   return (
     <>
-      <section className="py-5" style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}>
+      <section
+        className="py-5"
+        style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}
+      >
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-4">
               <div className="card mb-4">
-                <div className="card-body text-center" style={{
-                  backgroundColor: isTheme === true ? "black" : "white",
-                  border: "1px solid white",
-                  color: isTheme === true ? "white" : "black",
-                }}>
+                <div
+                  className="card-body text-center"
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "white",
+                    border: "1px solid white",
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
                   <img
                     src={hospitalsData.image}
                     alt="avatar"
@@ -62,7 +77,10 @@ const OrganizationProfile = () => {
                         className="text-danger"
                       ></AiOutlineWhatsApp>
                     </Link>
-                    <Link to={``}>
+                    <Link
+                      target="_blank"
+                      to={`https://www.google.com/maps/search/?api=1&query=${hospitalsData.latitude},${hospitalsData.langitude}&key=AIzaSyBnWDQTgPvrb7oQg826pQyAsiqKJ7tMAAw`}
+                    >
                       <CiLocationOn
                         size={25}
                         className="text-danger me-2"
@@ -84,11 +102,14 @@ const OrganizationProfile = () => {
             </div>
             <div className="col-lg-8">
               <div className="card mb-4">
-                <div className="card-body" style={{
-                  backgroundColor: isTheme === true ? "black" : "white",
-                  border: "1px solid white",
-                  color: isTheme === true ? "white" : "black",
-                }}>
+                <div
+                  className="card-body"
+                  style={{
+                    backgroundColor: isTheme === true ? "black" : "white",
+                    border: "1px solid white",
+                    color: isTheme === true ? "white" : "black",
+                  }}
+                >
                   <div className="row">
                     <div className="col-sm-3">
                       <p className="mb-0">{t("Organization Code")}</p>

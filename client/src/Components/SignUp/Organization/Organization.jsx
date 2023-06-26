@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Organization.module.css";
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
@@ -6,7 +6,8 @@ import axios from "axios";
 import jwtEncode from "jwt-encode";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { toast } from "react-hot-toast";
+var lat = null,
+  lang = null;
 const Organization = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -50,6 +51,17 @@ const Organization = () => {
   const secretKey =
     Math.random().toString(36).substring(2, 15) +
     Math.random().toString(36).substring(2, 15);
+
+  function getlocation() {
+    navigator.geolocation.getCurrentPosition(showLoc);
+  }
+  function showLoc(pos) {
+    lat = pos.coords.latitude;
+    lang = pos.coords.longitude;
+    console.log(lat);
+    console.log(lang);
+  }
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -84,6 +96,7 @@ const Organization = () => {
     } else if (name === "confirmPassword") {
       setIsConfirmedPasswordValid(isPassWordConfirmed);
     } else if (name === "Address") {
+      getlocation();
       setIsAdressValid(isEnteredAddressValid);
     } else if (name === "pNumber") {
       setIsPnumberValid(isEnteredPhoneNumberValid);
@@ -125,21 +138,21 @@ const Organization = () => {
             image: process.env.PUBLIC_URL + "/assets/images/userImage.jpg",
             role: "org",
           };
-
           // Set the secret key for the token
-
           // Generate the token
           const token = jwtEncode(payload, secretKey);
           //! get data from thr form and add it to the json data:
-
           lastData = {
             ...data,
             ...payload,
+            latitude: lat,
+            langitude: lang,
             token: token,
           };
           axios
             .post("http://localhost:3002/org", lastData)
             .then((res) => {
+              console.log(lastData);
               console.log("Done post");
               navigate("/Signup-org/signin-org");
             })
