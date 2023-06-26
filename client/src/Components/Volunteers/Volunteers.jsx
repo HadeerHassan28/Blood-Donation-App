@@ -6,6 +6,7 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { conTheme } from "../../Context/Context";
+import Selection from "../Selection/Selection";
 
 const Volunteers = () => {
   const searchResStep = 9;
@@ -55,8 +56,18 @@ const Volunteers = () => {
       setSearchRes(volunteers);
     });
   }, []);
+  const [isSelectionActive, setIsSelectionActive] = useState(false);
+
+  const handleSelection = () => {
+    !isSelectionActive
+      ? setIsSelectionActive(true)
+      : setIsSelectionActive(false);
+  };
   function navigateTOVolunteer(id) {
-    navigate("/volunteerprofile/" + id);
+    if (localStorage.getItem("token")) {
+      navigate("/volunteerprofile/" + id);
+    }
+    handleSelection();
   }
   const searchBloodGroupLocation = () => {
     if (volunteers !== null) {
@@ -236,7 +247,7 @@ const Volunteers = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
-                fill="currentColor"
+                fillRule="currentColor"
                 className="bi bi-award text-danger"
                 viewBox="0 0 20 20"
               >
@@ -253,7 +264,7 @@ const Volunteers = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
-                fill="currentColor"
+                fillRule="currentColor"
                 className="bi bi-geo-alt text-danger"
                 viewBox="0 0 20 20"
               >
@@ -270,7 +281,7 @@ const Volunteers = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
-                fill="currentColor"
+                fillRule="currentColor"
                 className="bi bi-droplet text-danger"
                 viewBox="0 0 20 20"
               >
@@ -392,12 +403,12 @@ const Volunteers = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
-                    fill="currentColor"
-                    class="bi bi-arrow-left"
+                    fillRule="currentColor"
+                    className="bi bi-arrow-left"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
                     />
                   </svg>
@@ -410,12 +421,12 @@ const Volunteers = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
-                    fill="currentColor"
-                    class="bi bi-arrow-right"
+                    fillRule="currentColor"
+                    className="bi bi-arrow-right"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
                     />
                   </svg>
@@ -428,6 +439,9 @@ const Volunteers = () => {
       <button className="btn btn-outline-danger d-block mx-auto fw-bold my-2 mb-5">
         {t("Start saving lives")}
       </button>
+      {isSelectionActive && (
+        <Selection onSelection={setIsSelectionActive} isForSignUp={false} />
+      )}
     </>
   );
 };

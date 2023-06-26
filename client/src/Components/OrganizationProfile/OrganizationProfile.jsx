@@ -22,13 +22,6 @@ const OrganizationProfile = () => {
     });
   }, [id]);
 
-  function openGoogleMaps(address) {
-    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      address
-    )}`;
-    window.open(url, "_blank");
-  }
-
   const { t } = useTranslation();
   return (
     <>
