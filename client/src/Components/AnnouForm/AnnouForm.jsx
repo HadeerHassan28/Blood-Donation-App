@@ -4,8 +4,9 @@ import { useFormik } from 'formik'
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useTranslation } from "react-i18next";
-
+import { useNavigate } from 'react-router-dom';
 const AnnouForm = ({ TokenData }) => {
+    let navigate = useNavigate()
     const [orgnizationData, setorgnizationData] = useState(TokenData)
     const { t } = useTranslation();
 
@@ -13,12 +14,12 @@ const AnnouForm = ({ TokenData }) => {
         axios.post("http://localhost:3005/announcements", values);
         toast.success("Announcement Added Successfully", {
             position: 'bottom-right'
-        })
 
+        });
+        navigate('/myAnnoucnments');
 
     }
-    console.log(orgnizationData);
-
+    // console.log(orgnizationData);
 
     function validate(values) {
         let errors = {};
@@ -27,6 +28,10 @@ const AnnouForm = ({ TokenData }) => {
 
         } else if (!values.quantity) {
             errors.quantity = "Please Enter Quantity Of Blood You Need";
+        }
+
+        else if (values.quantity > 40) {
+            errors.quantity = "Maximum Is 40";
         }
 
         else if (!values.message) {

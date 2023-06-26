@@ -37,11 +37,11 @@ const Announcement = () => {
         }}
       >
         <div className="text-center mt-5 mb-5 text-danger ">
-          <h2>{t("Announcements")}</h2>
+          <h1>{t("Announcements")}</h1>
         </div>
         <div className="row gy-3 ">
           {isLoading ? (
-            <div>{t("Loading...")}</div>
+            <div className="text-center"><h2 className="fs-2 text-danger">{t("Loading...")}</h2></div>
           ) : (
             announcements.map((a) => (
               <div
@@ -106,7 +106,7 @@ const Announcement = () => {
                   }}
                 >
                   <p className="fs-5">
-                    {t("Contact With Hospital", {hosName: a.orgData.orgName} )} :
+                    {t("Contact With Hospital", { hosName: a.orgData.orgName })}
                   </p>
                   <Link className="me-3" to={`tel:+${a.orgData.pNumber}`}>
                     <BsTelephoneOutbound

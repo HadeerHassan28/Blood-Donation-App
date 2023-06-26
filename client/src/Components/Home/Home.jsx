@@ -3,18 +3,26 @@ import styles from "./Home.module.css";
 import InfoHome from "../InfoHome/InfoHome";
 import CauseHome from "../CauseHome/CauseHome";
 import Selection from "../Selection/Selection";
+import { useNavigate } from 'react-router-dom';
 import { Trans, useTranslation } from "react-i18next";
-const Home = () => {
+const Home = ({ TokenData }) => {
+  let navigate = useNavigate()
   const [isSelectionActive, setIsSelectionActive] = useState(false);
   const { t } = useTranslation();
-
   const handleSelection = () => {
-    !isSelectionActive
-      ? setIsSelectionActive(true)
-      : setIsSelectionActive(false);
+    if (!TokenData) {
+      !isSelectionActive
+        ? setIsSelectionActive(true)
+        : setIsSelectionActive(false);
 
-    console.log(isSelectionActive);
-  };
+    } else
+      if (TokenData.role === "user") {
+        navigate('/userProfile');
+      } else {
+        navigate('/orgProfile');
+      }
+  }
+  // console.log(isSelectionActive);
   return (
     <>
       <div
@@ -95,7 +103,7 @@ const Home = () => {
         <h2 className="main-color">{t("Join The Cause")}</h2>
         <p className="text-muted">{t("Join-our-cause")}</p>
       </div>
-      <CauseHome></CauseHome>
+      <CauseHome handleSelection={handleSelection}></CauseHome>
     </>
   );
 };

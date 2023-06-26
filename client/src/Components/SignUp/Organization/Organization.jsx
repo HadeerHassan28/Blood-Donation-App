@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Organization.module.css";
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import jwtEncode from "jwt-encode";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-
+import { useTranslation } from "react-i18next"
+import { toast } from "react-hot-toast";
+var lat = null,
+  lang = null;
 const Organization = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-
   const [data, SetData] = useState({
     id: uuid(),
     orgName: "",
@@ -51,6 +52,17 @@ const Organization = () => {
   const secretKey =
     Math.random().toString(36).substring(2, 15) +
     Math.random().toString(36).substring(2, 15);
+
+  function getlocation() {
+    navigator.geolocation.getCurrentPosition(showLoc);
+  }
+  function showLoc(pos) {
+    lat = pos.coords.latitude;
+    lang = pos.coords.longitude;
+    console.log(lat);
+    console.log(lang);
+  }
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -85,6 +97,7 @@ const Organization = () => {
     } else if (name === "confirmPassword") {
       setIsConfirmedPasswordValid(isPassWordConfirmed);
     } else if (name === "Address") {
+      getlocation();
       setIsAdressValid(isEnteredAddressValid);
     } else if (name === "pNumber") {
       setIsPnumberValid(isEnteredPhoneNumberValid);
@@ -102,7 +115,10 @@ const Organization = () => {
           user.password === data.password
       );
       if (user) {
-        console.log("this account is existed");
+        toast.error("this account is existed, try another one", {
+          position: 'bottom-center',
+        });
+
       } else {
         if (
           isOrgNameIsValid &&
@@ -123,21 +139,21 @@ const Organization = () => {
             image: process.env.PUBLIC_URL + "/assets/images/userImage.jpg",
             role: "org",
           };
-
           // Set the secret key for the token
-
           // Generate the token
           const token = jwtEncode(payload, secretKey);
           //! get data from thr form and add it to the json data:
-
           lastData = {
             ...data,
             ...payload,
+            latitude: lat,
+            langitude: lang,
             token: token,
           };
           axios
             .post("http://localhost:3002/org", lastData)
             .then((res) => {
+              console.log(lastData);
               console.log("Done post");
               navigate("/Signup-org/signin-org");
             })
@@ -150,7 +166,7 @@ const Organization = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container py-5">
       <div className="row">
         <div className="col-lg-6">
           <h2 className="text-center text-danger my-5">
@@ -173,8 +189,8 @@ const Organization = () => {
                   !isOrgNameIsFocused
                     ? {}
                     : isOrgNameIsValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsOrgNameIsFocused(true);
@@ -205,8 +221,8 @@ const Organization = () => {
                   !isEmailFocused
                     ? {}
                     : isEmailValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsEmailFocused(true);
@@ -235,8 +251,8 @@ const Organization = () => {
                   !isPasswordFocused
                     ? {}
                     : isPasswordValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsPasswordFocused(true);
@@ -265,8 +281,8 @@ const Organization = () => {
                   !isConfirmedPasswordFocused
                     ? {}
                     : isConfirmedPasswordValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsConfirmedPasswordFocused(true);
@@ -295,8 +311,8 @@ const Organization = () => {
                   !isOrganiationCodeFocused
                     ? {}
                     : isOrganiationCodeValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsOrganiationCodeFocused(true);
@@ -327,8 +343,8 @@ const Organization = () => {
                   !isAddressFocused
                     ? {}
                     : isAddressValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsAddressFocused(true);
@@ -357,8 +373,8 @@ const Organization = () => {
                   !isPnumberFocused
                     ? {}
                     : isPnumberValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsPnumberFocused(true);

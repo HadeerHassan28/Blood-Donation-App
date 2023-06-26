@@ -98,13 +98,13 @@ const Hospitals = () => {
           backgroundColor: isTheme === true ? "black" : "#fbf1f0",
         }}
       >
-        <h2 style={{ color: "#ee394a" }}>{t("Hospitals")}</h2>
+        <h1 style={{ color: "#ee394a" }}>{t("Hospitals")}</h1>
         <p>{t("Discover hospitals")}</p>
       </div>
       <div
-        className={`${styles.searchBox} py-4 border border-danger`}
+        className={`${styles.searchBox} py-4 border border-secondary`}
         style={{
-          backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+          backgroundColor: isTheme === true ? "#282c34" : "white",
         }}
       >
         <span className={styles.filterWith}>{t("Filter with:")}</span>
@@ -113,7 +113,7 @@ const Hospitals = () => {
           ref={Sector}
           onChange={searchSectorLocation}
           style={{
-            backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+            backgroundColor: isTheme === true ? "#282c34" : "white", color: isTheme? "white": "gray"
           }}
         >
           <option label={`${t("Sector")}`} hidden></option>
@@ -135,7 +135,7 @@ const Hospitals = () => {
           ref={location}
           onChange={searchSectorLocation}
           style={{
-            backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+            backgroundColor: isTheme === true ? "#282c34" : "white",color: isTheme? "white": "black"
           }}
         />
         <datalist id="locations">
@@ -190,18 +190,19 @@ const Hospitals = () => {
         {t("Please wait data loading")}
       </div>
       <table
-        className={`${styles.tableW} table w-75 mt-5 mx-auto border border-danger`}
+        className={`${styles.tableW} table w-75 mt-5 mx-auto ${isTheme? 'border': 'border-0'} border-bottom`}
+        style={{borderColor: "lightgray!important"}}
       >
         <thead
           style={{
-            backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+            backgroundColor: isTheme === true ? "#282c34" : "white",
           }}
         >
           <tr>
             <th
               className="text-start text-danger p-3"
               style={{
-                backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                backgroundColor: isTheme === true ? "#282c34" : "white",
               }}
             >
               <svg
@@ -220,7 +221,7 @@ const Hospitals = () => {
             <th
               className="text-center text-danger p-3"
               style={{
-                backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                backgroundColor: isTheme === true ? "#282c34" : "white",
               }}
             >
               <svg
@@ -239,7 +240,7 @@ const Hospitals = () => {
             <th
               className="text-center text-danger p-3"
               style={{
-                backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                backgroundColor: isTheme === true ? "#282c34" : "white",
               }}
             >
               <svg
@@ -267,10 +268,10 @@ const Hospitals = () => {
           {searchRes !== null && searchRes.length === 0 ? (
             <tr
               style={{
-                backgroundColor: isTheme === true ? "black" : "#fbf1f0",
+                backgroundColor: isTheme === true ? "#282c34" : "white",
               }}
             >
-              <td colSpan={3} className="fs-4">
+              <td colSpan={3} className="fs-4" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
                 {t("Sorry, no results found")}
               </td>
             </tr>
@@ -288,8 +289,8 @@ const Hospitals = () => {
                 <td
                   className={`${styles.volName} text-start ps-3`}
                   style={{
-                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
-                    color: isTheme === true ? "white" : "black",
+                    backgroundColor: isTheme === true ? "#282c34" : "white",
+                    color: isTheme === true ? "white" : "#282c34",
                   }}
                 >
                   <img
@@ -308,8 +309,8 @@ const Hospitals = () => {
                 <td
                   className="text-center"
                   style={{
-                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
-                    color: isTheme === true ? "white" : "black",
+                    backgroundColor: isTheme === true ? "#282c34" : "white",
+                    color: isTheme === true ? "white" : "#282c34",
                   }}
                 >
                   {hos.Address}
@@ -317,8 +318,8 @@ const Hospitals = () => {
                 <td
                   className="text-center"
                   style={{
-                    backgroundColor: isTheme === true ? "black" : "#fbf1f0",
-                    color: isTheme === true ? "white" : "black",
+                    backgroundColor: isTheme === true ? "#282c34" : "white",
+                    color: isTheme === true ? "white" : "#282c34",
                   }}
                 >
                   {hos.sector}
@@ -327,7 +328,7 @@ const Hospitals = () => {
             ))
           ) : (
             <tr>
-              <td colSpan={3} className="fs-4">
+              <td colSpan={3} className="fs-4" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
                 {t("Loading...")}
               </td>
             </tr>
@@ -336,7 +337,8 @@ const Hospitals = () => {
         <tfoot>
           {searchRes && searchRes.length > searchResStep && (
             <tr>
-              <td colSpan={3} className="text-center">
+              <td colSpan={3} className="text-center" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
+              <span>{endIndex <= searchRes.length ? endIndex: searchRes.length} <span className="text-danger">/</span> {searchRes.length}</span>
                 <button
                   onClick={handlePrev}
                   className={`${styles.navigateRes} text-center m-2`}

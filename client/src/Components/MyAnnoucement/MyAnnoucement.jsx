@@ -80,7 +80,7 @@ const MyAnnoucement = ({ TokenData, saveTokenData }) => {
               </div>
             ))
           ) : (
-            <h6 className='text-danger text-center'>You Don't Have Any Annoucements</h6>
+            <div className='text-center'>No announcements available.</div>
           )}
         </div>
       </div>

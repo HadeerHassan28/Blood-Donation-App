@@ -106,19 +106,18 @@ const UserProfile = ({ TokenData, saveTokenData }) => {
                         {t("Edit")}
                       </button>
                     </Link>
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger ms-2 px-5"
-                    >
-                      {t("Message")}
-                    </button>
+
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-8">
               <div className="card mb-4">
-                <div className="card-body">
+                <div className="card-body" style={{
+                  backgroundColor: isTheme === true ? "black" : "white",
+
+                  color: isTheme === true ? "white" : "black",
+                }}>
                   <div className="row">
                     <div className="col-sm-3">
                       <p className="mb-0">{t("Full Name")}</p>
@@ -163,11 +162,10 @@ const UserProfile = ({ TokenData, saveTokenData }) => {
                       <p className="mb-0">{t("Available to Donate")}</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{`${
-                        isAvailable
-                          ? `${t("Avialable")}`
-                          : `${t("Not Available")}`
-                      }`}</p>
+                      <p className="text-muted mb-0">{`${isAvailable
+                        ? `${t("Avialable")}`
+                        : `${t("Not Available")}`
+                        }`}</p>
                     </div>
                   </div>
                 </div>

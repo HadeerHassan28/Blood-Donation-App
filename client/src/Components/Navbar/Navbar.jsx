@@ -42,15 +42,13 @@ const Navbar = ({ TokenData, setTokenData }) => {
     <>
       <nav
         style={{ zIndex: "1111111" }}
-        className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${
-          navScroll ? styles.scrollActive : styles.scrollNotActive
-        } ${theme === "light" ? styles.lightTheme : styles.darkTheme}`}
+        className={`navbar navbar-expand-lg position-sticky top-0 p-0 ${navScroll ? styles.scrollActive : styles.scrollNotActive
+          } ${theme === "light" ? styles.lightTheme : styles.darkTheme}`}
       >
         <div className="container">
           <Link
-            className={`navbar-brand me-5 ${
-              !navScroll ? "main-color" : "text-light"
-            }`}
+            className={`navbar-brand me-5 ${!navScroll ? "main-color" : "text-light"
+              }`}
             to="/"
           >
             <img
@@ -81,9 +79,8 @@ const Navbar = ({ TokenData, setTokenData }) => {
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
               <li className="nav-item" aria-current="page">
                 <Link
-                  className={`nav-link me-3  ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
                   to="/"
                 >
                   {t("Home")}
@@ -92,9 +89,8 @@ const Navbar = ({ TokenData, setTokenData }) => {
 
               <li className="nav-item">
                 <Link
-                  className={`nav-link me-3  ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
                   to="volunteers"
                 >
                   {t("Volunteers")}
@@ -102,9 +98,8 @@ const Navbar = ({ TokenData, setTokenData }) => {
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link me-3 ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3 ${!navScroll ? "" : "text-light"
+                    } isColor`}
                   to="Hospitals"
                 >
                   {t("Hospitals")}
@@ -112,20 +107,18 @@ const Navbar = ({ TokenData, setTokenData }) => {
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link me-3  ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
                   to="Announcement"
                 >
                   {t("Announcements")}
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item ">
                 <select
                   onChange={changeLanguage}
-                  className={`nav-link me-3  ${
-                    !navScroll ? "" : "text-light"
-                  } isColor`}
+                  className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                    } isColor`}
                 >
                   <option style={{ color: "#000000" }} value="en">
                     English (en)
@@ -141,9 +134,8 @@ const Navbar = ({ TokenData, setTokenData }) => {
               {TokenData === null ? (
                 <>
                   <li
-                    className={`nav-link me-3  ${
-                      !navScroll ? "" : "text-light"
-                    } isColor`}
+                    className={`nav-link me-3  ${!navScroll ? "" : "text-light"
+                      } isColor`}
                     style={{ cursor: "pointer" }}
                     onClick={handleSelectionForLogin}
                   >
@@ -151,9 +143,8 @@ const Navbar = ({ TokenData, setTokenData }) => {
                   </li>
 
                   <li
-                    className={`nav-item btn p-1 ${
-                      !navScroll ? "btn-danger" : "btn-light"
-                    }  p-0 m-0 `}
+                    className={`nav-item btn p-1 ${!navScroll ? "btn-danger" : "btn-light"
+                      }  p-0 m-0 `}
                     onClick={handleSelection}
                   >
                     {t("Register")}
@@ -168,7 +159,7 @@ const Navbar = ({ TokenData, setTokenData }) => {
                         TokenData.role === "user" ? "userProfile" : "orgProfile"
                       }
                     >
-                      Profile
+                      {t("Profile")}
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -184,7 +175,7 @@ const Navbar = ({ TokenData, setTokenData }) => {
                           : "Signup-org/signin-org"
                       }
                     >
-                      Logout
+                      {t("Logout")}
                     </Link>
                   </li>
                 </>

@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import styles from "./OrgEdit.module.css";
 import axios from "axios";
 import jwtEncode from "jwt-encode";
 import jwtDecode from "jwt-decode";
-
+import { conTheme } from "../../Context/Context";
 import { useNavigate } from "react-router-dom";
 const OrgEdit = ({ TokenData, setTokenData }) => {
+  const { isTheme } = useContext(conTheme);
   const navigate = useNavigate();
   let decodedToken;
   function saveTokenData() {
@@ -116,7 +117,10 @@ const OrgEdit = ({ TokenData, setTokenData }) => {
 
   return (
     <div>
-      <div className="container">
+      <div
+        className="container"
+        style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}
+      >
         <h2 className="text-center">Edit Account</h2>
         <form className="row g-3 align-items-center" onSubmit={handleSubmit}>
           <div className="col-lg-6">

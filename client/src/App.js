@@ -61,7 +61,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home />,
+          element: <Home TokenData={TokenData} />,
         },
         {
           path: "about",
@@ -148,20 +148,20 @@ function App() {
           ),
         },
         {
-          path: "orgprofile/payment",
-          element: <Payment TokenData={TokenData} saveTokenData={saveTokenData}/>
+          path: "/organizationprofile/:id/payment",
+          element: <Payment TokenData={TokenData} saveTokenData={saveTokenData} />
         },
         {
-          path:"completion",
-          element: <Completion/>
+          path: "completion",
+          element: <Completion />
         },
         {
           path: "announcForm",
-          element: <AnnouForm TokenData={TokenData}/>
+          element: <AnnouForm TokenData={TokenData} />
         },
         {
           path: "myAnnoucnments",
-          element: <MyAnnoucement TokenData={TokenData} saveTokenData={saveTokenData}/>
+          element: <MyAnnoucement TokenData={TokenData} saveTokenData={saveTokenData} />
         },
         {
           path: "/edit/:id",
