@@ -113,7 +113,8 @@ const Hospitals = () => {
           ref={Sector}
           onChange={searchSectorLocation}
           style={{
-            backgroundColor: isTheme === true ? "#282c34" : "white", color: isTheme? "white": "gray"
+            backgroundColor: isTheme === true ? "#282c34" : "white",
+            color: isTheme ? "white" : "gray",
           }}
         >
           <option label={`${t("Sector")}`} hidden></option>
@@ -135,7 +136,8 @@ const Hospitals = () => {
           ref={location}
           onChange={searchSectorLocation}
           style={{
-            backgroundColor: isTheme === true ? "#282c34" : "white",color: isTheme? "white": "black"
+            backgroundColor: isTheme === true ? "#282c34" : "white",
+            color: isTheme ? "white" : "black",
           }}
         />
         <datalist id="locations">
@@ -190,8 +192,10 @@ const Hospitals = () => {
         {t("Please wait data loading")}
       </div>
       <table
-        className={`${styles.tableW} table w-75 mt-5 mx-auto ${isTheme? 'border': 'border-0'} border-bottom`}
-        style={{borderColor: "lightgray!important"}}
+        className={`${styles.tableW} table w-75 mt-5 mx-auto ${
+          isTheme ? "border" : "border-0"
+        } border-bottom`}
+        style={{ borderColor: "lightgray!important" }}
       >
         <thead
           style={{
@@ -271,7 +275,14 @@ const Hospitals = () => {
                 backgroundColor: isTheme === true ? "#282c34" : "white",
               }}
             >
-              <td colSpan={3} className="fs-4" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
+              <td
+                colSpan={3}
+                className="fs-4"
+                style={{
+                  backgroundColor: isTheme ? "#282c34" : "white",
+                  color: isTheme ? "white" : "black",
+                }}
+              >
                 {t("Sorry, no results found")}
               </td>
             </tr>
@@ -328,7 +339,14 @@ const Hospitals = () => {
             ))
           ) : (
             <tr>
-              <td colSpan={3} className="fs-4" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
+              <td
+                colSpan={3}
+                className="fs-4"
+                style={{
+                  backgroundColor: isTheme ? "#282c34" : "white",
+                  color: isTheme ? "white" : "black",
+                }}
+              >
                 {t("Loading...")}
               </td>
             </tr>
@@ -337,8 +355,18 @@ const Hospitals = () => {
         <tfoot>
           {searchRes && searchRes.length > searchResStep && (
             <tr>
-              <td colSpan={3} className="text-center" style={{backgroundColor: isTheme? "#282c34": "white", color: isTheme? "white": "black"}}>
-              <span>{endIndex <= searchRes.length ? endIndex: searchRes.length} <span className="text-danger">/</span> {searchRes.length}</span>
+              <td
+                colSpan={3}
+                className="text-center"
+                style={{
+                  backgroundColor: isTheme ? "#282c34" : "white",
+                  color: isTheme ? "white" : "black",
+                }}
+              >
+                <span>
+                  {endIndex <= searchRes.length ? endIndex : searchRes.length}{" "}
+                  <span className="text-danger">/</span> {searchRes.length}
+                </span>
                 <button
                   onClick={handlePrev}
                   className={`${styles.navigateRes} text-center m-2`}
@@ -348,11 +376,11 @@ const Hospitals = () => {
                     width="24"
                     height="24"
                     fill="currentColor"
-                    class="bi bi-arrow-left"
+                    className="bi bi-arrow-left"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
                     />
                   </svg>
@@ -366,11 +394,11 @@ const Hospitals = () => {
                     width="24"
                     height="24"
                     fill="currentColor"
-                    class="bi bi-arrow-right"
+                    className="bi bi-arrow-right"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
                     />
                   </svg>
