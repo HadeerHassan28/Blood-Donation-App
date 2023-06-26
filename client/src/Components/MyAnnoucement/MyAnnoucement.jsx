@@ -49,33 +49,31 @@ const MyAnnoucement = ({ TokenData, saveTokenData }) => {
     <div>
       <div className='container py-5'>
         <h2 className='text-center mb-3'> {TokenData.orgName} Announcements </h2>
-        <div className='row gy-3'>
+        <div className='row gy-4 py-4'>
           {isLoading ? (
             <div>Loading.....</div>
           ) : MyAnnouncements.length > 0 ? (
             MyAnnouncements.map((a) => (
-              <div className={`${styles.annoCard} col-lg-6 py-4 px-3 text-center `} key={a.id}>
-                <h4 className='text-muted'>
-                  Hospital Name : <span className='h4 text-danger'>{a.orgData.orgName}</span>
-                </h4>
-                <h4 className='text-muted'>
-                  Blood Type : <span className='h4 text-danger'>{a.bloodType}</span>
-                </h4>
-                <h4 className='text-muted'>
-                  Quantity : <span className='h4 text-danger'>{a.quantity}</span>
-                </h4>
-                <p className='fs-5'>{a.message}</p>
-                <div className='row'>
-                  <div className='col-lg-6'>
-                    <Link to={`/edit/${a.id}`}>
-                      <button className='btn btn-success px-5'>Edit</button>
-                    </Link>
-                  </div>
-                  <div className='col-lg-6'>
-                    <button className='btn btn-danger px-5' onClick={() => handleDelete(a.id)}>
-                      Delete
-                    </button>
-                  </div>
+              <div className={`${styles.annoCard} col-lg-5 offset-1 py-4 px-3 text-center d-flex flex-column justify-content-between `} key={a.id}>
+                <div>
+                  <h4 className='text-muted'>
+                    Hospital Name : <span className='h4 text-danger'>{a.orgData.orgName}</span>
+                  </h4>
+                  <h4 className='text-muted'>
+                    Blood Type : <span className='h4 text-danger'>{a.bloodType}</span>
+                  </h4>
+                  <h4 className='text-muted'>
+                    Quantity : <span className='h4 text-danger'>{a.quantity}</span>
+                  </h4>
+                  <p className='fs-5'>{a.message}</p>
+                </div>
+                <div className='buttons'>
+                  <Link to={`/edit/${a.id}`}>
+                    <button className='btn btn-success px-5 me-2'>Edit</button>
+                  </Link>
+                  <button className='btn btn-danger px-5' onClick={() => handleDelete(a.id)}>
+                    Delete
+                  </button>
                 </div>
               </div>
             ))
