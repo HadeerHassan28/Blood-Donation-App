@@ -50,7 +50,8 @@ const OrgEdit = ({ TokenData, setTokenData }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    const lettersRegex = /^[A-Za-z]+$/;
+    
+    const lettersRegex = /^[A-Za-z\s]+$/;
     const orgCodeRegex = /^\d{6}$/;
     const addressRegex = /^[a-zA-Z0-9,\s]+$/;
 

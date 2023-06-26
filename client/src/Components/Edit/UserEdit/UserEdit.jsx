@@ -58,7 +58,7 @@ const UserEdit = ({ TokenData, saveTokenData, setTokenData }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    const lettersRegex = /^[A-Za-z]+$/;
+    const lettersRegex = /^[A-Za-z\s]+$/;
     const emailRegex = /^[\w\\.-]+@\w+\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2})?$/;
     const addressRegex = /^[a-zA-Z0-9,\s]+$/;
     const phoneNumberRegex = /^(010|011|012)\d{8}$/;
