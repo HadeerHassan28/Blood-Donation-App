@@ -44,6 +44,78 @@
         "role": "org"
       },
       "id": 3
+    },
+    {
+      "bloodType": "B+",
+      "quantity": 6,
+      "message": "Elsalam international hospital needs volunteers to donate blood",
+      "orgData": {
+        "id": "ea659ba3-ea76-4cf3-8d3e-c84e24a1dbbc",
+        "orgName": "Elsalam International",
+        "OrganizationCode": "404040",
+        "Address": "cairo",
+        "email": "Elsalam@gmail.com",
+        "sector": "Private",
+        "isNeedsVolunteers": false,
+        "pNumber": "01234568792",
+        "image": "/assets/images/userImage.jpg",
+        "role": "org"
+      },
+      "id": 4
+    },
+    {
+      "bloodType": "O+",
+      "quantity": 10,
+      "message": "Elsalam international hospital is hiring donors",
+      "orgData": {
+        "id": "ea659ba3-ea76-4cf3-8d3e-c84e24a1dbbc",
+        "orgName": "Elsalam International",
+        "OrganizationCode": "404040",
+        "Address": "cairo",
+        "email": "Elsalam@gmail.com",
+        "sector": "Private",
+        "isNeedsVolunteers": false,
+        "pNumber": "01234568792",
+        "image": "/assets/images/userImage.jpg",
+        "role": "org"
+      },
+      "id": 5
+    },
+    {
+      "bloodType": "A-",
+      "quantity": 6,
+      "message": "Naser Institute Needs Volunteers to donate blood, We need blood type A-",
+      "orgData": {
+        "id": "5a380410-2c75-4827-92cb-ed68667cfe69",
+        "orgName": "Naser Institute",
+        "OrganizationCode": "606060",
+        "Address": "cairo",
+        "email": "Naser@gmail.com",
+        "sector": "governmental",
+        "isNeedsVolunteers": false,
+        "pNumber": "01125478537",
+        "image": "/assets/images/userImage.jpg",
+        "role": "org"
+      },
+      "id": 6
+    },
+    {
+      "bloodType": "B+",
+      "quantity": 15,
+      "message": "Naser Institute is hiring donors",
+      "orgData": {
+        "id": "5a380410-2c75-4827-92cb-ed68667cfe69",
+        "orgName": "Naser Institute",
+        "OrganizationCode": "606060",
+        "Address": "cairo",
+        "email": "Naser@gmail.com",
+        "sector": "governmental",
+        "isNeedsVolunteers": false,
+        "pNumber": "01125478537",
+        "image": "/assets/images/userImage.jpg",
+        "role": "org"
+      },
+      "id": 7
     }
   ]
 }

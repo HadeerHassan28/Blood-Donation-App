@@ -33,6 +33,40 @@
       "role": "org",
       "latitude": 30.0960088,
       "langitude": 31.2740701
+    },
+    {
+      "id": "ea659ba3-ea76-4cf3-8d3e-c84e24a1dbbc",
+      "orgName": "Elsalam International",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "OrganizationCode": "404040",
+      "email": "Elsalam@gmail.com",
+      "Address": "cairo",
+      "pNumber": "01234568792",
+      "sector": "Private",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhNjU5YmEzLWVhNzYtNGNmMy04ZDNlLWM4NGUyNGExZGJiYyIsIm9yZ05hbWUiOiJFbHNhbGFtIEludGVybmF0aW9uYWwiLCJPcmdhbml6YXRpb25Db2RlIjoiNDA0MDQwIiwiQWRkcmVzcyI6ImNhaXJvIiwiZW1haWwiOiJFbHNhbGFtQGdtYWlsLmNvbSIsInNlY3RvciI6IlByaXZhdGUiLCJpc05lZWRzVm9sdW50ZWVycyI6ZmFsc2UsInBOdW1iZXIiOiIwMTIzNDU2ODc5MiIsImltYWdlIjoiL2Fzc2V0cy9pbWFnZXMvdXNlckltYWdlLmpwZyIsInJvbGUiOiJvcmcifQ.nbgfADPcsaj_vguhcMILaoI9OS-0zSvqc3_jgazgWTs",
+      "isNeedsVolunteers": false,
+      "image": "/assets/images/userImage.jpg",
+      "role": "org",
+      "latitude": 30.0444196,
+      "langitude": 31.2357116
+    },
+    {
+      "id": "5a380410-2c75-4827-92cb-ed68667cfe69",
+      "orgName": "Naser Institute",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "OrganizationCode": "606060",
+      "email": "Naser@gmail.com",
+      "Address": "cairo",
+      "pNumber": "01125478537",
+      "sector": "governmental",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhMzgwNDEwLTJjNzUtNDgyNy05MmNiLWVkNjg2NjdjZmU2OSIsIm9yZ05hbWUiOiJOYXNlciBJbnN0aXR1dGUiLCJPcmdhbml6YXRpb25Db2RlIjoiNjA2MDYwIiwiQWRkcmVzcyI6ImNhaXJvIiwiZW1haWwiOiJOYXNlckBnbWFpbC5jb20iLCJzZWN0b3IiOiJnb3Zlcm5tZW50YWwiLCJpc05lZWRzVm9sdW50ZWVycyI6ZmFsc2UsInBOdW1iZXIiOiIwMTEyNTQ3ODUzNyIsImltYWdlIjoiL2Fzc2V0cy9pbWFnZXMvdXNlckltYWdlLmpwZyIsInJvbGUiOiJvcmcifQ.7at8gCsgLomPUQIy96npOo3Shz873j9DwSzMIj-EifE",
+      "isNeedsVolunteers": false,
+      "image": "/assets/images/userImage.jpg",
+      "role": "org",
+      "latitude": 30.0444196,
+      "langitude": 31.2357116
     }
   ]
 }
