@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./OrganizationProfile.module.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
@@ -6,8 +6,10 @@ import { useTranslation } from "react-i18next";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import { BsTelephoneOutbound } from "react-icons/bs";
+import { conTheme } from "../../Context/Context";
 const OrganizationProfile = () => {
   const { id } = useParams();
+  const { isTheme } = useContext(conTheme);
   const [hospitalsData, setHospitalsData] = useState({});
   useEffect(() => {
     axios.get("http://localhost:3002/org").then((res) => {
@@ -21,12 +23,16 @@ const OrganizationProfile = () => {
   const { t } = useTranslation();
   return (
     <>
-      <section className="py-5" style={{ backgroundColor: "#fbf1f0" }}>
+      <section className="py-5" style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}>
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-4">
               <div className="card mb-4">
-                <div className="card-body text-center">
+                <div className="card-body text-center" style={{
+                  backgroundColor: isTheme === true ? "black" : "white",
+                  border: "1px solid white",
+                  color: isTheme === true ? "white" : "black",
+                }}>
                   <img
                     src={hospitalsData.image}
                     alt="avatar"
@@ -67,7 +73,11 @@ const OrganizationProfile = () => {
             </div>
             <div className="col-lg-8">
               <div className="card mb-4">
-                <div className="card-body">
+                <div className="card-body" style={{
+                  backgroundColor: isTheme === true ? "black" : "white",
+                  border: "1px solid white",
+                  color: isTheme === true ? "white" : "black",
+                }}>
                   <div className="row">
                     <div className="col-sm-3">
                       <p className="mb-0">{t("Organization Code")}</p>

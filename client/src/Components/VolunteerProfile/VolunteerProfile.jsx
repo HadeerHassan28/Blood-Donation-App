@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./VolunteerProfile.module.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { AiOutlineWhatsApp } from "react-icons/ai";
+import { conTheme } from "../../Context/Context";
 import { BsTelephoneOutbound } from "react-icons/bs";
 const VolunteerProfile = () => {
   const { id } = useParams();
   const [VolunteerData, setVolunteerData] = useState({});
+  const { isTheme } = useContext(conTheme);
   useEffect(() => {
     axios.get("http://localhost:3000/users").then((res) => {
       const users = res.data;
@@ -20,11 +22,15 @@ const VolunteerProfile = () => {
   const { t } = useTranslation();
   return (
     <>
-      <section className="py-4" style={{ backgroundColor: "#fbf1f0" }}>
+      <section className="py-4" style={{ backgroundColor: isTheme === true ? "black" : "#fbf1f0" }}>
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-4">
-              <div className="card mb-4">
+              <div className="card mb-4" style={{
+                backgroundColor: isTheme === true ? "black" : "white",
+                border: "1px solid white",
+                color: isTheme === true ? "white" : "black",
+              }}>
                 <div className="card-body text-center">
                   <img
                     src={VolunteerData.image}
@@ -62,7 +68,11 @@ const VolunteerProfile = () => {
             </div>
             <div className="col-lg-8">
               <div className="card mb-4">
-                <div className="card-body">
+                <div className="card-body" style={{
+                  backgroundColor: isTheme === true ? "black" : "white",
+
+                  color: isTheme === true ? "white" : "black",
+                }}>
                   <div className="row">
                     <div className="col-sm-3">
                       <p className="mb-0">{t("Full Name")}</p>

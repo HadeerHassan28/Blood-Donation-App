@@ -4,8 +4,9 @@ import { useFormik } from 'formik'
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useTranslation } from "react-i18next";
-
+import { useNavigate } from 'react-router-dom';
 const AnnouForm = ({ TokenData }) => {
+    let navigate = useNavigate()
     const [orgnizationData, setorgnizationData] = useState(TokenData)
     const { t } = useTranslation();
 
@@ -15,10 +16,10 @@ const AnnouForm = ({ TokenData }) => {
             position: 'bottom-right'
 
         });
+        navigate('/myAnnoucnments');
 
     }
-    console.log(orgnizationData);
-
+    // console.log(orgnizationData);
 
     function validate(values) {
         let errors = {};

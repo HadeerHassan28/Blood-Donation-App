@@ -13,7 +13,8 @@ import hero from "../../assets/hero.svg";
 import Slider from "react-slick";
 import { Trans, useTranslation } from "react-i18next";
 import { conTheme } from "../../Context/Context";
-const CauseHome = () => {
+import { Link } from "react-router-dom";
+const CauseHome = ({ handleSelection }) => {
   const { isTheme } = useContext(conTheme);
   const settings = {
     dots: true,
@@ -108,7 +109,7 @@ const CauseHome = () => {
         <p className="mb-3 fs-5">
           <Trans>Start Saving Lives Paragraph</Trans>
         </p>
-        <button className="btn btn-danger">{t("Register")}</button>
+        <button onClick={handleSelection} className="btn btn-danger">{t("Register")}</button>
       </div>
       <div className="container testimonials py-5 mb-5">
         <div className="text-center">
