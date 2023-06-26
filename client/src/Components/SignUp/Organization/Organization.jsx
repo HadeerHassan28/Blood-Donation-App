@@ -54,7 +54,7 @@ const Organization = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    const lettersRegex = /^[A-Za-z]+$/;
+    const lettersRegex = /^[A-Za-z\s]+$/;
     const emailRegex = /^[\w\\.-]+@\w+\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2})?$/;
     const passwordRegex = /^\w{6,}$/;
     const OrganizationCodeRegex = /^\d{6}$/;
@@ -307,7 +307,7 @@ const Organization = () => {
               />
               {isOrganiationCodeFocused && !isOrganiationCodeValid && (
                 <div className="text-danger">
-                  Please Enter A valid Organization Code
+                  Please Enter An Organization Code That Consist of 6 Numbers
                 </div>
               )}
             </div>

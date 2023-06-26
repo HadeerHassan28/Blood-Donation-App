@@ -66,7 +66,7 @@ const User = () => {
     setIsEmailExisting(false);
     const { name, value } = event.target;
 
-    const lettersRegex = /^[A-Za-z]+$/;
+    const lettersRegex = /^[A-Za-z\s]+$/;
     const emailRegex = /^[\w\\.-]+@\w+\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2})?$/;
     const passwordRegex = /^\w{6,}$/;
     const addressRegex = /^[a-zA-Z0-9,\s]+$/;

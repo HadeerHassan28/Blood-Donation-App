@@ -129,18 +129,10 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
             </div>
 
           </div>
-        </div>
-      </section>
+</section>        
     </>
   );
 };
 
 export default OrgProfile;
 
-{
-  /* 
-
-
-
-*/
-}

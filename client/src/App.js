@@ -164,7 +164,7 @@ function App() {
           element: <MyAnnoucement TokenData={TokenData} saveTokenData={saveTokenData}/>
         },
         {
-          path: "myAnnoucnments/edit",
+          path: "/edit/:id",
           element: <AnnouncementEdit TokenData={TokenData} saveTokenData={saveTokenData}/>
         },
         {
