@@ -41,7 +41,9 @@ const Announcement = () => {
         </div>
         <div className="row gy-3 ">
           {isLoading ? (
-            <div className="text-center"><h2 className="fs-2 text-danger">{t("Loading...")}</h2></div>
+            <div className="text-center">
+              <h2 className="fs-2 text-danger">{t("Loading...")}</h2>
+            </div>
           ) : (
             announcements.map((a) => (
               <div
@@ -124,10 +126,13 @@ const Announcement = () => {
                       className="text-danger"
                     ></AiOutlineWhatsApp>
                   </Link>
-                  <Link to={""}>
+                  <Link
+                    target="_blank"
+                    to={`https://www.google.com/maps/search/?api=1&query=${a.orgData.latitude},${a.orgData.langitude}&key=AIzaSyBnWDQTgPvrb7oQg826pQyAsiqKJ7tMAAw`}
+                  >
                     <CiLocationOn
                       size={25}
-                      className="text-danger"
+                      className="text-danger me-2"
                     ></CiLocationOn>
                   </Link>
                 </div>
