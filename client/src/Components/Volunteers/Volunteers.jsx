@@ -136,7 +136,7 @@ const Volunteers = () => {
   return (
     <>
       <div className="text-center p-5">
-        <h2 style={{ color: "#ee394a" }}>{t("Volunteers")}</h2>
+        <h1 style={{ color: "#ee394a" }}>{t("Volunteers")}</h1>
         <p>{t("Search our Super Hero Volunteers")}</p>
       </div>
       <div

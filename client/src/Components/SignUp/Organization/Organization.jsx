@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import jwtEncode from "jwt-encode";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
+import { toast } from "react-hot-toast";
 var lat = null,
   lang = null;
 const Organization = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-
   const [data, SetData] = useState({
     id: uuid(),
     orgName: "",
@@ -66,7 +66,7 @@ const Organization = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    const lettersRegex = /^[A-Za-z]+$/;
+    const lettersRegex = /^[A-Za-z\s]+$/;
     const emailRegex = /^[\w\\.-]+@\w+\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2})?$/;
     const passwordRegex = /^\w{6,}$/;
     const OrganizationCodeRegex = /^\d{6}$/;
@@ -115,7 +115,10 @@ const Organization = () => {
           user.password === data.password
       );
       if (user) {
-        console.log("this account is existed");
+        toast.error("this account is existed, try another one", {
+          position: 'bottom-center',
+        });
+
       } else {
         if (
           isOrgNameIsValid &&
@@ -186,8 +189,8 @@ const Organization = () => {
                   !isOrgNameIsFocused
                     ? {}
                     : isOrgNameIsValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsOrgNameIsFocused(true);
@@ -218,8 +221,8 @@ const Organization = () => {
                   !isEmailFocused
                     ? {}
                     : isEmailValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsEmailFocused(true);
@@ -248,8 +251,8 @@ const Organization = () => {
                   !isPasswordFocused
                     ? {}
                     : isPasswordValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsPasswordFocused(true);
@@ -278,8 +281,8 @@ const Organization = () => {
                   !isConfirmedPasswordFocused
                     ? {}
                     : isConfirmedPasswordValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsConfirmedPasswordFocused(true);
@@ -308,8 +311,8 @@ const Organization = () => {
                   !isOrganiationCodeFocused
                     ? {}
                     : isOrganiationCodeValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsOrganiationCodeFocused(true);
@@ -320,7 +323,7 @@ const Organization = () => {
               />
               {isOrganiationCodeFocused && !isOrganiationCodeValid && (
                 <div className="text-danger">
-                  Please Enter A valid Organization Code
+                  Please Enter An Organization Code That Consist of 6 Numbers
                 </div>
               )}
             </div>
@@ -340,8 +343,8 @@ const Organization = () => {
                   !isAddressFocused
                     ? {}
                     : isAddressValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsAddressFocused(true);
@@ -370,8 +373,8 @@ const Organization = () => {
                   !isPnumberFocused
                     ? {}
                     : isPnumberValid
-                    ? { border: "2px solid green" }
-                    : { border: "2px solid red" }
+                      ? { border: "2px solid green" }
+                      : { border: "2px solid red" }
                 }
                 onFocus={() => {
                   setIsPnumberFocused(true);

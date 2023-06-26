@@ -37,7 +37,7 @@ const Announcement = () => {
         }}
       >
         <div className="text-center mt-5 mb-5 text-danger ">
-          <h2>{t("Announcements")}</h2>
+          <h1>{t("Announcements")}</h1>
         </div>
         <div className="row gy-3 ">
           {isLoading ? (

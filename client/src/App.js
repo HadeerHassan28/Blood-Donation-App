@@ -148,7 +148,7 @@ function App() {
           ),
         },
         {
-          path: "orgprofile/payment",
+          path: "/organizationprofile/:id/payment",
           element: <Payment TokenData={TokenData} saveTokenData={saveTokenData} />
         },
         {
@@ -164,8 +164,8 @@ function App() {
           element: <MyAnnoucement TokenData={TokenData} saveTokenData={saveTokenData} />
         },
         {
-          path: "myAnnoucnments/edit",
-          element: <AnnouncementEdit TokenData={TokenData} saveTokenData={saveTokenData} />
+          path: "/edit/:id",
+          element: <AnnouncementEdit TokenData={TokenData} saveTokenData={saveTokenData}/>
         },
         {
           path: "*",

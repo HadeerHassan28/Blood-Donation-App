@@ -41,14 +41,6 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
                         {t("Edit")}
                       </button>
                     </Link>
-                    <Link to="payment">
-                      <button
-                        type="button"
-                        className="btn btn-outline-danger ms-2 px-5"
-                      >
-                        {t("Checkout")}
-                      </button>
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -113,13 +105,13 @@ export const OrgProfile = ({ TokenData, saveTokenData }) => {
               </Link>
             </div>
             <div className="col-lg-12">
-            <Link  to={'/myAnnoucnments'}>
-              <button type="button" className="btn btn-danger w-100">
-                {t("Check my announcements")}
-              </button>
-            </Link>
+              <Link to={'/myAnnoucnments'}>
+                <button type="button" className="btn btn-danger w-100">
+                  {t("Check my announcements")}
+                </button>
+              </Link>
+            </div>
           </div>
-        </div>
         </div>
       </section>
     </>

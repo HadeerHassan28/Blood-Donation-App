@@ -66,7 +66,7 @@ const User = () => {
     setIsEmailExisting(false);
     const { name, value } = event.target;
 
-    const lettersRegex = /^[A-Za-z]+$/;
+    const lettersRegex = /^[A-Za-z\s]+$/;
     const emailRegex = /^[\w\\.-]+@\w+\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2})?$/;
     const passwordRegex = /^\w{6,}$/;
     const addressRegex = /^[a-zA-Z0-9,\s]+$/;
@@ -115,8 +115,7 @@ const User = () => {
         (user) => user.email === data.email && user.password === data.password
       );
       if (user) {
-        console.log("this account is existed");
-        toast.error("this account is existed");
+        toast.error("this account is existed, try another one");
         setIsEmailExisting(true);
       } else {
         if (

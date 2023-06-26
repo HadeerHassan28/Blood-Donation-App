@@ -98,7 +98,7 @@ const Hospitals = () => {
           backgroundColor: isTheme === true ? "black" : "#fbf1f0",
         }}
       >
-        <h2 style={{ color: "#ee394a" }}>{t("Hospitals")}</h2>
+        <h1 style={{ color: "#ee394a" }}>{t("Hospitals")}</h1>
         <p>{t("Discover hospitals")}</p>
       </div>
       <div
